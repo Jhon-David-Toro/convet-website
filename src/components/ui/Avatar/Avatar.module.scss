@@ -1,0 +1,35 @@
+.avatar {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--avatar-size);
+  height: var(--avatar-size);
+  border-radius: var(--radius-full);
+  background-color: var(--avatar-bg);
+  color: var(--avatar-fg);
+  box-shadow: inset 0 0 0 var(--border-width-strong) var(--color-background-surface);
+}
+
+.small {
+  --avatar-size: 2rem;
+}
+
+.medium {
+  --avatar-size: 3rem;
+}
+
+.large {
+  --avatar-size: 5rem;
+}
+
+.dog,
+.cat {
+  --avatar-bg: var(--color-brand-accent-soft);
+  --avatar-fg: var(--color-brand-accent-ink);
+}
+
+.person {
+  --avatar-bg: var(--color-brand-primary-soft);
+  --avatar-fg: var(--color-text-brand);
+}
