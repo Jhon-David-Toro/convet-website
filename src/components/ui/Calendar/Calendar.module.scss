@@ -1,0 +1,79 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h5");
+}
+
+.grid {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+.weekday {
+  padding-block: var(--spacing-4);
+  color: var(--color-text-tertiary);
+  text-align: center;
+
+  @include typography.style("caption");
+}
+
+.cell {
+  padding: 0;
+  text-align: center;
+}
+
+/* Day: 40px circle (7 × 40 fits in the 320px panel) */
+.day {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: var(--border-width-medium) solid transparent;
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: var(--color-text-primary);
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include typography.style("body-m");
+
+  @include on-hover {
+    background-color: var(--color-background-muted);
+  }
+
+  &:disabled {
+    background-color: transparent;
+    color: var(--color-text-disabled);
+  }
+}
+
+/* Today: brand border (does not rely on color alone: the border distinguishes it) */
+.today {
+  border-color: var(--color-action-primary);
+}
+
+.selected,
+.selected:hover {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-on-primary);
+}
