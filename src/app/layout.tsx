@@ -1,60 +1,26 @@
 import type { Metadata } from "next";
-import {
-  IBM_Plex_Mono,
-  Kaushan_Script,
-  Montserrat,
-  Oswald,
-} from "next/font/google";
 
 import "@/styles/globals.scss";
 
-const oswald = Oswald({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-oswald",
-  display: "swap",
-});
+import { fontVariables } from "./fonts";
+import type { RootLayoutProps } from "./layout.types";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-montserrat",
-  display: "swap",
-});
-
-const ibmPlexMono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-ibm-plex-mono",
-  display: "swap",
-});
-
-const kaushanScript = Kaushan_Script({
-  subsets: ["latin"],
-  weight: "400",
-  variable: "--font-kaushan-script",
-  display: "swap",
-});
-
+/** Default page metadata: title and description. */
 export const metadata: Metadata = {
-  title: "Convetura",
+  title: "CONVET",
   description: "Always animals first",
 };
 
-type RootLayoutProps = Readonly<{
-  children: React.ReactNode;
-}>;
-
+/**
+ * Root layout of the application: sets the language and exposes the fonts as CSS variables.
+ *
+ * @param props Props of the component, see {@link RootLayoutProps}.
+ * @param props.children Content of the element.
+ * @returns The rendered element.
+ */
 export default function RootLayout({ children }: RootLayoutProps) {
-  const fontVariables = [
-    oswald.variable,
-    montserrat.variable,
-    ibmPlexMono.variable,
-    kaushanScript.variable,
-  ].join(" ");
-
   return (
-    <html lang="es" className={fontVariables}>
+    <html lang="en" className={fontVariables}>
       <body>{children}</body>
     </html>
   );
