@@ -1,24 +1,23 @@
-$breakpoint-tablet: 48rem;  /* 768px */
-$breakpoint-desktop: 75rem; /* 1200px */
-$reference-mobile: 390px;
-$reference-tablet: 768px;
-$reference-desktop: 1440px;
+@use "../abstracts/breakpoints";
 
 :root {
   /* Content */
   --layout-content-max-width: 75rem; /* 1200px */
+  --layout-touch-target: 2.75rem; /* 44px */
+  --layout-page-margin-desktop: 7.5rem; /* 120px, reference at 1440 */
+  --layout-bottom-bar-clearance: 11rem; /* 176px below fixed bars on mobile */
 
   /* Mobile: 390px */
   --layout-columns: 4;
   --layout-gutter: var(--spacing-16);
   --layout-margin: var(--spacing-16);
 
-  /* Tamaños documentales */
+  /* Documentation sizes */
   --breakpoint-tablet: 48rem;
   --breakpoint-desktop: 75rem;
 }
 
-@media (min-width: $breakpoint-tablet) {
+@include breakpoints.tablet {
   :root {
     /* Tablet: 768px */
     --layout-columns: 8;
@@ -27,7 +26,7 @@ $reference-desktop: 1440px;
   }
 }
 
-@media (min-width: $breakpoint-desktop) {
+@include breakpoints.desktop {
   :root {
     /* Desktop: 12 columnas, 24px gutter */
     --layout-columns: 12;
@@ -41,35 +40,7 @@ $reference-desktop: 1440px;
   }
 }
 
-/* Mixins responsive */
-
-@mixin tablet {
-  @media (min-width: $breakpoint-tablet) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media (min-width: $breakpoint-desktop) {
-    @content;
-  }
-}
-
-@mixin mobile-only {
-  @media (max-width: #{$breakpoint-tablet - 0.0625rem}) {
-    @content;
-  }
-}
-
-@mixin tablet-only {
-  @media
-    (min-width: $breakpoint-tablet) and
-    (max-width: #{$breakpoint-desktop - 0.0625rem}) {
-    @content;
-  }
-}
-
-/* Container principal */
+/* Main container */
 
 .layout-container {
   width: min(
@@ -79,7 +50,7 @@ $reference-desktop: 1440px;
   margin-inline: auto;
 }
 
-/* Grid principal */
+/* Main grid */
 
 .layout-grid {
   display: grid;

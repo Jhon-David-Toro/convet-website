@@ -48,9 +48,14 @@ a {
   outline: none;
 }
 
-:focus-visible {
+:focus-visible,
+[data-state="focus"] {
   outline: var(--focus-ring-width) solid var(--color-focus-ring);
   outline-offset: var(--focus-ring-offset);
+}
+
+[aria-invalid="true"]:focus-visible {
+  outline-color: var(--color-focus-ring-error);
 }
 
 ::selection {

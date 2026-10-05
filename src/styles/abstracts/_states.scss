@@ -1,0 +1,24 @@
+/*
+ * Interactive states. Besides the real pseudo-state they accept data-state, which the
+ * /design-system page uses to show Hover, Pressed and Focus at once, as in Figma.
+ */
+@mixin on-hover {
+  &:hover,
+  &[data-state="hover"] {
+    @content;
+  }
+}
+
+@mixin on-pressed {
+  &:active,
+  &[data-state="pressed"] {
+    @content;
+  }
+}
+
+@mixin on-focus {
+  &:focus-visible,
+  &[data-state="focus"] {
+    @content;
+  }
+}

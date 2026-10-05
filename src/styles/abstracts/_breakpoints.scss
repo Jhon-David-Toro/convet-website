@@ -1,0 +1,31 @@
+$tablet: 48rem; /* 768px */
+$desktop: 75rem; /* 1200px */
+
+/* Figma design references (documentation only) */
+$reference-mobile: 390px;
+$reference-tablet: 768px;
+$reference-desktop: 1440px;
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$tablet - 0.0625rem}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: $tablet) and (max-width: #{$desktop - 0.0625rem}) {
+    @content;
+  }
+}

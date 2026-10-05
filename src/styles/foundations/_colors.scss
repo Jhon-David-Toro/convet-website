@@ -8,11 +8,13 @@
 
   --color-brand-primary: #0768b8;
   --color-brand-primary-hover: #055a9f;
+  --color-brand-primary-pressed: #044a84;
   --color-brand-primary-soft: #d7e8f7;
   --color-brand-primary-subtle: #eef5fc;
 
   --color-brand-accent: #f96b06;
   --color-brand-accent-hover: #ff8530;
+  --color-brand-accent-strong: #e05a00;
   --color-brand-accent-soft: #ffebdc;
   --color-brand-accent-ink: #b84a08;
 
@@ -21,6 +23,10 @@
 
   --color-brand-ivory: #f6eee3;
   --color-brand-ivory-light: #fbf7f1;
+
+  --color-brand-whatsapp: #25d366;
+  --color-brand-whatsapp-ink: #0b6b3a;
+  --color-brand-whatsapp-soft: #e4f8ec;
 
   /* ========================================
    * NEUTRAL
@@ -52,6 +58,9 @@
   --color-error-soft: #fde8e6;
   --color-error-border: #f2b8b2;
 
+  --color-emergency-strong: var(--color-error-strong);
+  --color-emergency-soft: var(--color-error-soft);
+
   --color-info-strong: #1f5fa8;
   --color-info-soft: #e6effa;
   --color-info-border: #b9d0ee;
@@ -61,6 +70,7 @@
    * ======================================== */
 
   --color-background-page: var(--color-neutral-0);
+  --color-background-surface: var(--color-neutral-0);
   --color-background-subtle: var(--color-brand-ivory-light);
   --color-background-brand: var(--color-brand-ivory);
   --color-background-inverse: var(--color-brand-navy);
@@ -100,13 +110,14 @@
 
   --color-action-primary: var(--color-brand-primary);
   --color-action-primary-hover: var(--color-brand-primary-hover);
+  --color-action-primary-pressed: var(--color-brand-primary-pressed);
   --color-action-primary-text: var(--color-neutral-0);
 
   --color-action-accent: var(--color-brand-accent);
   --color-action-accent-hover: var(--color-brand-accent-hover);
   --color-action-accent-text: var(--color-brand-navy);
 
-  --color-action-disabled: var(--color-neutral-200);
+  --color-action-disabled: var(--color-neutral-100);
   --color-action-disabled-text: var(--color-neutral-500);
 
   /* ========================================
@@ -136,7 +147,7 @@
   --color-icon-primary: var(--color-text-primary);
   --color-icon-secondary: var(--color-text-secondary);
   --color-icon-brand: var(--color-text-brand);
-  --color-icon-accent: var(--color-brand-accent-ink);
+  --color-icon-accent: var(--color-brand-accent-strong);
   --color-icon-inverse: var(--color-text-on-inverse);
   --color-icon-disabled: var(--color-text-disabled);
 
@@ -145,4 +156,5 @@
    * ======================================== */
 
   --color-focus-ring: var(--color-brand-primary);
+  --color-focus-ring-error: var(--color-error-strong);
 }

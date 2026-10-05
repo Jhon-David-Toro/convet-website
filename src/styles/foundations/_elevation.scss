@@ -1,27 +1,37 @@
 :root {
   --shadow-none: none;
 
-  /* Toggles y controles pequeños */
+  /* Toggles and small controls */
   --shadow-xs:
-    0 1px 2px rgb(1 30 65 / 8%);
+    0 1px 2px rgb(2 43 91 / 8%);
 
-  /* Pet cards y summaries */
+  /* Pet cards and summaries */
   --shadow-sm:
-    0 2px 6px rgb(1 30 65 / 8%),
-    0 1px 2px rgb(1 30 65 / 5%);
+    0 1px 2px rgb(2 43 91 / 5%),
+    0 4px 12px rgb(2 43 91 / 8%);
 
-  /* Dropdowns y map pins */
+  /* Dropdowns and map pins */
   --shadow-md:
-    0 6px 16px rgb(1 30 65 / 10%),
-    0 2px 6px rgb(1 30 65 / 6%);
+    0 2px 6px rgb(2 43 91 / 5%),
+    0 10px 24px -4px rgb(2 43 91 / 12%);
 
-  /* Modals y toasts */
+  /* Modals and toasts */
   --shadow-lg:
-    0 16px 40px rgb(1 30 65 / 16%),
-    0 6px 16px rgb(1 30 65 / 8%);
+    0 4px 10px rgb(2 43 91 / 6%),
+    0 18px 40px -8px rgb(2 43 91 / 18%);
 
-  --focus-ring-width: 0.1875rem;
-  --focus-ring-offset: 0.1875rem;
-  --focus-ring:
-    0 0 0 var(--focus-ring-width) var(--color-focus-ring);
+  /*
+   * Figma Focus/Ring: two shadows (2px white and 4px blue) rendered
+   * as a solid 4px blue ring flush with the element edge.
+   */
+  --focus-ring-width: 0.25rem;
+  --focus-ring-offset: 0;
+
+  /* Layers (lowest to highest) */
+  --z-sticky: 10;
+  --z-header: 20;
+  --z-dropdown: 30;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
 }

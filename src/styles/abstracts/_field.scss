@@ -1,0 +1,58 @@
+@use "states";
+@use "typography";
+
+/*
+ * Figma form control (Input/*): height 48, horizontal padding 16, MD radius,
+ * 1px border. Hover = strong border; Focus = 2px blue border (+ global ring);
+ * Error = 2px red border; Disabled = Muted background.
+ */
+@mixin field-control {
+  box-sizing: border-box;
+  width: 100%;
+  height: 3rem;
+  margin: 0;
+  padding: 0 var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-primary);
+  transition: border-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include typography.style("body-m");
+
+  &::placeholder {
+    color: var(--color-text-tertiary);
+    opacity: 1;
+  }
+
+  @include states.on-hover {
+    border-color: var(--color-border-strong);
+  }
+
+  @include states.on-focus {
+    border-width: var(--border-width-strong);
+    border-color: var(--color-border-focus);
+  }
+
+  &[aria-invalid="true"] {
+    border-width: var(--border-width-strong);
+    border-color: var(--color-error-strong);
+  }
+
+  &:disabled {
+    border-width: var(--border-width-default);
+    border-color: var(--color-border-default);
+    background-color: var(--color-background-muted);
+    color: var(--color-text-tertiary);
+  }
+}
+
+/* Icons inside the control (magnifier, calendar, clock, chevron): 20px, secondary color */
+@mixin field-icon($side: end) {
+  position: absolute;
+  top: 50%;
+  inset-inline-#{$side}: var(--spacing-16);
+  transform: translateY(-50%);
+  color: var(--color-icon-secondary);
+  pointer-events: none;
+}

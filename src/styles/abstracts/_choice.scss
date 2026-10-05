@@ -1,0 +1,51 @@
+@use "mixins";
+@use "typography";
+
+/*
+ * Shared structure of Checkbox, Radio and Toggle: "control + text" row (Figma: padding 4/0, gap 12).
+ * The native input stays hidden but operable; the visual control is its next sibling.
+ */
+
+@mixin choice-root {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-4);
+  cursor: pointer;
+
+  /* 44px touch target without changing the visible size */
+  &::before {
+    content: "";
+    position: absolute;
+    inset-block: calc((100% - var(--layout-touch-target)) / 2);
+    inset-inline: 0;
+  }
+
+  &:has(:disabled) {
+    cursor: not-allowed;
+  }
+}
+
+@mixin choice-input {
+  @include mixins.visually-hidden;
+}
+
+@mixin choice-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+@mixin choice-label {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m");
+}
+
+@mixin choice-description {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}

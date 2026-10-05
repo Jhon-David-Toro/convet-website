@@ -1,0 +1,81 @@
+@use "sass:map";
+@use "breakpoints";
+
+/*
+ * Figma text styles (Text Styles). Single source of truth:
+ * - foundations/_typography.scss generates the global .type-* classes
+ * - CSS Modules use @include typography.style("body-m")
+ *
+ * Keys: family (display|body|data|script), weight, size, line-height (px),
+ * letter-spacing (suffix of --letter-spacing-*), uppercase.
+ */
+$styles: (
+  "display-xl": (family: display, weight: bold, size: 38, line-height: 44, letter-spacing: normal, uppercase: true,
+    tablet: (size: 52, line-height: 56), desktop: (size: 64, line-height: 68)),
+  "display-l": (family: display, weight: bold, size: 52, line-height: 56, letter-spacing: normal, uppercase: true),
+  "display-m": (family: display, weight: bold, size: 38, line-height: 44, letter-spacing: normal, uppercase: true),
+
+  "heading-h1": (family: display, weight: semibold, size: 40, line-height: 46, letter-spacing: normal, uppercase: true),
+  "heading-h2": (family: display, weight: semibold, size: 30, line-height: 36, letter-spacing: "005", uppercase: true),
+  "heading-h3": (family: display, weight: semibold, size: 24, line-height: 30, letter-spacing: "005"),
+  "heading-h4": (family: body, weight: bold, size: 18, line-height: 26, letter-spacing: normal),
+  "heading-h5": (family: body, weight: bold, size: 16, line-height: 24, letter-spacing: normal),
+
+  "subtitle-l": (family: body, weight: regular, size: 19, line-height: 30, letter-spacing: normal),
+  "subtitle-m": (family: body, weight: semibold, size: 17, line-height: 26, letter-spacing: normal),
+
+  "body-l": (family: body, weight: regular, size: 17, line-height: 28, letter-spacing: normal),
+  "body-m": (family: body, weight: regular, size: 15, line-height: 24, letter-spacing: normal),
+  "body-m-strong": (family: body, weight: semibold, size: 15, line-height: 24, letter-spacing: normal),
+  "body-s": (family: body, weight: regular, size: 13, line-height: 20, letter-spacing: normal),
+  "body-s-strong": (family: body, weight: semibold, size: 13, line-height: 20, letter-spacing: normal),
+
+  "caption": (family: body, weight: medium, size: 12, line-height: 16, letter-spacing: "005"),
+  "label-m": (family: body, weight: semibold, size: 14, line-height: 20, letter-spacing: normal),
+  "label-s": (family: body, weight: bold, size: 12, line-height: 16, letter-spacing: "02", uppercase: true),
+  "overline": (family: body, weight: bold, size: 12, line-height: 16, letter-spacing: "10", uppercase: true),
+
+  "button-l": (family: body, weight: bold, size: 16, line-height: 20, letter-spacing: "04", uppercase: true),
+  "button-m": (family: body, weight: bold, size: 14, line-height: 20, letter-spacing: "04", uppercase: true),
+  "button-s": (family: body, weight: bold, size: 12, line-height: 16, letter-spacing: "04", uppercase: true),
+
+  "data-m": (family: data, weight: regular, size: 14, line-height: 20, letter-spacing: normal),
+  "data-s": (family: data, weight: regular, size: 12, line-height: 16, letter-spacing: normal),
+
+  "numeric-l": (family: display, weight: semibold, size: 32, line-height: 36, letter-spacing: normal),
+  "wordmark": (family: display, weight: bold, size: 22, line-height: 24, letter-spacing: "01", uppercase: true),
+
+  "script": (family: script, weight: regular, size: 34, line-height: 40, letter-spacing: normal),
+  "script-s": (family: script, weight: regular, size: 22, line-height: 28, letter-spacing: normal)
+);
+
+@mixin _size($size, $line-height) {
+  font-size: var(--font-size-#{$size});
+  line-height: var(--line-height-#{$line-height});
+}
+
+@mixin style($name) {
+  $s: map.get($styles, $name);
+
+  font-family: var(--font-family-#{map.get($s, family)});
+  font-weight: var(--font-weight-#{map.get($s, weight)});
+  letter-spacing: var(--letter-spacing-#{map.get($s, letter-spacing)});
+
+  @include _size(map.get($s, size), map.get($s, line-height));
+
+  @if map.get($s, uppercase) {
+    text-transform: uppercase;
+  }
+
+  @if map.has-key($s, tablet) {
+    @include breakpoints.tablet {
+      @include _size(map.get($s, tablet, size), map.get($s, tablet, line-height));
+    }
+  }
+
+  @if map.has-key($s, desktop) {
+    @include breakpoints.desktop {
+      @include _size(map.get($s, desktop, size), map.get($s, desktop, line-height));
+    }
+  }
+}
