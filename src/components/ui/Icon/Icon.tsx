@@ -1,10 +1,22 @@
-import styles from "./Icon.module.scss";
-import { IconProps } from "./Icon.types";
+import { cx } from "@/lib/cx";
 
+import styles from "./Icon.module.scss";
+import { ICON_PIXEL_SIZES, ICON_STROKE_WIDTH } from "./Icon.constants";
+import type { IconProps } from "./Icon.types";
+
+/**
+ * Draws an icon from the icon set at a named or custom size. Decorative unless a `label` is given.
+ *
+ * @param props Props of the component, see {@link IconProps}.
+ * @param props.icon Icon component to draw.
+ * @param props.size System size or, for one-off cases (avatar, loading), pixels.
+ * @param props.tone Color tone.
+ * @param props.label Visible text. For icons it becomes the accessible name.
+ * @param props.className Extra class name for the root element.
+ * @returns The rendered element.
+ */
 export function Icon({ icon: IconComponent, size = "medium", tone = "inherit", label, className }: IconProps) {
-  const classes = [styles.icon, styles[size], styles[tone], className]
-    .filter(Boolean)
-    .join(" ");
+  const classes = cx(styles.icon, styles[tone], className);
 
   const accessibilityProps = label
     ? {
@@ -18,7 +30,9 @@ export function Icon({ icon: IconComponent, size = "medium", tone = "inherit", l
   return (
     <IconComponent
       className={classes}
-      strokeWidth={1.75}
+      size={typeof size === "number" ? size : ICON_PIXEL_SIZES[size]}
+      strokeWidth={ICON_STROKE_WIDTH}
+      absoluteStrokeWidth
       focusable="false"
       {...accessibilityProps}
     />
