@@ -1,0 +1,101 @@
+@use "abstracts/typography";
+
+/* Feedback/Alert: padding 16, gap 12, MD radius, tone fill and border */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--alert-border);
+  border-radius: var(--radius-md);
+  background-color: var(--alert-bg);
+}
+
+.info {
+  --alert-bg: var(--color-feedback-info-background);
+  --alert-border: var(--color-feedback-info-border);
+  --alert-fg: var(--color-feedback-info-text);
+}
+
+.success {
+  --alert-bg: var(--color-feedback-success-background);
+  --alert-border: var(--color-feedback-success-border);
+  --alert-fg: var(--color-feedback-success-text);
+}
+
+.warning {
+  --alert-bg: var(--color-feedback-warning-background);
+  --alert-border: var(--color-feedback-warning-border);
+  --alert-fg: var(--color-feedback-warning-text);
+}
+
+.error {
+  --alert-bg: var(--color-feedback-error-background);
+  --alert-border: var(--color-feedback-error-border);
+  --alert-fg: var(--color-feedback-error-text);
+}
+
+/* The icon is 20px and the first line 24px: it is centered on it */
+.icon {
+  margin-block-start: 0.125rem;
+  color: var(--alert-fg);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.message {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.action {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--alert-fg);
+  text-decoration: none;
+
+  @include typography.style("label-m");
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* 18px icon; the touch target reaches 44px without changing what is visible */
+.dismiss {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin-block-start: 0.1875rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-icon-secondary);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc((100% - var(--layout-touch-target)) / 2);
+  }
+
+  &:hover {
+    color: var(--color-icon-primary);
+  }
+}
