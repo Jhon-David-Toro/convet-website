@@ -1,0 +1,30 @@
+@use "abstracts" as *;
+
+/* Navigation/App Top Bar: 72px, horizontal padding 32, gap 16, bottom border */
+.bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  min-height: 4.5rem;
+  padding: 0 var(--spacing-16);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    padding-inline: var(--spacing-32);
+  }
+}
+
+.start {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  min-width: 0;
+}
+
+.end {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: var(--spacing-16);
+}
