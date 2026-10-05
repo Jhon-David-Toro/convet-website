@@ -1,0 +1,157 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.button {
+  --button-height: 3rem;
+  --button-padding-inline: var(--spacing-24);
+  --button-hover-ring: none;
+  --button-pressed-ring: none;
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  max-width: 100%;
+  height: var(--button-height);
+  padding: 0 var(--button-padding-inline);
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--button-bg);
+  color: var(--button-fg);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    background-color: var(--button-bg-hover);
+    box-shadow: var(--button-hover-ring);
+  }
+
+  @include on-pressed {
+    background-color: var(--button-bg-pressed);
+    box-shadow: var(--button-pressed-ring);
+  }
+
+  &:disabled:not(.loading) {
+    background-color: var(--color-action-disabled);
+    box-shadow: none;
+    color: var(--color-action-disabled-text);
+  }
+}
+
+.loading {
+  cursor: progress;
+
+  /* Loading is disabled but keeps the Default look */
+  @include on-hover {
+    background-color: var(--button-bg);
+    box-shadow: none;
+  }
+
+  @include on-pressed {
+    background-color: var(--button-bg);
+    box-shadow: none;
+  }
+}
+
+.label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.icon {
+  flex: 0 0 auto;
+}
+
+/* Sizes */
+
+.medium {
+  @include typography.style("button-m");
+}
+
+.small {
+  --button-height: 2.25rem;
+  --button-padding-inline: var(--spacing-16);
+
+  @include typography.style("button-s");
+
+  /* 44px touch target without changing the visible size */
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block: calc((100% - var(--layout-touch-target)) / 2);
+    inset-inline: 0;
+  }
+}
+
+/* Variants */
+
+.primary {
+  --button-bg: var(--color-action-primary);
+  --button-bg-hover: var(--color-action-primary-hover);
+  --button-bg-pressed: var(--color-action-primary-pressed);
+  --button-fg: var(--color-action-primary-text);
+}
+
+/* Figma: text in On Primary (white) and icons in On Accent (navy) */
+.accent {
+  --button-bg: var(--color-action-accent);
+  --button-bg-hover: var(--color-action-accent-hover);
+  --button-bg-pressed: var(--color-action-accent);
+  --button-fg: var(--color-text-on-primary);
+  --button-pressed-ring: inset 0 0 0 var(--border-width-medium) var(--color-brand-accent-ink);
+
+  .icon {
+    color: var(--color-action-accent-text);
+  }
+}
+
+.secondary {
+  --button-bg: var(--color-background-surface);
+  --button-bg-hover: var(--color-brand-primary-subtle);
+  --button-bg-pressed: var(--color-brand-primary-soft);
+  --button-fg: var(--color-text-brand);
+
+  border: var(--border-width-medium) solid var(--color-action-primary);
+
+  &:disabled:not(.loading) {
+    border-color: var(--color-border-default);
+  }
+}
+
+.tertiary {
+  --button-bg: transparent;
+  --button-bg-hover: var(--color-background-muted);
+  --button-bg-pressed: var(--color-neutral-200);
+  --button-fg: var(--color-text-brand);
+
+  &:disabled:not(.loading) {
+    background-color: transparent;
+  }
+}
+
+.destructive {
+  --button-bg: var(--color-error-strong);
+  --button-bg-hover: var(--color-error-strong);
+  --button-bg-pressed: var(--color-error-strong);
+  --button-fg: var(--color-text-on-primary);
+  --button-hover-ring: inset 0 0 0 var(--border-width-medium) var(--color-error-border);
+  --button-pressed-ring: inset 0 0 0 var(--border-width-medium) var(--color-neutral-900);
+}
+
+/* Disabled uses the same text color on every icon */
+.button:disabled:not(.loading) .icon {
+  color: inherit;
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
