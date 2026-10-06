@@ -1,0 +1,65 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Navigation/Emergency Bar: 52px navy band (44px on mobile) with the red emergency pill */
+.bar {
+  background-color: var(--color-background-inverse);
+  color: var(--color-text-on-inverse);
+}
+
+.inner {
+  @include content-container;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-16);
+  padding-block: var(--spacing-8);
+
+  @include tablet {
+    justify-content: space-between;
+    padding-block: var(--spacing-12);
+  }
+}
+
+.motto {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+
+  @include typography.style("label-s");
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.paw,
+.highlight {
+  color: var(--color-brand-accent);
+}
+
+/* Pill: padding 4/12, gap 8, Emergency/Strong background */
+.emergency {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-4) var(--spacing-12);
+  border-radius: var(--radius-full);
+  background-color: var(--color-emergency-strong);
+  color: var(--color-text-on-primary);
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.label {
+  @include typography.style("label-s");
+}
+
+.phone {
+  @include typography.style("label-m");
+}
