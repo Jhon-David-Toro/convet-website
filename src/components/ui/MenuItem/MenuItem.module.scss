@@ -1,0 +1,45 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  min-height: 2.75rem;
+  padding: 0 var(--spacing-12);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-primary);
+  cursor: pointer;
+
+  @include typography.style("body-m");
+
+  /* data-active: item highlighted with the keyboard (aria-activedescendant) */
+  @include on-hover {
+    background-color: var(--color-background-muted);
+  }
+
+  &[data-active="true"] {
+    background-color: var(--color-background-muted);
+  }
+}
+
+.label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.selected,
+.selected:hover,
+.selected[data-active="true"] {
+  background-color: var(--color-brand-primary-subtle);
+  color: var(--color-text-brand);
+}
+
+.destructive {
+  color: var(--color-error-strong);
+}
+
+.check {
+  flex: 0 0 auto;
+  color: var(--color-text-brand);
+}
