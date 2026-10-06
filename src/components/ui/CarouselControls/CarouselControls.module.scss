@@ -1,0 +1,50 @@
+@use "abstracts" as *;
+
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-16);
+}
+
+.status {
+  @include visually-hidden;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* 8×8; the active one is a 24×8 pill */
+.indicator {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-border-strong);
+  transition: width var(--motion-duration-base) var(--motion-ease-standard);
+}
+
+.active {
+  width: 1.5rem;
+  background-color: var(--color-action-primary);
+}
+
+.arrows {
+  display: none;
+  gap: var(--spacing-8);
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+@include tablet {
+  .controls {
+    justify-content: space-between;
+  }
+}
