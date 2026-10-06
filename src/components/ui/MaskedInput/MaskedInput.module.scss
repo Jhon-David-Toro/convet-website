@@ -1,0 +1,45 @@
+@use "abstracts" as *;
+
+.control {
+  position: relative;
+}
+
+/* 16 margin + 20 icon + 12 gap */
+.input {
+  @include field-control;
+
+  padding-inline-end: 3rem;
+}
+
+/* 44px button with the Figma icon centered 16px from the edge */
+.trigger {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: var(--spacing-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--layout-touch-target);
+  height: var(--layout-touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: transparent;
+  color: var(--color-icon-secondary);
+  transform: translateY(-50%);
+
+  &:hover:not(:disabled) {
+    background-color: var(--color-background-muted);
+  }
+}
+
+/* Always fixed (takes no space in the field or on first render); top, left and width are computed by useAnchoredPosition */
+.popup {
+  position: fixed;
+  z-index: var(--z-dropdown);
+}
+
+.timePopup {
+  max-height: 15rem;
+  overflow-y: auto;
+}
