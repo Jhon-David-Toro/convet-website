@@ -1,0 +1,51 @@
+@use "abstracts/typography";
+
+/* Brand/Logo: 52px seal (44px in "mark") + 150px wordmark, gap 8 */
+.logo {
+  /* Block (not inline-flex): no surrounding text line, exactly 56px tall */
+  display: flex;
+  width: fit-content;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.image {
+  flex: 0 0 auto;
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.mark .image {
+  width: 2.75rem;
+  height: 2.75rem;
+}
+
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  width: 9.375rem;
+}
+
+.name {
+  color: var(--color-text-heading);
+
+  @include typography.style("wordmark");
+}
+
+.tagline {
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
+
+.inverse {
+  .name {
+    color: var(--color-text-on-inverse);
+  }
+
+  .tagline {
+    color: var(--color-neutral-300);
+  }
+}
