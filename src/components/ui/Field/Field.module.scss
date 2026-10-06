@@ -1,0 +1,57 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.field {
+  /* Contains the hidden label (position: absolute) inside the field */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  min-width: 0;
+}
+
+.label {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-4);
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.optional {
+  color: var(--color-text-tertiary);
+}
+
+.disabled {
+  color: var(--color-text-tertiary);
+}
+
+.hidden {
+  @include visually-hidden;
+}
+
+.message {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+/* Figma: helper icon in Text/Tertiary, centered on the first 20px line */
+.messageIcon {
+  margin-block-start: 0.125rem;
+  color: var(--color-text-tertiary);
+}
+
+.error {
+  color: var(--color-error-strong);
+
+  .messageIcon {
+    color: var(--color-error-strong);
+  }
+}
