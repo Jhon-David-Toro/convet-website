@@ -1,0 +1,139 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Input/File Upload: padding 20, gap 16, 1.5px border (dashed 6/4 except in Uploaded), LG radius */
+.root {
+  --upload-border: var(--color-border-strong);
+  --upload-bg: var(--color-background-surface);
+  --upload-title: var(--color-text-primary);
+  --upload-wrap-bg: var(--color-brand-primary-subtle);
+  --upload-wrap-fg: var(--color-text-brand);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-20);
+  border: var(--border-width-medium) solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--upload-bg);
+
+  &:has(.input:focus-visible),
+  &[data-state="focus"] {
+    @include focus-ring;
+  }
+}
+
+.root[data-dragging],
+.root[data-state="dragover"] {
+  --upload-border: var(--color-action-primary);
+  --upload-bg: var(--color-brand-primary-subtle);
+}
+
+.uploaded {
+  --upload-border: var(--color-border-default);
+
+  border-color: var(--upload-border);
+}
+
+.error {
+  --upload-border: var(--color-error-strong);
+  --upload-bg: var(--color-error-soft);
+  --upload-title: var(--color-error-strong);
+  --upload-wrap-bg: var(--color-background-surface);
+  --upload-wrap-fg: var(--color-error-strong);
+}
+
+.disabled {
+  opacity: 0.6;
+}
+
+/* Dashed border: 6px stroke and 4px gap, as in Figma */
+.dash {
+  position: absolute;
+  inset: calc(var(--border-width-medium) * -1);
+  width: calc(100% + (var(--border-width-medium) * 2));
+  height: calc(100% + (var(--border-width-medium) * 2));
+  overflow: visible;
+  pointer-events: none;
+}
+
+.dashRect {
+  x: calc(var(--border-width-medium) / 2);
+  y: calc(var(--border-width-medium) / 2);
+  width: calc(100% - var(--border-width-medium));
+  height: calc(100% - var(--border-width-medium));
+  fill: none;
+  stroke: var(--upload-border);
+  stroke-dasharray: 6 4;
+  stroke-width: var(--border-width-medium);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: var(--spacing-16);
+  min-width: 0;
+  cursor: pointer;
+}
+
+.disabled .content {
+  cursor: not-allowed;
+}
+
+.uploaded .content {
+  cursor: default;
+}
+
+.input {
+  @include visually-hidden;
+}
+
+.wrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background-color: var(--upload-wrap-bg);
+  color: var(--upload-wrap-fg);
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.title {
+  color: var(--upload-title);
+  overflow-wrap: anywhere;
+
+  @include typography.style("body-m-strong");
+}
+
+.hint {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+/* While dragging, the title changes to "Drop to upload" (also with data-state="dragover") */
+.draggingTitle {
+  display: none;
+}
+
+.root[data-dragging],
+.root[data-state="dragover"] {
+  .idleTitle {
+    display: none;
+  }
+
+  .draggingTitle {
+    display: inline;
+  }
+}
