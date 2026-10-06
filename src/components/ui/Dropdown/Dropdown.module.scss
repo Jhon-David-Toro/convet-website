@@ -1,0 +1,22 @@
+/* Overlay/Dropdown: surface, 1px border, MD radius, padding 4 / 8, gap 2, MD shadow */
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  padding: var(--spacing-4) var(--spacing-8);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-surface);
+  box-shadow: var(--shadow-md);
+}
+
+/* Free content (calendar): same panel with more breathing room */
+.panel {
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+}
+
+.divider {
+  height: var(--border-width-default);
+  background-color: var(--color-border-default);
+}
