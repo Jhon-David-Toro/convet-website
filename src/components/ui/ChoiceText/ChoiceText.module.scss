@@ -1,0 +1,18 @@
+@use "abstracts" as *;
+
+.text {
+  @include choice-text;
+}
+
+.label {
+  @include choice-label;
+}
+
+/* The input is the previous sibling of the text block in Checkbox, Radio and Toggle */
+input:disabled ~ .text .label {
+  color: var(--color-text-disabled);
+}
+
+.description {
+  @include choice-description;
+}
