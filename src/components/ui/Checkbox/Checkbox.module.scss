@@ -1,0 +1,56 @@
+@use "abstracts" as *;
+
+.root {
+  @include choice-root;
+}
+
+.input {
+  @include choice-input;
+
+  @include on-focus {
+    & + .control {
+      @include focus-ring;
+    }
+  }
+}
+
+.control {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: var(--border-width-medium) solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-on-primary);
+}
+
+.check,
+.minus {
+  display: none;
+}
+
+.input:checked + .control,
+.input:indeterminate + .control {
+  border-color: var(--color-action-primary);
+  background-color: var(--color-action-primary);
+}
+
+.input:checked + .control .check,
+.input:indeterminate + .control .minus {
+  display: block;
+}
+
+.input:disabled + .control {
+  border-color: var(--color-border-default);
+}
+
+.input:disabled:checked + .control,
+.input:disabled:indeterminate + .control {
+  border-color: var(--color-neutral-300);
+  background-color: var(--color-neutral-300);
+  color: var(--color-text-secondary);
+}
+
