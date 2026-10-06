@@ -1,0 +1,46 @@
+@use "abstracts" as *;
+
+.button {
+  --icon-button-bg: transparent;
+  --icon-button-bg-hover: var(--color-background-muted);
+  --icon-button-fg: var(--color-icon-primary);
+
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: var(--layout-touch-target);
+  height: var(--layout-touch-target);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background-color: var(--icon-button-bg);
+  text-decoration: none;
+  color: var(--icon-button-fg);
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    background-color: var(--icon-button-bg-hover);
+  }
+
+  &:disabled {
+    color: var(--color-icon-disabled);
+  }
+
+  &:disabled:hover {
+    background-color: var(--icon-button-bg);
+  }
+}
+
+.outline {
+  --icon-button-bg: var(--color-background-surface);
+  --icon-button-bg-hover: var(--color-background-subtle);
+
+  border: var(--border-width-default) solid var(--color-border-default);
+}
+
+.brand {
+  --icon-button-bg: var(--color-brand-primary-subtle);
+  --icon-button-bg-hover: var(--color-brand-primary-soft);
+  --icon-button-fg: var(--color-icon-brand);
+}
