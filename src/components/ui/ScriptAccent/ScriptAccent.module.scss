@@ -1,0 +1,17 @@
+@use "abstracts/typography";
+
+.accent {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-brand-accent-strong);
+}
+
+.large {
+  @include typography.style("script");
+}
+
+.small {
+  @include typography.style("script-s");
+}
