@@ -1,0 +1,116 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Native <dialog> without its own chrome: the panel provides the surface */
+.dialog {
+  width: min(30rem, calc(100% - var(--spacing-32)));
+  max-width: none;
+  max-height: none;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  overflow: visible;
+
+  &::backdrop {
+    background-color: var(--color-background-overlay);
+  }
+}
+
+/* Modal: surface, XL radius, LG shadow; 480 px in Figma */
+.panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: calc(100dvh - var(--spacing-32));
+  overflow-y: auto;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+  box-shadow: var(--shadow-lg);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-24) var(--spacing-24) var(--spacing-8);
+}
+
+.heading {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h3");
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.iconWrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--modal-icon-bg);
+  color: var(--modal-icon-fg);
+}
+
+.error {
+  --modal-icon-bg: var(--color-feedback-error-background);
+  --modal-icon-fg: var(--color-feedback-error-text);
+}
+
+.warning {
+  --modal-icon-bg: var(--color-feedback-warning-background);
+  --modal-icon-fg: var(--color-feedback-warning-text);
+}
+
+.info {
+  --modal-icon-bg: var(--color-feedback-info-background);
+  --modal-icon-fg: var(--color-feedback-info-text);
+}
+
+.success {
+  --modal-icon-bg: var(--color-feedback-success-background);
+  --modal-icon-fg: var(--color-feedback-success-text);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-24);
+}
+
+/*
+ * Figma: buttons always sit in one right-aligned row (in the confirmation they add up to more than
+ * the usable width and the overflow goes out on the left). On narrow screens they wrap onto several rows.
+ */
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
+
+  justify-content: flex-end;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16) var(--spacing-24) var(--spacing-24);
+}

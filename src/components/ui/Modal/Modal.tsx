@@ -1,0 +1,43 @@
+"use client";
+
+import { useId } from "react";
+
+import styles from "./Modal.module.scss";
+import { useModalDialog } from "./hooks/useModalDialog";
+import type { ModalProps } from "./Modal.types";
+import { ModalPanel } from "./ModalPanel";
+
+/**
+ * Modal dialog built on the native <dialog> element: the browser handles the focus trap, making the
+ * rest of the page inert and returning focus on close. Client Component because of showModal().
+ * To keep the initial focus off the close button, mark the desired control with `data-autofocus`.
+ *
+ * @param props Props of the component, see {@link ModalProps}.
+ * @param props.open Whether the popup or menu is open.
+ * @param props.onClose Called on the close button, Escape or the backdrop. The consumer sets `open` to false.
+ * @param props.children Content of the element.
+ * @param props.panel Remaining properties, forwarded to the root element.
+ * @returns The rendered element.
+ */
+export function Modal({ open, onClose, children, ...panel }: ModalProps) {
+  const { dialogRef, handleCancel, handleClick } = useModalDialog({ open, onClose });
+  const titleId = useId();
+  const descriptionId = useId();
+
+  return (
+    <dialog
+      ref={dialogRef}
+      className={styles.dialog}
+      aria-labelledby={titleId}
+      aria-describedby={panel.description ? descriptionId : undefined}
+      onCancel={handleCancel}
+      onClick={handleClick}
+    >
+      {open && (
+        <ModalPanel {...panel} titleId={titleId} descriptionId={descriptionId} onClose={onClose}>
+          {children}
+        </ModalPanel>
+      )}
+    </dialog>
+  );
+}
