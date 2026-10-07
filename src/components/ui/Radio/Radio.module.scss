@@ -1,0 +1,41 @@
+@use "abstracts" as *;
+
+.root {
+  @include choice-root;
+}
+
+.input {
+  @include choice-input;
+
+  @include on-focus {
+    & + .control {
+      @include focus-ring;
+    }
+  }
+}
+
+.control {
+  --radio-checked-border: 0.4375rem;
+
+  flex: 0 0 auto;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: var(--border-width-medium) solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  background-color: var(--color-background-surface);
+}
+
+/* Figma: selected = 7px stroke (leaves an 8px dot in the center) */
+.input:checked + .control {
+  border-width: var(--radio-checked-border);
+  border-color: var(--color-action-primary);
+}
+
+.input:disabled + .control {
+  border-color: var(--color-border-default);
+}
+
+.input:disabled:checked + .control {
+  border-color: var(--color-neutral-300);
+}
+
