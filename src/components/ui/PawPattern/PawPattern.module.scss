@@ -1,0 +1,14 @@
+.pattern {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.paw {
+  position: absolute;
+  display: inline-flex;
+  color: var(--color-brand-navy);
+  opacity: 0.06;
+}
