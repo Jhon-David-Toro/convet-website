@@ -1,0 +1,44 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Navigation/Tab Bar: padding 4 / 8 / 20 / 8, evenly spaced items, top border */
+.bar {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--spacing-4) var(--spacing-8) var(--spacing-20);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+  width: 5.5rem;
+  padding: var(--spacing-8) var(--spacing-4);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 2rem;
+  border-radius: var(--radius-full);
+}
+
+.label {
+  @include typography.style("label-s");
+}
+
+.active {
+  color: var(--color-text-brand);
+
+  .pill {
+    background-color: var(--color-brand-primary-soft);
+  }
+}
