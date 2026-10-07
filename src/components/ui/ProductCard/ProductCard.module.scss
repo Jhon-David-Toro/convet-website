@@ -1,0 +1,50 @@
+@use "abstracts/typography";
+
+/* Card/Product: 180px image on top and a body with padding 20 and gap 8; the border clips the image */
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.image {
+  height: 11.25rem;
+  aspect-ratio: auto;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  padding: var(--spacing-20);
+}
+
+.category {
+  margin: 0;
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.name {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h5");
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.ask {
+  width: 100%;
+}
