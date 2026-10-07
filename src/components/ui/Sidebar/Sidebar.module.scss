@@ -1,0 +1,123 @@
+@use "abstracts/typography";
+
+/* Navigation/Sidebar: 264px, padding 24 / 16, gap 4, right border */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  width: 16.5rem;
+  min-height: 100%;
+  padding: var(--spacing-24) var(--spacing-16);
+  border-inline-end: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+}
+
+.logo {
+  display: block;
+  padding: 0 var(--spacing-8) var(--spacing-24);
+  text-decoration: none;
+}
+
+.branch {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: var(--layout-touch-target);
+  margin-block-end: var(--spacing-8);
+  padding: 0 var(--spacing-12);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-primary);
+  text-align: start;
+}
+
+.branchName {
+  flex: 1 1 auto;
+  min-width: 0;
+
+  @include typography.style("body-s-strong");
+}
+
+.chevron {
+  color: var(--color-text-tertiary);
+}
+
+.nav {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.heading {
+  margin: 0;
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-12) var(--spacing-8);
+  border-radius: var(--radius-md);
+}
+
+/* Figma: the avatar has a 2px stroke in the surface color */
+.avatar {
+  box-shadow: 0 0 0 var(--border-width-strong) var(--color-background-surface);
+}
+
+.userText {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.userName {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.userRole {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
+
+/* 18px icon with a 44px touch target */
+.signOut {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  color: var(--color-text-tertiary);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc((100% - var(--layout-touch-target)) / 2);
+  }
+
+  &:hover {
+    color: var(--color-text-primary);
+  }
+}
