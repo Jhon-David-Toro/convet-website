@@ -1,0 +1,71 @@
+@use "abstracts/typography";
+
+/* Card/Stat: padding 20, gap 12, 1px border, LG radius */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  width: 100%;
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.default {
+  --stat-icon-bg: var(--color-brand-primary-subtle);
+  --stat-icon-fg: var(--color-text-brand);
+  --stat-caption: var(--color-text-secondary);
+}
+
+.warning {
+  --stat-icon-bg: var(--color-feedback-warning-background);
+  --stat-icon-fg: var(--color-feedback-warning-text);
+  --stat-caption: var(--color-feedback-warning-text);
+}
+
+.critical {
+  --stat-icon-bg: var(--color-feedback-error-background);
+  --stat-icon-fg: var(--color-feedback-error-text);
+  --stat-caption: var(--color-feedback-error-text);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.label {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("label-m");
+}
+
+.iconWrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--stat-icon-bg);
+  color: var(--stat-icon-fg);
+}
+
+.value {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("numeric-l");
+}
+
+.caption {
+  margin: 0;
+  color: var(--stat-caption);
+
+  @include typography.style("body-s");
+}
