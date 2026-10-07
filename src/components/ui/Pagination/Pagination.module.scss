@@ -1,0 +1,69 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Data/Pagination: padding 12 / 16, summary on the left and pages on the right */
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-12) var(--spacing-16);
+}
+
+.summary {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+/* Data/Page Item: 40px circle */
+.page,
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: none;
+  color: var(--color-text-primary);
+  text-decoration: none;
+
+  @include typography.style("label-m");
+}
+
+.page {
+  position: relative;
+  cursor: pointer;
+
+  /* 44px touch target without changing the visible size */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc((100% - var(--layout-touch-target)) / 2);
+  }
+
+  @include on-hover {
+    background-color: var(--color-background-muted);
+  }
+}
+
+.current,
+.current:hover {
+  background-color: var(--color-action-primary);
+  color: var(--color-text-on-primary);
+}
+
+.ellipsis {
+  color: var(--color-text-secondary);
+}
