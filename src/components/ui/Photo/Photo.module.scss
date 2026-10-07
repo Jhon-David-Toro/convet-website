@@ -1,0 +1,14 @@
+.photo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-brand);
+}
+
+.image {
+  object-fit: cover;
+}
