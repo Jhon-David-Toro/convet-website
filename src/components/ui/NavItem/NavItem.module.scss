@@ -1,0 +1,33 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Navigation/Nav Item: 44px, padding 0 / 12, gap 12, MD radius */
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  min-height: var(--layout-touch-target);
+  padding: 0 var(--spacing-12);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  text-decoration: none;
+
+  @include typography.style("body-m");
+
+  @include on-hover {
+    background-color: var(--color-background-muted);
+  }
+}
+
+.label {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.active,
+.active:hover {
+  background-color: var(--color-brand-primary-subtle);
+  color: var(--color-text-brand);
+
+  @include typography.style("body-m-strong");
+}
