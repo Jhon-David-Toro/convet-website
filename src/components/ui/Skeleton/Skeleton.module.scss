@@ -1,0 +1,103 @@
+.skeleton {
+  box-sizing: border-box;
+  display: flex;
+  max-width: 100%;
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.bone {
+  display: block;
+  max-width: 100%;
+  background-color: var(--color-background-muted);
+}
+
+/* Type=Card (300 × 214) */
+
+.card {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  width: 18.75rem;
+}
+
+.thumbnail {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-lg);
+}
+
+.title {
+  width: 11.25rem;
+  height: 1.25rem;
+  border-radius: var(--radius-sm);
+}
+
+.lineLong,
+.lineMedium {
+  height: 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.lineLong {
+  width: 16.25rem;
+}
+
+.lineMedium {
+  width: 13.75rem;
+}
+
+.chips {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.chip {
+  width: 4rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+}
+
+/* Type=List Row (520 × 86) */
+
+.listRow {
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 32.5rem;
+}
+
+.rowAvatar {
+  flex: 0 0 auto;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+}
+
+.lines {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+}
+
+.rowTitle {
+  width: 13.75rem;
+  height: 0.875rem;
+  border-radius: var(--radius-sm);
+}
+
+.rowSubtitle {
+  width: 8.75rem;
+  height: 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.rowBadge {
+  flex: 0 0 auto;
+  width: 5rem;
+  height: 1.5rem;
+  border-radius: var(--radius-full);
+}
