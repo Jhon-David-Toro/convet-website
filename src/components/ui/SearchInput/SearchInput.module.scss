@@ -1,0 +1,44 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.control {
+  position: relative;
+  display: block;
+}
+
+/* 16 margin + 20 icon + 12 gap */
+.input {
+  @include field-control;
+
+  padding-inline-start: 3rem;
+
+  /* Removes the native type="search" styling */
+  &::-webkit-search-decoration,
+  &::-webkit-search-cancel-button {
+    appearance: none;
+  }
+}
+
+/* + 62px shortcut: 16 + 62 + 12 */
+.withShortcut {
+  padding-inline-end: 5.625rem;
+}
+
+.icon {
+  @include field-icon(start);
+}
+
+.shortcut {
+  position: absolute;
+  top: 50%;
+  inset-inline-end: var(--spacing-16);
+  padding: var(--spacing-2) var(--spacing-8);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background-subtle);
+  color: var(--color-text-secondary);
+  transform: translateY(-50%);
+  pointer-events: none;
+
+  @include typography.style("data-s");
+}
