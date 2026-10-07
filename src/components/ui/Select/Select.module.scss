@@ -1,0 +1,42 @@
+@use "abstracts" as *;
+
+.control {
+  position: relative;
+}
+
+.button {
+  @include field-control;
+
+  display: flex;
+  align-items: center;
+  padding-inline-end: 3rem;
+  text-align: start;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}
+
+.value {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Figma: while there is no value it shows in Text/Tertiary */
+.placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.icon {
+  @include field-icon(end);
+}
+
+/* Always fixed (takes no space in the field or on first render); top, left and width are computed by useAnchoredPosition */
+.listbox {
+  position: fixed;
+  z-index: var(--z-dropdown);
+  max-height: 15rem;
+  overflow-y: auto;
+}
