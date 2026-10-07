@@ -1,0 +1,41 @@
+@use "abstracts/typography";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  max-width: 45rem;
+}
+
+.left {
+  align-items: flex-start;
+}
+
+.center {
+  align-items: center;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--color-text-brand);
+
+  @include typography.style("overline");
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+}
+
+.underline {
+  flex: 0 0 auto;
+  color: var(--color-brand-accent);
+}
+
+.description {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-l");
+}
