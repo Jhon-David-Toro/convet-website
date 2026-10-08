@@ -1,0 +1,60 @@
+@use "abstracts/typography";
+
+/* Booking/Month Calendar: 380, padding 20, gap 12, border 1, LG radius */
+.calendar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  width: 100%;
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.month {
+  flex: 1 1 0;
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.weekdays,
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-4);
+}
+
+.weekdays {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("label-s");
+
+  span {
+    text-align: center;
+  }
+}
+
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem var(--spacing-12); /* Figma: 12 / 6, there is no 6 token */
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
