@@ -1,0 +1,71 @@
+.icon {
+  display: inline-block;
+  flex: 0 0 auto;
+  color: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.badge {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.small {
+  width: 1rem;
+  height: 1rem;
+}
+
+.medium {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.large {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.inherit {
+  color: inherit;
+}
+
+.primary {
+  color: var(--color-icon-primary);
+}
+
+.secondary {
+  color: var(--color-icon-secondary);
+}
+
+.brand {
+  color: var(--color-icon-brand);
+}
+
+.accent {
+  color: var(--color-icon-accent);
+}
+
+.inverse {
+  color: var(--color-icon-inverse);
+}
+
+.success {
+  color: var(--color-success-strong);
+}
+
+.warning {
+  color: var(--color-warning-strong);
+}
+
+.error {
+  color: var(--color-error-strong);
+}
+
+.info {
+  color: var(--color-info-strong);
+}
+
+.disabled {
+  color: var(--color-icon-disabled);
+}

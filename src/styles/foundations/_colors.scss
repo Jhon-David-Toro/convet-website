@@ -1,0 +1,148 @@
+:root {
+  /* ========================================
+   * BRAND
+   * ======================================== */
+
+  --color-brand-navy: #022b5b;
+  --color-brand-navy-deep: #011e41;
+
+  --color-brand-primary: #0768b8;
+  --color-brand-primary-hover: #055a9f;
+  --color-brand-primary-soft: #d7e8f7;
+  --color-brand-primary-subtle: #eef5fc;
+
+  --color-brand-accent: #f96b06;
+  --color-brand-accent-hover: #ff8530;
+  --color-brand-accent-soft: #ffebdc;
+  --color-brand-accent-ink: #b84a08;
+
+  --color-brand-gold: #e8b737;
+  --color-brand-gold-soft: #fbf1d3;
+
+  --color-brand-ivory: #f6eee3;
+  --color-brand-ivory-light: #fbf7f1;
+
+  /* ========================================
+   * NEUTRAL
+   * ======================================== */
+
+  --color-neutral-0: #ffffff;
+  --color-neutral-50: #f7f9fb;
+  --color-neutral-100: #eef2f7;
+  --color-neutral-200: #dde3eb;
+  --color-neutral-300: #c5ceda;
+  --color-neutral-500: #7a879a;
+  --color-neutral-600: #4e5e76;
+  --color-neutral-800: #1f3a63;
+  --color-neutral-900: #022b5b;
+
+  /* ========================================
+   * FEEDBACK PRIMITIVES
+   * ======================================== */
+
+  --color-success-strong: #1e7a46;
+  --color-success-soft: #e3f3e9;
+  --color-success-border: #b3dcc2;
+
+  --color-warning-strong: #8a5300;
+  --color-warning-soft: #fdf2d9;
+  --color-warning-border: #edcb86;
+
+  --color-error-strong: #b42318;
+  --color-error-soft: #fde8e6;
+  --color-error-border: #f2b8b2;
+
+  --color-info-strong: #1f5fa8;
+  --color-info-soft: #e6effa;
+  --color-info-border: #b9d0ee;
+
+  /* ========================================
+   * BACKGROUNDS / SURFACES
+   * ======================================== */
+
+  --color-background-page: var(--color-neutral-0);
+  --color-background-subtle: var(--color-brand-ivory-light);
+  --color-background-brand: var(--color-brand-ivory);
+  --color-background-inverse: var(--color-brand-navy);
+  --color-background-muted: var(--color-neutral-100);
+  --color-background-overlay: rgb(1 30 65 / 50%);
+
+  /* ========================================
+   * TEXT
+   * ======================================== */
+
+  --color-text-primary: var(--color-brand-navy);
+  --color-text-heading: var(--color-brand-navy);
+  --color-text-secondary: var(--color-neutral-600);
+  --color-text-tertiary: var(--color-neutral-500);
+  --color-text-disabled: var(--color-neutral-500);
+
+  --color-text-brand: var(--color-brand-primary);
+  --color-text-highlight: var(--color-brand-accent-ink);
+
+  --color-text-on-primary: var(--color-neutral-0);
+  --color-text-on-accent: var(--color-brand-navy);
+  --color-text-on-inverse: var(--color-neutral-0);
+
+  /* ========================================
+   * BORDERS
+   * ======================================== */
+
+  --color-border-default: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+  --color-border-focus: var(--color-brand-primary);
+  --color-border-disabled: var(--color-neutral-200);
+  --color-border-error: var(--color-error-border);
+
+  /* ========================================
+   * ACTIONS
+   * ======================================== */
+
+  --color-action-primary: var(--color-brand-primary);
+  --color-action-primary-hover: var(--color-brand-primary-hover);
+  --color-action-primary-text: var(--color-neutral-0);
+
+  --color-action-accent: var(--color-brand-accent);
+  --color-action-accent-hover: var(--color-brand-accent-hover);
+  --color-action-accent-text: var(--color-brand-navy);
+
+  --color-action-disabled: var(--color-neutral-200);
+  --color-action-disabled-text: var(--color-neutral-500);
+
+  /* ========================================
+   * FEEDBACK SEMANTIC
+   * ======================================== */
+
+  --color-feedback-success-text: var(--color-success-strong);
+  --color-feedback-success-background: var(--color-success-soft);
+  --color-feedback-success-border: var(--color-success-border);
+
+  --color-feedback-warning-text: var(--color-warning-strong);
+  --color-feedback-warning-background: var(--color-warning-soft);
+  --color-feedback-warning-border: var(--color-warning-border);
+
+  --color-feedback-error-text: var(--color-error-strong);
+  --color-feedback-error-background: var(--color-error-soft);
+  --color-feedback-error-border: var(--color-error-border);
+
+  --color-feedback-info-text: var(--color-info-strong);
+  --color-feedback-info-background: var(--color-info-soft);
+  --color-feedback-info-border: var(--color-info-border);
+
+  /* ========================================
+   * ICONS
+   * ======================================== */
+
+  --color-icon-primary: var(--color-text-primary);
+  --color-icon-secondary: var(--color-text-secondary);
+  --color-icon-brand: var(--color-text-brand);
+  --color-icon-accent: var(--color-brand-accent-ink);
+  --color-icon-inverse: var(--color-text-on-inverse);
+  --color-icon-disabled: var(--color-text-disabled);
+
+  /* ========================================
+   * FOCUS
+   * ======================================== */
+
+  --color-focus-ring: var(--color-brand-primary);
+}

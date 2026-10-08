@@ -1,0 +1,13 @@
+:root {
+    --radius-none: 0;
+    /* 8px: chips, table rows */
+    --radius-sm: 0.5rem;
+    /* 12px: inputs, slots */
+    --radius-md: 0.75rem;
+    /* 16px: cards */
+    --radius-lg: 1rem;
+    /* 24px: pet cards, modals */
+    --radius-xl: 1.5rem;
+    /* buttons pill, badges */
+    --radius-full: 9999px;
+}
