@@ -1,0 +1,95 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Booking/Day: 64×64, MD radius */
+.day {
+  --day-bg: var(--color-background-surface);
+  --day-border: var(--color-border-default);
+  --day-weekday: var(--color-text-secondary);
+  --day-number: var(--color-text-primary);
+
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-2);
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  border: var(--border-width-default) solid var(--day-border);
+  border-radius: var(--radius-md);
+  background-color: var(--day-bg);
+  cursor: pointer;
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    --day-bg: var(--color-background-subtle);
+  }
+}
+
+/* Month calendar: fluid cell 44 px tall, number only */
+.compact {
+  width: 100%;
+  height: 2.75rem;
+}
+
+.weekday {
+  color: var(--day-weekday);
+
+  @include typography.style("caption");
+}
+
+.number {
+  color: var(--day-number);
+
+  @include typography.style("heading-h4");
+}
+
+/* "Few slots left" dot: top right corner (8 px from each edge) */
+.dot {
+  position: absolute;
+  top: var(--spacing-8);
+  right: var(--spacing-8);
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-accent);
+}
+
+.selected {
+  --day-bg: var(--color-action-primary);
+  --day-border: var(--color-action-primary);
+  --day-weekday: var(--color-text-on-primary);
+  --day-number: var(--color-text-on-primary);
+
+  &:hover,
+  &[data-state="hover"] {
+    --day-bg: var(--color-action-primary);
+  }
+}
+
+.today {
+  --day-bg: var(--color-background-brand);
+  --day-border: var(--color-action-primary);
+  --day-number: var(--color-text-brand);
+
+  border-width: var(--border-width-medium);
+}
+
+.unavailable {
+  --day-bg: transparent;
+  --day-number: var(--color-text-tertiary);
+
+  border-style: dashed;
+  cursor: not-allowed;
+
+  &:hover,
+  &[data-state="hover"] {
+    --day-bg: transparent;
+  }
+}
+
+.hidden {
+  @include visually-hidden;
+}
