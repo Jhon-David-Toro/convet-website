@@ -1,0 +1,126 @@
+@use "abstracts/typography";
+
+/* Card/Appointment: 104 px date block + details (padding 20/24, gap 12) */
+.card {
+  --appointment-date-bg: var(--color-background-brand);
+  --appointment-month: var(--color-text-brand);
+  --appointment-day: var(--color-text-primary);
+  --appointment-service: var(--color-text-primary);
+
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.today {
+  --appointment-date-bg: var(--color-brand-accent-soft);
+  --appointment-month: var(--color-brand-accent-ink);
+
+  border: var(--border-width-medium) solid var(--color-brand-accent);
+}
+
+.cancelled {
+  --appointment-day: var(--color-text-tertiary);
+  --appointment-service: var(--color-text-secondary);
+}
+
+.date {
+  display: flex;
+  flex: 0 0 6.5rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-20) var(--spacing-16);
+  background-color: var(--appointment-date-bg);
+}
+
+.month {
+  color: var(--appointment-month);
+
+  @include typography.style("overline");
+}
+
+.day {
+  color: var(--appointment-day);
+
+  @include typography.style("display-m");
+}
+
+.weekday {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.details {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  min-width: 0;
+  padding: var(--spacing-20) var(--spacing-24);
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.service {
+  margin: 0;
+  color: var(--appointment-service);
+
+  @include typography.style("heading-h4");
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8) var(--spacing-20);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text-secondary);
+  list-style: none;
+
+  @include typography.style("body-s");
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+/* Mobile: the date block moves to the top so the details can breathe */
+@media (width < 40rem) {
+  .card {
+    flex-direction: column;
+  }
+
+  .date {
+    flex-direction: row;
+    gap: var(--spacing-8);
+    flex-basis: auto;
+    padding: var(--spacing-12) var(--spacing-16);
+  }
+
+  .day {
+    @include typography.style("heading-h3");
+  }
+
+  .heading {
+    flex-wrap: wrap;
+  }
+}
