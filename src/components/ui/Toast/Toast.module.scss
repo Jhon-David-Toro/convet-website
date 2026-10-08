@@ -1,0 +1,62 @@
+@use "abstracts/typography";
+
+/* Feedback/Toast: 400 px, padding 12 / 16, gap 12, MD radius, LG shadow, navy background */
+.toast {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 25rem;
+  max-width: 100%;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-inverse);
+  box-shadow: var(--shadow-lg);
+  color: var(--color-text-on-inverse);
+}
+
+/* The icon uses the light variant of the tone to contrast with the navy */
+.success {
+  --toast-icon: var(--color-feedback-success-border);
+}
+
+.error {
+  --toast-icon: var(--color-feedback-error-border);
+}
+
+.info {
+  --toast-icon: var(--color-feedback-info-border);
+}
+
+.icon {
+  color: var(--toast-icon);
+}
+
+.message {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+
+  @include typography.style("body-m");
+}
+
+/* Text action with a 44px touch target */
+.action {
+  position: relative;
+  flex: 0 0 auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--color-text-on-inverse);
+
+  @include typography.style("label-m");
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc((100% - var(--layout-touch-target)) / 2) -0.5rem;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
