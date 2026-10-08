@@ -1,0 +1,11 @@
+@use "abstracts" as *;
+
+/* Figma: 112px tall, padding 12 / 16 */
+.textarea {
+  @include field-control;
+
+  height: auto;
+  min-height: 7rem;
+  padding-block: var(--spacing-12);
+  resize: vertical;
+}
