@@ -1,0 +1,103 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Booking/Option Card: padding 16/20, gap 16, border 1 (2 when selected), LG radius */
+.card {
+  --option-bg: var(--color-background-surface);
+  --option-border: var(--color-border-default);
+  --option-border-width: var(--border-width-default);
+  --option-title: var(--color-text-primary);
+  --option-radio-border: var(--color-border-strong);
+  --option-radio-width: var(--border-width-medium);
+
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  padding: var(--spacing-16) var(--spacing-20);
+  border: var(--option-border-width) solid var(--option-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--option-bg);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-duration-base) var(--motion-ease-standard),
+    border-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    --option-border: var(--color-border-strong);
+  }
+
+  &:has(.input:checked) {
+    --option-bg: var(--color-brand-primary-subtle);
+    --option-border: var(--color-action-primary);
+    --option-border-width: var(--border-width-strong);
+    --option-radio-border: var(--color-action-primary);
+    --option-radio-width: 0.4375rem;
+  }
+
+  &:has(.input:focus-visible) {
+    outline: var(--focus-ring-width) solid var(--color-border-focus);
+    outline-offset: var(--focus-ring-offset);
+  }
+
+  &:has(.input:disabled) {
+    --option-bg: var(--color-background-subtle);
+    --option-border: var(--color-border-default);
+    --option-title: var(--color-text-tertiary);
+
+    cursor: not-allowed;
+  }
+}
+
+.input {
+  @include visually-hidden;
+}
+
+.visual {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-accent-soft);
+  color: var(--color-brand-accent-ink);
+}
+
+.text {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.title {
+  color: var(--option-title);
+
+  @include typography.style("body-m-strong");
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.meta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("label-m");
+}
+
+.radio {
+  flex: 0 0 auto;
+  width: 1.375rem;
+  height: 1.375rem;
+  border: var(--option-radio-width) solid var(--option-radio-border);
+  border-radius: var(--radius-full);
+  background-color: var(--color-background-surface);
+}
