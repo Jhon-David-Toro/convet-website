@@ -1,0 +1,67 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  list-style: none;
+}
+
+/* Marker 28 px */
+.marker {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--radius-full);
+
+  @include typography.style("label-s");
+}
+
+.label {
+  @include typography.style("body-s");
+}
+
+.done {
+  .marker {
+    background-color: var(--color-success-soft);
+    color: var(--color-feedback-success-text);
+  }
+
+  .label {
+    color: var(--color-text-primary);
+  }
+}
+
+.current {
+  .marker {
+    background-color: var(--color-action-primary);
+    color: var(--color-text-on-primary);
+  }
+
+  .label {
+    color: var(--color-text-primary);
+
+    @include typography.style("body-s-strong");
+  }
+}
+
+.upcoming {
+  .marker {
+    border-color: var(--color-border-strong);
+    background-color: var(--color-background-surface);
+    color: var(--color-text-tertiary);
+  }
+
+  .label {
+    color: var(--color-text-tertiary);
+  }
+}
+
+.hidden {
+  @include visually-hidden;
+}
