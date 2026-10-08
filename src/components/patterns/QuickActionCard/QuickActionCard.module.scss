@@ -1,0 +1,95 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Card/Quick Action: 280×80, padding 16, gap 12, LG radius */
+.card {
+  --quick-bg: var(--color-background-surface);
+  --quick-border: var(--color-border-default);
+  --quick-circle: var(--color-brand-primary-subtle);
+  --quick-icon: var(--color-brand-primary);
+  --quick-title: var(--color-text-heading);
+  --quick-description: var(--color-text-secondary);
+  --quick-chevron: var(--color-brand-primary);
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  min-height: 5rem;
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--quick-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--quick-bg);
+  text-decoration: none;
+  transition: box-shadow var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+.primary {
+  --quick-bg: var(--color-brand-primary);
+  --quick-border: var(--color-brand-primary);
+  --quick-circle: var(--color-neutral-0);
+  --quick-icon: var(--color-brand-primary);
+  --quick-title: var(--color-text-on-primary);
+  --quick-description: var(--color-text-on-primary);
+  --quick-chevron: var(--color-neutral-0);
+}
+
+.whatsapp {
+  --quick-bg: var(--color-brand-whatsapp-soft);
+  --quick-border: var(--color-brand-whatsapp);
+  --quick-circle: var(--color-brand-whatsapp);
+  --quick-icon: var(--color-neutral-0);
+  --quick-title: var(--color-brand-whatsapp-ink);
+  --quick-description: var(--color-text-primary);
+  --quick-chevron: var(--color-brand-whatsapp-ink);
+}
+
+.emergency {
+  --quick-bg: var(--color-emergency-strong);
+  --quick-border: var(--color-emergency-strong);
+  --quick-circle: var(--color-neutral-0);
+  --quick-icon: var(--color-emergency-strong);
+  --quick-title: var(--color-text-on-primary);
+  --quick-description: var(--color-text-on-primary);
+  --quick-chevron: var(--color-neutral-0);
+}
+
+.circle {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--quick-circle);
+  color: var(--quick-icon);
+}
+
+.text {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.title {
+  color: var(--quick-title);
+
+  @include typography.style("heading-h5");
+}
+
+.description {
+  color: var(--quick-description);
+
+  @include typography.style("body-s");
+}
+
+.chevron {
+  color: var(--quick-chevron);
+}
