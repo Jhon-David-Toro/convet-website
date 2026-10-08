@@ -1,0 +1,87 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Inventory/Product Identity: padding 12/16/12/12, gap 12, MD radius; selected: subtle background and 2 border */
+.card {
+  --identity-bg: var(--color-background-surface);
+  --identity-border: var(--color-border-default);
+  --identity-border-width: var(--border-width-default);
+
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-16) var(--spacing-12) var(--spacing-12);
+  border: var(--identity-border-width) solid var(--identity-border);
+  border-radius: var(--radius-md);
+  background-color: var(--identity-bg);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include on-hover {
+    --identity-border: var(--color-border-strong);
+  }
+}
+
+.selected,
+.selected:hover,
+.selected[data-state="hover"] {
+  --identity-bg: var(--color-brand-primary-subtle);
+  --identity-border: var(--color-action-primary);
+  --identity-border-width: var(--border-width-strong);
+}
+
+.thumb {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-background-brand);
+}
+
+.text {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.name {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.presentation {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.ids {
+  display: flex;
+  gap: var(--spacing-12);
+}
+
+.sku {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-s");
+}
+
+.uuid {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("data-s");
+}
