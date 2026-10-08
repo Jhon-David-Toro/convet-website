@@ -1,0 +1,139 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.pet {
+  display: flex;
+  border: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+}
+
+/* Layout=Card: 360, padding 24, gap 16, XL radius */
+.card {
+  flex-direction: column;
+  gap: var(--spacing-16);
+  width: 100%;
+  padding: var(--spacing-24);
+  border-radius: var(--radius-xl);
+}
+
+/* Layout=Row: padding 12/16, gap 16, LG radius; the whole row is the link */
+.row {
+  position: relative;
+  align-items: center;
+  gap: var(--spacing-16);
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-lg);
+
+  @include on-hover {
+    background-color: var(--color-background-subtle);
+  }
+}
+
+.identity {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.nameBlock {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.name,
+.rowName {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.name {
+  @include typography.style("heading-h2");
+}
+
+.rowName {
+  @include typography.style("heading-h5");
+}
+
+.stretched {
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+}
+
+.meta {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--radius-md);
+  background-color: var(--color-feedback-error-background);
+  color: var(--color-feedback-error-text);
+
+  @include typography.style("label-m");
+}
+
+.facts {
+  display: flex;
+  gap: var(--spacing-24);
+  margin: 0;
+  padding: var(--spacing-16) 0 0;
+  border-top: var(--border-width-default) dashed var(--color-border-default);
+}
+
+/* Microchip (the first one) takes the free space; the others are as wide as their content */
+.fact:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.factLabel {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.factValue,
+.factMono {
+  margin: 0;
+  color: var(--color-text-primary);
+}
+
+.factValue {
+  @include typography.style("body-s-strong");
+}
+
+.factMono {
+  @include typography.style("data-s");
+}
+
+.footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
