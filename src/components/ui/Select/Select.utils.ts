@@ -47,10 +47,10 @@ export const findByLetter = (options: SelectOption[], letter: string, start: num
  * Whether the key press types a character (no modifier held).
  *
  * @param params Options, see {@link SelectKeyEvent}.
- * @param params.key The KeyboardEvent interface's **`key`** read-only property returns the value of the key pressed by the user, taking into consideration the state of modifier keys such as <kbd>Shift</kbd> as well as the keyboard locale and layout. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/key)
- * @param params.ctrlKey The **`KeyboardEvent.ctrlKey`** read-only property returns a boolean value that indicates if the <kbd>control</kbd> key was pressed (`true`) or not (`false`) when the event occurred. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/ctrlKey)
- * @param params.metaKey The **`KeyboardEvent.metaKey`** read-only property returning a boolean value that indicates if the <kbd>Meta</kbd> key was pressed (`true`) or not (`false`) when the event occurred. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/metaKey)
- * @param params.altKey The **`KeyboardEvent.altKey`** read-only property is a boolean value that indicates if the <kbd>alt</kbd> key (<kbd>Option</kbd> or <kbd>⌥</kbd> on macOS) was pressed (`true`) or not (`false`) when the event occurred. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/altKey)
+ * @param params.key Value of `KeyboardEvent.key`.
+ * @param params.ctrlKey Whether Ctrl is held.
+ * @param params.metaKey Whether Meta (Cmd) is held.
+ * @param params.altKey Whether Alt is held.
  * @returns `true` when the key press types a character (no modifier held).
  */
 export const isPrintableKey = ({ key, ctrlKey, metaKey, altKey }: SelectKeyEvent): boolean =>

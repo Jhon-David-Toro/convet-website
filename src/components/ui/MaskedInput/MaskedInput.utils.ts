@@ -51,8 +51,8 @@ const TIME_KEY_RESOLVERS: Record<string, (key: string, state: MaskedKeyState) =>
  * Whether a key press asks to open the date picker (Alt + Down Arrow).
  *
  * @param params Options, see {@link MaskedKeyEvent}.
- * @param params.altKey The **`KeyboardEvent.altKey`** read-only property is a boolean value that indicates if the <kbd>alt</kbd> key (<kbd>Option</kbd> or <kbd>⌥</kbd> on macOS) was pressed (`true`) or not (`false`) when the event occurred. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/altKey)
- * @param params.key The KeyboardEvent interface's **`key`** read-only property returns the value of the key pressed by the user, taking into consideration the state of modifier keys such as <kbd>Shift</kbd> as well as the keyboard locale and layout. [MDN Reference](https://developer.mozilla.org/docs/Web/API/KeyboardEvent/key)
+ * @param params.altKey Whether Alt is held.
+ * @param params.key Value of `KeyboardEvent.key`.
  * @returns `true` when a key press asks to open the date picker (Alt + Down Arrow).
  */
 const isOpenDatePickerKey = ({ altKey, key }: MaskedKeyEvent): boolean => altKey && key === KEYS.arrowDown;
