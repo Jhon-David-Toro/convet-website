@@ -1,0 +1,42 @@
+@use "abstracts/typography";
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) 0;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+  list-style: none;
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.vaccine,
+.dates,
+.lot {
+  margin: 0;
+}
+
+.vaccine {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.dates {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.lot {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("data-s");
+}
