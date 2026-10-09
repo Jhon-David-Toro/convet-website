@@ -67,14 +67,14 @@
   text-decoration: none;
 }
 
-/* The description does not appear in the Figma mobile footer */
+/* The description only appears in the Figma desktop footer */
 .about {
   display: none;
   max-width: 25.5rem;
   margin: 0;
   color: var(--color-neutral-300);
 
-  @include tablet {
+  @include desktop {
     display: block;
   }
 

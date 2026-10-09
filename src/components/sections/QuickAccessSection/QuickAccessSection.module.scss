@@ -1,0 +1,52 @@
+@use "abstracts" as *;
+
+/* Home/Quick Access: continues the ivory band of the hero; 1 column on mobile, 2 on tablet, 4 on desktop */
+.section {
+  padding-block: 0 var(--spacing-24);
+  background-color: var(--color-background-brand);
+
+  @include tablet {
+    padding-block: 0 var(--spacing-32);
+  }
+
+  @include desktop {
+    padding-block: 0 var(--spacing-48);
+  }
+}
+
+.grid {
+  @include content-container;
+
+  display: grid;
+  gap: var(--spacing-8);
+  margin-block: 0;
+  padding: 0;
+  list-style: none;
+
+  /* The chevron only appears on mobile, where each shortcut is a full-width row */
+  --quick-chevron-display: inline-flex;
+
+  @include tablet {
+    --quick-chevron-display: none;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-12);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+/* Every shortcut has the height of the tallest one in its row */
+.grid > li {
+  display: flex;
+}
+
+/* Nested in .grid so it wins over the display of the card regardless of CSS load order */
+.grid .hiddenOnMobile {
+  @include mobile-only {
+    display: none;
+  }
+}

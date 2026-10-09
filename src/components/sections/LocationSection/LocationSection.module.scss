@@ -1,0 +1,176 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Home/Location: map and contact information. Subtle ivory below desktop, white on desktop. */
+.section {
+  padding-block: var(--spacing-32);
+
+  @include tablet {
+    padding-block: var(--spacing-40);
+  }
+  background-color: var(--color-background-subtle);
+
+  @include desktop {
+    padding-block: var(--spacing-48);
+    background-color: var(--color-background-page);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include tablet {
+    gap: var(--spacing-20);
+  }
+
+  @include desktop {
+    gap: var(--spacing-24);
+  }
+}
+
+.row {
+  display: grid;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1fr) 32.5rem;
+    align-items: start;
+    gap: var(--spacing-32);
+  }
+}
+
+/* The map is shorter than 16:9 below desktop and has no "Open in Google Maps" button there */
+.map {
+  --map-open-display: none;
+
+  aspect-ratio: auto;
+  height: 12.5rem;
+
+  @include tablet {
+    height: 16.25rem;
+  }
+
+  @include desktop {
+    --map-open-display: inline-flex;
+
+    height: 22.5rem;
+  }
+}
+
+/* Plain content below desktop; bordered card on desktop */
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    padding: var(--spacing-24);
+    border: var(--border-width-default) solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-background-surface);
+  }
+}
+
+.lines {
+  display: grid;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet-only {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+
+  @include desktop {
+    gap: var(--spacing-16);
+  }
+}
+
+.line {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+}
+
+.lineText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.lineTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.lineDetail {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+/* Short and full details: the short one shows below desktop, the full one from desktop */
+.short {
+  @include desktop {
+    display: none;
+  }
+}
+
+.full {
+  display: none;
+
+  @include desktop {
+    display: inline;
+  }
+}
+
+/* Emergency line: red title; soft red card on desktop */
+.line:last-child .lineTitle {
+  color: var(--color-emergency-strong);
+}
+
+.line:last-child {
+  @include desktop {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-md);
+    background-color: var(--color-emergency-soft);
+  }
+}
+
+.actions {
+  display: grid;
+  gap: var(--spacing-12);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Nested in .actions so it wins over the Button styles regardless of CSS load order */
+.actions .whatsappButton {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.hiddenOnMobile {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+/* Mobile shows only the title; the eyebrow and the brush underline come from tablet */
+.header > p,
+.header > svg {
+  @include mobile-only {
+    display: none;
+  }
+}

@@ -1,0 +1,173 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Home/Hero: ivory band with a paw watermark; copy and photo side by side from desktop */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--spacing-16);
+  background-color: var(--color-background-brand);
+
+  @include tablet {
+    padding-block: var(--spacing-24) var(--spacing-20);
+  }
+
+  @include desktop {
+    padding-block: var(--spacing-48);
+  }
+}
+
+/* 720×540 watermark, partly outside the band as in Figma */
+.pattern {
+  position: absolute;
+  top: -1.25rem;
+  left: -2.5rem;
+  width: 45rem;
+}
+
+.inner {
+  @include content-container;
+
+  position: relative;
+  display: grid;
+  gap: var(--spacing-16);
+
+  @include tablet {
+    gap: var(--spacing-20);
+  }
+
+  @include desktop {
+    grid-template-columns: minmax(0, 36rem) minmax(0, 35rem);
+    justify-content: space-between;
+    gap: var(--spacing-64);
+  }
+}
+
+/* Mobile and tablet: photo first. Desktop: copy on the left. */
+.copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  order: 2;
+
+  @include tablet {
+    gap: var(--spacing-20);
+  }
+
+  @include desktop {
+    order: 1;
+  }
+}
+
+.frame {
+  position: relative;
+  order: 1;
+  height: 11.25rem;
+  overflow: hidden;
+  border: 0.375rem solid var(--color-brand-gold);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-muted);
+
+  @include tablet {
+    height: 17.5rem;
+  }
+
+  @include desktop {
+    order: 2;
+    height: 31.25rem;
+    align-self: center;
+  }
+}
+
+.photo {
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+/* The badge is not in the mobile design. Nested in .copy so it wins over the Badge styles regardless of CSS load order. */
+.copy .badge {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.headline {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
+}
+
+.line {
+  display: block;
+}
+
+.lead {
+  max-width: 36rem;
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+
+  @include desktop {
+    @include typography.style("body-l");
+  }
+}
+
+/* Mobile shows the short text, tablet and desktop the full one */
+.leadShort {
+  @include tablet {
+    display: none;
+  }
+}
+
+.leadFull {
+  display: none;
+
+  @include tablet {
+    display: inline;
+  }
+}
+
+/* Mobile: stacked full-width buttons. Tablet and up: side by side. */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  gap: var(--spacing-8);
+
+  @include tablet {
+    flex-direction: row;
+    gap: var(--spacing-12);
+  }
+
+  @include desktop {
+    align-self: flex-start;
+  }
+}
+
+/* Side by side from tablet: equal widths on tablet, natural width on desktop. Stacked on mobile: natural height. */
+.actions > a {
+  @include tablet {
+    flex: 1 1 0;
+  }
+
+  @include desktop {
+    flex: 0 0 auto;
+  }
+}
+
+/* Figma: the 96px card lets its text overflow the 16px padding, so the vertical padding is 6px */
+.copy .emergency {
+  padding-block: 0.375rem;
+
+  /* On mobile the fixed action bar already has the SOS button */
+  @include mobile-only {
+    --emergency-call-display: none;
+  }
+}

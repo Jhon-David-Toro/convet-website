@@ -91,5 +91,6 @@
 }
 
 .chevron {
+  display: var(--quick-chevron-display, inline-flex);
   color: var(--quick-chevron);
 }
