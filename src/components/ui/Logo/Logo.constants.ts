@@ -1,5 +1,5 @@
-/** Public path of the circular seal image. */
-export const LOGO_MARK_SRC = "/brand/logo-mark.jpg";
+/** Name of the circular seal image (see `photoUrl`; hosted on Cloudinary). */
+export const LOGO_MARK_NAME = "logo-mark";
 
 /** Intrinsic size in px of the seal image (square). */
 export const LOGO_MARK_SIZE = 150;

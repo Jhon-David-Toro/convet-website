@@ -1,9 +1,10 @@
 import Image from "next/image";
 
 import { cx } from "@/lib/cx";
+import { photoUrl } from "@/lib/photos";
 
 import styles from "./Logo.module.scss";
-import { FULL_VARIANT, INVERSE_TONE, LOGO_ALT, LOGO_MARK_SIZE, LOGO_MARK_SRC, MARK_VARIANT } from "./Logo.constants";
+import { FULL_VARIANT, INVERSE_TONE, LOGO_ALT, LOGO_MARK_NAME, LOGO_MARK_SIZE, MARK_VARIANT } from "./Logo.constants";
 import type { LogoProps } from "./Logo.types";
 
 /**
@@ -22,7 +23,7 @@ export function Logo({ variant = "full", tone = "default", className, ...rest }:
   return (
     <span {...rest} className={classes}>
       {/* The seal is decorative in the full version (the name is already in the text) */}
-      <Image src={LOGO_MARK_SRC} alt={variant === MARK_VARIANT ? LOGO_ALT : ""} width={LOGO_MARK_SIZE} height={LOGO_MARK_SIZE} className={styles.image} priority />
+      <Image src={photoUrl(LOGO_MARK_NAME)} alt={variant === MARK_VARIANT ? LOGO_ALT : ""} width={LOGO_MARK_SIZE} height={LOGO_MARK_SIZE} className={styles.image} priority />
       {variant === FULL_VARIANT && (
         <span className={styles.wordmark}>
           <span className={styles.name}>CONVET</span>
