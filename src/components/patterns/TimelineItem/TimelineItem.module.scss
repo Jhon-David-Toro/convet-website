@@ -1,0 +1,86 @@
+@use "abstracts/typography";
+
+.item {
+  display: flex;
+  gap: var(--spacing-16);
+  padding-bottom: var(--spacing-24);
+  list-style: none;
+}
+
+.visit {
+  --timeline-bg: var(--color-brand-primary-subtle);
+  --timeline-fg: var(--color-text-brand);
+}
+
+.vaccine {
+  --timeline-bg: var(--color-success-soft);
+  --timeline-fg: var(--color-feedback-success-text);
+}
+
+.treatment {
+  --timeline-bg: var(--color-brand-accent-soft);
+  --timeline-fg: var(--color-brand-accent-ink);
+}
+
+.document {
+  --timeline-bg: var(--color-background-muted);
+  --timeline-fg: var(--color-text-secondary);
+}
+
+.rail {
+  display: flex;
+  flex: 0 0 2.25rem;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: var(--radius-full);
+  background-color: var(--timeline-bg);
+  color: var(--timeline-fg);
+}
+
+.line {
+  flex: 1 1 auto;
+  width: 2px;
+  min-height: 2rem;
+  background-color: var(--color-border-default);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.title,
+.meta,
+.summary {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.meta {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("body-s");
+}
+
+.summary {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
