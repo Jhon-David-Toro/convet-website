@@ -1,0 +1,94 @@
+@use "abstracts/typography";
+
+/* Schedule/Event: schedule card, MD radius, 4 px status bar */
+.event {
+  --event-bar: var(--color-action-primary);
+  --event-bg: var(--color-background-surface);
+
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--event-bg);
+}
+
+.scheduled {
+  --event-bar: var(--color-action-primary);
+}
+
+/* "Booked online" is a request not yet confirmed: dashed border */
+.newOnline {
+  --event-bar: var(--color-action-primary);
+
+  border-style: dashed;
+}
+
+.arrived {
+  --event-bar: var(--color-brand-accent);
+  --event-bg: var(--color-brand-accent-soft);
+}
+
+.inProgress {
+  --event-bar: var(--color-info-strong);
+  --event-bg: var(--color-info-soft);
+}
+
+.completed {
+  --event-bar: var(--color-success-strong);
+  --event-bg: var(--color-background-subtle);
+}
+
+.noShow {
+  --event-bar: var(--color-error-strong);
+  --event-bg: var(--color-background-subtle);
+}
+
+.bar {
+  flex: 0 0 0.25rem;
+  background-color: var(--event-bar);
+}
+
+.body {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+  padding: var(--spacing-12);
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.meta {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.alert {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  color: var(--color-feedback-error-text);
+
+  @include typography.style("label-s");
+}
