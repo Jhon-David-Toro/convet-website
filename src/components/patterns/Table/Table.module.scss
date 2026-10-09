@@ -1,0 +1,110 @@
+@use "abstracts/typography";
+
+/* Table/Header Cell: 44 px, subtle background, bottom border */
+.header {
+  height: 2.75rem;
+  padding: 0 var(--spacing-16);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-subtle);
+  color: var(--color-text-secondary);
+  text-align: left;
+
+  @include typography.style("overline");
+}
+
+.right {
+  text-align: right;
+}
+
+.right .headerContent,
+.right .sortButton {
+  justify-content: flex-end;
+}
+
+.headerContent,
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+}
+
+.sortButton {
+  position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  cursor: pointer;
+
+  /* 44px touch target */
+  &::after {
+    content: "";
+    position: absolute;
+    inset: calc((2.75rem - 100%) / -2) calc(var(--spacing-8) * -1);
+  }
+}
+
+.flipped {
+  rotate: 180deg;
+}
+
+/* Table/Cell: 56 px, horizontal padding 16 */
+.cell {
+  height: 3.5rem;
+  padding: 0 var(--spacing-16);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-secondary);
+  text-align: left;
+  vertical-align: middle;
+
+  @include typography.style("body-s");
+}
+
+.strong,
+.number {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.mono {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-m");
+}
+
+.number,
+.actions {
+  text-align: right;
+}
+
+.avatar {
+  display: table-cell;
+}
+
+.avatar > :first-child {
+  margin-right: var(--spacing-12);
+  vertical-align: middle;
+}
+
+.textGroup {
+  display: inline-flex;
+  flex-direction: column;
+  vertical-align: middle;
+}
+
+.value {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.secondary {
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
