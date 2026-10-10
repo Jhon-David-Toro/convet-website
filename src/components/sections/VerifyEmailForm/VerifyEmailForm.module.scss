@@ -1,0 +1,21 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.error {
+  margin: calc(var(--spacing-8) * -1) 0 0;
+  color: var(--color-error-strong);
+
+  @include typography.style("body-s");
+}
+
+/* "Didn't get it?" and the resend button on one line */
+.resend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-4);
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
