@@ -1,0 +1,168 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Auth pages: 620px brand panel and the form centered in the rest from desktop; just the form below */
+.layout {
+  display: block;
+  min-height: 100vh;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: 38.75rem minmax(0, 1fr);
+  }
+}
+
+.panel {
+  position: relative;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--spacing-32);
+  overflow: hidden;
+  padding: var(--spacing-48) var(--spacing-64);
+  background-color: var(--color-background-brand);
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.panel .pattern {
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.home {
+  position: relative;
+  align-self: flex-start;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Photo: 492×240 inside the gold frame of the brand */
+.frame {
+  position: relative;
+  height: 15rem;
+  overflow: hidden;
+  border: 0.375rem solid var(--color-brand-gold);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-muted);
+}
+
+.photo {
+  object-fit: cover;
+  object-position: 50% 30%;
+}
+
+.message {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.messageTitle,
+.messageCopy {
+  margin: 0;
+}
+
+.messageTitle {
+  color: var(--color-text-heading);
+  text-transform: uppercase;
+
+  @include typography.style("heading-h2");
+}
+
+.messageCopy {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.area {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.top {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-16) 0;
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.mark {
+  display: inline-flex;
+  padding-left: var(--spacing-4);
+}
+
+.content {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  width: min(100%, 27.5rem);
+  margin-inline: auto;
+  padding: var(--spacing-24) var(--spacing-16) var(--spacing-32);
+
+  @include desktop {
+    justify-content: center;
+    padding: var(--spacing-48) 0;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.loose {
+  gap: var(--spacing-24);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("heading-h1");
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-primary-subtle);
+}
+
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
