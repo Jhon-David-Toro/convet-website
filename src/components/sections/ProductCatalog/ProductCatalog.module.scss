@@ -1,0 +1,135 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Products/Catalog: 264px filters column and 896px results from desktop (40px gap) */
+.section {
+  padding-block: var(--spacing-24) var(--spacing-48);
+
+  @include desktop {
+    padding-block: var(--spacing-48);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: 16.5rem minmax(0, 1fr);
+    align-items: start;
+    gap: var(--spacing-40);
+  }
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+/* Checkbox groups and the alert are desktop only; mobile and tablet keep the search field and the chips */
+.groups,
+.info {
+  @include mobile-only {
+    display: none;
+  }
+
+  @include tablet-only {
+    display: none;
+  }
+}
+
+.groups {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.groupTitle {
+  padding: 0;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  min-width: 0;
+}
+
+/* Toolbar: the chips scroll sideways on mobile; the counter sits at the right from tablet */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.chips {
+  display: flex;
+  gap: var(--spacing-8);
+  padding-bottom: var(--spacing-4);
+  overflow-x: auto;
+
+  @include tablet {
+    flex-wrap: wrap;
+    padding-bottom: 0;
+    overflow-x: visible;
+  }
+}
+
+.chips > * {
+  flex: 0 0 auto;
+}
+
+.count {
+  display: none;
+  margin: 0;
+  color: var(--color-text-secondary);
+  white-space: nowrap;
+
+  @include typography.style("body-s");
+
+  @include tablet {
+    display: block;
+  }
+}
+
+/* Grid: 1 column on mobile, 2 on tablet and 3 on desktop; cards keep their own height like in Figma */
+.grid {
+  display: grid;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-24);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.item {
+  align-self: start;
+}
