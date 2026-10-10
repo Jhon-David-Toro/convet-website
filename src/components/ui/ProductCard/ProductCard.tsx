@@ -15,6 +15,7 @@ import type { ProductCardProps } from "./ProductCard.types";
  * @param props.image Product photo; without it the illustration is shown.
  * @param props.category Category of the product.
  * @param props.name Name to show.
+ * @param props.href Link to the product page; when given, the whole card opens it.
  * @param props.description Description text under the title.
  * @param props.prescription Shows the "Prescription only" label.
  * @param props.askHref Link of the availability inquiry.
@@ -23,12 +24,12 @@ import type { ProductCardProps } from "./ProductCard.types";
  * @param props.rest Remaining properties, forwarded to the root element.
  * @returns The rendered element.
  */
-export function ProductCard({ image, category, name, description, prescription = false, askHref, askLabel = "Ask about availability", className, ...rest }: ProductCardProps) {
+export function ProductCard({ image, category, name, href, description, prescription = false, askHref, askLabel = "Ask about availability", className, ...rest }: ProductCardProps) {
   return (
     <article {...rest} className={cx(styles.card, className)}>
       <MediaImage subject="product" src={image?.src} alt={image?.alt} className={styles.image} />
       <div className={styles.body}>
-        <ProductText category={category} name={name} description={description} />
+        <ProductText category={category} name={name} href={href} description={description} />
         {prescription && (
           <Badge tone="info" icon={Stethoscope}>
             Prescription only

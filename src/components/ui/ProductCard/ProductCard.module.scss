@@ -1,7 +1,9 @@
+@use "abstracts" as *;
 @use "abstracts/typography";
 
 /* Card/Product: 180px image on top and a body with padding 20 and gap 8; the border clips the image */
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -38,6 +40,26 @@
   @include typography.style("heading-h5");
 }
 
+/* Stretched link: the whole card opens the product page, the ask button stays above it */
+.link {
+  color: inherit;
+  text-decoration: none;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  &:focus-visible {
+    outline: none;
+
+    &::after {
+      @include focus-ring;
+    }
+  }
+}
+
 .description {
   margin: 0;
   color: var(--color-text-secondary);
@@ -46,5 +68,6 @@
 }
 
 .ask {
+  position: relative;
   width: 100%;
 }
