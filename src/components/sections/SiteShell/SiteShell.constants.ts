@@ -1,3 +1,4 @@
+import { SIGN_IN_HREF } from "@/lib/auth.constants";
 import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
 
 import type { SiteFooterContent, SiteHeaderContent } from "./SiteShell.types";
@@ -12,7 +13,7 @@ export const SITE_HEADER: SiteHeaderContent = {
     { label: "Contact", href: "/contact" },
   ],
   bookHref: BOOKING_HREF,
-  signInHref: "/sign-in",
+  signInHref: SIGN_IN_HREF,
   whatsappHref: WHATSAPP_HREF,
 };
 

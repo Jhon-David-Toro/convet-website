@@ -17,11 +17,8 @@ export const TOPIC_OPTIONS: SelectOption[] = [
   { value: "other", label: "Something else" },
 ];
 
-export const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 export const ERROR_MESSAGES = {
   name: "Enter your name.",
-  email: "Enter an email like name@example.com.",
   topic: "Choose a topic.",
   message: "Write a short message.",
   consent: "Please agree so we can reply to you.",

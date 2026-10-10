@@ -1,8 +1,10 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
+import { hasErrors } from "@/lib/validation.utils";
+
 import type { ContactFormState, UseContactFormParams } from "../ContactSection.types";
-import { hasErrors, validateContact } from "../ContactSection.utils";
+import { validateContact } from "../ContactSection.utils";
 import { useContactFields } from "./useContactFields";
 
 /**

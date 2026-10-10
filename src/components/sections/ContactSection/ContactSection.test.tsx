@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { ContactSection } from "./ContactSection";
-import { validateContact, validateEmail } from "./ContactSection.utils";
+import { validateContact } from "./ContactSection.utils";
 
 /**
  * Fills the form with valid data, leaving the consent unchecked.
@@ -56,11 +56,6 @@ describe("ContactSection", () => {
 });
 
 describe("contact validation", () => {
-  it("accepts a normal address and rejects an incomplete one", () => {
-    expect(validateEmail("anna@example.com")).toBeUndefined();
-    expect(validateEmail("anna@example")).toBeDefined();
-  });
-
   it("returns no error for a complete form", () => {
     const values = { name: "Anna", phone: "", email: "a@b.co", topic: "general", message: "Hi", consent: true };
     expect(validateContact(values)).toEqual({});

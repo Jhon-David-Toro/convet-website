@@ -1,8 +1,9 @@
 import { useState } from "react";
 
+import { validateEmail } from "@/lib/validation.utils";
+
 import { EMPTY_VALUES } from "../ContactSection.constants";
 import type { ContactErrors, ContactFieldsState, ContactValues } from "../ContactSection.types";
-import { validateEmail } from "../ContactSection.utils";
 
 /**
  * Values and error messages of the contact form fields.
