@@ -1,0 +1,48 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Sign in: remember checkbox and forgot link on one row, a line with a label as divider, and the staff note */
+.options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+
+  @include tablet {
+    gap: var(--spacing-24);
+  }
+}
+
+.options > :first-child {
+  white-space: nowrap;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+
+  &::before,
+  &::after {
+    content: "";
+    flex: 1 1 0;
+    height: var(--border-width-default);
+    background-color: var(--color-border-default);
+  }
+}
+
+.dividerLabel {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("body-s");
+}
+
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-tertiary);
+
+  @include typography.style("caption");
+}
