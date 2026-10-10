@@ -1,0 +1,28 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Sign up: first and last name share a row at every size (16px gap) */
+.names {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16);
+}
+
+.error {
+  margin: var(--spacing-4) 0 0;
+  color: var(--color-error-strong);
+
+  @include typography.style("body-s");
+}
+
+/* "Already have an account?" and the sign-in link, centered */
+.haveAccount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-4);
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
