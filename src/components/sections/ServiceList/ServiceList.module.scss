@@ -1,0 +1,137 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Services/List: filters, rows and help alert in a 1200px column; 64px of vertical padding on desktop */
+.section {
+  padding-block: var(--spacing-32);
+
+  @include desktop {
+    padding-block: var(--spacing-64);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-40);
+  }
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    gap: var(--spacing-24);
+  }
+}
+
+/* Service/Row: 32px padding and 24px radius; icon, text and actions side by side from desktop */
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    padding: var(--spacing-32);
+  }
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-40);
+  }
+}
+
+.iconWrap {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-xl);
+  background-color: var(--color-brand-primary-subtle);
+
+  @include desktop {
+    width: 6rem;
+    height: 6rem;
+  }
+}
+
+.text {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  min-width: 0;
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h2");
+}
+
+.description {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8) var(--spacing-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.highlight {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s");
+}
+
+/* Actions: stacked and as wide as the text on mobile, a 220px column on desktop */
+.actions {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--spacing-8);
+
+  @include desktop {
+    align-items: center;
+    min-width: 13.75rem;
+  }
+}
