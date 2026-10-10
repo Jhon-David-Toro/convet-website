@@ -1,0 +1,237 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Product Detail: a 560px gallery and a 576px information column (64px gap) from desktop */
+.detail {
+  padding-block: var(--spacing-16) var(--spacing-32);
+
+  @include desktop {
+    padding-block: var(--spacing-40);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    gap: var(--spacing-40);
+  }
+}
+
+.columns {
+  display: grid;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 35rem) minmax(0, 36rem);
+    align-items: start;
+    gap: var(--spacing-64);
+  }
+}
+
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  min-width: 0;
+}
+
+/* Main image: 560×480 on desktop (the library image is 4:3) */
+.mainImage {
+  @include desktop {
+    aspect-ratio: 560 / 480;
+  }
+}
+
+.thumbnails {
+  display: flex;
+  gap: var(--spacing-12);
+}
+
+.thumbnail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 0;
+  border: var(--border-width-default) solid transparent;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-brand-primary-subtle);
+  cursor: pointer;
+
+  @include desktop {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &:focus-visible {
+    @include focus-ring;
+  }
+}
+
+.thumbnailActive {
+  border: var(--border-width-medium) solid var(--color-brand-primary);
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  min-width: 0;
+
+  @include desktop {
+    gap: var(--spacing-20);
+  }
+}
+
+.category,
+.name,
+.description,
+.note {
+  margin: 0;
+}
+
+.category {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.name {
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("heading-h1");
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.description {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-l");
+}
+
+/* Specs: label and value rows separated by hairlines inside a rounded card */
+.specs {
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.spec {
+  display: grid;
+  gap: var(--spacing-4);
+  padding-block: var(--spacing-16);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @include tablet {
+    grid-template-columns: 10rem minmax(0, 1fr);
+    gap: var(--spacing-16);
+  }
+}
+
+.specLabel {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.specValue {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+/* Both actions share the width of the column from tablet */
+.actions > a {
+  @include tablet {
+    flex: 1 1 0;
+  }
+}
+
+.note {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("body-s");
+}
+
+/* Related products: subtle band, 1 / 2 / 4 columns */
+.related {
+  padding-block: var(--spacing-48);
+  background-color: var(--color-background-subtle);
+
+  @include desktop {
+    padding-block: var(--spacing-96);
+  }
+}
+
+.relatedInner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-40);
+  }
+}
+
+.relatedTitle {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h2");
+}
+
+.relatedGrid {
+  display: grid;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-24);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.relatedItem {
+  align-self: start;
+}
