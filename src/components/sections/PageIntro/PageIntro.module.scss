@@ -1,0 +1,30 @@
+@use "abstracts" as *;
+
+/* Page Intro: ivory band, 64px of padding on desktop and 40px between breadcrumbs and header */
+.intro {
+  padding-block: var(--spacing-24);
+  background-color: var(--color-background-brand);
+
+  @include tablet {
+    padding-block: var(--spacing-48);
+  }
+
+  @include desktop {
+    padding-block: var(--spacing-64);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  /* The header spans the whole 1200px column, so the description stays on one line when it fits */
+  --section-header-max-width: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-40);
+  }
+}
