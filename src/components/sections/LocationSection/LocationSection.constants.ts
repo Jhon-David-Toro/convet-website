@@ -1,5 +1,5 @@
 import { Clock, MapPin, Phone, WhatsApp } from "@/components/ui/Icon";
-import { EMERGENCY_PHONE, WHATSAPP_PHONE } from "@/lib/site.constants";
+import { CLINIC_ADDRESS, EMERGENCY_PHONE, WHATSAPP_PHONE } from "@/lib/site.constants";
 
 import type { ContactLineItem } from "./LocationSection.types";
 
@@ -14,7 +14,7 @@ export const CONTACT_ICON_SIZE = 20;
 
 /** Where and when to find the clinic, in display order. */
 export const CONTACT_LINES: ContactLineItem[] = [
-  { id: "address", icon: MapPin, iconTone: "brand", title: "Aruba", detail: "Street address to confirm · Free parking", detailShort: "Street address to confirm" },
+  { id: "address", icon: MapPin, iconTone: "brand", title: CLINIC_ADDRESS, detail: "Free parking" },
   { id: "hours", icon: Clock, iconTone: "brand", title: "Mon–Fri 8:00 AM – 6:00 PM", detail: "Sat 9:00 AM – 1:00 PM · Sun closed" },
   { id: "whatsapp", icon: WhatsApp, iconTone: "whatsapp", title: `WhatsApp ${WHATSAPP_PHONE}`, detail: "Questions, booking help and appointment updates", detailShort: "Booking help and updates" },
 ];

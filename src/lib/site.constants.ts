@@ -14,7 +14,10 @@ export const WHATSAPP_HREF = "https://wa.me/2975930404";
 export const BOOKING_HREF = "/book";
 
 /** Address or "lat,lng" of the clinic, used by the map and the directions link. */
-export const CLINIC_LOCATION = process.env.NEXT_PUBLIC_CLINIC_LOCATION || "Oranjestad, Aruba";
+export const CLINIC_LOCATION = process.env.NEXT_PUBLIC_CLINIC_LOCATION || "Savaneta 40A, Oranjestad, Aruba";
+
+/** Street address shown in the page copy (the map keeps the full location). */
+export const CLINIC_ADDRESS = "Savaneta 40A, Oranjestad";
 
 /** Google Maps Embed API key; without it the stylized map is shown. */
 export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;

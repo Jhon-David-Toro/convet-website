@@ -1,4 +1,4 @@
-import { BOOKING_HREF, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
+import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
 
 import type { HomeFooterContent, HomeHeaderContent } from "./page.types";
 
@@ -32,7 +32,7 @@ export const HOME_FOOTER: HomeFooterContent = {
     {
       heading: "Visit us",
       items: [
-        { label: "Aruba · address to confirm" },
+        { label: CLINIC_ADDRESS },
         { label: "Mon–Fri 8:00 AM – 6:00 PM" },
         { label: "Sat 9:00 AM – 1:00 PM" },
         { label: "Sun closed" },
