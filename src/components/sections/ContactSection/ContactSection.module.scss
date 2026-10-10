@@ -1,0 +1,196 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Contact: header, then a 632px form and a 520px side column (48px gap) from desktop */
+.section {
+  padding-block: var(--spacing-32);
+
+  @include desktop {
+    padding-block: var(--spacing-64);
+  }
+}
+
+.inner {
+  @include content-container;
+
+  --section-header-max-width: none;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-40);
+  }
+}
+
+.columns {
+  display: grid;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 39.5fr) minmax(0, 32.5fr);
+    align-items: start;
+    gap: var(--spacing-48);
+  }
+}
+
+/* Form card: 32px padding on desktop and 20px between fields */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include desktop {
+    padding: var(--spacing-32);
+  }
+}
+
+.formTitle {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h3");
+}
+
+/* Name and phone share a row from tablet */
+.row {
+  display: grid;
+  gap: var(--spacing-20);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+.consentError {
+  margin: var(--spacing-4) 0 0;
+  color: var(--color-error-strong);
+
+  @include typography.style("body-s");
+}
+
+.submit {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  min-width: 0;
+}
+
+/* Quick contact: ivory card with a soft brand border */
+.quick {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-brand-primary-soft);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-brand);
+}
+
+.quickTitle,
+.quickText {
+  margin: 0;
+}
+
+.quickTitle {
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h4");
+}
+
+.quickText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.quickActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.quickActions > a {
+  @include tablet {
+    flex: 1 1 0;
+  }
+}
+
+/* Map: 520×300 on desktop, without the "open in Google Maps" button (Figma) */
+.map {
+  --map-open-display: none;
+
+  @include desktop {
+    height: 18.75rem;
+    aspect-ratio: auto;
+  }
+}
+
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.hoursTitle {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("heading-h5");
+}
+
+.hoursList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin: 0;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+
+  dt,
+  dd {
+    margin: 0;
+  }
+
+  dd {
+    color: var(--color-text-primary);
+  }
+}
+
+/* The main schedule uses the brand color for both columns */
+.hoursRow.highlight {
+  color: var(--color-text-brand);
+
+  @include typography.style("body-s-strong");
+
+  dd {
+    color: var(--color-text-brand);
+  }
+}
