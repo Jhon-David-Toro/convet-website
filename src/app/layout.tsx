@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 
+import { photoUrl } from "@/lib/photos";
 import "@/styles/globals.scss";
 
 import { fontVariables } from "./fonts";
+import { FAVICON_TRANSFORM } from "./layout.constants";
 import type { RootLayoutProps } from "./layout.types";
 
-/** Default page metadata: title and description. */
+/** Default page metadata: title, description and the round logo as favicon. */
 export const metadata: Metadata = {
   title: "CONVET",
   description: "Always animals first",
+  icons: { icon: photoUrl("logo-mark", FAVICON_TRANSFORM) },
 };
 
 /**
