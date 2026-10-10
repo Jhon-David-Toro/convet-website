@@ -1,10 +1,7 @@
-/** Width in px of the Figma frame the paw positions are measured on. */
 export const PAW_PATTERN_WIDTH = 480;
 
-/** Height in px of the Figma frame the paw positions are measured on. */
 export const PAW_PATTERN_HEIGHT = 360;
 
-/** Paw prints on the 480×360 Figma frame: position (x, y) in px, size in px and rotation in degrees. */
 export const PAW_PATTERN_PAWS = [
   { x: 30, y: 30, size: 64, rotate: -20 },
   { x: 210, y: 70, size: 44, rotate: 15 },
