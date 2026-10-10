@@ -19,8 +19,9 @@ describe("Icon", () => {
   it("keeps a 1.75px stroke at every size", () => {
     const { container, rerender } = render(<Icon icon={Paw} size="large" />);
     expect(container.querySelector("svg")).toHaveAttribute("stroke-width", "1.75");
-    // 20px: the stroke is compensated (1.75 × 24 / 20) so it renders at 1.75px
+    // non-scaling stroke: the line keeps its width when the icon is drawn at 20px
     rerender(<Icon icon={Paw} size="medium" />);
-    expect(container.querySelector("svg")).toHaveAttribute("stroke-width", "2.1");
+    expect(container.querySelector("svg")).toHaveAttribute("stroke-width", "1.75");
+    expect(container.querySelector("svg path")).toHaveAttribute("vector-effect", "non-scaling-stroke");
   });
 });

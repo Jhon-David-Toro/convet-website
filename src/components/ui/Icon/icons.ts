@@ -1,4 +1,4 @@
-import { createLucideIcon, type IconNode, type LucideIcon } from "lucide-react";
+import { createLucideIcon, type LucideIconNode, type LucideIcon } from "lucide-react";
 
 /**
  * Figma icon set ("02 — Components › Icons"): 24px, stroke 1.75, rounded caps.
@@ -12,7 +12,7 @@ import { createLucideIcon, type IconNode, type LucideIcon } from "lucide-react";
 const icon = (name: string, ...paths: string[]): LucideIcon =>
   createLucideIcon(
     name,
-    paths.map((d, index): IconNode[number] => ["path", { d, key: String(index) }]),
+    paths.map((d, index): LucideIconNode => ["path", { d, key: String(index) }]),
   );
 
 /** Paw icon (24px grid, 1.75 stroke). */

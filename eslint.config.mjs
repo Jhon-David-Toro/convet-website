@@ -7,6 +7,12 @@ const eslintConfig = defineConfig([
   ...nextTs,
   // Cyclomatic complexity: same metric as the VS Code "Code Metrics" extension
   { rules: { complexity: ["warn", 10] } },
+  // Nothing deprecated: needs type information to know what is marked @deprecated
+  {
+    files: ["**/*.{ts,tsx}"],
+    languageOptions: { parserOptions: { projectService: true } },
+    rules: { "@typescript-eslint/no-deprecated": "error" },
+  },
   // Override default ignores of eslint-config-next.
   globalIgnores([
     // Default ignores of eslint-config-next:

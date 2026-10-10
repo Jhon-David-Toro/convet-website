@@ -32,7 +32,7 @@ export function Icon({ icon: IconComponent, size = "medium", tone = "inherit", l
       className={classes}
       size={typeof size === "number" ? size : ICON_PIXEL_SIZES[size]}
       strokeWidth={ICON_STROKE_WIDTH}
-      absoluteStrokeWidth
+      nonScalingStroke
       focusable="false"
       {...accessibilityProps}
     />
