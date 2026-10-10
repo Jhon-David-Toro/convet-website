@@ -1,28 +1,19 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LocationSection } from "@/components/sections/LocationSection";
-import { MobileQuickActions } from "@/components/sections/MobileQuickActions";
 import { QuickAccessSection } from "@/components/sections/QuickAccessSection";
-import { Footer } from "@/components/ui/Footer";
-import { Header } from "@/components/ui/Header";
-
-import { HOME_FOOTER, HOME_HEADER } from "./page.constants";
+import { SiteShell } from "@/components/sections/SiteShell";
 
 /**
- * Home page of the clinic: hero, quick access, location and footer.
+ * Home page of the clinic: hero, quick access and location inside the shared page frame.
  *
  * @returns The rendered element.
  */
 export default function Home() {
   return (
-    <>
-      <Header {...HOME_HEADER} />
-      <main>
-        <HeroSection />
-        <QuickAccessSection />
-        <LocationSection />
-      </main>
-      <Footer {...HOME_FOOTER} />
-      <MobileQuickActions />
-    </>
+    <SiteShell current="/">
+      <HeroSection />
+      <QuickAccessSection />
+      <LocationSection />
+    </SiteShell>
   );
 }

@@ -1,11 +1,12 @@
 import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
 
-import type { HomeFooterContent, HomeHeaderContent } from "./page.types";
+import type { SiteFooterContent, SiteHeaderContent } from "./SiteShell.types";
 
-/** Navigation, booking, sign in and WhatsApp links of the header. */
-export const HOME_HEADER: HomeHeaderContent = {
+export const HOME_PATH = "/";
+
+export const SITE_HEADER: SiteHeaderContent = {
   links: [
-    { label: "Home", href: "/", active: true },
+    { label: "Home", href: "/" },
     { label: "Services", href: "/services" },
     { label: "Products", href: "/products" },
     { label: "Contact", href: "/contact" },
@@ -15,8 +16,7 @@ export const HOME_HEADER: HomeHeaderContent = {
   whatsappHref: WHATSAPP_HREF,
 };
 
-/** Brand text, link columns and legal line of the footer. */
-export const HOME_FOOTER: HomeFooterContent = {
+export const SITE_FOOTER: SiteFooterContent = {
   about: "Care and advanced medicine for many species of animals. Small animals · Large animals · Exotics.",
   motto: { text: "Same heart. Same care.", highlight: "Always animals first." },
   columns: [
