@@ -3,6 +3,8 @@ import { Calendar, Phone, WhatsApp } from "@/components/ui/Icon";
 import { MobileActionBar } from "@/components/ui/MobileActionBar";
 import { BOOKING_HREF, EMERGENCY_PHONE_HREF, WHATSAPP_HREF } from "@/lib/site.constants";
 
+import styles from "./MobileQuickActions.module.scss";
+
 /**
  * Fixed bar of the mobile site with the three actions people need fast: book, chat and emergency.
  *
@@ -11,7 +13,7 @@ import { BOOKING_HREF, EMERGENCY_PHONE_HREF, WHATSAPP_HREF } from "@/lib/site.co
 export function MobileQuickActions() {
   return (
     <MobileActionBar fixed>
-      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar}>
+      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar} className={styles.book}>
         Book
       </Button>
       <Button variant="secondary" href={WHATSAPP_HREF} leadingIcon={WhatsApp} leadingIconTone="whatsapp">

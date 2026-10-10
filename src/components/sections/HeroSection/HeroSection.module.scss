@@ -162,6 +162,11 @@
   }
 }
 
+/* The accent button keeps its icon navy by default; here it follows the white label */
+.book {
+  --button-icon-color: var(--color-text-on-primary);
+}
+
 /* Figma: the 96px card lets its text overflow the 16px padding, so the vertical padding is 6px */
 .copy .emergency {
   padding-block: 0.375rem;

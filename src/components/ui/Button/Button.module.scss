@@ -95,7 +95,7 @@
   --button-fg: var(--color-action-primary-text);
 }
 
-/* Figma: text in On Primary (white) and icons in On Accent (navy) */
+/* Figma: text in On Primary (white) and icons in On Accent (navy); `--button-icon-color` overrides the icon color */
 .accent {
   --button-bg: var(--color-action-accent);
   --button-bg-hover: var(--color-action-accent-hover);
@@ -104,7 +104,7 @@
   --button-pressed-ring: inset 0 0 0 var(--border-width-medium) var(--color-brand-accent-ink);
 
   .icon {
-    color: var(--color-action-accent-text);
+    color: var(--button-icon-color, var(--color-action-accent-text));
   }
 }
 

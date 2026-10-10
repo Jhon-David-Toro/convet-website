@@ -13,7 +13,7 @@ import { HERO_BOOK_LABEL, HERO_WHATSAPP_LABEL } from "../HeroSection.constants";
 export function HeroActions() {
   return (
     <div className={styles.actions}>
-      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar}>
+      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar} className={styles.book}>
         {HERO_BOOK_LABEL}
       </Button>
       <Button variant="secondary" href={WHATSAPP_HREF} leadingIcon={WhatsApp} leadingIconTone="whatsapp">
