@@ -1,0 +1,54 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Auth/Code: six boxes that share the width; 64px tall with 12px between them on desktop, 56px and 8px on mobile */
+.code {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--spacing-8);
+
+  @include tablet {
+    gap: var(--spacing-12);
+  }
+}
+
+.digit {
+  box-sizing: border-box;
+  width: 100%;
+  height: 3.5rem;
+  padding: 0;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-primary);
+  text-align: center;
+  caret-color: var(--color-border-focus);
+  transition: border-color var(--motion-duration-base) var(--motion-ease-standard);
+
+  @include typography.style("heading-h3");
+
+  @include tablet {
+    height: 4rem;
+
+    @include typography.style("heading-h2");
+  }
+
+  @include on-hover {
+    border-color: var(--color-border-strong);
+  }
+
+  @include on-focus {
+    border-width: var(--border-width-strong);
+    border-color: var(--color-border-focus);
+  }
+
+  &[aria-invalid="true"] {
+    border-width: var(--border-width-strong);
+    border-color: var(--color-error-strong);
+  }
+
+  &:disabled {
+    background-color: var(--color-background-muted);
+    color: var(--color-text-tertiary);
+  }
+}
