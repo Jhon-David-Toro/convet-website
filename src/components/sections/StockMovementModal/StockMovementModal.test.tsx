@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
 import { PRODUCT_DETAIL } from "@/lib/admin.constants";
+import { pickOption } from "@/test/pickOption";
 
 import { StockMovementModal } from "./StockMovementModal";
 import { initialMovement, lotOption, newBalance, quantityProblem, reasonProblem } from "./StockMovementModal.utils";
@@ -75,5 +76,41 @@ describe("stock movement utils", () => {
     expect(quantityProblem(values, 5)).toBeUndefined();
     expect(reasonProblem(values)).toBe("Add a reason for the adjustment.");
     expect(reasonProblem({ ...values, type: "waste" })).toBeUndefined();
+  });
+});
+
+describe("StockMovementModal fields", () => {
+  it("changes the lot and updates the balance", async () => {
+    renderModal();
+    await pickOption("Lot", "RB-25033 · exp May 31, 2027 · 20 on hand");
+    expect(screen.getByText("New balance: 19")).toBeInTheDocument();
+  });
+
+  it("adds stock when an adjustment goes in the add direction", async () => {
+    renderModal();
+    await pickOption("Direction", "Add (+)");
+    expect(screen.getByText("New balance: 7")).toBeInTheDocument();
+  });
+
+  it("only lets an adjustment change the direction", async () => {
+    renderModal();
+    await userEvent.click(screen.getByRole("button", { name: "Waste" }));
+    expect(screen.getByRole("combobox", { name: "Direction" })).toBeDisabled();
+  });
+});
+
+describe("stock movement utils edge cases", () => {
+  it("starts empty when the product has no lots and treats an unknown lot as empty", () => {
+    expect(initialMovement([]).lot).toBe("");
+    expect(newBalance({ ...initialMovement([]), lot: "none", quantity: "0" }, PRODUCT_DETAIL.lots)).toBe(0);
+  });
+});
+
+describe("StockMovementModal direction", () => {
+  it("goes back to removing stock after adding", async () => {
+    renderModal();
+    await pickOption("Direction", "Add (+)");
+    await pickOption("Direction", "Remove (−)");
+    expect(screen.getByText("New balance: 5")).toBeInTheDocument();
   });
 });

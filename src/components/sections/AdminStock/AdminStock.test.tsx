@@ -74,3 +74,15 @@ describe("admin stock utils", () => {
     expect(onHandLine(stockRows("all", "dhpp", "none")[0])).toBe("34 on hand · min 12");
   });
 });
+
+describe("AdminStock veterinary filter", () => {
+  it("filters the products that are not medications", () => {
+    expect(stockRows("veterinary", "", "none").map((product) => product.id)).toEqual(["joint", "thermometer"]);
+  });
+
+  it("shows only the non-medications when the chip is picked", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("button", { name: /Veterinary products/ }));
+    expect(screen.getByRole("table", { name: "Stock by product" })).toHaveTextContent("Digital thermometer");
+  });
+});

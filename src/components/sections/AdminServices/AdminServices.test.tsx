@@ -2,8 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { SERVICE_ROWS } from "@/lib/admin.constants";
 import { ToastProvider } from "@/components/ui/Toast";
+import { SERVICE_ROWS } from "@/lib/admin.constants";
+import { pickOption } from "@/test/pickOption";
 
 import { AdminServices } from "./AdminServices";
 import { draftOf, durationLabel, flipSpecies } from "./AdminServices.utils";
@@ -61,5 +62,36 @@ describe("admin services utils", () => {
 
   it("describes the duration", () => {
     expect(durationLabel(SERVICE_ROWS[0])).toBe("30 min");
+  });
+});
+
+describe("AdminServices fields", () => {
+  it("changes the duration and the buffer", async () => {
+    renderPage();
+    await pickOption("Duration", "30 min");
+    await pickOption("Buffer after", "15 min");
+    expect(screen.getByRole("combobox", { name: "Duration" })).toHaveTextContent("30 min");
+    expect(screen.getByRole("combobox", { name: "Buffer after" })).toHaveTextContent("15 min");
+  });
+
+  it("turns off online booking, edits the price and discards both", async () => {
+    renderPage();
+    const toggle = screen.getByRole("switch", { name: /Bookable online/ });
+    await userEvent.click(toggle);
+    expect(toggle).not.toBeChecked();
+    const price = screen.getByLabelText(/Price shown on website/);
+    await userEvent.clear(price);
+    await userEvent.type(price, "From AWG 50");
+    expect(price).toHaveValue("From AWG 50");
+    await userEvent.click(screen.getByRole("button", { name: "Discard" }));
+    expect(screen.getByRole("switch", { name: /Bookable online/ })).toBeChecked();
+    expect(screen.getByLabelText(/Price shown on website/)).toHaveValue("From AWG 45");
+  });
+
+  it("shows the public page of the service", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("tab", { name: "Public page" }));
+    expect(screen.getByLabelText("Service name")).toHaveValue("Vaccination");
+    expect(screen.getByLabelText("Description")).toBeInTheDocument();
   });
 });

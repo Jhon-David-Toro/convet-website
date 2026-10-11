@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
 import { RECEIPT_LINES } from "@/lib/admin.constants";
+import { pickOption } from "@/test/pickOption";
 
 import { ReceiveStock } from "./ReceiveStock";
 import { expiryError, quantityText, findCatalogProduct, saveLabel, similarProducts, stockLabel } from "./ReceiveStock.utils";
@@ -80,5 +81,39 @@ describe("receive stock utils", () => {
     expect(quantityText(findCatalogProduct("rabies"), 30)).toBe("30 doses");
     expect(saveLabel(0)).toBe("Save receipt");
     expect(saveLabel(2)).toBe("Save receipt (fix 2 errors)");
+  });
+});
+
+describe("ReceiveStock fields", () => {
+  it("changes the supplier, the invoice and the day received", async () => {
+    renderPage();
+    await pickOption("Supplier", "Island Pharma");
+    expect(screen.getByRole("combobox", { name: "Supplier" })).toHaveTextContent("Island Pharma");
+    const invoice = screen.getByLabelText(/Invoice/);
+    await userEvent.clear(invoice);
+    await userEvent.type(invoice, "INV-9");
+    expect(invoice).toHaveValue("INV-9");
+    const received = screen.getByLabelText("Received on");
+    await userEvent.clear(received);
+    await userEvent.type(received, "10152026");
+    expect(received).toHaveValue("10 / 15 / 2026");
+  });
+
+  it("edits the product, the lot, the expiry and the quantity of a line", async () => {
+    renderPage();
+    await pickOption("Product", "Carprofen 25 mg", 0);
+    expect(screen.getAllByRole("combobox", { name: "Product" })[0]).toHaveTextContent("Carprofen 25 mg");
+    const lot = screen.getAllByLabelText("Lot number")[0];
+    await userEvent.clear(lot);
+    await userEvent.type(lot, "RB-1");
+    expect(lot).toHaveValue("RB-1");
+    const expiry = screen.getAllByLabelText("Expiry")[0];
+    await userEvent.clear(expiry);
+    await userEvent.type(expiry, "12312027");
+    expect(expiry).toHaveValue("12 / 31 / 2027");
+    const quantity = screen.getAllByLabelText("Quantity")[0];
+    await userEvent.clear(quantity);
+    await userEvent.type(quantity, "12");
+    expect(quantity).toHaveValue("12");
   });
 });

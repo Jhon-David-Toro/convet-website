@@ -22,3 +22,17 @@ describe("AdminLocations", () => {
     expect(screen.getByText("New closure")).toBeInTheDocument();
   });
 });
+
+describe("AdminLocations phones", () => {
+  it("edits the phone and the WhatsApp number", async () => {
+    render(<AdminLocations />);
+    const phone = screen.getByLabelText("Phone");
+    await userEvent.clear(phone);
+    await userEvent.type(phone, "+297 111 2222");
+    expect(phone).toHaveValue("+297 111 2222");
+    const whatsapp = screen.getByLabelText("WhatsApp");
+    await userEvent.clear(whatsapp);
+    await userEvent.type(whatsapp, "+297 333 4444");
+    expect(whatsapp).toHaveValue("+297 333 4444");
+  });
+});

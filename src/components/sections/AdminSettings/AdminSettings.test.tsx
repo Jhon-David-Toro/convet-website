@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
+import { pickOption } from "@/test/pickOption";
 
 import { AdminSettings } from "./AdminSettings";
 
@@ -45,5 +46,31 @@ describe("AdminSettings", () => {
     expect(screen.getByRole("table", { name: "Audit log" })).toBeInTheDocument();
     await userEvent.click(screen.getByRole("tab", { name: "Business info" }));
     expect(screen.getByLabelText("Clinic email")).toHaveValue("info@convet.aw");
+  });
+});
+
+describe("AdminSettings fields", () => {
+  it("changes a rule with its list", async () => {
+    renderPage();
+    await pickOption("Booking horizon", "90 days");
+    expect(screen.getByRole("combobox", { name: "Booking horizon" })).toHaveTextContent("90 days");
+  });
+
+  it("flips a notification switch and saves", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("tab", { name: "Notifications" }));
+    const email = screen.getByRole("switch", { name: /Email confirmations/ });
+    expect(email).toBeChecked();
+    await userEvent.click(email);
+    expect(email).not.toBeChecked();
+    await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
+    expect(await screen.findByText("Notification settings saved.")).toBeInTheDocument();
+  });
+
+  it("saves the business info", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("tab", { name: "Business info" }));
+    await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
+    expect(await screen.findByText("Business info saved.")).toBeInTheDocument();
   });
 });

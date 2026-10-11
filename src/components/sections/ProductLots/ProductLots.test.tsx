@@ -59,3 +59,30 @@ describe("product lots utils", () => {
     expect(signedQuantity(-1)).toBe("−1");
   });
 });
+
+describe("ProductLots tabs and dialog", () => {
+  it("opens the dialog as an adjustment from Adjust", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("button", { name: "Adjust" }));
+    expect(screen.getByRole("button", { name: "Adjustment" })).toHaveAttribute("aria-pressed", "true");
+  });
+
+  it("shows the movements and the public page tabs", async () => {
+    renderPage();
+    await userEvent.click(screen.getByRole("tab", { name: "Movements" }));
+    expect(screen.getByRole("heading", { name: "Recent movements" })).toBeInTheDocument();
+    expect(screen.queryByRole("table", { name: "Lots" })).not.toBeInTheDocument();
+    await userEvent.click(screen.getByRole("tab", { name: "Public page" }));
+    expect(screen.getByRole("switch", { name: /Show on the website/ })).toBeChecked();
+  });
+
+  it("shows a minimum of 0 for a product without usable stock", async () => {
+    render(
+      <ToastProvider>
+        <ProductLots product={{ ...PRODUCT_DETAIL, usable: { value: 0, caption: "none" } }} />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getByRole("tab", { name: "Settings" }));
+    expect(screen.getByLabelText("Minimum stock")).toHaveValue("0");
+  });
+});
