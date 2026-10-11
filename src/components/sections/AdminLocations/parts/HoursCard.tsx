@@ -1,0 +1,36 @@
+"use client";
+
+import { Button } from "@/components/ui/Button";
+import { Plus } from "@/components/ui/Icon";
+
+import styles from "../AdminLocations.module.scss";
+import { ADD_CLOSURE_LABEL, CLOSURES_TITLE, HOURS_TITLE } from "../AdminLocations.constants";
+import type { HoursCardProps } from "../AdminLocations.types";
+import { useClosures } from "../hooks/useClosures";
+import { ClosureList } from "./ClosureList";
+import { HoursList } from "./HoursList";
+
+/**
+ * Opening hours of the clinic and its upcoming closures, which can be removed or added.
+ *
+ * @param props Props of the component, see {@link HoursCardProps}.
+ * @param props.location Location to show.
+ * @returns The rendered element.
+ */
+export function HoursCard({ location }: HoursCardProps) {
+  const { closures, remove, add } = useClosures(location.closures);
+
+  return (
+    <section className={styles.card} aria-labelledby="location-hours">
+      <h2 id="location-hours" className={styles.cardTitle}>
+        {HOURS_TITLE}
+      </h2>
+      <HoursList hours={location.hours} />
+      <h3 className={styles.sectionTitle}>{CLOSURES_TITLE}</h3>
+      <ClosureList closures={closures} onRemove={remove} />
+      <Button type="button" variant="secondary" size="small" leadingIcon={Plus} onClick={add} className={styles.addClosure}>
+        {ADD_CLOSURE_LABEL}
+      </Button>
+    </section>
+  );
+}
