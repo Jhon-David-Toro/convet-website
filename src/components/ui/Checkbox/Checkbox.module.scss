@@ -27,8 +27,9 @@
   color: var(--color-text-on-primary);
 }
 
-.check,
-.minus {
+/* Raised specificity: the Icon stylesheet can load after this one and would show both marks */
+.control .check,
+.control .minus {
   display: none;
 }
 
