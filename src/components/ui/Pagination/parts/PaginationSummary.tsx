@@ -1,4 +1,5 @@
 import styles from "../Pagination.module.scss";
+import { SUMMARY_NUMBER_FORMAT } from "../Pagination.constants";
 import type { PaginationSummaryProps } from "../Pagination.types";
 
 /**
@@ -13,7 +14,7 @@ import type { PaginationSummaryProps } from "../Pagination.types";
 export function PaginationSummary({ first, last, total }: PaginationSummaryProps) {
   return (
     <p className={styles.summary}>
-      Showing {first}–{last} of {total}
+      Showing {SUMMARY_NUMBER_FORMAT.format(first)}–{SUMMARY_NUMBER_FORMAT.format(last)} of {SUMMARY_NUMBER_FORMAT.format(total)}
     </p>
   );
 }
