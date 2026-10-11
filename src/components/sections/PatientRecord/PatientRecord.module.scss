@@ -1,0 +1,364 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Patient record: header card, then the history (left) and owner and vaccines (right, 360px) */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-32);
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--spacing-16) var(--spacing-24);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+  box-shadow: var(--shadow-md);
+
+  @include desktop {
+    grid-template-columns: auto minmax(0, 1fr) auto auto;
+    align-items: center;
+    padding: var(--spacing-40) var(--spacing-32);
+    gap: var(--spacing-24);
+  }
+}
+
+.avatar {
+  @include desktop {
+    width: 7.25rem;
+    height: 7.25rem;
+  }
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.name,
+.description {
+  margin: 0;
+}
+
+.name {
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
+}
+
+.description {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.facts {
+  display: flex;
+  grid-column: 1 / -1;
+  gap: var(--spacing-32);
+  margin: 0;
+
+  @include desktop {
+    grid-column: auto;
+    gap: var(--spacing-20);
+    padding-inline-start: var(--spacing-24);
+    border-inline-start: var(--border-width-default) solid var(--color-border-default);
+  }
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  dt {
+    color: var(--color-text-secondary);
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+
+    @include typography.style("body-m-strong");
+  }
+}
+
+.mono {
+  @include typography.style("data-m");
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    flex-direction: column;
+    align-items: stretch;
+    grid-column: auto;
+  }
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1fr) 22.5rem;
+    align-items: start;
+  }
+}
+
+.main,
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Signed visit */
+.visit {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.visitHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.visitTitle,
+.visitMeta {
+  margin: 0;
+}
+
+.visitTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.visitMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.vitals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-12);
+  margin: 0;
+}
+
+.vital {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-subtle);
+
+  dt {
+    color: var(--color-text-secondary);
+
+    @include typography.style("caption");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+
+    @include typography.style("body-m-strong");
+  }
+}
+
+.clinical {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.clinicalLabel,
+.clinicalText {
+  margin: 0;
+}
+
+.clinicalLabel {
+  color: var(--color-text-secondary);
+
+  @include typography.style("overline");
+}
+
+.clinicalText {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m");
+}
+
+.note {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+}
+
+.internal {
+  background-color: var(--color-feedback-warning-background);
+  color: var(--color-feedback-warning-text);
+}
+
+.shared {
+  background-color: var(--color-background-subtle);
+  color: var(--color-text-brand);
+}
+
+.noteTitle,
+.noteText {
+  margin: 0;
+}
+
+.noteTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+
+  @include typography.style("label-s");
+}
+
+.noteText {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s");
+}
+
+/* Side cards */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.overline {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("overline");
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.ownerHead {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.ownerName,
+.ownerSince {
+  margin: 0;
+}
+
+.ownerName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.ownerSince {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    color: var(--color-text-primary);
+
+    @include typography.style("body-s");
+  }
+}
+
+.linked {
+  color: var(--color-feedback-success-text);
+}
+
+.whatsapp {
+  width: 100%;
+}
+
+.vaccines {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}

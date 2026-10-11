@@ -1,0 +1,1 @@
+export { PatientRecord } from "./PatientRecord";
