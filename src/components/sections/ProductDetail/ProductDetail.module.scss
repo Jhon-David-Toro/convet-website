@@ -24,6 +24,7 @@
 
 .columns {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-24);
 
   @include desktop {
@@ -135,6 +136,7 @@
 
 .spec {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-4);
   padding-block: var(--spacing-16);
   border-bottom: var(--border-width-default) solid var(--color-border-default);
@@ -217,6 +219,7 @@
 
 .relatedGrid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-16);
   margin: 0;
   padding: 0;

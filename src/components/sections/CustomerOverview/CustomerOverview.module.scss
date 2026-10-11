@@ -4,6 +4,7 @@
 /* Overview: appointment (612px) and reminders (460px) side by side from desktop */
 .topRow {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-24);
 
   @include desktop {

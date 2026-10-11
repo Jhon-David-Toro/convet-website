@@ -24,6 +24,7 @@
 
 .columns {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-32);
 
   @include desktop {
@@ -177,6 +178,7 @@
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-lg);
   background-color: var(--color-background-surface);
+  position: relative;
   overflow-x: auto;
 }
 
@@ -316,6 +318,7 @@
 
 .relatedGrid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-16);
 
   @include tablet {

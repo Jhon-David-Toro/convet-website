@@ -58,7 +58,9 @@
 
 .tabs {
   display: flex;
+  position: relative;
   overflow-x: auto;
+  scrollbar-width: none;
   border-bottom: var(--border-width-default) solid var(--color-border-default);
 }
 

@@ -54,6 +54,7 @@
 
 .grid {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--spacing-16);
 
@@ -81,6 +82,7 @@
 .row,
 .birth {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-16);
 
   @include tablet {

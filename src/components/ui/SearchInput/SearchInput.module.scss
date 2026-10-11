@@ -19,9 +19,11 @@
   }
 }
 
-/* + 62px shortcut: 16 + 62 + 12 */
+/* + 62px shortcut: 16 + 62 + 12. The keyboard hint only makes sense from desktop */
 .withShortcut {
-  padding-inline-end: 5.625rem;
+  @include desktop {
+    padding-inline-end: 5.625rem;
+  }
 }
 
 .icon {
@@ -29,6 +31,7 @@
 }
 
 .shortcut {
+  display: none;
   position: absolute;
   top: 50%;
   inset-inline-end: var(--spacing-16);
@@ -41,4 +44,8 @@
   pointer-events: none;
 
   @include typography.style("data-s");
+
+  @include desktop {
+    display: block;
+  }
 }

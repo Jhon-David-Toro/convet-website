@@ -81,6 +81,7 @@
 
 /* The table scrolls sideways on small screens instead of squeezing its columns */
 .tableWrap {
+  position: relative;
   overflow-x: auto;
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-lg);

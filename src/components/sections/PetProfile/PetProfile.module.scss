@@ -14,6 +14,7 @@
 
 .top {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-16);
 
   @include tablet {
@@ -147,7 +148,9 @@
 /* Tabs scroll sideways on small screens */
 .tabs {
   display: flex;
+  position: relative;
   overflow-x: auto;
+  scrollbar-width: none;
   border-bottom: var(--border-width-default) solid var(--color-border-default);
 }
 
@@ -163,6 +166,7 @@
 
 .columns {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--spacing-24);
 
   @include desktop {

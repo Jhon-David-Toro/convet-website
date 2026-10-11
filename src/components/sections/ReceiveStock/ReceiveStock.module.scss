@@ -5,10 +5,14 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-20);
-  padding: var(--spacing-24);
+  padding: var(--spacing-16);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-xl);
   background-color: var(--color-background-surface);
+
+  @include tablet {
+    padding: var(--spacing-24);
+  }
 }
 
 .triple {
@@ -41,18 +45,25 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-12);
-  padding: var(--spacing-16);
-  border: var(--border-width-default) solid var(--color-border-default);
-  border-radius: var(--radius-lg);
+
+  /* On mobile the line has no frame of its own, so the product card keeps the width of the screen */
+  @include tablet {
+    padding: var(--spacing-16);
+    border: var(--border-width-default) solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+  }
 }
 
 .matches {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
-  padding: var(--spacing-12);
-  border-radius: var(--radius-md);
-  background-color: var(--color-background-subtle);
+
+  @include tablet {
+    padding: var(--spacing-12);
+    border-radius: var(--radius-md);
+    background-color: var(--color-background-subtle);
+  }
 }
 
 .similarNote {
@@ -67,11 +78,12 @@
   grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--spacing-12);
-  padding: var(--spacing-16);
+  padding: var(--spacing-12);
   border-radius: var(--radius-md);
   background-color: var(--color-background-subtle);
 
   @include tablet {
+    padding: var(--spacing-16);
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -107,6 +119,7 @@
 
 .footerActions {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-16);
 }

@@ -2,6 +2,7 @@
 
 /* Data/Table: rounded frame around the table; scrolls sideways instead of squeezing the columns */
 .wrap {
+  position: relative;
   overflow-x: auto;
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-lg);

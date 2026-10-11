@@ -54,6 +54,7 @@
 /* Review: summary card at the left, form at the right */
 .review {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   align-items: start;
   gap: var(--spacing-24);
 
