@@ -1,0 +1,144 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* On mobile the bar fixed to the bottom needs room under the list */
+.page {
+  padding-bottom: var(--spacing-64);
+
+  @include tablet {
+    padding-bottom: 0;
+  }
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.search {
+  display: none;
+
+  @include desktop {
+    display: block;
+    width: 27.5rem;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.tabletOnly {
+  display: none;
+
+  @include tablet-only {
+    display: block;
+  }
+}
+
+.mobileOnly {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.tabletActions {
+  display: none;
+
+  @include tablet-only {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+.pagination {
+  display: none;
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+/* Bar fixed to the bottom of the screen on mobile */
+.mobileBar {
+  position: fixed;
+  z-index: var(--z-sticky);
+  inset-inline: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.cardName,
+.cardSku,
+.cardStock {
+  margin: 0;
+}
+
+.cardName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.cardSku {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("data-s");
+}
+
+.cardBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.cardStock {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
