@@ -1,0 +1,224 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Today: figures, schedule grid (desktop) or agenda list (below desktop) */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-32);
+  }
+}
+
+.header {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--spacing-24);
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.stats {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+.layout {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 20rem;
+    gap: var(--spacing-24);
+    align-items: start;
+  }
+}
+
+/* Schedule grid: 64px of hours and one column per vet; 100px per half hour */
+.grid {
+  overflow: hidden;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.heads {
+  display: grid;
+  grid-template-columns: 4rem repeat(3, minmax(0, 1fr));
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12);
+}
+
+.vetPhoto {
+  background-color: var(--color-background-subtle);
+  flex: 0 0 auto;
+  border-radius: var(--radius-full);
+  object-fit: cover;
+}
+
+.headText {
+  min-width: 0;
+}
+
+.vetName,
+.vetCount {
+  margin: 0;
+}
+
+.vetName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
+
+.vetCount {
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
+
+.body {
+  position: relative;
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  background-image: linear-gradient(to bottom, var(--color-border-default) 1px, transparent 1px);
+  background-size: 100% 6.25rem;
+}
+
+.times {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    height: 6.25rem;
+    padding: var(--spacing-8) var(--spacing-8) 0 0;
+    color: var(--color-text-tertiary);
+    text-align: right;
+
+    @include typography.style("data-s");
+  }
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.column {
+  position: relative;
+  border-left: var(--border-width-default) solid var(--color-border-default);
+}
+
+.slot {
+  position: absolute;
+  inset-inline: var(--spacing-8);
+}
+
+.now {
+  position: absolute;
+  inset-inline: 0;
+  border-top: var(--border-width-strong) solid var(--color-brand-accent);
+  pointer-events: none;
+}
+
+.nowLabel {
+  position: absolute;
+  top: -0.75rem;
+  left: var(--spacing-8);
+  padding: 0 var(--spacing-8);
+  border-radius: var(--radius-sm);
+  background-color: var(--color-brand-accent);
+  color: var(--color-text-on-primary);
+
+  @include typography.style("data-s");
+}
+
+.attention {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+  }
+}
+
+.attentionTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+/* Agenda: below desktop */
+.agenda {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    display: none;
+  }
+}
+
+.filters {
+  display: flex;
+  gap: var(--spacing-8);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.groupHeading {
+  margin: var(--spacing-4) 0 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("overline");
+}
+
+.groupNow {
+  color: var(--color-text-highlight);
+}
