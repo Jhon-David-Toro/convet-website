@@ -1,0 +1,21 @@
+@use "abstracts" as *;
+
+/* Search and chips: stacked on small screens, side by side from desktop */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.search {
+  width: 100%;
+
+  @include desktop {
+    width: 27.5rem;
+  }
+}
