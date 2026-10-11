@@ -1,0 +1,1 @@
+export { ReceiveStock } from "./ReceiveStock";
