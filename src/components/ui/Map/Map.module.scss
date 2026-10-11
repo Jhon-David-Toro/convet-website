@@ -84,7 +84,7 @@
   @include typography.style("label-m");
 }
 
-.open {
+.map .open {
   display: var(--map-open-display, inline-flex);
   position: absolute;
   bottom: var(--spacing-20);

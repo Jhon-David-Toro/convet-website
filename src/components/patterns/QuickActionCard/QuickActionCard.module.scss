@@ -90,7 +90,7 @@
   @include typography.style("body-s");
 }
 
-.chevron {
+.card .chevron {
   display: var(--quick-chevron-display, inline-flex);
   color: var(--quick-chevron);
 }

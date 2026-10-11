@@ -4,6 +4,7 @@
 /* Sign in: remember checkbox and forgot link on one row, a line with a label as divider, and the staff note */
 .options {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: var(--spacing-8);

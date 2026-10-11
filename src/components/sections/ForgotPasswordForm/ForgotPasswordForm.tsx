@@ -25,9 +25,11 @@ export function ForgotPasswordForm({ onSubmit }: ForgotPasswordFormProps) {
 
   return (
     <AuthForm onSubmit={state.handleSubmit} aria-label={FORGOT_TITLE}>
-      <Button variant="tertiary" size="small" href={SIGN_IN_HREF} leadingIcon={ArrowLeft} className={styles.back}>
-        {BACK_LABEL}
-      </Button>
+      <div className={styles.back}>
+        <Button variant="tertiary" size="small" href={SIGN_IN_HREF} leadingIcon={ArrowLeft}>
+          {BACK_LABEL}
+        </Button>
+      </div>
       <AuthHeading title={FORGOT_TITLE} subtitle={FORGOT_SUBTITLE} loose />
       <TextInput label="Email" type="email" autoComplete="email" value={state.email} error={state.error} onChange={(event) => state.setEmail(event.target.value)} />
       <Button type="submit" loading={state.sending}>
