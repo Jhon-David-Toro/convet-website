@@ -1,0 +1,129 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Profile & settings: 580px form and 480px side cards (24px gap) from desktop */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  @include mobile-only {
+    @include visually-hidden;
+  }
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.columns {
+  display: grid;
+  align-items: start;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 590fr) minmax(0, 480fr);
+  }
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.row {
+  display: grid;
+  gap: var(--spacing-20);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-16);
+  }
+}
+
+.save {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.saved {
+  color: var(--color-success-strong);
+
+  @include typography.style("body-s-strong");
+}
+
+.toggles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+}
+
+.securityRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+}
+
+.securityLabel,
+.securityNote {
+  margin: 0;
+}
+
+.securityLabel {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.securityNote {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.delete {
+  align-self: flex-start;
+}
