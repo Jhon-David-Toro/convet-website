@@ -1,0 +1,45 @@
+@use "abstracts" as *;
+
+/* The form is a card as wide as the two columns of selects: 820px on desktop */
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include desktop {
+    max-width: 51.25rem;
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.toggles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spacing-16);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
