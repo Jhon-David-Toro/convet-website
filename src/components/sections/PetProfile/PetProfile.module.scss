@@ -1,0 +1,414 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Pet profile: breadcrumbs only from desktop; a summary card and the next step (tablet) replace the header below it */
+.breadcrumbs {
+  @include mobile-only {
+    display: none;
+  }
+
+  @include tablet-only {
+    display: none;
+  }
+}
+
+.top {
+  display: grid;
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: minmax(0, 384fr) minmax(0, 300fr);
+    align-items: start;
+    gap: var(--spacing-24);
+  }
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.header {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-32);
+    padding: var(--spacing-32);
+    border: var(--border-width-default) solid var(--color-border-default);
+    border-radius: var(--radius-xl);
+    background-color: var(--color-background-surface);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+.top .summary {
+  @include desktop {
+    display: none;
+  }
+}
+
+.tabletStep {
+  @include mobile-only {
+    display: none;
+  }
+
+  @include desktop {
+    display: none;
+  }
+}
+
+/* Avatar: 120px in the desktop header (the library avatar is 80px) */
+.header .avatar {
+  --avatar-size: 7.5rem;
+
+  flex: 0 0 auto;
+}
+
+.identity {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+}
+
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.name,
+.meta {
+  margin: 0;
+}
+
+.name {
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+}
+
+.meta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.allergy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--radius-md);
+  background-color: var(--color-error-soft);
+  color: var(--color-error-strong);
+
+  @include typography.style("body-s-strong");
+}
+
+.facts {
+  display: flex;
+  flex: 0 0 auto;
+  gap: var(--spacing-32);
+  margin: 0;
+  padding-inline-start: var(--spacing-32);
+  border-inline-start: var(--border-width-default) solid var(--color-border-default);
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  dt {
+    color: var(--color-text-tertiary);
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-primary);
+
+    @include typography.style("body-m-strong");
+  }
+}
+
+.fact .mono {
+  font-family: var(--font-family-data);
+  font-weight: var(--font-weight-regular, 400);
+}
+
+/* Tabs scroll sideways on small screens */
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.tabs > * {
+  flex: 0 0 auto;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.columns {
+  display: grid;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 652fr) minmax(0, 420fr);
+    align-items: start;
+  }
+}
+
+.side {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-24);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include desktop {
+    padding: var(--spacing-24);
+  }
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-24);
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+/* Vaccine stamps: 92px dashed circles, not on mobile */
+.stamps {
+  display: none;
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-4);
+  list-style: none;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.stamp {
+  display: flex;
+  width: 5.75rem;
+  height: 5.75rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: var(--border-width-medium) dashed var(--stamp-color);
+  border-radius: var(--radius-full);
+  background-color: var(--stamp-soft);
+  color: var(--stamp-color);
+  text-align: center;
+}
+
+.stamp.success {
+  --stamp-color: var(--color-success-strong);
+  --stamp-soft: var(--color-success-soft);
+}
+
+.stamp.warning {
+  --stamp-color: var(--color-warning-strong);
+  --stamp-soft: var(--color-warning-soft);
+}
+
+.stamp.error {
+  --stamp-color: var(--color-error-strong);
+  --stamp-soft: var(--color-error-soft);
+}
+
+.stampName {
+  @include typography.style("label-m");
+}
+
+.stampDate {
+  @include typography.style("caption");
+}
+
+.vaccineList {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.certificate {
+  align-self: flex-start;
+}
+
+.nextStep {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-24);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-brand-accent-soft);
+}
+
+.nextTitle,
+.nextText {
+  margin: 0;
+}
+
+.nextTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.nextText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.upcoming {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+a.mobileBook {
+  @include tablet {
+    display: none;
+  }
+}
+
+.filters {
+  display: none;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.year {
+  margin: 0 0 var(--spacing-8);
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.weight {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.current {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-8);
+  margin: 0;
+
+  strong {
+    color: var(--color-text-heading);
+
+    @include typography.style("display-m");
+  }
+
+  span {
+    color: var(--color-text-secondary);
+
+    @include typography.style("caption");
+  }
+}
+
+/* Bars: the height is a percentage of the 120px chart; the latest weight is the solid one */
+.bars {
+  display: grid;
+  height: 7.5rem;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--spacing-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.barItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--spacing-8);
+}
+
+.bar {
+  width: 3rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-primary-soft);
+
+  &[data-current] {
+    background-color: var(--color-brand-primary);
+  }
+}
+
+.barLabel {
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
