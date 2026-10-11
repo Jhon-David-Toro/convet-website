@@ -1,0 +1,78 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Working hours of a vet */
+.hours {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.hoursHeader {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.hoursTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.days {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    align-items: start;
+  }
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-12);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-subtle);
+}
+
+.off {
+  border: var(--border-width-default) dashed var(--color-border-default);
+  background-color: transparent;
+}
+
+.dayName {
+  margin: 0;
+  color: var(--color-text-brand);
+
+  @include typography.style("overline");
+}
+
+.off .dayName {
+  color: var(--color-text-secondary);
+}
+
+.shift {
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("data-s");
+}
