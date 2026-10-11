@@ -50,7 +50,7 @@ export function AppointmentCard({
     { icon: APPOINTMENT_META_ICONS.pet, text: pet },
     { icon: APPOINTMENT_META_ICONS.vet, text: vet },
     { icon: APPOINTMENT_META_ICONS.location, text: location },
-  ];
+  ].filter(({ text }) => text);
 
   return (
     <article {...rest} className={cx(styles.card, styles[status], className)}>
