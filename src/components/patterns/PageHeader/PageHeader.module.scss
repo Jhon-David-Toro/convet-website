@@ -1,0 +1,53 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Page/Header: title and subtitle on the left, actions on the right; wraps on small screens */
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-16) var(--spacing-24);
+}
+
+.compactHidden {
+  display: none;
+
+  @include desktop {
+    display: flex;
+  }
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
