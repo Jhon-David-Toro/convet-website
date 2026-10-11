@@ -27,7 +27,7 @@ export function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const service = findService((await params).slug);
-  return service ? { title: `${service.title} · CONVET`, description: service.lead } : {};
+  return service ? { title: `${service.title} · CONVET`, description: service.lead, alternates: { canonical: `${SERVICES_PATH}/${service.slug}` } } : {};
 }
 
 /**

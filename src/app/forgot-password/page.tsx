@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { AuthLayout } from "@/components/sections/AuthLayout";
 import { ForgotPasswordForm } from "@/components/sections/ForgotPasswordForm";
 import { SIGN_IN_HREF } from "@/lib/auth.constants";
+import { NO_INDEX } from "@/lib/seo.constants";
 
 export const metadata: Metadata = {
+  robots: NO_INDEX,
   title: "Reset password · CONVET",
   description: "Request a link to choose a new CONVET password.",
 };

@@ -3,8 +3,10 @@ import type { Metadata } from "next";
 import { AuthLayout } from "@/components/sections/AuthLayout";
 import { SignUpForm } from "@/components/sections/SignUpForm";
 import { SIGN_IN_HREF } from "@/lib/auth.constants";
+import { NO_INDEX } from "@/lib/seo.constants";
 
 export const metadata: Metadata = {
+  robots: NO_INDEX,
   title: "Create account · CONVET",
   description: "Create your CONVET account to book visits and keep your pets' records.",
 };

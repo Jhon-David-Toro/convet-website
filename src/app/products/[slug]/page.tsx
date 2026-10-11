@@ -27,7 +27,7 @@ export function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const product = findProduct((await params).slug);
-  return product ? { title: `${product.name} · CONVET`, description: product.description } : {};
+  return product ? { title: `${product.name} · CONVET`, description: product.description, alternates: { canonical: `/products/${product.slug}` } } : {};
 }
 
 /**
