@@ -1,0 +1,120 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Client page: header card, then pets (left) and appointments (right) */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    gap: var(--spacing-32);
+  }
+}
+
+.header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--spacing-16) var(--spacing-24);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+  box-shadow: var(--shadow-md);
+
+  @include desktop {
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    padding: var(--spacing-24) var(--spacing-32);
+  }
+}
+
+.avatar {
+  @include desktop {
+    width: 4.75rem;
+    height: 4.75rem;
+  }
+}
+
+.identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.name {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
+}
+
+.contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8) var(--spacing-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-8);
+    color: var(--color-text-secondary);
+
+    @include typography.style("body-s");
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  grid-column: 1 / -1;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    flex-direction: column;
+    align-items: flex-start;
+    grid-column: auto;
+  }
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 32fr) minmax(0, 35fr);
+    align-items: start;
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.addPet {
+  align-self: flex-start;
+}
