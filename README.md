@@ -54,6 +54,7 @@ pnpm start        # serve the production build
 pnpm typecheck    # tsc --noEmit
 pnpm lint         # eslint
 pnpm test         # vitest run
+pnpm test:coverage  # vitest run with a coverage report in coverage/index.html
 ```
 
 Before finishing any change, run `typecheck`, `lint`, `test` and `build`.
@@ -161,7 +162,7 @@ The full rules are in [`CLAUDE.md`](./CLAUDE.md). The most important ones:
 pnpm test
 ```
 
-Each component has a `*.test.tsx` next to it (Vitest and Testing Library), and shared logic has its own tests. The suite has more than 500 tests.
+Each component has a `*.test.tsx` next to it (Vitest and Testing Library), and shared logic has its own tests. The suite has about 600 tests and covers more than 99 % of the statements. Tests run in a shared VM context (`pool: "vmThreads"`) to stay fast.
 
 ## SEO and performance
 

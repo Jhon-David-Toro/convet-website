@@ -8,11 +8,12 @@ export default defineConfig({
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
     css: false,
+    pool: "vmThreads",
     coverage: {
       provider: "v8",
       include: ["src/**/*.{ts,tsx}"],
-      exclude: ["src/**/*.test.{ts,tsx}", "src/**/*.types.ts", "src/**/index.ts", "src/app/**"],
-      reporter: ["text-summary", "html"],
+      exclude: ["src/**/*.test.{ts,tsx}", "src/**/*.types.ts", "src/**/index.ts", "src/app/**", "src/test/**"],
+      reporter: ["text-summary", "html", "json"],
     },
   },
 });
