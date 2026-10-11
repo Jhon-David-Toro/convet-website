@@ -1,0 +1,316 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Visit record: form (left), patient (right, 360px on desktop) and a footer bar fixed to the bottom */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1fr) 21rem;
+    align-items: start;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.overline,
+.title {
+  margin: 0;
+}
+
+.overline {
+  color: var(--color-text-secondary);
+
+  @include typography.style("overline");
+}
+
+.titleRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.vitals {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Vaccination given today */
+.vaccination {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.vaccinationHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.vaccinationTitle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("body-l");
+}
+
+.lotField {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.lotLabel,
+.lotCode,
+.lotDetail,
+.lotNote {
+  margin: 0;
+}
+
+.lotLabel {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
+
+.lot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+  padding: var(--spacing-12) var(--spacing-16);
+  border: var(--border-width-strong) solid var(--color-action-primary);
+  border-radius: var(--radius-md);
+  background-color: var(--color-info-soft);
+}
+
+.lotCode {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-m");
+}
+
+.lotDetail {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.lotNote {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-secondary);
+
+  @include typography.style("caption");
+}
+
+.extras {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12);
+}
+
+/* Patient next to the form: desktop only */
+.side {
+  display: none;
+
+  @include desktop {
+    position: sticky;
+    top: var(--spacing-16);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+  box-shadow: var(--shadow-md);
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.patientName,
+.patientText,
+.cardTitle {
+  margin: 0;
+}
+
+.patientName {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.patientText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.cardTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.wide {
+  width: 100%;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  gap: var(--spacing-16);
+  margin: 0;
+
+  dt {
+    color: var(--color-text-secondary);
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+
+    @include typography.style("body-s-strong");
+  }
+}
+
+.mono {
+  overflow-wrap: anywhere;
+
+  @include typography.style("data-s");
+}
+
+.profileLink,
+.documentLink {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-brand);
+  text-decoration: none;
+
+  @include typography.style("label-s");
+}
+
+/* Footer bar: spans the width of the page content and sticks to the bottom of the screen */
+.footer {
+  position: sticky;
+  z-index: var(--z-sticky);
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  margin: 0 calc(var(--spacing-16) * -1) calc(var(--spacing-48) * -1);
+  padding: var(--spacing-16);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    margin-inline: calc(var(--spacing-24) * -1);
+    padding-inline: var(--spacing-24);
+  }
+
+  @include desktop {
+    margin-inline: calc(var(--spacing-40) * -1);
+    padding-inline: var(--spacing-40);
+  }
+}
+
+.draft {
+  display: none;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+
+.footerActions {
+  display: flex;
+  flex: 1 1 auto;
+  gap: var(--spacing-12);
+
+  > * {
+    flex: 1 1 auto;
+  }
+
+  @include tablet {
+    flex: 0 0 auto;
+  }
+}
