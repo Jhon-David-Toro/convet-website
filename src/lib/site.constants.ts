@@ -8,7 +8,7 @@ export const WHATSAPP_HREF = "https://wa.me/2975930404";
 
 export const BOOKING_HREF = "/book";
 
-export const CLINIC_LOCATION = process.env.NEXT_PUBLIC_CLINIC_LOCATION || "Savaneta 40A, Oranjestad, Aruba";
+export const CLINIC_LOCATION = "Savaneta 40A, Oranjestad, Aruba";
 
 export const CLINIC_ADDRESS = "Savaneta 40A, Oranjestad";
 

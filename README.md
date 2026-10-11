@@ -68,7 +68,6 @@ Put them in `.env.local`. All of them are optional.
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary account that hosts the photos. Without it, photos load from `public/photos/`. |
 | `NEXT_PUBLIC_CLOUDINARY_FOLDER` | Folder inside the Cloudinary account, if the photos are not at the root. |
 | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Google Maps Embed API key. Without it the contact map is a stylized illustration. |
-| `NEXT_PUBLIC_CLINIC_LOCATION` | Address used by the map and the directions link. Defaults to `Savaneta 40A, Oranjestad, Aruba`. |
 
 ## What is in the app
 
