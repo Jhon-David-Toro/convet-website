@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../ServiceDetail.module.scss";
 import type { ServiceTableProps } from "../ServiceDetail.types";

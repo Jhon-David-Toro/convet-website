@@ -1,4 +1,4 @@
-import { productCategoryLine } from "@/lib/products.utils";
+import { productCategoryLine } from "@/lib/catalog/products.utils";
 
 import styles from "../ProductDetail.module.scss";
 import type { ProductInfoProps } from "../ProductDetail.types";

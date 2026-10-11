@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/ui/Sidebar";
-import { CUSTOMER_NAME, CUSTOMER_ROLE } from "@/lib/customer.constants";
+import { CUSTOMER_NAME, CUSTOMER_ROLE } from "@/lib/customer/customer.constants";
 
 import { ACCOUNT_NAV, MAIN_NAV, SIGN_OUT_HREF } from "../CustomerShell.constants";
 import styles from "../CustomerShell.module.scss";

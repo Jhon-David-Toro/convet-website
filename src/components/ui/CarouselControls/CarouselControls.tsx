@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./CarouselControls.module.scss";
 import type { CarouselControlsProps } from "./CarouselControls.types";

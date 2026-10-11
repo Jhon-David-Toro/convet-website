@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, WhatsApp } from "@/components/ui/Icon";
-import { serviceActionHref } from "@/lib/services.utils";
-import { whatsappLink } from "@/lib/whatsapp";
+import { serviceActionHref } from "@/lib/catalog/services.utils";
+import { whatsappLink } from "@/lib/site/whatsapp";
 
 import { ASK_WHATSAPP_LABEL } from "../ServiceDetail.constants";
 import styles from "../ServiceDetail.module.scss";

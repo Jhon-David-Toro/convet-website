@@ -3,7 +3,7 @@
 import { useId, useImperativeHandle, useRef } from "react";
 
 import { ChoiceText } from "@/components/ui/ChoiceText";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Checkbox.module.scss";
 import { MIXED_STATE } from "./Checkbox.constants";

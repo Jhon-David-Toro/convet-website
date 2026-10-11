@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Sidebar.module.scss";
 import { SidebarBranch } from "./parts/SidebarBranch";

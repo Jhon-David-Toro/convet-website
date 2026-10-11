@@ -4,7 +4,7 @@ import { PageStack } from "@/components/patterns/PageStack";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Mail } from "@/components/ui/Icon";
-import { TEAM_MEMBERS } from "@/lib/admin.constants";
+import { TEAM_MEMBERS } from "@/lib/admin/admin.constants";
 
 import { COLUMNS, IDENTIFIERS_TEXT, IDENTIFIERS_TITLE, INVITE_LABEL, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminTeam.constants";
 import { MemberRow } from "./parts/MemberRow";

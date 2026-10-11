@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { SIGN_IN_HREF } from "@/lib/auth.constants";
+import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
 
 import { HAVE_ACCOUNT_LABEL, SIGN_IN_LABEL } from "../SignUpForm.constants";
 import styles from "../SignUpForm.module.scss";

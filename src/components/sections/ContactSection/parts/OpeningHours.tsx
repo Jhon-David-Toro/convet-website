@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import { HOURS_TITLE, OPENING_HOURS } from "../ContactSection.constants";
 import styles from "../ContactSection.module.scss";

@@ -4,8 +4,8 @@ import { AuthForm, AuthHeading } from "@/components/sections/AuthLayout";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft } from "@/components/ui/Icon";
 import { TextInput } from "@/components/ui/TextInput";
-import { SIGN_IN_HREF } from "@/lib/auth.constants";
-import { pickLabel } from "@/lib/labels";
+import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
+import { pickLabel } from "@/lib/shared/labels";
 
 import { BACK_LABEL, FORGOT_SUBTITLE, FORGOT_TITLE, SEND_LABELS } from "./ForgotPasswordForm.constants";
 import styles from "./ForgotPasswordForm.module.scss";

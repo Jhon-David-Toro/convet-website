@@ -1,4 +1,4 @@
-import { VET_DAYS } from "@/lib/admin.constants";
+import { VET_DAYS } from "@/lib/admin/admin.constants";
 
 import styles from "../AdminDashboard.module.scss";
 import { VETS_TITLE } from "../AdminDashboard.constants";

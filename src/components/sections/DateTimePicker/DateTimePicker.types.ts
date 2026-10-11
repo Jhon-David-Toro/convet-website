@@ -1,4 +1,4 @@
-import type { BookingSlot, BookingVet } from "@/lib/booking.types";
+import type { BookingSlot, BookingVet } from "@/lib/booking/booking.types";
 
 export type DateTimePickerProps = {
   vet: BookingVet;

@@ -1,6 +1,6 @@
 import { Avatar } from "@/components/ui/Avatar";
 import { AlertTriangle, ChevronRight, Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../PetCard.module.scss";
 import { PET_ALERT_ICON_SIZE } from "../PetCard.constants";

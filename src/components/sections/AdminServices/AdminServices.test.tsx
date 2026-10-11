@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
-import { SERVICE_ROWS } from "@/lib/admin.constants";
+import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
 import { pickOption } from "@/test/pickOption";
 
 import { AdminServices } from "./AdminServices";

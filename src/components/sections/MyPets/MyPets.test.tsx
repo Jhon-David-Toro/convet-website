@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
 import { pickOption } from "@/test/pickOption";
 
 import { MyPets } from "./MyPets";

@@ -1,6 +1,6 @@
 import { Alert } from "@/components/ui/Alert";
-import { SLOT_CAPACITY } from "@/lib/booking.constants";
-import { slotsFor } from "@/lib/booking.utils";
+import { SLOT_CAPACITY } from "@/lib/booking/booking.constants";
+import { slotsFor } from "@/lib/booking/booking.utils";
 
 import type { ReviewNoticeProps } from "../BookingFlow.types";
 

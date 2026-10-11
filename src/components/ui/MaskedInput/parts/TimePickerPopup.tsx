@@ -1,6 +1,6 @@
 import { Dropdown } from "@/components/ui/Dropdown";
 import { MenuItem } from "@/components/ui/MenuItem";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../MaskedInput.module.scss";
 import type { TimePickerPopupProps } from "../MaskedInput.types";

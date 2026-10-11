@@ -1,5 +1,5 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
-import { STOCK_STATUS_VIEWS } from "@/lib/admin.status.constants";
+import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
 
 import styles from "../AdminStock.module.scss";
 import type { StockCardProps } from "../AdminStock.types";

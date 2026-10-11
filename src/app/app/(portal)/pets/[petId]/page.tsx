@@ -1,7 +1,7 @@
 import { notFound, redirect } from "next/navigation";
 
-import { DEFAULT_PET_TAB } from "@/lib/customer.paths.constants";
-import { findPet, petHref } from "@/lib/customer.utils";
+import { DEFAULT_PET_TAB } from "@/lib/customer/customer.paths.constants";
+import { findPet, petHref } from "@/lib/customer/customer.utils";
 
 import type { PetPageProps } from "./page.types";
 

@@ -1,5 +1,5 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
-import type { StockMovementType } from "@/lib/admin.types";
+import type { StockMovementType } from "@/lib/admin/admin.types";
 
 import type { LotsTab } from "./ProductLots.types";
 

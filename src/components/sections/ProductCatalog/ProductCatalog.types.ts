@@ -6,7 +6,7 @@ import type {
   ProductItem,
   ProductKind,
   ProductSpecies,
-} from "@/lib/products.types";
+} from "@/lib/catalog/products.types";
 
 export type ProductCatalogProps = {
   products: ProductItem[];

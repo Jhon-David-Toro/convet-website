@@ -1,5 +1,5 @@
-import { STOCK_PRODUCTS } from "@/lib/admin.constants";
-import type { StockProduct } from "@/lib/admin.types";
+import { STOCK_PRODUCTS } from "@/lib/admin/admin.constants";
+import type { StockProduct } from "@/lib/admin/admin.types";
 
 import { ALL_FILTER } from "./AdminStock.constants";
 import type { SortDirection } from "./AdminStock.types";

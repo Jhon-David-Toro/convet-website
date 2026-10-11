@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { STAFF_HOME_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_HOME_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { CLIENT_BREADCRUMB_CLIENTS, CLIENT_BREADCRUMB_HOME, CLIENTS_HREF } from "./ClientDetail.constants";
 import styles from "./ClientDetail.module.scss";

@@ -1,7 +1,7 @@
 "use client";
 
 import { BookingFrame } from "@/components/sections/BookingFrame";
-import { showWhen } from "@/lib/showWhen";
+import { showWhen } from "@/lib/shared/showWhen";
 
 import { EXIT_HREF, STEP_LABELS } from "./BookingFlow.constants";
 import type { BookingFlowProps } from "./BookingFlow.types";

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Icon, Loader } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Button.module.scss";
 import type {

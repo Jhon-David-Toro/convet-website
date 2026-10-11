@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./DataTable.module.scss";
 import type { DataTableProps } from "./DataTable.types";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { ProductKind } from "@/lib/products.types";
+import type { ProductKind } from "@/lib/catalog/products.types";
 
 import { EMPTY_FILTERS } from "../ProductCatalog.constants";
 import type { ProductFilterGroupName, ProductFilters, ProductFiltersState, UseProductFiltersParams } from "../ProductCatalog.types";

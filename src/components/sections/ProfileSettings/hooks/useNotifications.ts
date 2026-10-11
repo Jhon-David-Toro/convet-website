@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { NotificationSetting } from "@/lib/customer.types";
+import type { NotificationSetting } from "@/lib/customer/customer.types";
 
 import type { NotificationsState } from "../ProfileSettings.types";
 

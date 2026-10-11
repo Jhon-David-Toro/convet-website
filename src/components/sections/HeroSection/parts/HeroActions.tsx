@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Calendar, WhatsApp } from "@/components/ui/Icon";
-import { BOOKING_HREF, WHATSAPP_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF, WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import styles from "../HeroSection.module.scss";
 import { HERO_BOOK_LABEL, HERO_WHATSAPP_LABEL } from "../HeroSection.constants";

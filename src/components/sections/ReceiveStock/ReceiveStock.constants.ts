@@ -1,4 +1,4 @@
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
 export const TITLE = "Receive stock";
 

@@ -1,5 +1,5 @@
 import { Alert } from "@/components/ui/Alert";
-import { STAFF_ATTENTION } from "@/lib/staff.constants";
+import { STAFF_ATTENTION } from "@/lib/staff/staff.constants";
 
 import { ATTENTION_TITLE } from "../StaffToday.constants";
 import styles from "../StaffToday.module.scss";

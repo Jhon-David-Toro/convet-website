@@ -1,4 +1,4 @@
-import type { ClosureEntry, LocationInfo } from "@/lib/admin.types";
+import type { ClosureEntry, LocationInfo } from "@/lib/admin/admin.types";
 
 export type LocationCardProps = {
   location: LocationInfo;

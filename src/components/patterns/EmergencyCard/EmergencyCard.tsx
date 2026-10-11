@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Icon, Phone } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./EmergencyCard.module.scss";
 import { EMERGENCY_CARD_ICON_SIZE } from "./EmergencyCard.constants";

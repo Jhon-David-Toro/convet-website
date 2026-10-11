@@ -1,6 +1,6 @@
 import type { SubmitEvent } from "react";
 
-import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff.types";
+import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff/staff.types";
 
 import { EXPIRED_LOT_NOTE, MICROCHIP_LABEL, NEXT_VISIT_LABEL, WEIGHT_FACT_LABEL } from "./VisitRecord.constants";
 import type { PatientFact, VisitValues } from "./VisitRecord.types";

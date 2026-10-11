@@ -1,4 +1,4 @@
-import type { TeamMember } from "@/lib/admin.types";
+import type { TeamMember } from "@/lib/admin/admin.types";
 
 import { PENDING_USER_ID, USER_ID_PREFIX } from "./AdminTeam.constants";
 

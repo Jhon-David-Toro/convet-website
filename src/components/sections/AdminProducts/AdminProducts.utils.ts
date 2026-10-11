@@ -1,5 +1,5 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
-import type { CatalogRow } from "@/lib/admin.types";
+import type { CatalogRow } from "@/lib/admin/admin.types";
 
 import { PUBLISHED_VIEWS } from "./AdminProducts.constants";
 

@@ -6,7 +6,7 @@ import {
   CUSTOMER_PROFILE_HREF,
   CUSTOMER_RECORDS_HREF,
   CUSTOMER_SETTINGS_HREF,
-} from "@/lib/customer.paths.constants";
+} from "@/lib/customer/customer.paths.constants";
 
 import type { CustomerNavItem } from "./CustomerShell.types";
 

@@ -1,6 +1,6 @@
 import { SCHEDULE_STATUS_VIEWS } from "@/components/patterns/ScheduleEvent";
 import type { SelectOption } from "@/components/ui/Select";
-import { STAFF_VETS } from "@/lib/staff.constants";
+import { STAFF_VETS } from "@/lib/staff/staff.constants";
 
 import type { AppointmentFilters, RangeValue } from "./StaffAppointments.types";
 

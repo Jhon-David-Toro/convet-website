@@ -2,7 +2,7 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { QuickAccessSection } from "@/components/sections/QuickAccessSection";
 import { SiteShell } from "@/components/sections/SiteShell";
-import { clinicJsonLd, jsonLdText } from "@/lib/seo.utils";
+import { clinicJsonLd, jsonLdText } from "@/lib/site/seo.utils";
 
 /**
  * Home page of the clinic: hero, quick access and location inside the shared page frame.

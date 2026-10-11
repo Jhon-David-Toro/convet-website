@@ -1,5 +1,5 @@
 import { AppointmentCard } from "@/components/patterns/AppointmentCard";
-import { STAFF_PATIENTS_HREF, STAFF_SCHEDULE_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_PATIENTS_HREF, STAFF_SCHEDULE_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { APPOINTMENTS_TITLE } from "../ClientDetail.constants";
 import styles from "../ClientDetail.module.scss";

@@ -1,5 +1,5 @@
 import { Heart, Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./ScriptAccent.module.scss";
 import { SCRIPT_ACCENT_HEART_SIZE } from "./ScriptAccent.constants";

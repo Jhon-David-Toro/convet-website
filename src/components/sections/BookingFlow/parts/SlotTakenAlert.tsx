@@ -1,6 +1,6 @@
 import { TimeSlot } from "@/components/patterns/TimeSlot";
 import { Alert } from "@/components/ui/Alert";
-import { capacityLabel } from "@/lib/booking.utils";
+import { capacityLabel } from "@/lib/booking/booking.utils";
 
 import { SLOT_TAKEN_TEXT, SLOT_TAKEN_TITLE } from "../BookingFlow.constants";
 import styles from "../BookingFlow.module.scss";

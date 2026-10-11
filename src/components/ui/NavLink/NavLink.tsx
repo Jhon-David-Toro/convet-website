@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./NavLink.module.scss";
 import type { NavLinkProps } from "./NavLink.types";

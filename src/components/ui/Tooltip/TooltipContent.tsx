@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Tooltip.module.scss";
 import type { TooltipContentProps } from "./Tooltip.types";

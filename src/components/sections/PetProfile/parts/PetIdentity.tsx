@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/Badge";
-import { PET_STATUS_BADGES } from "@/lib/customer.constants";
+import { PET_STATUS_BADGES } from "@/lib/customer/customer.constants";
 
 import styles from "../PetProfile.module.scss";
 import type { PetProps } from "../PetProfile.types";

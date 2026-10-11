@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_LABEL, SUBTITLE, TITLE } from "../CustomerAppointments.constants";
 import styles from "../CustomerAppointments.module.scss";

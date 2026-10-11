@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { BookingSlot } from "@/lib/booking.types";
+import type { BookingSlot } from "@/lib/booking/booking.types";
 
 import type { BookingFlowState, UseBookingFlowParams } from "../BookingFlow.types";
 import { canContinueFrom } from "../BookingFlow.utils";

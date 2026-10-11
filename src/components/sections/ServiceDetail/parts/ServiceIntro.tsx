@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { Badge } from "@/components/ui/Badge";
 import { Clock, Paw } from "@/components/ui/Icon";
-import { photoUrl } from "@/lib/photos";
+import { photoUrl } from "@/lib/site/photos";
 
 import { SERVICE_PHOTO_ALT, SERVICE_PHOTO_NAME, SERVICE_PHOTO_SIZES } from "../ServiceDetail.constants";
 import styles from "../ServiceDetail.module.scss";

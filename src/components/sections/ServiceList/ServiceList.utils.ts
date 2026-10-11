@@ -1,5 +1,5 @@
-import { SERVICE_FILTERS } from "@/lib/services.constants";
-import type { ServiceItem } from "@/lib/services.types";
+import { SERVICE_FILTERS } from "@/lib/catalog/services.constants";
+import type { ServiceItem } from "@/lib/catalog/services.types";
 
 import { ALL_FILTER } from "./ServiceList.constants";
 import type { ServiceCounts, ServiceFilterValue } from "./ServiceList.types";

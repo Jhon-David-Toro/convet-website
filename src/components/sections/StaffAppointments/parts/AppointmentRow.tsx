@@ -1,5 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
-import { findStaffVet } from "@/lib/staff.utils";
+import { findStaffVet } from "@/lib/staff/staff.utils";
 
 import type { AppointmentRowProps } from "../StaffAppointments.types";
 import { StatusBadge } from "./StatusBadge";

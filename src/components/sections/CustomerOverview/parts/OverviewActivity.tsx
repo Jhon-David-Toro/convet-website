@@ -1,8 +1,8 @@
 import { TimelineItem } from "@/components/patterns/TimelineItem";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/Icon";
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
-import { eventTitle, petHref, recentEvents } from "@/lib/customer.utils";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { eventTitle, petHref, recentEvents } from "@/lib/customer/customer.utils";
 
 import { ACTIVITY_TITLE, HISTORY_LABEL } from "../CustomerOverview.constants";
 import styles from "../CustomerOverview.module.scss";

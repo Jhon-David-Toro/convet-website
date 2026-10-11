@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { photoUrl } from "@/lib/photos";
-import { appointmentsOfVet } from "@/lib/staff.utils";
+import { photoUrl } from "@/lib/site/photos";
+import { appointmentsOfVet } from "@/lib/staff/staff.utils";
 
 import { VET_PHOTO_SIZE } from "../StaffToday.constants";
 import styles from "../StaffToday.module.scss";

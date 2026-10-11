@@ -2,8 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { ChevronRight, Icon } from "@/components/ui/Icon";
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
-import { photoUrl } from "@/lib/photos";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
+import { photoUrl } from "@/lib/site/photos";
 
 import styles from "../AdminDashboard.module.scss";
 import { VET_PHOTO_SIZE } from "../AdminDashboard.constants";

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Icon, Shield } from "@/components/ui/Icon";
-import { SIGN_UP_HREF } from "@/lib/auth.constants";
+import { SIGN_UP_HREF } from "@/lib/auth/auth.constants";
 
 import { CREATE_ACCOUNT_LABEL, DIVIDER_LABEL, NOTE_ICON_SIZE, STAFF_NOTE } from "../SignInForm.constants";
 import styles from "../SignInForm.module.scss";

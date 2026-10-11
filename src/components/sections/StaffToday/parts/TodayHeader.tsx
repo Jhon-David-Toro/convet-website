@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Calendar } from "@/components/ui/Icon";
-import { STAFF_TODAY_LABEL } from "@/lib/staff.constants";
+import { STAFF_TODAY_LABEL } from "@/lib/staff/staff.constants";
 
 import { SUBTITLE, WEEK_VIEW_HREF, WEEK_VIEW_LABEL } from "../StaffToday.constants";
 import styles from "../StaffToday.module.scss";

@@ -1,5 +1,5 @@
 import { Alert } from "@/components/ui/Alert";
-import { FORGOT_PASSWORD_HREF } from "@/lib/auth.constants";
+import { FORGOT_PASSWORD_HREF } from "@/lib/auth/auth.constants";
 
 import { ALERT_ACTION_LABEL, ALERT_TEXT, ALERT_TITLE } from "../SignInForm.constants";
 

@@ -1,4 +1,4 @@
-import type { ProductItem } from "@/lib/products.types";
+import type { ProductItem } from "@/lib/catalog/products.types";
 
 export type ProductDetailProps = {
   product: ProductItem;

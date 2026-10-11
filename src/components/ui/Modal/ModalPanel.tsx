@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Modal.module.scss";
 import type { ModalPanelProps } from "./Modal.types";

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ProductLots } from "@/components/sections/ProductLots";
-import { PRODUCT_DETAIL } from "@/lib/admin.constants";
+import { PRODUCT_DETAIL } from "@/lib/admin/admin.constants";
 
 import type { ProductPageProps } from "./page.types";
 

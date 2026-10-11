@@ -1,4 +1,4 @@
-import type { BookingRules } from "@/lib/admin.types";
+import type { BookingRules } from "@/lib/admin/admin.types";
 
 export type SettingsTab = "booking" | "notifications" | "business" | "audit";
 

@@ -4,7 +4,7 @@ import { useRef } from "react";
 
 import { useAnchoredPosition } from "@/components/ui/Dropdown";
 import { Field, useField } from "@/components/ui/Field";
-import { useOutsidePointerDown } from "@/lib/useOutsidePointerDown";
+import { useOutsidePointerDown } from "@/lib/shared/useOutsidePointerDown";
 
 import styles from "./Select.module.scss";
 import { useSelect } from "./hooks/useSelect";

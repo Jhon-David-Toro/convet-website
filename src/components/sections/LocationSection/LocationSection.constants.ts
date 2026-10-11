@@ -1,5 +1,5 @@
 import { Clock, MapPin, Phone, WhatsApp } from "@/components/ui/Icon";
-import { CLINIC_ADDRESS, EMERGENCY_PHONE, WHATSAPP_PHONE } from "@/lib/site.constants";
+import { CLINIC_ADDRESS, EMERGENCY_PHONE, WHATSAPP_PHONE } from "@/lib/site/site.constants";
 
 import type { ContactLineItem } from "./LocationSection.types";
 

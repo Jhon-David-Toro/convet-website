@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Phone, WhatsApp } from "@/components/ui/Icon";
-import { EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
+import { EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site/site.constants";
 
 import { QUICK_TEXT, QUICK_TITLE, WHATSAPP_LABEL } from "../ContactSection.constants";
 import styles from "../ContactSection.module.scss";

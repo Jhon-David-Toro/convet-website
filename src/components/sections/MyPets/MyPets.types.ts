@@ -1,6 +1,6 @@
 import type { SubmitEvent } from "react";
 
-import type { PetItem } from "@/lib/customer.types";
+import type { PetItem } from "@/lib/customer/customer.types";
 
 export type MyPetsProps = {
   pets?: PetItem[];

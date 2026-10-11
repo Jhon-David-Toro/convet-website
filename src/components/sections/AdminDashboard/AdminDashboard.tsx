@@ -1,7 +1,7 @@
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
-import { DASHBOARD_STATS } from "@/lib/admin.constants";
+import { DASHBOARD_STATS } from "@/lib/admin/admin.constants";
 
 import styles from "./AdminDashboard.module.scss";
 import { GREETING, SUBTITLE } from "./AdminDashboard.constants";

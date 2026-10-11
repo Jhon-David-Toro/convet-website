@@ -1,6 +1,6 @@
 import { Box, Building, Calendar, Clipboard, Home, List, Paw, Settings, Stethoscope, Tag, Truck, Users } from "@/components/ui/Icon";
-import { ADMIN_HOME_HREF, ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
-import { STAFF_BRANCH, STAFF_USER } from "@/lib/staff.constants";
+import { ADMIN_HOME_HREF, ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
+import { STAFF_BRANCH, STAFF_USER } from "@/lib/staff/staff.constants";
 import {
   STAFF_CLIENTS_HREF,
   STAFF_HOME_HREF,
@@ -8,7 +8,7 @@ import {
   STAFF_PATIENTS_HREF,
   STAFF_SCHEDULE_HREF,
   STAFF_VISITS_HREF,
-} from "@/lib/staff.paths.constants";
+} from "@/lib/staff/staff.paths.constants";
 
 import type { ShellConfig, ShellVariant } from "./StaffShell.types";
 

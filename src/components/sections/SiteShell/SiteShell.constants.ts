@@ -1,5 +1,5 @@
-import { SIGN_IN_HREF } from "@/lib/auth.constants";
-import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site.constants";
+import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
+import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site/site.constants";
 
 import type { SiteFooterContent, SiteHeaderContent } from "./SiteShell.types";
 

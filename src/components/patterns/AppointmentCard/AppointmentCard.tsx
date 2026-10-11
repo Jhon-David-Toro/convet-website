@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./AppointmentCard.module.scss";
 import { APPOINTMENT_META_ICONS, APPOINTMENT_STATUS_VIEWS } from "./AppointmentCard.constants";

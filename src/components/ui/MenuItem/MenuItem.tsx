@@ -1,5 +1,5 @@
 import { Check, Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./MenuItem.module.scss";
 import { DESTRUCTIVE_TONE, MENU_ITEM_ICON_SIZE } from "./MenuItem.constants";

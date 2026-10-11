@@ -1,5 +1,5 @@
 import { VaccineRow } from "@/components/patterns/VaccineRow";
-import { STAFF_VACCINES } from "@/lib/staff.constants";
+import { STAFF_VACCINES } from "@/lib/staff/staff.constants";
 
 import { VACCINES_TITLE } from "../PatientRecord.constants";
 import styles from "../PatientRecord.module.scss";

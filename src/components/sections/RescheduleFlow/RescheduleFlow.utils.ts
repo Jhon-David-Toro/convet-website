@@ -1,7 +1,7 @@
 import type { BookingSummaryProps } from "@/components/patterns/BookingSummary";
 import { bookingSummary } from "@/components/sections/BookingFlow/BookingFlow.utils";
-import { shortDay } from "@/lib/booking.utils";
-import type { CustomerAppointment } from "@/lib/customer.types";
+import { shortDay } from "@/lib/booking/booking.utils";
+import type { CustomerAppointment } from "@/lib/customer/customer.types";
 
 import { SUMMARY_EYEBROW } from "./RescheduleFlow.constants";
 

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import { BookingFlow } from "@/components/sections/BookingFlow";
-import { findBookingService } from "@/lib/booking.utils";
-import { NO_INDEX } from "@/lib/seo.constants";
+import { findBookingService } from "@/lib/booking/booking.utils";
+import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import type { BookPageProps } from "./page.types";
 

@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from "react";
 
-import { KEYS } from "@/lib/keys.constants";
+import { KEYS } from "@/lib/shared/keys.constants";
 
 import { MASK_CONFIG } from "../MaskedInput.constants";
 import type { UseMaskedHandlersParams } from "../MaskedInput.types";

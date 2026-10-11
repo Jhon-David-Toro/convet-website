@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import type { StaffClient } from "@/lib/staff.types";
+import type { StaffClient } from "@/lib/staff/staff.types";
 
 export type ClientDetailProps = {
   client: StaffClient;

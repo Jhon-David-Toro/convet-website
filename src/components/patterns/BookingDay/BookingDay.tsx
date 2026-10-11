@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./BookingDay.module.scss";
 import { BOOKING_DAY_STATE_CLASS, FEW_LEFT_DAY_STATE, SELECTED_DAY_STATE, UNAVAILABLE_DAY_STATE } from "./BookingDay.constants";

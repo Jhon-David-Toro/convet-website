@@ -1,5 +1,5 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../ProductLots.module.scss";
 import { MOVEMENT_VIEWS } from "../ProductLots.constants";

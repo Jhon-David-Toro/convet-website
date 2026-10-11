@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { ANY_VET_ID } from "@/lib/booking.constants";
-import { useLoadingDelay } from "@/lib/useLoadingDelay";
+import { ANY_VET_ID } from "@/lib/booking/booking.constants";
+import { useLoadingDelay } from "@/lib/shared/useLoadingDelay";
 
 import { EMPTY_SELECTION, LOADING_MS } from "../BookingFlow.constants";
 import type { BookingSelection, BookingSelectionState, UseBookingSelectionParams } from "../BookingFlow.types";

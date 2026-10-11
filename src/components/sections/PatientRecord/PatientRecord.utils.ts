@@ -1,8 +1,8 @@
 import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import { Mail, Phone } from "@/components/ui/Icon";
-import { STAFF_CLIENT, STAFF_OWNER, STAFF_TIMELINE } from "@/lib/staff.constants";
-import { STAFF_PATIENTS_HREF } from "@/lib/staff.paths.constants";
-import type { StaffOwner, StaffPatient, StaffTimelineEntry } from "@/lib/staff.types";
+import { STAFF_CLIENT, STAFF_OWNER, STAFF_TIMELINE } from "@/lib/staff/staff.constants";
+import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
+import type { StaffOwner, StaffPatient, StaffTimelineEntry } from "@/lib/staff/staff.types";
 
 import { BREADCRUMBS_OWNER_HREF, TAB_TYPES } from "./PatientRecord.constants";
 import type { ContactItem, PatientTab } from "./PatientRecord.types";

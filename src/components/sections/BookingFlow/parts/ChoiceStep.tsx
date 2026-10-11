@@ -1,5 +1,5 @@
-import { findPet } from "@/lib/customer.utils";
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { findPet } from "@/lib/customer/customer.utils";
 
 import type { StepContentProps } from "../BookingFlow.types";
 import { StepPet } from "./StepPet";

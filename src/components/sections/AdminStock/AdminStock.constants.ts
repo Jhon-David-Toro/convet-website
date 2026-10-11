@@ -1,6 +1,6 @@
 import type { StatGridItem } from "@/components/patterns/StatGrid";
-import { STOCK_STATS } from "@/lib/admin.constants";
-import { ADMIN_RECEIVE_HREF } from "@/lib/admin.paths.constants";
+import { STOCK_STATS } from "@/lib/admin/admin.constants";
+import { ADMIN_RECEIVE_HREF } from "@/lib/admin/admin.paths.constants";
 
 import type { SortDirection } from "./AdminStock.types";
 

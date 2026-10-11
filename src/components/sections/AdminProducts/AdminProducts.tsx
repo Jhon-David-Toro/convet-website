@@ -3,7 +3,7 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { CATALOG_ROWS } from "@/lib/admin.constants";
+import { CATALOG_ROWS } from "@/lib/admin/admin.constants";
 
 import { ADD_LABEL, COLUMNS, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminProducts.constants";
 import { CatalogRowView } from "./parts/CatalogRowView";

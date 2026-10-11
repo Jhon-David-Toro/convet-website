@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { PRIVACY_HREF, TERMS_HREF } from "@/lib/auth.constants";
+import { PRIVACY_HREF, TERMS_HREF } from "@/lib/auth/auth.constants";
 
 import { CONSENT_PREFIX, PRIVACY_LABEL, TERMS_LABEL } from "../SignUpForm.constants";
 

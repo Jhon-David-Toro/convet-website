@@ -1,6 +1,6 @@
 "use client";
 
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./CodeInput.module.scss";
 import { DEFAULT_CODE_LENGTH } from "./CodeInput.constants";

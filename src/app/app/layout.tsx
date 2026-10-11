@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { ToastProvider } from "@/components/ui/Toast";
-import { NO_INDEX } from "@/lib/seo.constants";
+import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import type { CustomerLayoutProps } from "./(portal)/layout.types";
 

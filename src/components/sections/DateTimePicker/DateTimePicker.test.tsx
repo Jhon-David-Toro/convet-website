@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { BOOKING_VETS } from "@/lib/booking.constants";
+import { BOOKING_VETS } from "@/lib/booking/booking.constants";
 
 import { DateTimePicker } from "./DateTimePicker";
 

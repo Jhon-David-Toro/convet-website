@@ -1,6 +1,6 @@
 import { parseDate } from "@/components/ui/MaskedInput";
-import { CATALOG_PRODUCTS } from "@/lib/admin.constants";
-import type { CatalogProduct, ReceiptLine } from "@/lib/admin.types";
+import { CATALOG_PRODUCTS } from "@/lib/admin/admin.constants";
+import type { CatalogProduct, ReceiptLine } from "@/lib/admin/admin.types";
 
 import { EXPIRED_ERROR, LOW_STOCK_LABEL_PREFIX, NEW_LINE_QUANTITY, SAVE_LABEL, STOCK_LABEL_PREFIX } from "./ReceiveStock.constants";
 

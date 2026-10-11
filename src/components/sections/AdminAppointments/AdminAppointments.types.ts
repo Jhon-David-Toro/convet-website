@@ -1,4 +1,4 @@
-import type { AdminAppointment } from "@/lib/admin.types";
+import type { AdminAppointment } from "@/lib/admin/admin.types";
 
 export type AppointmentCellsProps = AppointmentRowProps;
 

@@ -1,6 +1,6 @@
 import { DateTimePicker } from "@/components/sections/DateTimePicker";
-import { ANY_VET_ID } from "@/lib/booking.constants";
-import { agendaVet } from "@/lib/booking.utils";
+import { ANY_VET_ID } from "@/lib/booking/booking.constants";
+import { agendaVet } from "@/lib/booking/booking.utils";
 
 import type { StepDateTimeProps } from "../BookingFlow.types";
 import { NextAvailableButton } from "./NextAvailableButton";

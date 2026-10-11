@@ -1,5 +1,5 @@
-import { PASSWORD_MIN_LENGTH } from "@/lib/auth.constants";
-import { onlyErrors, requireText, validateEmail } from "@/lib/validation.utils";
+import { PASSWORD_MIN_LENGTH } from "@/lib/auth/auth.constants";
+import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
 
 import { SIGN_UP_ERRORS } from "./SignUpForm.constants";
 import type { SignUpErrors, SignUpValues } from "./SignUpForm.types";

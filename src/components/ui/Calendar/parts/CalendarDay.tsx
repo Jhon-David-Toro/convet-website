@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Calendar.module.scss";
 import { DAY_FORMAT } from "../Calendar.constants";

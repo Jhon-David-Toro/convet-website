@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { CustomerReminder } from "@/lib/customer.types";
+import type { CustomerReminder } from "@/lib/customer/customer.types";
 
 import type { DismissState } from "../CustomerOverview.types";
 

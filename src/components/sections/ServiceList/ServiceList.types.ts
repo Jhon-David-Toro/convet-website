@@ -1,4 +1,4 @@
-import type { ServiceFilter, ServiceItem } from "@/lib/services.types";
+import type { ServiceFilter, ServiceItem } from "@/lib/catalog/services.types";
 
 export type ServiceRowProps = {
   service: ServiceItem;

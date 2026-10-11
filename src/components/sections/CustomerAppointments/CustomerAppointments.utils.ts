@@ -1,5 +1,5 @@
-import { CUSTOMER_APPOINTMENTS } from "@/lib/customer.constants";
-import type { CustomerAppointment } from "@/lib/customer.types";
+import { CUSTOMER_APPOINTMENTS } from "@/lib/customer/customer.constants";
+import type { CustomerAppointment } from "@/lib/customer/customer.types";
 
 import { APPOINTMENTS_HREF, CANCEL_PARAM } from "./CustomerAppointments.constants";
 import type { AppointmentGroups } from "./CustomerAppointments.types";

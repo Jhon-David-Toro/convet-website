@@ -1,5 +1,5 @@
 import { Calendar, Mail, Phone } from "@/components/ui/Icon";
-import type { StaffClient } from "@/lib/staff.types";
+import type { StaffClient } from "@/lib/staff/staff.types";
 
 import type { ContactLine } from "./ClientDetail.types";
 

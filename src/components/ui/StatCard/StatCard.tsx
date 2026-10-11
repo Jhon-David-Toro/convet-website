@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./StatCard.module.scss";
 import { STAT_CARD_ICON_SIZE } from "./StatCard.constants";

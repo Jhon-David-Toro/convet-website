@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
-import { photoUrl } from "@/lib/photos";
-import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/seo.constants";
-import { shareImageUrl } from "@/lib/seo.utils";
+import { photoUrl } from "@/lib/site/photos";
+import { SITE_DESCRIPTION, SITE_NAME, SITE_TITLE, SITE_URL } from "@/lib/site/seo.constants";
+import { shareImageUrl } from "@/lib/site/seo.utils";
 import "@/styles/globals.scss";
 
 import { fontVariables } from "./fonts";

@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import { cx } from "@/lib/cx";
-import { photoUrl } from "@/lib/photos";
+import { cx } from "@/lib/shared/cx";
+import { photoUrl } from "@/lib/site/photos";
 
 import styles from "./Logo.module.scss";
 import { FULL_VARIANT, INVERSE_TONE, LOGO_ALT, LOGO_MARK_NAME, LOGO_MARK_SIZE, MARK_VARIANT } from "./Logo.constants";

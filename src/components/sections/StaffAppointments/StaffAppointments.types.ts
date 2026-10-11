@@ -1,4 +1,4 @@
-import type { StaffAppointment } from "@/lib/staff.types";
+import type { StaffAppointment } from "@/lib/staff/staff.types";
 
 export type RangeValue = "today" | "tomorrow" | "week";
 

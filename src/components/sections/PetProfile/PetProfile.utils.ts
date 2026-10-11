@@ -1,7 +1,7 @@
 import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
-import { CUSTOMER_PETS_HREF } from "@/lib/customer.paths.constants";
-import type { PetEvent, PetItem, PetVaccine, WeightPoint } from "@/lib/customer.types";
-import { petHref } from "@/lib/customer.utils";
+import { CUSTOMER_PETS_HREF } from "@/lib/customer/customer.paths.constants";
+import type { PetEvent, PetItem, PetVaccine, WeightPoint } from "@/lib/customer/customer.types";
+import { petHref } from "@/lib/customer/customer.utils";
 
 import { FACT_LABELS, MY_PETS_LABEL, TAB_LABELS, WEIGHT_HEIGHT_RANGE, WEIGHT_MIN_HEIGHT } from "./PetProfile.constants";
 import type { EventGroup, HistoryFilter, PetFactItem, PetTab, WeightBar } from "./PetProfile.types";

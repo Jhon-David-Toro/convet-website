@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Calendar, Phone, WhatsApp } from "@/components/ui/Icon";
 import { MobileActionBar } from "@/components/ui/MobileActionBar";
-import { BOOKING_HREF, EMERGENCY_PHONE_HREF, WHATSAPP_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF, EMERGENCY_PHONE_HREF, WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import styles from "./MobileQuickActions.module.scss";
 

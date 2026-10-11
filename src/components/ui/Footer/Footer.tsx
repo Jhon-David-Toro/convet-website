@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Footer.module.scss";
 import type { FooterProps } from "./Footer.types";

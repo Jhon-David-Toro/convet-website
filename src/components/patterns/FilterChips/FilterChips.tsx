@@ -1,5 +1,5 @@
 import { Chip } from "@/components/ui/Chip";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./FilterChips.module.scss";
 import type { FilterChipsProps } from "./FilterChips.types";

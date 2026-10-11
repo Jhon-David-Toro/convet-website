@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../AuthLayout.module.scss";
 import type { AuthFormProps } from "../AuthLayout.types";

@@ -2,7 +2,7 @@
 
 Web application and design system for **CONVET** (Contreras Veterinary Services N.V.), a veterinary clinic in Savaneta, Aruba. The project turns the clinic's Figma file into a working front end: the public website, the sign-in flow, the customer app, and the staff and admin tools.
 
-> **Status: `0.1.0`, front end only.** There is no backend yet. All data is mock data kept in `src/lib/*.constants.ts`, and forms accept callbacks so an API can be plugged in later. Changes made in the UI are not saved and are lost on reload.
+> **Status: `0.1.0`, front end only.** There is no backend yet. All data is mock data kept in the `*.constants.ts` files of `src/lib`, and forms accept callbacks so an API can be plugged in later. Changes made in the UI are not saved and are lost on reload.
 
 ## Contents
 
@@ -122,7 +122,13 @@ src/
     ui/                 Generic components (Button, Select, Modal, Table cells…)
     patterns/           Domain components (AppointmentCard, DataTable, StatGrid…)
     sections/           Page-level sections built from ui and patterns
-  lib/                  Shared code: mock data, types, helpers, hooks
+  lib/                  Shared code, one folder per domain
+    shared/             cx, hooks, keys, labels (used by many components)
+    site/               clinic data, SEO, photos, WhatsApp links
+    auth/               auth copy, validation, pending email
+    customer/ booking/  customer area and booking: data, types, helpers
+    staff/ admin/       staff and admin areas: data, types, helpers
+    catalog/            services and products
   styles/               Tokens (foundations), mixins (abstracts), reset (base)
 ```
 
@@ -141,7 +147,7 @@ src/components/ui/Select/
   parts/                sub-components
 ```
 
-Mock data lives in `src/lib`: `customer.*`, `booking.*`, `staff.*` and `admin.*`. Replacing those modules with API calls is the main step to connect a backend.
+Mock data lives in `src/lib`: `customer/`, `booking/`, `staff/` and `admin/`. Replacing those modules with API calls is the main step to connect a backend.
 
 ## Conventions
 

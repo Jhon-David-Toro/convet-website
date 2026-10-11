@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { PageIntro } from "@/components/sections/PageIntro";
 import { ProductCatalog } from "@/components/sections/ProductCatalog";
 import { SiteShell } from "@/components/sections/SiteShell";
-import { PRODUCTS } from "@/lib/products.constants";
+import { PRODUCTS } from "@/lib/catalog/products.constants";
 
 import { PRODUCTS_INTRO, PRODUCTS_PATH } from "./page.constants";
 

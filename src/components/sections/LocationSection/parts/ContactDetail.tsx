@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../LocationSection.module.scss";
 import type { ContactLineProps } from "../LocationSection.types";

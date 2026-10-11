@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { vaccinesOf } from "@/lib/customer.utils";
+import { vaccinesOf } from "@/lib/customer/customer.utils";
 
 import styles from "./PetProfile.module.scss";
 import type { PetProfileProps } from "./PetProfile.types";

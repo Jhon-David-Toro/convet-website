@@ -1,5 +1,5 @@
-import { ADMIN_APPOINTMENTS } from "@/lib/admin.constants";
-import type { AdminAppointment } from "@/lib/admin.types";
+import { ADMIN_APPOINTMENTS } from "@/lib/admin/admin.constants";
+import type { AdminAppointment } from "@/lib/admin/admin.types";
 
 import { ALL_FILTER } from "./AdminAppointments.constants";
 

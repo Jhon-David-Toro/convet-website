@@ -1,7 +1,7 @@
 import { render, screen, within } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { SERVICES } from "@/lib/services.constants";
+import { SERVICES } from "@/lib/catalog/services.constants";
 
 import { ServiceDetail } from "./ServiceDetail";
 import { ServiceMobileBar } from "./parts/ServiceMobileBar";

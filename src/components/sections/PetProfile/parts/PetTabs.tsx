@@ -3,8 +3,8 @@
 import { useRouter } from "next/navigation";
 
 import { Tab } from "@/components/ui/Tab";
-import { PET_TABS } from "@/lib/customer.paths.constants";
-import { petHref } from "@/lib/customer.utils";
+import { PET_TABS } from "@/lib/customer/customer.paths.constants";
+import { petHref } from "@/lib/customer/customer.utils";
 
 import { PANEL_ID, TAB_LABELS, TABS_LABEL } from "../PetProfile.constants";
 import styles from "../PetProfile.module.scss";

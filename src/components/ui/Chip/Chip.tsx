@@ -1,5 +1,5 @@
 import { Check, Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Chip.module.scss";
 import type { ChipProps } from "./Chip.types";

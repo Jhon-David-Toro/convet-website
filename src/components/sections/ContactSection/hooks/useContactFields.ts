@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { validateEmail } from "@/lib/validation.utils";
+import { validateEmail } from "@/lib/auth/validation.utils";
 
 import { EMPTY_VALUES } from "../ContactSection.constants";
 import type { ContactErrors, ContactFieldsState, ContactValues } from "../ContactSection.types";

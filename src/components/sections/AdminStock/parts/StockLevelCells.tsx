@@ -1,6 +1,6 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
-import { STOCK_STATUS_VIEWS } from "@/lib/admin.status.constants";
+import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
 
 import type { StockCellsProps } from "../AdminStock.types";
 

@@ -1,5 +1,5 @@
-import { ADMIN_CLIENTS } from "@/lib/admin.constants";
-import type { AdminClient } from "@/lib/admin.types";
+import { ADMIN_CLIENTS } from "@/lib/admin/admin.constants";
+import type { AdminClient } from "@/lib/admin/admin.types";
 
 import { ALL_FILTER } from "./AdminClients.constants";
 

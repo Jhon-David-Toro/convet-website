@@ -2,7 +2,7 @@ import { PRODUCT_CATEGORY_LABELS, PRODUCT_KIND_LABELS, PRODUCTS, RELATED_PRODUCT
 import type { ProductItem, ProductSpec } from "./products.types";
 import { SERVICES } from "./services.constants";
 import type { ServiceItem } from "./services.types";
-import { whatsappLink } from "./whatsapp";
+import { whatsappLink } from "../site/whatsapp";
 
 /**
  * Finds a product by its URL segment.

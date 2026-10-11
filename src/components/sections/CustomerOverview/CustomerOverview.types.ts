@@ -1,4 +1,4 @@
-import type { CustomerAppointment, CustomerReminder } from "@/lib/customer.types";
+import type { CustomerAppointment, CustomerReminder } from "@/lib/customer/customer.types";
 
 export type OverviewAppointmentProps = {
   appointment: CustomerAppointment;

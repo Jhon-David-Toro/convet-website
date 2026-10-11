@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
-import { FORGOT_PASSWORD_HREF } from "@/lib/auth.constants";
+import { FORGOT_PASSWORD_HREF } from "@/lib/auth/auth.constants";
 
 import { FORGOT_LABEL, REMEMBER_LABEL } from "../SignInForm.constants";
 import styles from "../SignInForm.module.scss";

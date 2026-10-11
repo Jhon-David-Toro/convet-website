@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Dropdown.module.scss";
 import { PANEL_PADDING } from "./Dropdown.constants";

@@ -1,5 +1,5 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
-import type { ServiceRow } from "@/lib/admin.types";
+import type { ServiceRow } from "@/lib/admin/admin.types";
 
 import { ONLINE_VIEWS } from "./AdminServices.constants";
 import type { ServiceDraft } from "./AdminServices.types";

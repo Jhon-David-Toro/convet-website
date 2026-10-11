@@ -1,6 +1,6 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../AdminServices.module.scss";
 import type { ServiceRowViewProps } from "../AdminServices.types";

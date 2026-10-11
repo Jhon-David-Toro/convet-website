@@ -1,8 +1,8 @@
 import Link from "next/link";
 
 import { Button } from "@/components/ui/Button";
-import { Logo } from "@/components/ui/Logo";
 import { X } from "@/components/ui/Icon";
+import { Logo } from "@/components/ui/Logo";
 
 import { BOOKING_HOME_HREF, EXIT_LABEL, HOME_LABEL } from "../BookingFrame.constants";
 import styles from "../BookingFrame.module.scss";

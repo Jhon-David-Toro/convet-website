@@ -1,5 +1,5 @@
 import { DateTimePicker } from "@/components/sections/DateTimePicker";
-import { agendaVet } from "@/lib/booking.utils";
+import { agendaVet } from "@/lib/booking/booking.utils";
 
 import styles from "../RescheduleFlow.module.scss";
 import { PICK_SUBTITLE, PICK_TITLE, REVIEW_SUBTITLE, REVIEW_TITLE } from "../RescheduleFlow.constants";

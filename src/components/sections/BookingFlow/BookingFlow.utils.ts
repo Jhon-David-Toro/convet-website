@@ -1,11 +1,11 @@
 import type { BookingSummaryProps } from "@/components/patterns/BookingSummary";
-import { BOOKING_LOCATION, SLOT_MINUTES } from "@/lib/booking.constants";
-import { agendaVet, findBookingService, fullDay, labelToMinutes, longDay, minutesToLabel, shortDay, timeRange } from "@/lib/booking.utils";
-import { whatsappLink } from "@/lib/whatsapp";
-import { BOOKING_PET_LINES, BOOKING_SERVICES, BOOKING_VETS, NEW_PET_OPTION } from "@/lib/booking.constants";
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
-import { findPet } from "@/lib/customer.utils";
 import { Cat, Dog, User, Users } from "@/components/ui/Icon";
+import { BOOKING_LOCATION, SLOT_MINUTES } from "@/lib/booking/booking.constants";
+import { BOOKING_PET_LINES, BOOKING_SERVICES, BOOKING_VETS, NEW_PET_OPTION } from "@/lib/booking/booking.constants";
+import { agendaVet, findBookingService, fullDay, labelToMinutes, longDay, minutesToLabel, shortDay, timeRange } from "@/lib/booking/booking.utils";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { findPet } from "@/lib/customer/customer.utils";
+import { whatsappLink } from "@/lib/site/whatsapp";
 
 import { MINUTES_PER_HOUR, MOBILE_TITLES, MS_PER_DAY, MS_PER_MINUTE, NEW_PET_ID, SIDE_STEPS, STEP_COPY, STEP_ORDER } from "./BookingFlow.constants";
 import type { BookingSelection, BookingStepId, OptionItem } from "./BookingFlow.types";

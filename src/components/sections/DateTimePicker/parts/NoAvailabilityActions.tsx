@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { shortDay } from "@/lib/booking.utils";
+import { shortDay } from "@/lib/booking/booking.utils";
 
 import { ANY_VET_LABEL, SEE_DAY_LABEL } from "../DateTimePicker.constants";
 import type { NoAvailabilityActionsProps } from "../DateTimePicker.types";

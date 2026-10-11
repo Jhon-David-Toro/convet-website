@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./TimeSlot.module.scss";
 import type { TimeSlotProps } from "./TimeSlot.types";

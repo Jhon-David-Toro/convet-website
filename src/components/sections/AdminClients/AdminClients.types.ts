@@ -1,5 +1,5 @@
 import type { FilterChipsProps } from "@/components/patterns/FilterChips";
-import type { AdminClient } from "@/lib/admin.types";
+import type { AdminClient } from "@/lib/admin/admin.types";
 
 export type ClientsTableProps = {
   rows: AdminClient[];

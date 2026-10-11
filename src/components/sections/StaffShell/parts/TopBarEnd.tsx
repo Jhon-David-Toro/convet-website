@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Bell, Menu, Plus, Search } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { MENU_LABEL, NEW_APPOINTMENT_LABEL, NOTIFICATIONS_LABEL, OPEN_SEARCH_LABEL } from "../StaffShell.constants";
 import styles from "../StaffShell.module.scss";

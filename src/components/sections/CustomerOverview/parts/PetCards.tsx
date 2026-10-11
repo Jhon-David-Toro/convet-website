@@ -1,6 +1,6 @@
 import { PetCard } from "@/components/patterns/PetCard";
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
-import { petCardProps } from "@/lib/customer.utils";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { petCardProps } from "@/lib/customer/customer.utils";
 
 import styles from "../CustomerOverview.module.scss";
 import { AddPetTile } from "./AddPetTile";

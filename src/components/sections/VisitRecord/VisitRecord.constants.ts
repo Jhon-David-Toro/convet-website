@@ -1,5 +1,5 @@
 import type { SelectOption } from "@/components/ui/Select";
-import { STAFF_HOME_HREF, STAFF_PATIENTS_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_HOME_HREF, STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 
 export const TITLE_PREFIX = "New visit";
 

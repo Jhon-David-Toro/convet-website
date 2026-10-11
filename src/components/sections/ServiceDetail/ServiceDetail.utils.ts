@@ -1,5 +1,5 @@
 import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
-import type { ServiceItem } from "@/lib/services.types";
+import type { ServiceItem } from "@/lib/catalog/services.types";
 
 import { SERVICES_CRUMB } from "./ServiceDetail.constants";
 

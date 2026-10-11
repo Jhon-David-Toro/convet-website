@@ -1,6 +1,6 @@
 import type { ChangeEvent } from "react";
 
-import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff.types";
+import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff/staff.types";
 
 export type VisitRecordProps = {
   visit: StaffVisitForm;

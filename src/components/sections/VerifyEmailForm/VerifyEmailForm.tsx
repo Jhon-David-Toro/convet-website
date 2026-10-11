@@ -2,7 +2,7 @@
 
 import { AuthForm } from "@/components/sections/AuthLayout";
 import { Button } from "@/components/ui/Button";
-import { pickLabel } from "@/lib/labels";
+import { pickLabel } from "@/lib/shared/labels";
 
 import { VERIFY_LABELS } from "./VerifyEmailForm.constants";
 import type { VerifyEmailFormProps } from "./VerifyEmailForm.types";

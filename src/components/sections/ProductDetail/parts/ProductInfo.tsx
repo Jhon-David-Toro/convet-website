@@ -1,4 +1,4 @@
-import { productAvailabilityMessage } from "@/lib/products.utils";
+import { productAvailabilityMessage } from "@/lib/catalog/products.utils";
 
 import { PREFILL_NOTE } from "../ProductDetail.constants";
 import styles from "../ProductDetail.module.scss";

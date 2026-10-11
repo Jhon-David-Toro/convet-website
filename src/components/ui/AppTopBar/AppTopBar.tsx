@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./AppTopBar.module.scss";
 import type { AppTopBarProps } from "./AppTopBar.types";

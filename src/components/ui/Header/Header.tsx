@@ -1,7 +1,7 @@
 "use client";
 
 import { EmergencyBar } from "@/components/ui/EmergencyBar";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Header.module.scss";
 import type { HeaderProps } from "./Header.types";

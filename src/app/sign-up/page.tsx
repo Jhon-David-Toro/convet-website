@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 import { AuthLayout } from "@/components/sections/AuthLayout";
 import { SignUpForm } from "@/components/sections/SignUpForm";
-import { SIGN_IN_HREF } from "@/lib/auth.constants";
-import { NO_INDEX } from "@/lib/seo.constants";
+import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
+import { NO_INDEX } from "@/lib/site/seo.constants";
 
 export const metadata: Metadata = {
   robots: NO_INDEX,

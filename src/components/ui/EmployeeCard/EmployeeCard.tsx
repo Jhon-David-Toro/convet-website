@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, Stethoscope } from "@/components/ui/Icon";
 import { Photo } from "@/components/ui/Photo";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./EmployeeCard.module.scss";
 import type { EmployeeCardProps } from "./EmployeeCard.types";

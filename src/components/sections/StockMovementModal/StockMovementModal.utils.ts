@@ -1,5 +1,5 @@
 import type { SelectOption } from "@/components/ui/Select";
-import type { ProductLot } from "@/lib/admin.types";
+import type { ProductLot } from "@/lib/admin/admin.types";
 
 import { ADJUSTMENT_TYPE, REASON_REQUIRED, REMOVE_DIRECTION } from "./StockMovementModal.constants";
 import type { MovementType, MovementValues } from "./StockMovementModal.types";

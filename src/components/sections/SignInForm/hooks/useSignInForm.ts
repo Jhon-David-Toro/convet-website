@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
-import { hasErrors } from "@/lib/validation.utils";
+import { hasErrors } from "@/lib/auth/validation.utils";
 
 import { CREDENTIAL_ERRORS } from "../SignInForm.constants";
 import type { SignInFormState, SignInStatus, UseSignInFormParams } from "../SignInForm.types";

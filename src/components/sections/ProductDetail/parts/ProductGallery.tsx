@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Icon, Pill } from "@/components/ui/Icon";
 import { MediaImage } from "@/components/ui/MediaImage";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import { GALLERY_CAPTIONS, THUMBNAIL_ICON_SIZE, THUMBNAILS_LABEL } from "../ProductDetail.constants";
 import styles from "../ProductDetail.module.scss";

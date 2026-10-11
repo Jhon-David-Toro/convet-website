@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./TabBar.module.scss";
 import type { TabBarProps } from "./TabBar.types";

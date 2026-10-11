@@ -2,8 +2,8 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 import { useToast } from "@/components/ui/Toast";
-import { RECEIPT_DEFAULTS } from "@/lib/admin.constants";
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
+import { RECEIPT_DEFAULTS } from "@/lib/admin/admin.constants";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
 import { SAVED_MESSAGE } from "../ReceiveStock.constants";
 import type { ReceiptState } from "../ReceiveStock.types";

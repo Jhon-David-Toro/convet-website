@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 import { Icon, User } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Photo.module.scss";
 import { PHOTO_PLACEHOLDER_ICON_SIZE } from "./Photo.constants";

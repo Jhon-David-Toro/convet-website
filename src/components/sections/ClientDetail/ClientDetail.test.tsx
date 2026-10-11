@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { STAFF_CLIENT } from "@/lib/staff.constants";
+import { STAFF_CLIENT } from "@/lib/staff/staff.constants";
 
 import { ClientDetail } from "./ClientDetail";
 import { contactLines } from "./ClientDetail.utils";

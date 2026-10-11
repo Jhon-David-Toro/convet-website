@@ -1,6 +1,6 @@
 import { Select } from "@/components/ui/Select";
 import { TextInput } from "@/components/ui/TextInput";
-import { CATALOG_PRODUCTS } from "@/lib/admin.constants";
+import { CATALOG_PRODUCTS } from "@/lib/admin/admin.constants";
 
 import { LOT_LABEL, PRODUCT_LABEL } from "../ReceiveStock.constants";
 import type { LineProductFieldsProps } from "../ReceiveStock.types";

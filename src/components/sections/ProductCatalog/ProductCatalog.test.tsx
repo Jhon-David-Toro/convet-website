@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { PRODUCTS } from "@/lib/products.constants";
+import { PRODUCTS } from "@/lib/catalog/products.constants";
 
 import { ProductCatalog } from "./ProductCatalog";
 import { countKinds, filterProducts, productCountLabel, toggleValue } from "./ProductCatalog.utils";

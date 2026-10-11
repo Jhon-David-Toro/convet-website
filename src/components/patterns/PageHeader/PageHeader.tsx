@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./PageHeader.module.scss";
 import type { PageHeaderProps } from "./PageHeader.types";

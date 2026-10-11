@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { STAFF_PATIENT } from "@/lib/staff.constants";
+import { STAFF_PATIENT } from "@/lib/staff/staff.constants";
 
 import { PatientRecord } from "./PatientRecord";
 import { entriesFor, patientCrumbs } from "./PatientRecord.utils";

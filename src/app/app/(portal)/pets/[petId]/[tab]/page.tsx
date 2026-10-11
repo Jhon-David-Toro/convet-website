@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PetProfile } from "@/components/sections/PetProfile";
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
-import { PET_TABS } from "@/lib/customer.paths.constants";
-import { findPet } from "@/lib/customer.utils";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { PET_TABS } from "@/lib/customer/customer.paths.constants";
+import { findPet } from "@/lib/customer/customer.utils";
 
 import type { PetTabPageProps } from "./page.types";
 

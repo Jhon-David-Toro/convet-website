@@ -1,6 +1,6 @@
 "use client";
 
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./MonthCalendar.module.scss";
 import { useMonthCalendar } from "./hooks/useMonthCalendar";

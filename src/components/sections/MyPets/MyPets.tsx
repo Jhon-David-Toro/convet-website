@@ -1,7 +1,7 @@
 "use client";
 
-import { CUSTOMER_PETS } from "@/lib/customer.constants";
-import { useDisclosure } from "@/lib/useDisclosure";
+import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import styles from "./MyPets.module.scss";
 import type { MyPetsProps } from "./MyPets.types";

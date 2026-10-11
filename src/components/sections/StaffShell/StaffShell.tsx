@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 
 import { AppTopBar } from "@/components/ui/AppTopBar";
-import { useDisclosure } from "@/lib/useDisclosure";
+import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import { SHELL_CONFIGS } from "./StaffShell.constants";
 import styles from "./StaffShell.module.scss";

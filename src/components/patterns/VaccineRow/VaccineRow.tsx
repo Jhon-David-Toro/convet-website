@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/Badge";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./VaccineRow.module.scss";
 import { UP_TO_DATE_STATUS, VACCINE_STATUS_VIEWS } from "./VaccineRow.constants";

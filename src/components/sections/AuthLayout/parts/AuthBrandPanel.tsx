@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Logo } from "@/components/ui/Logo";
 import { PawPattern } from "@/components/ui/PawPattern";
-import { photoUrl } from "@/lib/photos";
+import { photoUrl } from "@/lib/site/photos";
 
 import { BRAND_PHOTO_ALT, BRAND_PHOTO_NAME, BRAND_PHOTO_SIZES, HOME_LABEL } from "../AuthLayout.constants";
 import styles from "../AuthLayout.module.scss";

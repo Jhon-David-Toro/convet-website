@@ -1,6 +1,6 @@
 import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
-import { PRODUCT_CATEGORY_LABELS } from "@/lib/products.constants";
-import type { ProductItem } from "@/lib/products.types";
+import { PRODUCT_CATEGORY_LABELS } from "@/lib/catalog/products.constants";
+import type { ProductItem } from "@/lib/catalog/products.types";
 
 import { PRODUCTS_CRUMB } from "./ProductDetail.constants";
 

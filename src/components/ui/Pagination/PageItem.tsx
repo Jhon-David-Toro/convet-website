@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Pagination.module.scss";
 import type { PageItemProps } from "./Pagination.types";

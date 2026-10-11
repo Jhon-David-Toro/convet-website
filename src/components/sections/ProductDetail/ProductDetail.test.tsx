@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { PRODUCTS } from "@/lib/products.constants";
+import { PRODUCTS } from "@/lib/catalog/products.constants";
 
 import { ProductDetail } from "./ProductDetail";
 

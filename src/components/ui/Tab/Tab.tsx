@@ -1,5 +1,5 @@
 import { Badge } from "@/components/ui/Badge";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Tab.module.scss";
 import type { TabProps } from "./Tab.types";

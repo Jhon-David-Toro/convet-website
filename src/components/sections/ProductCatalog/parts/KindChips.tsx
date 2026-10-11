@@ -1,5 +1,5 @@
 import { Chip } from "@/components/ui/Chip";
-import { PRODUCT_KIND_OPTIONS } from "@/lib/products.constants";
+import { PRODUCT_KIND_OPTIONS } from "@/lib/catalog/products.constants";
 
 import { ALL_KINDS_LABEL, KIND_CHIPS_LABEL } from "../ProductCatalog.constants";
 import styles from "../ProductCatalog.module.scss";

@@ -1,4 +1,4 @@
-import type { ServiceRow } from "@/lib/admin.types";
+import type { ServiceRow } from "@/lib/admin/admin.types";
 
 export type ServiceTab = "public" | "rules" | "vets";
 

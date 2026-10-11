@@ -1,5 +1,5 @@
 import { AlertTriangle, Icon, Info } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Field.module.scss";
 import type { FieldHintProps } from "../Field.types";

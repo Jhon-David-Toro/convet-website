@@ -1,5 +1,5 @@
 import { Chip } from "@/components/ui/Chip";
-import { SERVICE_FILTERS } from "@/lib/services.constants";
+import { SERVICE_FILTERS } from "@/lib/catalog/services.constants";
 
 import { FILTERS_LABEL } from "../ServiceList.constants";
 import styles from "../ServiceList.module.scss";

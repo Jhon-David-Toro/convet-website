@@ -1,5 +1,5 @@
 import { StatCard } from "@/components/ui/StatCard";
-import { STAFF_STATS } from "@/lib/staff.constants";
+import { STAFF_STATS } from "@/lib/staff/staff.constants";
 
 import styles from "../StaffToday.module.scss";
 

@@ -1,5 +1,5 @@
 import { BookingSummary } from "@/components/patterns/BookingSummary";
-import { agendaVet } from "@/lib/booking.utils";
+import { agendaVet } from "@/lib/booking/booking.utils";
 
 import styles from "../BookingFlow.module.scss";
 import type { StepReviewProps } from "../BookingFlow.types";

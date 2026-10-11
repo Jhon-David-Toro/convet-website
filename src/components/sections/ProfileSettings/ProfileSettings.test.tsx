@@ -2,7 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
-import { CUSTOMER_PROFILE, NOTIFICATION_SETTINGS } from "@/lib/customer.constants";
+import { CUSTOMER_PROFILE, NOTIFICATION_SETTINGS } from "@/lib/customer/customer.constants";
 
 import { ProfileSettings } from "./ProfileSettings";
 import { validateProfile } from "./ProfileSettings.utils";

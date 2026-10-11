@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
 import styles from "../ReceiveStock.module.scss";
 import { CANCEL_LABEL, FOOTER_NOTE } from "../ReceiveStock.constants";

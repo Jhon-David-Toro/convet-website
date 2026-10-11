@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { useToast } from "@/components/ui/Toast";
-import { BOOKING_RULES } from "@/lib/admin.constants";
+import { BOOKING_RULES } from "@/lib/admin/admin.constants";
 
 import { RULES_SAVED_MESSAGE } from "../AdminSettings.constants";
 import type { RulesState } from "../AdminSettings.types";

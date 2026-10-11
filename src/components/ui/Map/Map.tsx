@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Map.module.scss";
 import type { MapProps } from "./Map.types";

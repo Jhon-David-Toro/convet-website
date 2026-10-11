@@ -1,6 +1,6 @@
 import type { LucideIcon } from "lucide-react";
 
-import type { StaffOwner, StaffPatient, StaffTimelineEntry, StaffVisitSummary } from "@/lib/staff.types";
+import type { StaffOwner, StaffPatient, StaffTimelineEntry, StaffVisitSummary } from "@/lib/staff/staff.types";
 
 export type PatientTab = "visits" | "vaccines" | "treatments" | "documents" | "appointments";
 

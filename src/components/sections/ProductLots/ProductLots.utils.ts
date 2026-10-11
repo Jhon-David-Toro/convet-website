@@ -1,8 +1,8 @@
-import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import type { StatGridItem } from "@/components/patterns/StatGrid";
+import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import { AlertTriangle, Box, Calendar } from "@/components/ui/Icon";
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
-import type { ProductDetail } from "@/lib/admin.types";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
+import type { ProductDetail } from "@/lib/admin/admin.types";
 
 import { BREADCRUMB_STOCK } from "./ProductLots.constants";
 

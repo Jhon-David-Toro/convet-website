@@ -1,4 +1,4 @@
-import { onlyErrors, requireText, validateEmail } from "@/lib/validation.utils";
+import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
 
 import { ERROR_MESSAGES } from "./ContactSection.constants";
 import type { ContactErrors, ContactValues } from "./ContactSection.types";

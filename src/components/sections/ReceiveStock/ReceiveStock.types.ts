@@ -1,4 +1,4 @@
-import type { CatalogProduct, ReceiptLine } from "@/lib/admin.types";
+import type { CatalogProduct, ReceiptLine } from "@/lib/admin/admin.types";
 
 export type ReceiptHeader = {
   supplier: string;

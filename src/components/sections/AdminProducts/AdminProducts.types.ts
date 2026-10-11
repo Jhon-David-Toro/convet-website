@@ -1,4 +1,4 @@
-import type { CatalogRow } from "@/lib/admin.types";
+import type { CatalogRow } from "@/lib/admin/admin.types";
 
 export type CatalogRowViewProps = {
   product: CatalogRow;

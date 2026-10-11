@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { VisitRecord } from "@/components/sections/VisitRecord";
-import { STAFF_PATIENT, STAFF_VISIT } from "@/lib/staff.constants";
+import { STAFF_PATIENT, STAFF_VISIT } from "@/lib/staff/staff.constants";
 
 import type { VisitPageProps } from "./page.types";
 

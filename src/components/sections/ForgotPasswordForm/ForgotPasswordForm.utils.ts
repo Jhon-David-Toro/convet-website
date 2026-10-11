@@ -1,4 +1,4 @@
-import { requireText, validateEmail } from "@/lib/validation.utils";
+import { requireText, validateEmail } from "@/lib/auth/validation.utils";
 
 import { EMAIL_REQUIRED_ERROR } from "./ForgotPasswordForm.constants";
 

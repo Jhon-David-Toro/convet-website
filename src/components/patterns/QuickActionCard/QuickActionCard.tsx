@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { ChevronRight, Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./QuickActionCard.module.scss";
 import { QUICK_ACTION_ICON_SIZE } from "./QuickActionCard.constants";

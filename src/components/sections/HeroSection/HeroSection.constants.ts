@@ -1,4 +1,4 @@
-import { EMERGENCY_PHONE, EMERGENCY_PHONE_HREF } from "@/lib/site.constants";
+import { EMERGENCY_PHONE, EMERGENCY_PHONE_HREF } from "@/lib/site/site.constants";
 
 export const HERO_BADGE_LABEL = "Small animals · Large animals · Exotics";
 

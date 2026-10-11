@@ -1,5 +1,5 @@
 import { Calendar, Icon } from "@/components/ui/Icon";
-import { fullDayMessage, nextOpenDay, shortDay } from "@/lib/booking.utils";
+import { fullDayMessage, nextOpenDay, shortDay } from "@/lib/booking/booking.utils";
 
 import { EMPTY_ICON_SIZE } from "../DateTimePicker.constants";
 import styles from "../DateTimePicker.module.scss";

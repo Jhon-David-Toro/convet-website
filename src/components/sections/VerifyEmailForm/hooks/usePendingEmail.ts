@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from "react";
 
-import { readPendingEmail } from "@/lib/pendingEmail";
+import { readPendingEmail } from "@/lib/auth/pendingEmail";
 
 import { FALLBACK_EMAIL } from "../VerifyEmailForm.constants";
 

@@ -1,6 +1,6 @@
 import { AppointmentCard } from "@/components/patterns/AppointmentCard";
-import { CUSTOMER_APPOINTMENTS_HREF } from "@/lib/customer.paths.constants";
-import { cardProps, nextAppointmentOf } from "@/lib/customer.utils";
+import { CUSTOMER_APPOINTMENTS_HREF } from "@/lib/customer/customer.paths.constants";
+import { cardProps, nextAppointmentOf } from "@/lib/customer/customer.utils";
 
 import { UPCOMING_TITLE } from "../PetProfile.constants";
 import styles from "../PetProfile.module.scss";

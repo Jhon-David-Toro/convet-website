@@ -1,6 +1,6 @@
 import { Badge } from "@/components/ui/Badge";
 import { Check, CheckCircle, Icon, Pill } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./ProductIdentity.module.scss";
 import { ProductText } from "./parts/ProductText";

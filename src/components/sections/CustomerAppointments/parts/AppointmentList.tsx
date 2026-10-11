@@ -2,12 +2,12 @@ import { AppointmentCard } from "@/components/patterns/AppointmentCard";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Calendar } from "@/components/ui/Icon";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_LABEL_EMPTY, EMPTY_MESSAGES, EMPTY_TITLES, PANEL_ID } from "../CustomerAppointments.constants";
 import styles from "../CustomerAppointments.module.scss";
 import type { AppointmentListProps } from "../CustomerAppointments.types";
-import { cardProps } from "@/lib/customer.utils";
+import { cardProps } from "@/lib/customer/customer.utils";
 
 import { cancelHref, rescheduleHref } from "../CustomerAppointments.utils";
 

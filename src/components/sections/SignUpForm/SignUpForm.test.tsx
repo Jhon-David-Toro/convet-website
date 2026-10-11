@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { SignUpForm } from "./SignUpForm";
-import { readPendingEmail } from "@/lib/pendingEmail";
+import { readPendingEmail } from "@/lib/auth/pendingEmail";
 
 import { validateSignUp } from "./SignUpForm.utils";
 

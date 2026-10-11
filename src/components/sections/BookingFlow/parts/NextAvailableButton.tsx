@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Clock } from "@/components/ui/Icon";
-import { agendaVet, nextAvailable, shortDay } from "@/lib/booking.utils";
+import { agendaVet, nextAvailable, shortDay } from "@/lib/booking/booking.utils";
 
 import { NEXT_AVAILABLE_PREFIX } from "../BookingFlow.constants";
 import styles from "../BookingFlow.module.scss";

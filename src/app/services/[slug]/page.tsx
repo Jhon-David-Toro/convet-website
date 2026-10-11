@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import { ServiceDetail, ServiceMobileBar } from "@/components/sections/ServiceDetail";
 import { SiteShell } from "@/components/sections/SiteShell";
-import { SERVICES } from "@/lib/services.constants";
-import { findService } from "@/lib/services.utils";
+import { SERVICES } from "@/lib/catalog/services.constants";
+import { findService } from "@/lib/catalog/services.utils";
 
 import { SERVICES_PATH } from "../page.constants";
 import type { ServicePageProps } from "./page.types";

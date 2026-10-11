@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../PetCard.module.scss";
 import type { PetCardLayoutProps } from "../PetCard.types";

@@ -4,7 +4,7 @@ import { PageStack } from "@/components/patterns/PageStack";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { SUPPLIERS } from "@/lib/admin.constants";
+import { SUPPLIERS } from "@/lib/admin/admin.constants";
 
 import { ADD_LABEL, COLUMNS, NOTE_TEXT, NOTE_TITLE, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminSuppliers.constants";
 import { SupplierRow } from "./parts/SupplierRow";

@@ -1,5 +1,5 @@
 import { ServiceCard } from "@/components/ui/ServiceCard";
-import { serviceBookingHref, serviceDetailHref } from "@/lib/services.utils";
+import { serviceBookingHref, serviceDetailHref } from "@/lib/catalog/services.utils";
 
 import { RELATED_TITLE } from "../ServiceDetail.constants";
 import styles from "../ServiceDetail.module.scss";

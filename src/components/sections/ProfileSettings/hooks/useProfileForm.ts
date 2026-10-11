@@ -1,8 +1,8 @@
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
-import type { CustomerProfile } from "@/lib/customer.types";
-import { hasErrors } from "@/lib/validation.utils";
+import { hasErrors } from "@/lib/auth/validation.utils";
+import type { CustomerProfile } from "@/lib/customer/customer.types";
 
 import type { ProfileErrors, ProfileFormState, UseProfileFormParams } from "../ProfileSettings.types";
 import { validateProfile } from "../ProfileSettings.utils";

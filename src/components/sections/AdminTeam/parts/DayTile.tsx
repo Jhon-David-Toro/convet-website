@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../AdminTeam.module.scss";
 import type { DayTileProps } from "../AdminTeam.types";

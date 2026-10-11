@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Clipboard, Plus } from "@/components/ui/Icon";
-import { STAFF_NEW_APPOINTMENT_HREF, STAFF_VISITS_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_NEW_APPOINTMENT_HREF, STAFF_VISITS_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { NEW_APPOINTMENT_LABEL, START_VISIT_LABEL } from "../PatientRecord.constants";
 import styles from "../PatientRecord.module.scss";

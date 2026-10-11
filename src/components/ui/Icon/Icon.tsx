@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Icon.module.scss";
 import { ICON_PIXEL_SIZES, ICON_STROKE_WIDTH } from "./Icon.constants";

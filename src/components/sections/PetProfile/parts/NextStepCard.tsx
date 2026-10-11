@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Clock } from "@/components/ui/Icon";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_BOOSTER_LABEL, DUE_BADGE, NEXT_STEP_TEXT } from "../PetProfile.constants";
 import styles from "../PetProfile.module.scss";

@@ -1,5 +1,5 @@
 import { Icon, Paw } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./PawPattern.module.scss";
 import { PAW_PATTERN_HEIGHT, PAW_PATTERN_PAWS, PAW_PATTERN_WIDTH } from "./PawPattern.constants";

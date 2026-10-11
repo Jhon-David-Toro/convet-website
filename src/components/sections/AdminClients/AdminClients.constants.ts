@@ -1,7 +1,7 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
 import { Check, Mail, User } from "@/components/ui/Icon";
-import { CLIENT_FILTER_COUNTS } from "@/lib/admin.constants";
-import type { AccountKind } from "@/lib/admin.types";
+import { CLIENT_FILTER_COUNTS } from "@/lib/admin/admin.constants";
+import type { AccountKind } from "@/lib/admin/admin.types";
 
 export const TITLE = "Clients & pets";
 

@@ -1,5 +1,5 @@
 import { DataTable } from "@/components/patterns/DataTable";
-import { SERVICE_ROWS } from "@/lib/admin.constants";
+import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
 
 import { COLUMNS, TABLE_LABEL } from "../AdminServices.constants";
 import type { ServicesTableProps } from "../AdminServices.types";

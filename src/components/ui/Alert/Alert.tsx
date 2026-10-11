@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Alert.module.scss";
 import { ALERT_ICONS } from "./Alert.constants";

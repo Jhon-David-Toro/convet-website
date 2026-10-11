@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Skeleton.module.scss";
 import type { BoneProps } from "../Skeleton.types";

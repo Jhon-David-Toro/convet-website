@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/Button";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Shield } from "@/components/ui/Icon";
 import { TextInput } from "@/components/ui/TextInput";
-import { pickLabel } from "@/lib/labels";
+import { pickLabel } from "@/lib/shared/labels";
 
 import {
   CODE_FIELD_LABEL,

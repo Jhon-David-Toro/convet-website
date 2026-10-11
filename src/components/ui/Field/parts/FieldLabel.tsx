@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Field.module.scss";
 import type { FieldLabelProps } from "../Field.types";

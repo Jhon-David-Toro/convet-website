@@ -1,6 +1,6 @@
 import type { KeyboardEvent } from "react";
 
-import { KEYS } from "@/lib/keys.constants";
+import { KEYS } from "@/lib/shared/keys.constants";
 
 import type { TooltipPatch, TooltipState } from "./Tooltip.types";
 

@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { relatedServices } from "@/lib/services.utils";
+import { relatedServices } from "@/lib/catalog/services.utils";
 
 import { BookingPanel } from "./parts/BookingPanel";
 import { RelatedServices } from "./parts/RelatedServices";

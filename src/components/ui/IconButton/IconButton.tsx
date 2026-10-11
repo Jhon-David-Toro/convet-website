@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./IconButton.module.scss";
 import type { IconButtonAsButtonProps, IconButtonAsLinkProps, IconButtonProps, IconButtonVariant } from "./IconButton.types";

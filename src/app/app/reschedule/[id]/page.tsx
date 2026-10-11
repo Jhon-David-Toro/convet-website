@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { RescheduleFlow } from "@/components/sections/RescheduleFlow";
-import { CUSTOMER_APPOINTMENTS } from "@/lib/customer.constants";
+import { CUSTOMER_APPOINTMENTS } from "@/lib/customer/customer.constants";
 
 import type { ReschedulePageProps } from "./page.types";
 

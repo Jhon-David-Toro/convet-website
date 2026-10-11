@@ -1,5 +1,5 @@
 import type { MovementType } from "@/components/sections/StockMovementModal";
-import type { ProductDetail, ProductLot, StockMovement } from "@/lib/admin.types";
+import type { ProductDetail, ProductLot, StockMovement } from "@/lib/admin/admin.types";
 
 export type LotsTab = "lots" | "movements" | "public" | "settings";
 

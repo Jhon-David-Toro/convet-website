@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
 
-import { TEAM_MEMBERS } from "@/lib/admin.constants";
+import { TEAM_MEMBERS } from "@/lib/admin/admin.constants";
 
 import { AdminTeam } from "./AdminTeam";
 import { userIdLine } from "./AdminTeam.utils";

@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { SERVICE_ROWS } from "@/lib/admin.constants";
+import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
 
 import styles from "./AdminServices.module.scss";
 import { NEW_LABEL, SUBTITLE, TITLE } from "./AdminServices.constants";

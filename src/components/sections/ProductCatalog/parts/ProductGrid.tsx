@@ -1,5 +1,5 @@
 import { ProductCard } from "@/components/ui/ProductCard";
-import { productCategoryLine, productDetailHref, productWhatsappHref } from "@/lib/products.utils";
+import { productCategoryLine, productDetailHref, productWhatsappHref } from "@/lib/catalog/products.utils";
 
 import { ASK_LABEL } from "../ProductCatalog.constants";
 import styles from "../ProductCatalog.module.scss";

@@ -1,5 +1,5 @@
 import { Avatar } from "@/components/ui/Avatar";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Table.module.scss";
 import type { AvatarCellProps } from "../Table.types";

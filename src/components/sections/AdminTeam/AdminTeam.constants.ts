@@ -1,6 +1,6 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
 import { AlertTriangle, Minus, Settings, Shield, Stethoscope, Users, Mail } from "@/components/ui/Icon";
-import type { TeamMember, TeamRole, TeamStatus } from "@/lib/admin.types";
+import type { TeamMember, TeamRole, TeamStatus } from "@/lib/admin/admin.types";
 
 export const TITLE = "Team";
 

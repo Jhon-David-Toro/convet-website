@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 
 import { ProductDetail } from "@/components/sections/ProductDetail";
 import { SiteShell } from "@/components/sections/SiteShell";
-import { PRODUCTS } from "@/lib/products.constants";
-import { findProduct } from "@/lib/products.utils";
+import { PRODUCTS } from "@/lib/catalog/products.constants";
+import { findProduct } from "@/lib/catalog/products.utils";
 
 import { PRODUCTS_PATH } from "../page.constants";
 import type { ProductPageProps } from "./page.types";

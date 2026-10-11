@@ -1,6 +1,6 @@
 "use client";
 
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./FileUpload.module.scss";
 import { FILE_UPLOAD_ROLES, UPLOADED_STATUS } from "./FileUpload.constants";

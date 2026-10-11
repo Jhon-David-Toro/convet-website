@@ -1,5 +1,5 @@
 import { Alert } from "@/components/ui/Alert";
-import { WHATSAPP_HREF } from "@/lib/site.constants";
+import { WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import { CHANGE_ACTION, CHANGE_TEXT, CHANGE_TITLE } from "../CustomerAppointments.constants";
 

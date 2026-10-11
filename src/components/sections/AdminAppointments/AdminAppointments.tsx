@@ -8,8 +8,8 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Button } from "@/components/ui/Button";
 import { Calendar, Plus } from "@/components/ui/Icon";
-import { ADMIN_NAV_HREFS } from "@/lib/admin.paths.constants";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff.paths.constants";
+import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
+import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { COLUMNS, DAY_VIEW_LABEL, FILTERS_LABEL, FILTER_OPTIONS, NEW_LABEL, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminAppointments.constants";
 import { appointmentsFor } from "./AdminAppointments.utils";

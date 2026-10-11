@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { MapPin, WhatsApp } from "@/components/ui/Icon";
-import { DIRECTIONS_HREF, WHATSAPP_HREF } from "@/lib/site.constants";
+import { DIRECTIONS_HREF, WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import styles from "../LocationSection.module.scss";
 import { DIRECTIONS_LABEL, WHATSAPP_LABEL } from "../LocationSection.constants";

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { PRIVATE_PATHS, SITE_URL } from "@/lib/seo.constants";
+import { PRIVATE_PATHS, SITE_URL } from "@/lib/site/seo.constants";
 
 /**
  * Rules for search engine crawlers: the public site can be crawled, the private areas (staff, admin, customer app, booking and sign-in) cannot.

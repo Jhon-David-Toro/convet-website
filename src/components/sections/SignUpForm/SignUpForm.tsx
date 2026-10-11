@@ -2,7 +2,7 @@
 
 import { AuthForm, AuthHeading } from "@/components/sections/AuthLayout";
 import { Button } from "@/components/ui/Button";
-import { pickLabel } from "@/lib/labels";
+import { pickLabel } from "@/lib/shared/labels";
 
 import { SIGN_UP_SUBTITLE, SIGN_UP_TITLE, SUBMIT_LABELS } from "./SignUpForm.constants";
 import type { SignUpFormProps } from "./SignUpForm.types";

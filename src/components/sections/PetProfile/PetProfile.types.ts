@@ -1,6 +1,6 @@
 import type { TimelineType } from "@/components/patterns/TimelineItem";
-import type { PET_TABS } from "@/lib/customer.paths.constants";
-import type { PetEvent, PetItem, PetVaccine, WeightPoint } from "@/lib/customer.types";
+import type { PET_TABS } from "@/lib/customer/customer.paths.constants";
+import type { PetEvent, PetItem, PetVaccine, WeightPoint } from "@/lib/customer/customer.types";
 
 export type PetTab = (typeof PET_TABS)[number];
 

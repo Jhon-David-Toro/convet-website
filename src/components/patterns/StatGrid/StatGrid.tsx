@@ -1,5 +1,5 @@
 import { StatCard } from "@/components/ui/StatCard";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./StatGrid.module.scss";
 import type { StatGridProps, StatGridStyle } from "./StatGrid.types";

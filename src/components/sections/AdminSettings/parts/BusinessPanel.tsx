@@ -1,8 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { useToast } from "@/components/ui/Toast";
 import { TextInput } from "@/components/ui/TextInput";
+import { useToast } from "@/components/ui/Toast";
 
 import { BUSINESS_FIELDS, BUSINESS_SAVED_MESSAGE, PANEL_ID, SAVE_LABEL } from "../AdminSettings.constants";
 import styles from "../AdminSettings.module.scss";

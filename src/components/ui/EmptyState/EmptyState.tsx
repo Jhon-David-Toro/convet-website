@@ -1,5 +1,5 @@
 import { Icon } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./EmptyState.module.scss";
 import { EMPTY_STATE_ICON_SIZE } from "./EmptyState.constants";

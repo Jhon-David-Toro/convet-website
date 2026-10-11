@@ -1,6 +1,6 @@
 import type { ReactNode, SubmitEvent } from "react";
 
-import type { CustomerProfile, NotificationSetting } from "@/lib/customer.types";
+import type { CustomerProfile, NotificationSetting } from "@/lib/customer/customer.types";
 
 export type ProfileSettingsProps = {
   profile: CustomerProfile;

@@ -1,8 +1,8 @@
 "use client";
 
 import { MonthCalendar } from "@/components/patterns/MonthCalendar";
-import { BOOKING_MONTH, BOOKING_TODAY } from "@/lib/booking.constants";
-import { calendarStates } from "@/lib/booking.utils";
+import { BOOKING_MONTH, BOOKING_TODAY } from "@/lib/booking/booking.constants";
+import { calendarStates } from "@/lib/booking/booking.utils";
 
 import styles from "./DateTimePicker.module.scss";
 import { SLOTS_NOTE } from "./DateTimePicker.constants";

@@ -1,7 +1,7 @@
 import type { LucideIcon } from "lucide-react";
 
-import type { BookingSlot, BookingVet } from "@/lib/booking.types";
-import type { PetItem } from "@/lib/customer.types";
+import type { BookingSlot, BookingVet } from "@/lib/booking/booking.types";
+import type { PetItem } from "@/lib/customer/customer.types";
 
 export type BookingStepId = "pet" | "service" | "vet" | "datetime" | "review" | "confirmed";
 

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
-import { vaccinesOf } from "@/lib/customer.utils";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { vaccinesOf } from "@/lib/customer/customer.utils";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_BOOSTER_LABEL } from "../PetProfile.constants";
 import styles from "../PetProfile.module.scss";

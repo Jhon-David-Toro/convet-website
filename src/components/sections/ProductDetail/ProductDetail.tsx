@@ -1,5 +1,5 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
-import { relatedProducts } from "@/lib/products.utils";
+import { relatedProducts } from "@/lib/catalog/products.utils";
 
 import { ProductGallery } from "./parts/ProductGallery";
 import { ProductInfo } from "./parts/ProductInfo";

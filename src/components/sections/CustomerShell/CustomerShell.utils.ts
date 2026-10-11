@@ -1,5 +1,5 @@
-import { CUSTOMER_HOME_HREF, CUSTOMER_PETS_HREF } from "@/lib/customer.paths.constants";
-import { findPet } from "@/lib/customer.utils";
+import { CUSTOMER_HOME_HREF, CUSTOMER_PETS_HREF } from "@/lib/customer/customer.paths.constants";
+import { findPet } from "@/lib/customer/customer.utils";
 
 import { FALLBACK_TITLE, TOP_BAR_TITLES } from "./CustomerShell.constants";
 import type { TopBarConfig } from "./CustomerShell.types";

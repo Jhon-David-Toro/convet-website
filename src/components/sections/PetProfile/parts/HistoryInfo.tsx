@@ -1,5 +1,5 @@
 import { Alert } from "@/components/ui/Alert";
-import { WHATSAPP_HREF } from "@/lib/site.constants";
+import { WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import { INFO_ACTION, INFO_TEXT, INFO_TITLE } from "../PetProfile.constants";
 

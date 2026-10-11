@@ -1,5 +1,5 @@
 import { Icon, Loader } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Loading.module.scss";
 import { LOADING_ICON_SIZE } from "./Loading.constants";

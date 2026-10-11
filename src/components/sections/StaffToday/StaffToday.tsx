@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { STAFF_VETS } from "@/lib/staff.constants";
+import { STAFF_VETS } from "@/lib/staff/staff.constants";
 
 import styles from "./StaffToday.module.scss";
 import type { AgendaFilter } from "./StaffToday.types";

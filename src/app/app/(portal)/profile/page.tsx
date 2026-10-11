@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 import { ProfileSettings } from "@/components/sections/ProfileSettings";
-import { CUSTOMER_PROFILE, NOTIFICATION_SETTINGS } from "@/lib/customer.constants";
+import { CUSTOMER_PROFILE, NOTIFICATION_SETTINGS } from "@/lib/customer/customer.constants";
 
 export const metadata: Metadata = {
   title: "Profile · CONVET",

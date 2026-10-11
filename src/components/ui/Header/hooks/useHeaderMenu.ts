@@ -1,7 +1,7 @@
 import { useId, useRef, useState, type KeyboardEvent } from "react";
 
-import { KEYS } from "@/lib/keys.constants";
-import { useOutsidePointerDown } from "@/lib/useOutsidePointerDown";
+import { KEYS } from "@/lib/shared/keys.constants";
+import { useOutsidePointerDown } from "@/lib/shared/useOutsidePointerDown";
 
 /**
  * Open state of the dropdown menu: closes on outside pointer and on Escape.

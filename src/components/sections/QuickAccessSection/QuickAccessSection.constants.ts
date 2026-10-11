@@ -1,5 +1,5 @@
 import { MapPin, Paw, Pill, Stethoscope } from "@/components/ui/Icon";
-import { CLINIC_LOCATION } from "@/lib/site.constants";
+import { CLINIC_LOCATION } from "@/lib/site/site.constants";
 
 import type { QuickAccessItem } from "./QuickAccessSection.types";
 

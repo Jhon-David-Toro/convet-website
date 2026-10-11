@@ -1,7 +1,7 @@
 import type { RefObject } from "react";
 
-import { PRODUCT_CATEGORY_LABELS, PRODUCT_KIND_LABELS } from "@/lib/products.constants";
-import type { ProductItem } from "@/lib/products.types";
+import { PRODUCT_CATEGORY_LABELS, PRODUCT_KIND_LABELS } from "@/lib/catalog/products.constants";
+import type { ProductItem } from "@/lib/catalog/products.types";
 
 import { SEARCH_SHORTCUT_KEY } from "./ProductCatalog.constants";
 import type { ProductFilterGroupName, ProductFilters, ProductKindCounts } from "./ProductCatalog.types";

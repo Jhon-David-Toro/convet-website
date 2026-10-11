@@ -1,4 +1,4 @@
-import type { ProductLot } from "@/lib/admin.types";
+import type { ProductLot } from "@/lib/admin/admin.types";
 
 export type MovementType = "clinical-use" | "waste" | "expired" | "adjustment";
 

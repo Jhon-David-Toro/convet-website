@@ -1,5 +1,5 @@
 import { Eye, Icon, Lock } from "@/components/ui/Icon";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../PatientRecord.module.scss";
 import type { NoteBoxProps } from "../PatientRecord.types";

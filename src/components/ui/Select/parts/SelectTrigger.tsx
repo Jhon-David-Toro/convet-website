@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../Select.module.scss";
 import type { SelectTriggerProps } from "../Select.types";

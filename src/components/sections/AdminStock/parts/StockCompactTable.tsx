@@ -1,7 +1,7 @@
 import { DataTable } from "@/components/patterns/DataTable";
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
-import { STOCK_STATUS_VIEWS } from "@/lib/admin.status.constants";
+import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
 
 import styles from "../AdminStock.module.scss";
 import { COMPACT_COLUMNS, COMPACT_TABLE_LABEL } from "../AdminStock.constants";

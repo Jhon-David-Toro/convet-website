@@ -1,7 +1,7 @@
 import { Alert } from "@/components/ui/Alert";
 import { SearchInput } from "@/components/ui/SearchInput";
-import { PRODUCT_CATEGORY_OPTIONS, PRODUCT_KIND_OPTIONS, PRODUCT_SPECIES_OPTIONS } from "@/lib/products.constants";
-import { WHATSAPP_HREF } from "@/lib/site.constants";
+import { PRODUCT_CATEGORY_OPTIONS, PRODUCT_KIND_OPTIONS, PRODUCT_SPECIES_OPTIONS } from "@/lib/catalog/products.constants";
+import { WHATSAPP_HREF } from "@/lib/site/site.constants";
 
 import {
   CATEGORY_TITLE,

@@ -1,4 +1,4 @@
-import type { StaffAppointment, StaffVet } from "@/lib/staff.types";
+import type { StaffAppointment, StaffVet } from "@/lib/staff/staff.types";
 
 export type AgendaFilter = "mine" | "all";
 

@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 
-import { PRODUCTS_PAGE_SIZE } from "@/lib/products.constants";
+import { PRODUCTS_PAGE_SIZE } from "@/lib/catalog/products.constants";
 
 import { FIRST_PAGE } from "../ProductCatalog.constants";
 import type { ProductCatalogState, UseProductCatalogParams } from "../ProductCatalog.types";

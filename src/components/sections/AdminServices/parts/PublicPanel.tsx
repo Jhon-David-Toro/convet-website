@@ -1,5 +1,5 @@
-import { TextInput } from "@/components/ui/TextInput";
 import { Textarea } from "@/components/ui/Textarea";
+import { TextInput } from "@/components/ui/TextInput";
 
 import styles from "../AdminServices.module.scss";
 import { DESCRIPTION_LABEL, NAME_LABEL, PANEL_ID } from "../AdminServices.constants";

@@ -1,4 +1,4 @@
-import { productSpecs } from "@/lib/products.utils";
+import { productSpecs } from "@/lib/catalog/products.utils";
 
 import styles from "../ProductDetail.module.scss";
 import type { ProductSpecsProps } from "../ProductDetail.types";

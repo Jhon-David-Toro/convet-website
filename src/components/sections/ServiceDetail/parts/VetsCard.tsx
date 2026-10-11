@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import { photoUrl } from "@/lib/photos";
+import { photoUrl } from "@/lib/site/photos";
 
 import { VET_PHOTO_SIZE, VETS_TITLE } from "../ServiceDetail.constants";
 import styles from "../ServiceDetail.module.scss";

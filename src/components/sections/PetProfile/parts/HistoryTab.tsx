@@ -1,6 +1,6 @@
 "use client";
 
-import { eventsOf, weightsOf } from "@/lib/customer.utils";
+import { eventsOf, weightsOf } from "@/lib/customer/customer.utils";
 
 import { useHistoryFilter } from "../hooks/useHistoryFilter";
 import styles from "../PetProfile.module.scss";

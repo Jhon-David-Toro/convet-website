@@ -1,5 +1,5 @@
 import { Sidebar } from "@/components/ui/Sidebar";
-import { STAFF_SIGN_OUT_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_SIGN_OUT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import styles from "../StaffShell.module.scss";
 import type { StaffPathProps } from "../StaffShell.types";

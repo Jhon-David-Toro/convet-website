@@ -1,4 +1,4 @@
-import type { CustomerAppointment } from "@/lib/customer.types";
+import type { CustomerAppointment } from "@/lib/customer/customer.types";
 
 export type RescheduleFlowProps = {
   appointment: CustomerAppointment;

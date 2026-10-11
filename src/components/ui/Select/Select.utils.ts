@@ -1,4 +1,4 @@
-import { KEYS } from "@/lib/keys.constants";
+import { KEYS } from "@/lib/shared/keys.constants";
 
 import { SELECT_NAVIGATION_KEYS } from "./Select.constants";
 import type { SelectActions, SelectCommand, SelectKeyEvent, SelectKeyState, SelectOption } from "./Select.types";

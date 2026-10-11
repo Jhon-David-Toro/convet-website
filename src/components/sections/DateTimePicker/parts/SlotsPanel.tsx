@@ -1,4 +1,4 @@
-import { slotsFor } from "@/lib/booking.utils";
+import { slotsFor } from "@/lib/booking/booking.utils";
 
 import type { SlotsPanelProps } from "../DateTimePicker.types";
 import { NoAvailability } from "./NoAvailability";

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { StaffShell } from "@/components/sections/StaffShell";
 import { ToastProvider } from "@/components/ui/Toast";
-import { NO_INDEX } from "@/lib/seo.constants";
+import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import type { AdminLayoutProps } from "./layout.types";
 

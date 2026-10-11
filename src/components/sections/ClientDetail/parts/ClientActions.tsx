@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Edit, Plus } from "@/components/ui/Icon";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { EDIT_CLIENT_LABEL, NEW_APPOINTMENT_LABEL } from "../ClientDetail.constants";
 import styles from "../ClientDetail.module.scss";

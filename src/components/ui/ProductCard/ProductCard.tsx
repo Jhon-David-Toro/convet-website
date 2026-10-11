@@ -2,7 +2,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { Stethoscope, WhatsApp } from "@/components/ui/Icon";
 import { MediaImage } from "@/components/ui/MediaImage";
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./ProductCard.module.scss";
 import { ProductText } from "./parts/ProductText";

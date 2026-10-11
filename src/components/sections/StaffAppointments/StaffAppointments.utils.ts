@@ -1,5 +1,5 @@
-import { STAFF_APPOINTMENTS } from "@/lib/staff.constants";
-import type { StaffAppointment } from "@/lib/staff.types";
+import { STAFF_APPOINTMENTS } from "@/lib/staff/staff.constants";
+import type { StaffAppointment } from "@/lib/staff/staff.types";
 
 import { ALL_VALUE, PAGE_SIZE, RANGE_HAS_DATA, TABLE_ORDER } from "./StaffAppointments.constants";
 import type { AppointmentFilters } from "./StaffAppointments.types";

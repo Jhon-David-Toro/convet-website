@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "../VisitRecord.module.scss";
 import type { PatientFactsProps } from "../VisitRecord.types";

@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
-import { STAFF_APPOINTMENTS } from "@/lib/staff.constants";
+import { STAFF_APPOINTMENTS } from "@/lib/staff/staff.constants";
 
 import { StaffToday } from "./StaffToday";
 import { agendaGroups, eventStyle, gridTimes, rangeMeta } from "./StaffToday.utils";

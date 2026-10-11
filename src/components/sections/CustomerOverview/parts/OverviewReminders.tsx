@@ -1,7 +1,7 @@
 "use client";
 
 import { Alert } from "@/components/ui/Alert";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { DISMISS_LABEL, REMINDERS_TITLE } from "../CustomerOverview.constants";
 import styles from "../CustomerOverview.module.scss";

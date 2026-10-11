@@ -1,5 +1,5 @@
 import { TimeSlot } from "@/components/patterns/TimeSlot";
-import { capacityLabel, hoursLabel, longDay } from "@/lib/booking.utils";
+import { capacityLabel, hoursLabel, longDay } from "@/lib/booking/booking.utils";
 
 import styles from "../DateTimePicker.module.scss";
 import type { SlotGridProps } from "../DateTimePicker.types";

@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowRight, WhatsApp } from "@/components/ui/Icon";
-import { serviceActionHref, serviceDetailHref } from "@/lib/services.utils";
+import { serviceActionHref, serviceDetailHref } from "@/lib/catalog/services.utils";
 
 import { DETAILS_LABEL } from "../ServiceList.constants";
 import styles from "../ServiceList.module.scss";

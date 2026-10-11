@@ -1,4 +1,4 @@
-import type { InventoryAlert, VetDay } from "@/lib/admin.types";
+import type { InventoryAlert, VetDay } from "@/lib/admin/admin.types";
 
 export type AlertRowProps = {
   alert: InventoryAlert;

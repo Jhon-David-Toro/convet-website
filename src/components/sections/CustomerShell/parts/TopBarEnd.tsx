@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Bell } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_LABEL, NOTIFICATIONS_LABEL } from "../CustomerShell.constants";
 import styles from "../CustomerShell.module.scss";

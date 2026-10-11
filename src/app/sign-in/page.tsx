@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { AuthLayout } from "@/components/sections/AuthLayout";
 import { SignInForm } from "@/components/sections/SignInForm";
-import { NO_INDEX } from "@/lib/seo.constants";
+import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import { SIGN_IN_BACK_HREF } from "./page.constants";
 

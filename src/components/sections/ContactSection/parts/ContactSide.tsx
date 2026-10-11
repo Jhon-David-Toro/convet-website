@@ -1,5 +1,5 @@
 import { Map } from "@/components/ui/Map";
-import { CLINIC_LOCATION, GOOGLE_MAPS_API_KEY } from "@/lib/site.constants";
+import { CLINIC_LOCATION, GOOGLE_MAPS_API_KEY } from "@/lib/site/site.constants";
 
 import { MAP_LABEL } from "../ContactSection.constants";
 import styles from "../ContactSection.module.scss";

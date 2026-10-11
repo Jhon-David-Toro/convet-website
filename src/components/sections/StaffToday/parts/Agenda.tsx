@@ -1,6 +1,6 @@
 import { ScheduleEvent } from "@/components/patterns/ScheduleEvent";
-import { cx } from "@/lib/cx";
-import { STAFF_APPOINTMENTS } from "@/lib/staff.constants";
+import { cx } from "@/lib/shared/cx";
+import { STAFF_APPOINTMENTS } from "@/lib/staff/staff.constants";
 
 import styles from "../StaffToday.module.scss";
 import type { AgendaProps } from "../StaffToday.types";

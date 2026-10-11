@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { CUSTOMER_PETS, CUSTOMER_EVENTS } from "@/lib/customer.constants";
+import { CUSTOMER_PETS, CUSTOMER_EVENTS } from "@/lib/customer/customer.constants";
 
 import { PetProfile } from "./PetProfile";
 import { filterEvents, groupByYear, weightBars } from "./PetProfile.utils";

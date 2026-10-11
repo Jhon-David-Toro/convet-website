@@ -1,8 +1,8 @@
 import type { CSSProperties } from "react";
 
-import { STAFF_VET_ID } from "@/lib/staff.constants";
-import type { StaffAppointment } from "@/lib/staff.types";
-import { appointmentsOfVet, endTime, toMinutes, toTime } from "@/lib/staff.utils";
+import { STAFF_VET_ID } from "@/lib/staff/staff.constants";
+import type { StaffAppointment } from "@/lib/staff/staff.types";
+import { appointmentsOfVet, endTime, toMinutes, toTime } from "@/lib/staff/staff.utils";
 
 import {
   AGENDA_HEADINGS,

@@ -1,4 +1,4 @@
-import type { ServiceFact, ServiceItem, ServiceStep, ServiceTable as ServiceTableData } from "@/lib/services.types";
+import type { ServiceFact, ServiceItem, ServiceStep, ServiceTable as ServiceTableData } from "@/lib/catalog/services.types";
 
 export type ServiceDetailProps = {
   service: ServiceItem;

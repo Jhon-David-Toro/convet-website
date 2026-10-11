@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import type { ClosureEntry } from "@/lib/admin.types";
+import type { ClosureEntry } from "@/lib/admin/admin.types";
 
 import { NEW_CLOSURE } from "../AdminLocations.constants";
 import type { ClosuresState } from "../AdminLocations.types";

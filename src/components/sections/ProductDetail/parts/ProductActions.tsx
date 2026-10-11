@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { WhatsApp } from "@/components/ui/Icon";
-import { productService, productWhatsappHref } from "@/lib/products.utils";
-import { serviceBookingHref } from "@/lib/services.utils";
+import { productService, productWhatsappHref } from "@/lib/catalog/products.utils";
+import { serviceBookingHref } from "@/lib/catalog/services.utils";
 
 import { ASK_LABEL } from "../ProductDetail.constants";
 import styles from "../ProductDetail.module.scss";

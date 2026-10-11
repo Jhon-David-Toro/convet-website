@@ -1,6 +1,6 @@
 "use client";
 
-import { SERVICES } from "@/lib/services.constants";
+import { SERVICES } from "@/lib/catalog/services.constants";
 
 import { useServiceFilter } from "./hooks/useServiceFilter";
 import { ServiceFilters } from "./parts/ServiceFilters";

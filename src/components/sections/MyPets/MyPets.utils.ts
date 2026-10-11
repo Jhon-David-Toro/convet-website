@@ -1,5 +1,5 @@
 import { parseDate } from "@/components/ui/MaskedInput";
-import { onlyErrors, requireText } from "@/lib/validation.utils";
+import { onlyErrors, requireText } from "@/lib/auth/validation.utils";
 
 import { AGE_EMPTY, ERROR_MESSAGES, FILE_DESCRIPTION_DIGITS, KB, MONTHS_PER_YEAR } from "./MyPets.constants";
 import type { NewPetErrors, NewPetValues } from "./MyPets.types";

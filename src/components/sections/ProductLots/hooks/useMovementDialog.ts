@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import type { MovementType } from "@/components/sections/StockMovementModal";
-import { useDisclosure } from "@/lib/useDisclosure";
+import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import type { MovementDialogState } from "../ProductLots.types";
 

@@ -2,9 +2,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
-import { VERIFY_EMAIL_HREF } from "@/lib/auth.constants";
-import { savePendingEmail } from "@/lib/pendingEmail";
-import { hasErrors } from "@/lib/validation.utils";
+import { VERIFY_EMAIL_HREF } from "@/lib/auth/auth.constants";
+import { savePendingEmail } from "@/lib/auth/pendingEmail";
+import { hasErrors } from "@/lib/auth/validation.utils";
 
 import { EMPTY_SIGN_UP } from "../SignUpForm.constants";
 import type { SignUpErrors, SignUpFormState, SignUpValues, UseSignUpFormParams } from "../SignUpForm.types";

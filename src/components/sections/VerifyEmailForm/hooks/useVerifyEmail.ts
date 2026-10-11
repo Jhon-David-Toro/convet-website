@@ -2,7 +2,7 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import type { SubmitEvent } from "react";
 
-import { CODE_LENGTH } from "@/lib/auth.constants";
+import { CODE_LENGTH } from "@/lib/auth/auth.constants";
 
 import { RESEND_SECONDS, VERIFIED_HREF } from "../VerifyEmailForm.constants";
 import type { UseVerifyEmailParams, VerifyEmailState } from "../VerifyEmailForm.types";

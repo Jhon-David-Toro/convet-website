@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { ClientDetail } from "@/components/sections/ClientDetail";
-import { STAFF_CLIENT } from "@/lib/staff.constants";
+import { STAFF_CLIENT } from "@/lib/staff/staff.constants";
 
 import type { ClientPageProps } from "./page.types";
 

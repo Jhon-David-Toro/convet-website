@@ -1,7 +1,7 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
 import { Bell, Calendar, Check, Stethoscope, X } from "@/components/ui/Icon";
-import { APPOINTMENT_FILTER_COUNTS } from "@/lib/admin.constants";
-import type { AdminAppointmentStatus } from "@/lib/admin.types";
+import { APPOINTMENT_FILTER_COUNTS } from "@/lib/admin/admin.constants";
+import type { AdminAppointmentStatus } from "@/lib/admin/admin.types";
 
 export const TITLE = "Appointments";
 

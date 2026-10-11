@@ -1,4 +1,4 @@
-import type { StockProduct } from "@/lib/admin.types";
+import type { StockProduct } from "@/lib/admin/admin.types";
 
 import type { MovementType } from "@/components/sections/StockMovementModal";
 

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { CUSTOMER_APPOINTMENTS, CUSTOMER_REMINDERS } from "@/lib/customer.constants";
-import { BOOKING_HREF } from "@/lib/site.constants";
+import { CUSTOMER_APPOINTMENTS, CUSTOMER_REMINDERS } from "@/lib/customer/customer.constants";
+import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_LABEL } from "./CustomerOverview.constants";
 import styles from "./CustomerOverview.module.scss";

@@ -1,6 +1,6 @@
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Clipboard } from "@/components/ui/Icon";
-import { STAFF_LAST_VISIT } from "@/lib/staff.constants";
+import { STAFF_LAST_VISIT } from "@/lib/staff/staff.constants";
 
 import { EMPTY_MESSAGES, PANEL_ID } from "../PatientRecord.constants";
 import styles from "../PatientRecord.module.scss";

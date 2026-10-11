@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./EmergencyBar.module.scss";
 import { DEFAULT_EMERGENCY_LABEL, DEFAULT_MOTTO, DEFAULT_PHONE, DEFAULT_PHONE_HREF } from "./EmergencyBar.constants";

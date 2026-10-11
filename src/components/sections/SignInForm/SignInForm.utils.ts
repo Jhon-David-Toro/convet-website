@@ -1,4 +1,4 @@
-import { onlyErrors, requireText, validateEmail } from "@/lib/validation.utils";
+import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
 
 import { EMAIL_REQUIRED_ERROR, PASSWORD_REQUIRED_ERROR } from "./SignInForm.constants";
 import type { SignInErrors, SignInValues } from "./SignInForm.types";

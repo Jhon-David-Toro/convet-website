@@ -1,4 +1,4 @@
-import { KEYS } from "@/lib/keys.constants";
+import { KEYS } from "@/lib/shared/keys.constants";
 
 import { DATE_MASK, NO_ACTIVE_SLOT, TIME_MASK } from "./MaskedInput.constants";
 import type {

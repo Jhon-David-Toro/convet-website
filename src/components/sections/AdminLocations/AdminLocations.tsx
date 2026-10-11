@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { LOCATION } from "@/lib/admin.constants";
+import { LOCATION } from "@/lib/admin/admin.constants";
 
 import styles from "./AdminLocations.module.scss";
 import { ADD_LABEL, SUBTITLE, TITLE } from "./AdminLocations.constants";

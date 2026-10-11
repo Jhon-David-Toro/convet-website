@@ -1,8 +1,8 @@
 import type { MetadataRoute } from "next";
 
-import { PRODUCTS } from "@/lib/products.constants";
-import { SITE_URL } from "@/lib/seo.constants";
-import { SERVICES } from "@/lib/services.constants";
+import { PRODUCTS } from "@/lib/catalog/products.constants";
+import { SERVICES } from "@/lib/catalog/services.constants";
+import { SITE_URL } from "@/lib/site/seo.constants";
 
 const STATIC_PATHS = ["", "/services", "/products", "/contact"];
 

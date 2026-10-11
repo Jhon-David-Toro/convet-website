@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { RECEIPT_LINES } from "@/lib/admin.constants";
-import type { ReceiptLine } from "@/lib/admin.types";
+import { RECEIPT_LINES } from "@/lib/admin/admin.constants";
+import type { ReceiptLine } from "@/lib/admin/admin.types";
 
 import type { ReceiptLinesState } from "../ReceiveStock.types";
 import { appendLine, dropLine, patchLine } from "../ReceiveStock.utils";

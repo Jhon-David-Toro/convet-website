@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowDownCircle, ArrowUpCircle, Sliders } from "@/components/ui/Icon";
-import { ADMIN_RECEIVE_HREF } from "@/lib/admin.paths.constants";
+import { ADMIN_RECEIVE_HREF } from "@/lib/admin/admin.paths.constants";
 
 import styles from "../ProductLots.module.scss";
 import { ADJUST_LABEL, DISPENSE_LABEL, RECEIVE_LABEL } from "../ProductLots.constants";

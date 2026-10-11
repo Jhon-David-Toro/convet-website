@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
 import { StockMovementModal } from "@/components/sections/StockMovementModal";
-import { PRODUCT_DETAIL } from "@/lib/admin.constants";
+import { PRODUCT_DETAIL } from "@/lib/admin/admin.constants";
 
 import styles from "./AdminStock.module.scss";
 import { STATS, SUBTITLE, TITLE } from "./AdminStock.constants";

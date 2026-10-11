@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
-import { IconButton } from "@/components/ui/IconButton";
 import { WhatsApp } from "@/components/ui/Icon";
+import { IconButton } from "@/components/ui/IconButton";
 import { MobileActionBar } from "@/components/ui/MobileActionBar";
-import { serviceActionHref } from "@/lib/services.utils";
-import { whatsappLink } from "@/lib/whatsapp";
+import { serviceActionHref } from "@/lib/catalog/services.utils";
+import { whatsappLink } from "@/lib/site/whatsapp";
 
 import { MOBILE_CHAT_LABEL } from "../ServiceDetail.constants";
 import styles from "../ServiceDetail.module.scss";

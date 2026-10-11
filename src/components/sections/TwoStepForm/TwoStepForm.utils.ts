@@ -1,4 +1,4 @@
-import { CODE_LENGTH } from "@/lib/auth.constants";
+import { CODE_LENGTH } from "@/lib/auth/auth.constants";
 
 import { GROUP_SIZE, INCOMPLETE_ERROR } from "./TwoStepForm.constants";
 

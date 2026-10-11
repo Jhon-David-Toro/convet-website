@@ -1,4 +1,4 @@
-import { STAFF_OWNER } from "@/lib/staff.constants";
+import { STAFF_OWNER } from "@/lib/staff/staff.constants";
 
 import styles from "../PatientRecord.module.scss";
 import { OwnerCard } from "./OwnerCard";

@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./PasswordStrength.module.scss";
 import { STRENGTH_LEVELS, STRENGTH_SEGMENTS } from "./PasswordStrength.constants";

@@ -1,4 +1,4 @@
-import { cx } from "@/lib/cx";
+import { cx } from "@/lib/shared/cx";
 
 import styles from "./Breadcrumbs.module.scss";
 import type { BreadcrumbsProps } from "./Breadcrumbs.types";

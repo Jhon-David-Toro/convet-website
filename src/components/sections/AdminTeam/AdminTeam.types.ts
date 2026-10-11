@@ -1,4 +1,4 @@
-import type { TeamMember, WorkingDay } from "@/lib/admin.types";
+import type { TeamMember, WorkingDay } from "@/lib/admin/admin.types";
 
 export type MemberRowProps = {
   member: TeamMember;

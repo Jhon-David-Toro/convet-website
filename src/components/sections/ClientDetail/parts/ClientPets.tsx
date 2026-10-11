@@ -1,7 +1,7 @@
 import { PetCard } from "@/components/patterns/PetCard";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
-import { STAFF_PATIENTS_HREF } from "@/lib/staff.paths.constants";
+import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { ADD_PET_LABEL, PETS_TITLE, VACCINE_ICONS } from "../ClientDetail.constants";
 import styles from "../ClientDetail.module.scss";

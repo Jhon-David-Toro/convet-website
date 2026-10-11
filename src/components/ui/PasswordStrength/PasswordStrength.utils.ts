@@ -1,4 +1,4 @@
-import { PASSWORD_MIN_LENGTH } from "@/lib/auth.constants";
+import { PASSWORD_MIN_LENGTH } from "@/lib/auth/auth.constants";
 
 import { DIGIT_PATTERN, LOWERCASE_PATTERN, SYMBOL_PATTERN, UPPERCASE_PATTERN } from "./PasswordStrength.constants";
 

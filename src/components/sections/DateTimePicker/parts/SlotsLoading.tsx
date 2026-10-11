@@ -1,5 +1,5 @@
 import { Icon, Loader } from "@/components/ui/Icon";
-import { shortDay } from "@/lib/booking.utils";
+import { shortDay } from "@/lib/booking/booking.utils";
 
 import { LOADING_ICON_SIZE, LOADING_ROWS } from "../DateTimePicker.constants";
 import styles from "../DateTimePicker.module.scss";

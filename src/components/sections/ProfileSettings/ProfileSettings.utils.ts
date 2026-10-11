@@ -1,5 +1,5 @@
-import type { CustomerProfile } from "@/lib/customer.types";
-import { onlyErrors, requireText, validateEmail } from "@/lib/validation.utils";
+import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
+import type { CustomerProfile } from "@/lib/customer/customer.types";
 
 import { ERROR_MESSAGES } from "./ProfileSettings.constants";
 import type { ProfileErrors } from "./ProfileSettings.types";
