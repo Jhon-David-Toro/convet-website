@@ -68,3 +68,11 @@ describe("pet profile utils", () => {
     expect(bars[1]).toEqual({ label: "b", height: 100, current: true });
   });
 });
+
+describe("PetProfile without an upcoming appointment", () => {
+  it("shows the overview of a pet that has nothing scheduled", () => {
+    render(<PetProfile pet={CUSTOMER_PETS[1]} tab="overview" />);
+    expect(screen.getByRole("heading", { level: 1, name: CUSTOMER_PETS[1].name })).toBeInTheDocument();
+    expect(screen.queryByRole("heading", { name: "Upcoming appointment" })).not.toBeInTheDocument();
+  });
+});

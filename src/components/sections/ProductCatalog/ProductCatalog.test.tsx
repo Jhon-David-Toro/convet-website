@@ -70,3 +70,12 @@ describe("catalog utils", () => {
     expect(productCountLabel(1)).toBe("1 product");
   });
 });
+
+describe("ProductCatalog kind chips", () => {
+  it("goes back to every kind with the All chip", async () => {
+    render(<ProductCatalog products={PRODUCTS} />);
+    await userEvent.click(screen.getByRole("button", { name: /Veterinary products/ }));
+    await userEvent.click(screen.getByRole("button", { name: /^All/ }));
+    expect(screen.getByText(`${PRODUCTS.length} products`)).toBeInTheDocument();
+  });
+});

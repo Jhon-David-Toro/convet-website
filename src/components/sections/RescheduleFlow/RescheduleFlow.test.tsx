@@ -29,3 +29,21 @@ describe("RescheduleFlow", () => {
     expect(await screen.findByText("Appointment moved. We emailed you the new time.")).toBeInTheDocument();
   });
 });
+
+describe("RescheduleFlow going back", () => {
+  it("leaves to the appointments from the first step and goes back to the day from the second", async () => {
+    push.mockClear();
+    render(
+      <ToastProvider>
+        <RescheduleFlow appointment={CUSTOMER_APPOINTMENTS[0]} />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getAllByRole("button", { name: "Back" })[0]);
+    expect(push).toHaveBeenCalledWith("/app/appointments");
+    await userEvent.click(screen.getByRole("button", { name: "Friday, October 16, 2026" }));
+    await userEvent.click(await screen.findByRole("button", { name: /9:30 AM/ }, { timeout: 3000 }));
+    await userEvent.click(screen.getAllByRole("button", { name: "Continue" })[0]);
+    await userEvent.click(screen.getAllByRole("button", { name: "Back" })[0]);
+    expect(screen.getByRole("heading", { level: 1, name: "Pick a new day and time" })).toBeInTheDocument();
+  });
+});

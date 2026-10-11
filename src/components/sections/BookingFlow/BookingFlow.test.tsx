@@ -3,7 +3,9 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import { BookingFlow } from "./BookingFlow";
-import { barSummaryLine, canContinueFrom, confirmedTitle, freeChangeDeadline, stepAt, stepCopy } from "./BookingFlow.utils";
+import { EMPTY_SELECTION } from "./BookingFlow.constants";
+import { NextAvailableButton } from "./parts/NextAvailableButton";
+import { barSummaryLine, bookingSummary, calendarFileHref, canContinueFrom, confirmedAppointment, confirmedTitle, freeChangeDeadline, petName, stepAt, stepCopy } from "./BookingFlow.utils";
 
 const WAIT = { timeout: 3000 };
 
@@ -160,4 +162,72 @@ describe("booking flow utils", () => {
     await reachReview();
     expect(screen.getByRole("heading", { level: 1, name: "Review & confirm" })).toBeInTheDocument();
   });
+});
+
+describe("BookingFlow choices and notes", () => {
+  it("lets the customer pick another pet", async () => {
+    render(<BookingFlow />);
+    await userEvent.click(screen.getByRole("radio", { name: /Milo/ }));
+    await next();
+    expect(screen.getByRole("heading", { level: 1, name: "What does Milo need?" })).toBeInTheDocument();
+  });
+
+  it("asks for a service for a pet that is not registered yet", async () => {
+    render(<BookingFlow />);
+    await userEvent.click(screen.getByRole("radio", { name: /Add a new pet/ }));
+    await next();
+    expect(screen.getByRole("heading", { level: 1, name: "What does your pet need?" })).toBeInTheDocument();
+  });
+
+  it("takes notes and the WhatsApp choice on the review", async () => {
+    render(<BookingFlow initialServiceId="vaccinations" />);
+    await reachReview();
+    const notes = screen.getByLabelText(/Anything the vet should know/);
+    await userEvent.type(notes, "Leptospirosis too");
+    expect(notes).toHaveValue("Leptospirosis too");
+    const whatsapp = screen.getByRole("checkbox", { name: /WhatsApp/ });
+    await userEvent.click(whatsapp);
+    expect(whatsapp).not.toBeChecked();
+  });
+
+  it("offers another vet or any vet when the day is full", async () => {
+    render(<BookingFlow initialServiceId="vaccinations" />);
+    await next();
+    await next();
+    await userEvent.click(screen.getByRole("radio", { name: /Dr\. Shirley/ }));
+    await next();
+    await userEvent.click(screen.getByRole("button", { name: /October 13, 2026/ }));
+    await userEvent.click(await screen.findByRole("button", { name: "Any available vet" }, WAIT));
+    expect(screen.getAllByRole("button", { name: "Continue" })[0]).toBeDisabled();
+    await userEvent.click(screen.getByRole("button", { name: "Change vet" }));
+    expect(screen.getByRole("heading", { level: 1, name: "Choose a vet" })).toBeInTheDocument();
+  });
+});
+
+describe("booking flow utils edge cases", () => {
+  it("names a pet that is new or unknown", () => {
+    expect(petName("new")).toBe("your pet");
+    expect(petName("nobody")).toBe("Pet");
+  });
+
+  it("summarizes a booking without pet or vet", () => {
+    const summary = bookingSummary({ ...EMPTY_SELECTION, petId: "new" });
+    expect(summary.pet).toEqual({ title: "Pet", detail: "New pet" });
+    expect(summary.vet).toEqual({ title: "Vet", detail: "Not selected yet" });
+    expect(summary.date).toBe("Pick a date");
+  });
+
+  it("builds the bar line and the calendar file without a service or a vet", () => {
+    expect(barSummaryLine({ ...EMPTY_SELECTION, serviceId: "vaccinations" })).toBe("Vaccination · Luna");
+    expect(confirmedAppointment({ ...EMPTY_SELECTION, date: "2026-10-09", time: "9:30 AM" }).service).toBe("");
+    expect(decodeURIComponent(calendarFileHref({ ...EMPTY_SELECTION, date: "2026-10-09", time: "9:30 AM" }))).toContain("BEGIN:VCALENDAR");
+  });
+});
+
+describe("booking flow small parts", () => {
+  it("shows no shortcut for a vet without free times", () => {
+    const { container } = render(<NextAvailableButton vetId="andreina" onPick={() => undefined} />);
+    expect(container).toBeEmptyDOMElement();
+  });
+
 });

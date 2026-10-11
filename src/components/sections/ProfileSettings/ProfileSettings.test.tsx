@@ -58,3 +58,20 @@ describe("profile utils", () => {
     expect(validateProfile({ firstName: "A", lastName: "B", email: "a@b.co", phone: "", address: "" })).toEqual({});
   });
 });
+
+describe("ProfileSettings fields", () => {
+  it("edits the last name, the phone and the address", async () => {
+    render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} />);
+    const lastName = screen.getByLabelText("Last name");
+    await userEvent.clear(lastName);
+    await userEvent.type(lastName, "Smith");
+    expect(lastName).toHaveValue("Smith");
+    const phone = screen.getByLabelText(/Mobile/);
+    await userEvent.clear(phone);
+    await userEvent.type(phone, "+297 111 2222");
+    expect(phone).toHaveValue("+297 111 2222");
+    const address = screen.getByLabelText(/Address/);
+    await userEvent.type(address, "Main street 1");
+    expect((address as HTMLInputElement).value).toContain("Main street 1");
+  });
+});

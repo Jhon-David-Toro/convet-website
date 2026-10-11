@@ -36,3 +36,19 @@ describe("customer shell utils", () => {
     expect(topBarFor("/app")).toEqual({ title: "Hi, Anna" });
   });
 });
+
+describe("CustomerShell on the home page", () => {
+  it("shows the circular logo link instead of a back arrow", () => {
+    pathname.mockReturnValue("/app");
+    render(
+      <CustomerShell>
+        <p>Page</p>
+      </CustomerShell>,
+    );
+    expect(screen.getAllByRole("link", { name: "CONVET home" })[0]).toHaveAttribute("href", "/");
+  });
+
+  it("falls back to the brand name for a page without title", () => {
+    expect(topBarFor("/app/health-records")).toEqual({ title: "CONVET" });
+  });
+});
