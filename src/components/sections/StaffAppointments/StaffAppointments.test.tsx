@@ -2,6 +2,10 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
+import { pickOption } from "@/test/pickOption";
+
+
+
 import { StaffAppointments } from "./StaffAppointments";
 import { filterAppointments, pageCountFor, pageRows } from "./StaffAppointments.utils";
 import { INITIAL_FILTERS } from "./StaffAppointments.constants";
@@ -44,5 +48,15 @@ describe("staff appointments utils", () => {
     expect(pageCountFor(rows.length)).toBe(2);
     expect(pageCountFor(0)).toBe(1);
     expect(pageRows(rows, 2)).toHaveLength(6);
+  });
+});
+
+describe("StaffAppointments selects", () => {
+  it("filters by vet and by status with the lists", async () => {
+    render(<StaffAppointments />);
+    await pickOption("Vet", "Dr. Larry");
+    expect(screen.getAllByRole("row")).toHaveLength(6);
+    await pickOption("Status", "Completed");
+    expect(screen.getAllByRole("row")).toHaveLength(2);
   });
 });

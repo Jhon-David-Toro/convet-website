@@ -4,6 +4,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
 import { STAFF_PATIENT, STAFF_VISIT } from "@/lib/staff.constants";
+import { pickOption } from "@/test/pickOption";
 
 import { VisitRecord } from "./VisitRecord";
 import { expiredLotMessage, lotDetail, lotLine, visitTitle } from "./VisitRecord.utils";
@@ -71,5 +72,24 @@ describe("visit record utils", () => {
 
   it("titles the visit with the patient", () => {
     expect(visitTitle("New visit", "Luna")).toBe("New visit · Luna");
+  });
+});
+
+describe("VisitRecord vaccination", () => {
+  it("changes the vaccine and the date of the next dose", async () => {
+    renderVisit();
+    await pickOption("Vaccine", "Rabies");
+    expect(screen.getByRole("combobox", { name: "Vaccine" })).toHaveTextContent("Rabies");
+    const nextDose = screen.getByLabelText("Next dose");
+    await userEvent.clear(nextDose);
+    await userEvent.type(nextDose, "11152027");
+    expect(nextDose).toHaveValue("11 / 15 / 2027");
+  });
+
+  it("does not send the form when it is submitted", () => {
+    const { container } = renderVisit();
+    const event = new Event("submit", { bubbles: true, cancelable: true });
+    container.querySelector("form")?.dispatchEvent(event);
+    expect(event.defaultPrevented).toBe(true);
   });
 });
