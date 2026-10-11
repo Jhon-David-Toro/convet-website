@@ -1,0 +1,13 @@
+@use "abstracts" as *;
+
+/* Page/Stack: 24px between blocks, 32px from desktop */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  min-width: 0;
+
+  @include desktop {
+    gap: var(--spacing-32);
+  }
+}
