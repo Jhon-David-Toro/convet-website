@@ -52,3 +52,18 @@ describe("SignInForm", () => {
     expect(await screen.findByRole("button", { name: /Signing in/ })).toBeDisabled();
   });
 });
+
+describe("SignInForm options", () => {
+  it("lets the visitor turn off keeping the session", async () => {
+    render(<SignInForm />);
+    const remember = screen.getByRole("checkbox", { name: "Keep me signed in" });
+    await userEvent.click(remember);
+    expect(remember).not.toBeChecked();
+  });
+
+  it("accepts valid credentials when no handler is given", async () => {
+    render(<SignInForm />);
+    await signIn();
+    expect(screen.getByRole("button", { name: "Sign in" })).toBeEnabled();
+  });
+});

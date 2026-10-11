@@ -61,3 +61,12 @@ describe("contact validation", () => {
     expect(validateContact(values)).toEqual({});
   });
 });
+
+describe("ContactSection phone", () => {
+  it("takes an optional phone number", async () => {
+    render(<ContactSection />);
+    const phone = screen.getByRole("textbox", { name: /Phone/ });
+    await userEvent.type(phone, "+297 560 1234");
+    expect(phone).toHaveValue("+297 560 1234");
+  });
+});

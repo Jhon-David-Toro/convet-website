@@ -60,3 +60,12 @@ describe("two-step utils", () => {
     expect(validateCode("482")).toBeDefined();
   });
 });
+
+describe("TwoStepForm without a handler", () => {
+  it("accepts a complete code and opens the home page", async () => {
+    render(<TwoStepForm />);
+    await userEvent.type(screen.getByLabelText("Authentication code"), "482913");
+    await userEvent.click(screen.getByRole("button", { name: "Verify and continue" }));
+    expect(push).toHaveBeenCalledWith("/");
+  });
+});

@@ -65,3 +65,15 @@ describe("sign-up utils", () => {
     expect(validateSignUp(values)).toEqual({});
   });
 });
+
+describe("SignUpForm optional fields", () => {
+  it("takes the phone and the WhatsApp reminders choice", async () => {
+    render(<SignUpForm />);
+    const phone = screen.getByLabelText(/Mobile/);
+    await userEvent.type(phone, "+297 560 1234");
+    expect(phone).toHaveValue("+297 560 1234");
+    const reminders = screen.getByRole("checkbox", { name: /vaccine and visit reminders/ });
+    await userEvent.click(reminders);
+    expect(reminders).toBeChecked();
+  });
+});
