@@ -1,0 +1,11 @@
+/* Filter/Chips: chips in a row; they scroll sideways when there are more than fit */
+.chips {
+  display: flex;
+  gap: var(--spacing-8);
+  overflow-x: auto;
+  scrollbar-width: none;
+
+  > * {
+    flex: 0 0 auto;
+  }
+}
