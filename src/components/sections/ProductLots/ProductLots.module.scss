@@ -1,0 +1,157 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-lg);
+  background-color: var(--color-brand-primary-subtle);
+  color: var(--color-text-brand);
+}
+
+.identity {
+  display: flex;
+  flex: 1 1 20rem;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.overline,
+.title,
+.description {
+  margin: 0;
+}
+
+.overline {
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+
+  @include typography.style("overline");
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.description {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-self: center;
+  gap: var(--spacing-12);
+}
+
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-12);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.ledger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-brand);
+  text-decoration: none;
+
+  @include typography.style("label-s");
+}
+
+.movements {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.movement {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: var(--spacing-8) var(--spacing-16);
+  padding: var(--spacing-12) 0;
+  border-top: var(--border-width-default) solid var(--color-border-default);
+
+  @include tablet {
+    grid-template-columns: 9rem 8.5rem 1fr auto;
+  }
+}
+
+.when {
+  color: var(--color-text-secondary);
+
+  @include typography.style("data-s");
+}
+
+.detail {
+  grid-column: 1 / -1;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s");
+
+  @include tablet {
+    grid-column: auto;
+  }
+}
+
+.quantity {
+  color: var(--color-text-heading);
+  text-align: right;
+
+  @include typography.style("body-m-strong");
+}
+
+.positive {
+  color: var(--color-feedback-success-text);
+}
