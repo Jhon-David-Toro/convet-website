@@ -1,0 +1,148 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-24);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  @include mobile-only {
+    @include visually-hidden;
+  }
+}
+
+.title,
+.count {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.count {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+/* The add button is in the empty state on mobile and in the header from tablet */
+.header .add {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.grid {
+  display: grid;
+  align-items: start;
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-24);
+  }
+}
+
+/* Empty state: dashed card as in the mobile design */
+.empty {
+  padding: var(--spacing-32) var(--spacing-24);
+  border: var(--border-width-default) dashed var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+/* Modal form: 16px between fields, two columns for species and breed */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.row,
+.birth {
+  display: grid;
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.birth {
+  @include tablet {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  }
+}
+
+.sex {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  margin-bottom: var(--spacing-8);
+  padding: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-24);
+}
+
+.age {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.ageLabel {
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.ageValue {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  min-height: 3rem;
+  margin: 0;
+  padding: 0 var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-muted);
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.ageNote {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("caption");
+}
