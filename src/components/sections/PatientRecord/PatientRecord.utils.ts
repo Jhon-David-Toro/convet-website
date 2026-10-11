@@ -1,7 +1,6 @@
 import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import { Mail, Phone } from "@/components/ui/Icon";
 import { STAFF_CLIENT, STAFF_OWNER, STAFF_TIMELINE } from "@/lib/staff/staff.constants";
-import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 import type { StaffOwner, StaffPatient, StaffTimelineEntry } from "@/lib/staff/staff.types";
 
 import { BREADCRUMBS_OWNER_HREF, TAB_TYPES } from "./PatientRecord.constants";
@@ -40,7 +39,7 @@ function appointmentEntries(): StaffTimelineEntry[] {
  * @returns The breadcrumb items; the last one is the current page.
  */
 export function patientCrumbs(patient: StaffPatient): BreadcrumbItem[] {
-  return [{ label: "Patients", href: STAFF_PATIENTS_HREF }, { label: STAFF_OWNER.name, href: BREADCRUMBS_OWNER_HREF }, { label: patient.name }];
+  return [{ label: "Patients" }, { label: STAFF_OWNER.name, href: BREADCRUMBS_OWNER_HREF }, { label: patient.name }];
 }
 
 /**

@@ -38,6 +38,13 @@
   list-style: none;
 }
 
+/* On tablet only the current step shows its label; the others keep it for screen readers */
+.stepper > li:not([aria-current]) > span:last-child {
+  @include tablet-only {
+    @include visually-hidden;
+  }
+}
+
 .stepper > li + li::before {
   content: "";
   display: inline-block;

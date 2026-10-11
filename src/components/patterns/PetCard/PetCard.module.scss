@@ -16,14 +16,19 @@
   border-radius: var(--radius-xl);
 }
 
-/* Layout=Row: padding 12/16, gap 16, LG radius; the whole row is the link */
+/* Layout=Row: padding 12/16, gap 16, LG radius; the whole row is the link. On mobile the badge wraps under the name */
 .row {
   position: relative;
+  flex-wrap: wrap;
   align-items: center;
   gap: var(--spacing-16);
   width: 100%;
   padding: var(--spacing-12) var(--spacing-16);
   border-radius: var(--radius-lg);
+
+  @include tablet {
+    flex-wrap: nowrap;
+  }
 
   @include on-hover {
     background-color: var(--color-background-subtle);
@@ -42,6 +47,14 @@
   flex-direction: column;
   gap: var(--spacing-2);
   min-width: 0;
+}
+
+.row .nameBlock {
+  flex-basis: 8rem;
+
+  @include tablet {
+    flex-basis: 0;
+  }
 }
 
 .name,
