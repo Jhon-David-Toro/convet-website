@@ -1,0 +1,167 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+/* Vet banner: info colors, avatar, text and the change button */
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-info-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-info-soft);
+}
+
+.bannerText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.bannerTitle,
+.bannerDetail {
+  margin: 0;
+}
+
+.bannerTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.bannerDetail {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+/* The second line of the banner only fits from desktop */
+.bannerDetail + .bannerDetail {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.columns {
+  display: grid;
+  align-items: start;
+  gap: var(--spacing-24);
+
+  @include tablet {
+    grid-template-columns: minmax(0, 23.75rem) minmax(0, 1fr);
+  }
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.dayTitle,
+.dayHours {
+  margin: 0;
+}
+
+.dayTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.dayHours {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-8);
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bone {
+  height: 3rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-muted);
+}
+
+/* Day is full: dashed card on the ivory background */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-32) var(--spacing-24);
+  border: var(--border-width-default) dashed var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-subtle);
+  text-align: center;
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-warning-soft);
+}
+
+.emptyTitle,
+.emptyText {
+  margin: 0;
+}
+
+.emptyTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.emptyText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.note {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
