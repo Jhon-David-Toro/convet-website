@@ -23,7 +23,7 @@
   }
 }
 
-.desktopOnly {
+.grid .desktopOnly {
   display: none;
 
   @include desktop {
