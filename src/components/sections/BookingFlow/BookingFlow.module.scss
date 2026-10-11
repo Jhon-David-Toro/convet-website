@@ -1,0 +1,283 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+
+  @include desktop {
+    @include typography.style("body-l");
+  }
+}
+
+/* Option cards: one per row, 12px apart */
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.next {
+  align-self: flex-start;
+}
+
+/* Step 4: the shortcut sits at the right of the title on desktop */
+.next {
+  @include desktop {
+    align-self: flex-end;
+    margin-top: calc(var(--spacing-64) * -1);
+  }
+}
+
+/* Review: summary card at the left, form at the right */
+.review {
+  display: grid;
+  align-items: start;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: 26.25rem minmax(0, 1fr);
+    gap: var(--spacing-32);
+  }
+}
+
+.reviewForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+}
+
+.owner {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-subtle);
+}
+
+.ownerTitle,
+.ownerLine,
+.deadline {
+  margin: 0;
+}
+
+.ownerTitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.ownerLine {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.deadline {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-8);
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.alternatives {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+/* Confirmation */
+.confirmed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-20);
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.success {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-success-soft);
+
+  @include desktop {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+.confirmedTitle,
+.confirmedText {
+  margin: 0;
+}
+
+.confirmedTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.confirmedText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+
+  @include desktop {
+    @include typography.style("body-l");
+  }
+}
+
+/* A card with the visit on desktop, the booking summary on mobile */
+.confirmed .confirmedCard {
+  display: none;
+  width: 100%;
+  text-align: left;
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.confirmed .confirmedSummary {
+  width: 100%;
+  text-align: left;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  width: 100%;
+  padding: var(--spacing-12) var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-success-border);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-success-soft);
+  color: var(--color-success-strong);
+  text-align: left;
+  text-decoration: none;
+}
+
+.bannerIcon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-whatsapp, #25d366);
+}
+
+.bannerText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-2);
+
+  @include typography.style("body-s");
+
+  strong {
+    @include typography.style("body-m-strong");
+  }
+}
+
+.confirmedActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-12);
+  width: 100%;
+
+  @include mobile-only {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.confirmedActions .reschedule {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.confirmedActions .another {
+  @include desktop {
+    flex: 0 0 100%;
+    justify-content: center;
+  }
+
+  @include mobile-only {
+    display: none;
+  }
+}
+
+/* Bar fixed to the bottom: what is booked and the main action */
+.barContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+
+  @include mobile-only {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.barSummary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+
+  strong {
+    color: var(--color-text-heading);
+
+    @include typography.style("body-m-strong");
+  }
+}
