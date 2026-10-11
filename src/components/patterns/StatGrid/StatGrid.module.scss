@@ -1,0 +1,32 @@
+@use "abstracts" as *;
+
+/* Stat/Grid: two columns on mobile, three on tablet, the chosen number from desktop */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(var(--stat-columns, 4), minmax(0, 1fr));
+  }
+}
+
+.mobileHidden {
+  display: none;
+
+  @include tablet {
+    display: grid;
+  }
+}
+
+.desktopOnly {
+  display: none;
+
+  @include desktop {
+    display: flex;
+  }
+}
