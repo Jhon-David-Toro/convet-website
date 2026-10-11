@@ -13,7 +13,7 @@ import styles from "../HeroSection.module.scss";
 export function HeroActions() {
   return (
     <div className={styles.actions}>
-      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar} className={styles.book}>
+      <Button variant="accent" href={BOOKING_HREF} leadingIcon={Calendar}>
         {HERO_BOOK_LABEL}
       </Button>
       <Button variant="secondary" href={WHATSAPP_HREF} leadingIcon={WhatsApp} leadingIconTone="whatsapp">
