@@ -1,0 +1,33 @@
+@use "abstracts/typography";
+
+/* Stacked/Cell: two lines in a cell */
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.primary {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
+
+.secondary {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.mono {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-m");
+}
+
+.monoSecondary {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("data-s");
+}
