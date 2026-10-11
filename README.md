@@ -15,7 +15,6 @@ Web application and design system for **CONVET** (Contreras Veterinary Services 
 - [Conventions](#conventions)
 - [Testing and quality](#testing-and-quality)
 - [SEO and performance](#seo-and-performance)
-- [Known limitations](#known-limitations)
 - [Contributing](#contributing)
 
 ## Tech stack
@@ -176,13 +175,6 @@ Each component has a `*.test.tsx` next to it (Vitest and Testing Library), and s
 - `robots.txt` and `sitemap.xml` are generated (`src/app/robots.ts`, `src/app/sitemap.ts`).
 - JSON-LD (`VeterinaryCare`) on the home page.
 - Public pages are statically generated; fonts load through `next/font`; images are served as AVIF or WebP, and images visible on load use `priority`.
-
-## Known limitations
-
-- No backend: data is mock data and nothing persists.
-- Some navigation targets do not exist yet (for example "Health records" and "Settings" in the customer app, and "Inventory" in the staff area).
-- Some row actions and buttons ("...", "New client", "Invite team member"…) are visual only.
-- The Figma file has small inconsistencies between frames (dates, counts). Where they conflict, the mock data picks one value.
 
 ## Contributing
 
