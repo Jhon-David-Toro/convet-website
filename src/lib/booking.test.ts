@@ -7,6 +7,8 @@ import {
   capacityLabel,
   dayAvailability,
   fullDay,
+  fullDayMessage,
+  findVet,
   labelToMinutes,
   longDay,
   minutesToLabel,
@@ -63,5 +65,19 @@ describe("booking utils", () => {
     expect(states["2026-10-14"]).toBe("unavailable");
     expect(states["2026-10-20"]).toBe("few-left");
     expect(agendaVet("any").id).toBe("shirley");
+  });
+});
+
+describe("booking helpers edge cases", () => {
+  it("falls back to the first vet for an unknown id", () => {
+    expect(findVet("nobody").id).toBe(BOOKING_VETS[0].id);
+  });
+
+  it("has no open day for a vet who is away", () => {
+    expect(nextOpenDay(agendaVet("andreina"), "2026-10-09")).toBeUndefined();
+  });
+
+  it("explains a full day without a next free day", () => {
+    expect(fullDayMessage(agendaVet("andreina"))).not.toContain("next free day");
   });
 });

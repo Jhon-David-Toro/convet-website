@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { readPendingEmail, savePendingEmail } from "./pendingEmail";
 
@@ -9,5 +9,15 @@ describe("pending email", () => {
     expect(readPendingEmail()).toBeNull();
     savePendingEmail("anna@example.com");
     expect(readPendingEmail()).toBe("anna@example.com");
+  });
+});
+
+describe("pending email with blocked storage", () => {
+  it("reads nothing when the storage cannot be used", () => {
+    const spy = vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {
+      throw new Error("blocked");
+    });
+    expect(readPendingEmail()).toBeNull();
+    spy.mockRestore();
   });
 });
