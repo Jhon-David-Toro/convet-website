@@ -1,0 +1,80 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Appointments: content column of 760px on desktop */
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+
+  @include desktop {
+    gap: var(--spacing-24);
+  }
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-24);
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  @include mobile-only {
+    @include visually-hidden;
+  }
+}
+
+.title,
+.subtitle {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("display-m");
+  }
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.header .book {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+.tabs {
+  display: flex;
+  overflow-x: auto;
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.tabs > * {
+  flex: 0 0 auto;
+}
+
+.list,
+.page > :last-child {
+  @include desktop {
+    max-width: 47.5rem;
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
