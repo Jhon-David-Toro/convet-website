@@ -1,5 +1,5 @@
-import styles from "../MonthCalendar.module.scss";
 import type { MonthLegendProps } from "../MonthCalendar.types";
+import styles from "../MonthCalendar.module.scss";
 
 /**
  * Legend entries below the grid.

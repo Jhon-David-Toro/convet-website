@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Badge.module.scss";
 import type { BadgeProps } from "./Badge.types";
+import styles from "./Badge.module.scss";
 
 /**
  * Small colored label that shows a status, with an optional icon. Never rely on color alone: always include text.

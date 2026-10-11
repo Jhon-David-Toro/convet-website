@@ -3,11 +3,11 @@
 import { Pagination } from "@/components/ui/Pagination";
 
 import { PAGE_SIZE } from "./StaffAppointments.constants";
-import styles from "./StaffAppointments.module.scss";
 import { useAppointmentTable } from "./hooks/useAppointmentTable";
 import { AppointmentFilters } from "./parts/AppointmentFilters";
 import { AppointmentsHeader } from "./parts/AppointmentsHeader";
 import { AppointmentsTable } from "./parts/AppointmentsTable";
+import styles from "./StaffAppointments.module.scss";
 
 /**
  * Appointments page of the staff area: title with the new appointment button, filters, the table of the day and its pagination.

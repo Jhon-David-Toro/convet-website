@@ -2,8 +2,8 @@ import { PetCard } from "@/components/patterns/PetCard";
 import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
 import { petCardProps } from "@/lib/customer/customer.utils";
 
-import styles from "../CustomerOverview.module.scss";
 import { AddPetTile } from "./AddPetTile";
+import styles from "../CustomerOverview.module.scss";
 
 /**
  * Compact pet rows on small screens, and from tablet the full pet cards followed by the add tile.

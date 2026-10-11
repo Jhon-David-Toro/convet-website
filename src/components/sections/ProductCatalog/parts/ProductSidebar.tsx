@@ -13,9 +13,9 @@ import {
   SPECIES_TITLE,
   TYPE_TITLE,
 } from "../ProductCatalog.constants";
-import styles from "../ProductCatalog.module.scss";
 import type { ProductSidebarProps } from "../ProductCatalog.types";
 import { ProductFilterGroup } from "./ProductFilterGroup";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * Filters column: search field, the three checkbox groups and the informational alert. On mobile only the search field shows.

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Footer.module.scss";
 import type { FooterLink } from "../Footer.types";
+import styles from "../Footer.module.scss";
 
 /**
  * A link of a column; without `href` it is plain text.

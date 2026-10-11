@@ -1,8 +1,8 @@
 import { WEIGHT_CHANGE, WEIGHT_TITLE } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { WeightCardProps } from "../PetProfile.types";
 import { latestWeight } from "../PetProfile.utils";
 import { WeightBars } from "./WeightBars";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Weight card: the latest weight, how it changed and a bar for every recorded weight.

@@ -3,8 +3,8 @@ import { Alert } from "@/components/ui/Alert";
 import { capacityLabel } from "@/lib/booking/booking.utils";
 
 import { SLOT_TAKEN_TEXT, SLOT_TAKEN_TITLE } from "../BookingFlow.constants";
-import styles from "../BookingFlow.module.scss";
 import type { SlotTakenAlertProps } from "../BookingFlow.types";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Warning shown when the chosen time filled up while the customer reviewed, with nearby times to pick instead.

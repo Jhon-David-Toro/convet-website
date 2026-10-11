@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../CarouselControls.module.scss";
 import type { CarouselIndicatorsProps } from "../CarouselControls.types";
+import styles from "../CarouselControls.module.scss";
 
 /**
  * One dot per slide; the current one is a pill. Decorative: the status text announces the position.

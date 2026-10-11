@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ChevronRight, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./QuickActionCard.module.scss";
 import { QUICK_ACTION_ICON_SIZE } from "./QuickActionCard.constants";
 import type { QuickActionCardProps } from "./QuickActionCard.types";
+import styles from "./QuickActionCard.module.scss";
 
 /**
  * Card/Quick Action: shortcut (book, WhatsApp, emergencies). The whole card is the link.

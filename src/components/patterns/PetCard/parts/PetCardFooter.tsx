@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/Icon";
 
-import styles from "../PetCard.module.scss";
 import type { PetCardFooterProps } from "../PetCard.types";
 import { PetVaccineBadge } from "./PetVaccineBadge";
+import styles from "../PetCard.module.scss";
 
 /**
  * Footer of the full card: vaccination badge and the profile link.

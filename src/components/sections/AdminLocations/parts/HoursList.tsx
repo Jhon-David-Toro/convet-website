@@ -1,5 +1,5 @@
-import styles from "../AdminLocations.module.scss";
 import type { HoursListProps } from "../AdminLocations.types";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * Opening hours by day: Monday to Friday, Saturday and Sunday.

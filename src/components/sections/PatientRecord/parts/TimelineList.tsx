@@ -1,7 +1,7 @@
 import { TimelineItem } from "@/components/patterns/TimelineItem";
 
-import styles from "../PatientRecord.module.scss";
 import type { TimelineListProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Entries of the clinical history in order, joined by the timeline line.

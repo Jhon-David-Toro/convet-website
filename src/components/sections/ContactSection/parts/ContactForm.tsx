@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/Button";
 
 import { FORM_TITLE, SUBMIT_LABEL } from "../ContactSection.constants";
-import styles from "../ContactSection.module.scss";
 import type { ContactFormShellProps } from "../ContactSection.types";
 import { ContactConsent } from "./ContactConsent";
 import { ContactIdentityFields } from "./ContactIdentityFields";
 import { ContactMessageFields } from "./ContactMessageFields";
+import styles from "../ContactSection.module.scss";
 
 /**
  * Contact form: identity, topic and message fields, the consent checkbox and the submit button.

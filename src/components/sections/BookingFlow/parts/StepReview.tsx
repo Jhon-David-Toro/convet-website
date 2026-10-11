@@ -1,11 +1,11 @@
 import { BookingSummary } from "@/components/patterns/BookingSummary";
 import { agendaVet } from "@/lib/booking/booking.utils";
 
-import styles from "../BookingFlow.module.scss";
 import type { StepReviewProps } from "../BookingFlow.types";
 import { bookingSummary } from "../BookingFlow.utils";
 import { ReviewForm } from "./ReviewForm";
 import { SlotTakenAlert } from "./SlotTakenAlert";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Step 5: the summary of the visit next to the notes and contact options. When the time was taken it also offers nearby times.

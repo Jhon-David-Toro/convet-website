@@ -1,5 +1,5 @@
-import styles from "../Map.module.scss";
 import type { MapEmbedProps } from "../Map.types";
+import styles from "../Map.module.scss";
 
 /**
  * Embedded Google map, loaded lazily.

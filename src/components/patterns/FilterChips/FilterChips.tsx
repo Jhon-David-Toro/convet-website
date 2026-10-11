@@ -1,8 +1,8 @@
 import { Chip } from "@/components/ui/Chip";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./FilterChips.module.scss";
 import type { FilterChipsProps } from "./FilterChips.types";
+import styles from "./FilterChips.module.scss";
 
 /**
  * Filter/Chips: a group of chips where one is selected; each can show how many records it holds.

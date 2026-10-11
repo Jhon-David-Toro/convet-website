@@ -3,9 +3,9 @@ import Image from "next/image";
 import { Icon, User } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Photo.module.scss";
 import { PHOTO_PLACEHOLDER_ICON_SIZE } from "./Photo.constants";
 import type { PhotoProps } from "./Photo.types";
+import styles from "./Photo.module.scss";
 
 /**
  * Media/Photo: 4:5 portrait (team, patients) with LG radius. A placeholder is shown without a photo.

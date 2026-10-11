@@ -1,6 +1,5 @@
-import { Eye, Lock, Stethoscope } from "@/components/ui/Icon";
-
 import type { StatusView } from "@/components/patterns/StatusBadge";
+import { Eye, Lock, Stethoscope } from "@/components/ui/Icon";
 
 export const TITLE = "Products";
 

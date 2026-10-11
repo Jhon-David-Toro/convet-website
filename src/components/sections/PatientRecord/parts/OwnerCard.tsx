@@ -2,10 +2,10 @@ import { Button } from "@/components/ui/Button";
 import { WhatsApp } from "@/components/ui/Icon";
 
 import { OWNER_LABEL, WHATSAPP_LABEL } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { OwnerCardProps } from "../PatientRecord.types";
 import { OwnerContact } from "./OwnerContact";
 import { OwnerHead } from "./OwnerHead";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Owner of the patient: name, how long they have been a client, phone, email, whether they have an online account, and the WhatsApp button.

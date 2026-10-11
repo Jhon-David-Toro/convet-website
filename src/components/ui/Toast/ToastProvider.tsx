@@ -1,9 +1,9 @@
 "use client";
 
-import { useToastQueue } from "./hooks/useToastQueue";
-import { ToastRegion } from "./parts/ToastRegion";
 import type { ToastProviderProps } from "./Toast.types";
 import { ToastContext } from "./ToastContext";
+import { useToastQueue } from "./hooks/useToastQueue";
+import { ToastRegion } from "./parts/ToastRegion";
 
 /**
  * Notification region: toasts stack at the bottom and are announced with aria-live="polite".

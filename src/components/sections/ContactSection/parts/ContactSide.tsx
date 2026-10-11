@@ -2,9 +2,9 @@ import { Map } from "@/components/ui/Map";
 import { CLINIC_LOCATION, GOOGLE_MAPS_API_KEY } from "@/lib/site/site.constants";
 
 import { MAP_LABEL } from "../ContactSection.constants";
-import styles from "../ContactSection.module.scss";
 import { OpeningHours } from "./OpeningHours";
 import { QuickContact } from "./QuickContact";
+import styles from "../ContactSection.module.scss";
 
 /**
  * Side column: quick contact, the map of the clinic and the opening hours.

@@ -1,8 +1,8 @@
 import { Alert } from "@/components/ui/Alert";
 
 import { SERVICE_SUBTITLE_NOTE, TIP_TEXT, TIP_TITLE } from "../BookingFlow.constants";
-import { serviceOptions } from "../BookingFlow.utils";
 import type { StepServiceProps } from "../BookingFlow.types";
+import { serviceOptions } from "../BookingFlow.utils";
 import { OptionList } from "./OptionList";
 
 /**

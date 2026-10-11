@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./VaccineRow.module.scss";
 import { UP_TO_DATE_STATUS, VACCINE_STATUS_VIEWS } from "./VaccineRow.constants";
 import type { VaccineRowProps } from "./VaccineRow.types";
+import styles from "./VaccineRow.module.scss";
 
 /**
  * List/Vaccine Row: a vaccine with its dates and status. Use it inside a `<ul>`.

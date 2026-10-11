@@ -1,6 +1,6 @@
-import styles from "../PetProfile.module.scss";
 import type { WeightBarsProps } from "../PetProfile.types";
 import { weightBars } from "../PetProfile.utils";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Bars of the weight chart, the latest one solid.

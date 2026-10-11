@@ -2,9 +2,9 @@ import { Map } from "@/components/ui/Map";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { CLINIC_LOCATION, GOOGLE_MAPS_API_KEY } from "@/lib/site/site.constants";
 
-import styles from "./LocationSection.module.scss";
 import { LOCATION_EYEBROW, LOCATION_TITLE } from "./LocationSection.constants";
 import { ContactInfo } from "./parts/ContactInfo";
+import styles from "./LocationSection.module.scss";
 
 /**
  * Where the clinic is: a map and the contact information next to it (below it on tablet and mobile).

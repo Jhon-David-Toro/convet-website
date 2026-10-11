@@ -1,7 +1,7 @@
 import { VaccineRow } from "@/components/patterns/VaccineRow";
 
-import styles from "../PetProfile.module.scss";
 import type { VaccineListProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * One row per vaccine with its dates and status.

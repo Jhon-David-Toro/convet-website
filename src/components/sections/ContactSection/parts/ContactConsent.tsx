@@ -1,8 +1,8 @@
 import { Checkbox } from "@/components/ui/Checkbox";
 
 import { CONSENT_LABEL } from "../ContactSection.constants";
-import styles from "../ContactSection.module.scss";
 import type { ContactFormProps } from "../ContactSection.types";
+import styles from "../ContactSection.module.scss";
 
 /**
  * Consent checkbox with its error message under it.

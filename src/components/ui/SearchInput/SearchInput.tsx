@@ -2,8 +2,8 @@ import { Field, useField } from "@/components/ui/Field";
 import { Icon, Search } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./SearchInput.module.scss";
 import type { SearchInputProps } from "./SearchInput.types";
+import styles from "./SearchInput.module.scss";
 
 /**
  * Search field with a magnifier icon and an optional keyboard shortcut hint.

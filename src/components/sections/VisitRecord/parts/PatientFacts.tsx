@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../VisitRecord.module.scss";
 import type { PatientFactsProps } from "../VisitRecord.types";
 import { patientFacts } from "../VisitRecord.utils";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Microchip, weight and next visit of the patient, as a list of label and value.

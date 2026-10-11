@@ -1,5 +1,5 @@
-import styles from "./ChoiceText.module.scss";
 import type { ChoiceTextProps } from "./ChoiceText.types";
+import styles from "./ChoiceText.module.scss";
 
 /**
  * Label with an optional description, placed next to the control of a Checkbox, Radio or Toggle.

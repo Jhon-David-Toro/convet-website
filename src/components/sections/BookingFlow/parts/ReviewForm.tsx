@@ -1,8 +1,8 @@
-import styles from "../BookingFlow.module.scss";
 import type { ReviewFormProps } from "../BookingFlow.types";
 import { DeadlineNote } from "./DeadlineNote";
 import { ReviewNotes } from "./ReviewNotes";
 import { ReviewNotice } from "./ReviewNotice";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Right side of the review: how many places the time has left (unless it was taken), notes for the vet, who the confirmation goes to,

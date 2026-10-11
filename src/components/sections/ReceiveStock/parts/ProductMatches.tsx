@@ -1,8 +1,8 @@
-import styles from "../ReceiveStock.module.scss";
 import { SIMILAR_NOTE } from "../ReceiveStock.constants";
 import type { ProductMatchesProps } from "../ReceiveStock.types";
 import { findCatalogProduct, similarProducts } from "../ReceiveStock.utils";
 import { ProductChoice } from "./ProductChoice";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * The product of a line as a card. When the catalog has similar products (other strengths of the same medication) they are listed with it,

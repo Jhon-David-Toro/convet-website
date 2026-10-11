@@ -1,8 +1,8 @@
 import { PetCard } from "@/components/patterns/PetCard";
 import { petCardProps } from "@/lib/customer/customer.utils";
 
-import styles from "../MyPets.module.scss";
 import type { PetGridProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * One pet card per pet, in a grid that grows from one to two columns.

@@ -1,7 +1,7 @@
-import styles from "../ReceiveStock.module.scss";
 import type { ReceiptLineViewProps } from "../ReceiveStock.types";
 import { LineFields } from "./LineFields";
 import { ProductMatches } from "./ProductMatches";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * A line of the receipt: the product with its similar ones, and the fields of the line.

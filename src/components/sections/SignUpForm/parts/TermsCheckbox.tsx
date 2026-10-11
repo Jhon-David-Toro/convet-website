@@ -1,8 +1,8 @@
 import { Checkbox } from "@/components/ui/Checkbox";
 
-import styles from "../SignUpForm.module.scss";
 import type { SignUpFieldsProps } from "../SignUpForm.types";
 import { TermsLabel } from "./TermsLabel";
+import styles from "../SignUpForm.module.scss";
 
 /**
  * Required terms checkbox with its error message under it.

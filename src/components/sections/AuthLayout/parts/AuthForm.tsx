@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../AuthLayout.module.scss";
 import type { AuthFormProps } from "../AuthLayout.types";
+import styles from "../AuthLayout.module.scss";
 
 /**
  * Form of an auth page: a column with 24px between its blocks. Native validation is off because the fields report their own errors.

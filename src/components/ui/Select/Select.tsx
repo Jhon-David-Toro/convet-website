@@ -6,12 +6,12 @@ import { useAnchoredPosition } from "@/components/ui/Dropdown";
 import { Field, useField } from "@/components/ui/Field";
 import { useOutsidePointerDown } from "@/lib/shared/useOutsidePointerDown";
 
-import styles from "./Select.module.scss";
+import type { SelectProps } from "./Select.types";
 import { useSelect } from "./hooks/useSelect";
 import { SelectAdornments } from "./parts/SelectAdornments";
 import { SelectListbox } from "./parts/SelectListbox";
 import { SelectTrigger } from "./parts/SelectTrigger";
-import type { SelectProps } from "./Select.types";
+import styles from "./Select.module.scss";
 
 /**
  * Read-only select following the "select-only combobox" pattern: focus stays on the button

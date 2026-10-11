@@ -1,7 +1,7 @@
-import { barSummaryLine, whenLine } from "../BookingFlow.utils";
-import styles from "../BookingFlow.module.scss";
 import type { BookingBarProps } from "../BookingFlow.types";
+import { barSummaryLine, whenLine } from "../BookingFlow.utils";
 import { PrimaryAction } from "./PrimaryAction";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Bar fixed to the bottom on small screens: what is booked so far (once there is a day and time) and the main action.

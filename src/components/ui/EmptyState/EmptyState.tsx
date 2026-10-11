@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./EmptyState.module.scss";
 import { EMPTY_STATE_ICON_SIZE } from "./EmptyState.constants";
 import type { EmptyStateProps } from "./EmptyState.types";
+import styles from "./EmptyState.module.scss";
 
 /**
  * Centered message with an illustration icon, a title, a message and an optional action, for lists without content.

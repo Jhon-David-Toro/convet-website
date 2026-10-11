@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 
 import { DISCARD_LABEL, SAVE_RULES_LABEL } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import type { RuleActionsProps } from "../AdminSettings.types";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * Buttons under the booking rules: go back to the saved values, or save the changes.

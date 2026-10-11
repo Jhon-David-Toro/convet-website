@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
 
-import styles from "../EmployeeCard.module.scss";
 import type { EmployeeServicesProps } from "../EmployeeCard.types";
+import styles from "../EmployeeCard.module.scss";
 
 /**
  * Service badges; renders nothing when the list is empty.

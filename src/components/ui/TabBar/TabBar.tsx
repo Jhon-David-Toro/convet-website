@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./TabBar.module.scss";
 import type { TabBarProps } from "./TabBar.types";
+import styles from "./TabBar.module.scss";
 
 /**
  * Navigation/Tab Bar: bottom bar of the customer app on mobile.

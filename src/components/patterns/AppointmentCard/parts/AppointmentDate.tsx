@@ -1,5 +1,5 @@
-import styles from "../AppointmentCard.module.scss";
 import type { AppointmentDateProps } from "../AppointmentCard.types";
+import styles from "../AppointmentCard.module.scss";
 
 /**
  * Date block: month, day and weekday.

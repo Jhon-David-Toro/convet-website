@@ -1,7 +1,7 @@
 import { NavItem } from "@/components/ui/NavItem";
 
-import styles from "../Header.module.scss";
 import type { HeaderMenuProps } from "../Header.types";
+import styles from "../Header.module.scss";
 
 /**
  * Dropdown menu below the navigation row; it closes when a link is activated.

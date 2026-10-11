@@ -1,8 +1,8 @@
+import { whatsappLink } from "../site/whatsapp";
 import { PRODUCT_CATEGORY_LABELS, PRODUCT_KIND_LABELS, PRODUCTS, RELATED_PRODUCTS_COUNT } from "./products.constants";
 import type { ProductItem, ProductSpec } from "./products.types";
 import { SERVICES } from "./services.constants";
 import type { ServiceItem } from "./services.types";
-import { whatsappLink } from "../site/whatsapp";
 
 /**
  * Finds a product by its URL segment.

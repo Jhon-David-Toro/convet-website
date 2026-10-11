@@ -1,9 +1,9 @@
 import { Check, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./MenuItem.module.scss";
 import { DESTRUCTIVE_TONE, MENU_ITEM_ICON_SIZE } from "./MenuItem.constants";
 import type { MenuItemProps } from "./MenuItem.types";
+import styles from "./MenuItem.module.scss";
 
 /**
  * Item of a menu or listbox, with an optional leading icon and a check when selected.

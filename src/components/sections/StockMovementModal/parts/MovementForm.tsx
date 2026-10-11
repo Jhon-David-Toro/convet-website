@@ -3,7 +3,6 @@
 import { Select } from "@/components/ui/Select";
 import { Textarea } from "@/components/ui/Textarea";
 
-import styles from "../StockMovementModal.module.scss";
 import { LOT_LABEL, REASON_HELPER, REASON_LABEL } from "../StockMovementModal.constants";
 import type { MovementFormProps } from "../StockMovementModal.types";
 import { lotOptions } from "../StockMovementModal.utils";
@@ -11,6 +10,7 @@ import { useMovementForm } from "../hooks/useMovementForm";
 import { MovementActions } from "./MovementActions";
 import { QuantityFields } from "./QuantityFields";
 import { TypeChips } from "./TypeChips";
+import styles from "../StockMovementModal.module.scss";
 
 /**
  * Form inside the dialog: type, lot, direction and quantity, the reason, and the buttons that cancel or record the movement.

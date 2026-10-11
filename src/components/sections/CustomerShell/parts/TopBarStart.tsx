@@ -5,9 +5,9 @@ import { IconButton } from "@/components/ui/IconButton";
 import { Logo } from "@/components/ui/Logo";
 
 import { BACK_LABEL, GREETING, HOME_LABEL } from "../CustomerShell.constants";
-import styles from "../CustomerShell.module.scss";
 import type { CustomerPathProps } from "../CustomerShell.types";
 import { topBarFor } from "../CustomerShell.utils";
+import styles from "../CustomerShell.module.scss";
 
 /**
  * Start of the top bar: the greeting on desktop, and below it a back arrow or the circular logo with the page title.

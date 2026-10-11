@@ -1,6 +1,6 @@
-import styles from "../Alert.module.scss";
 import type { AlertContentProps } from "../Alert.types";
 import { AlertAction } from "./AlertAction";
+import styles from "../Alert.module.scss";
 
 /**
  * Title, optional message and optional action.

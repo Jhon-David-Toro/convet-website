@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./MediaImage.module.scss";
 import { PRODUCT_SUBJECT } from "./MediaImage.constants";
 import type { MediaImageProps } from "./MediaImage.types";
 import { MediaPhoto } from "./parts/MediaPhoto";
 import { MediaPlaceholder } from "./parts/MediaPlaceholder";
+import styles from "./MediaImage.module.scss";
 
 /**
  * Media/Image: 4:3 photo with LG radius. While there is no photo, an illustration with the subject icon.

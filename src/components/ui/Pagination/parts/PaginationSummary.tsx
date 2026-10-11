@@ -1,6 +1,6 @@
-import styles from "../Pagination.module.scss";
 import { SUMMARY_NUMBER_FORMAT } from "../Pagination.constants";
 import type { PaginationSummaryProps } from "../Pagination.types";
+import styles from "../Pagination.module.scss";
 
 /**
  * "Showing 1–10 of 248".

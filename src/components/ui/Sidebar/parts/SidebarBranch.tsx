@@ -1,8 +1,8 @@
 import { Building, ChevronDown, Icon } from "@/components/ui/Icon";
 
-import styles from "../Sidebar.module.scss";
 import { SIDEBAR_BRANCH_CHEVRON_SIZE, SIDEBAR_BRANCH_ICON_SIZE } from "../Sidebar.constants";
 import type { SidebarBranchProps } from "../Sidebar.types";
+import styles from "../Sidebar.module.scss";
 
 /**
  * Button that shows the active branch and opens the branch selector.

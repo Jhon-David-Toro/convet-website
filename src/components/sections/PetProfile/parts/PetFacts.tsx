@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../PetProfile.module.scss";
 import type { PetProps } from "../PetProfile.types";
 import { petFacts } from "../PetProfile.utils";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Microchip, latest weight and vet of a pet as a row of labelled values.

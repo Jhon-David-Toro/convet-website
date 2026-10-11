@@ -1,7 +1,7 @@
 import { NavItem } from "@/components/ui/NavItem";
 
-import styles from "../Sidebar.module.scss";
 import type { SidebarGroupViewProps } from "../Sidebar.types";
+import styles from "../Sidebar.module.scss";
 
 /**
  * A titled group of navigation items.

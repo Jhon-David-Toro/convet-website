@@ -1,7 +1,7 @@
-import styles from "../LocationSection.module.scss";
 import { CONTACT_LINES, EMERGENCY_LINE } from "../LocationSection.constants";
 import { ContactActions } from "./ContactActions";
 import { ContactLine } from "./ContactLine";
+import styles from "../LocationSection.module.scss";
 
 /**
  * Address, hours, WhatsApp and emergency lines with the contact buttons.

@@ -1,8 +1,8 @@
 import { Cat, Dog, Icon } from "@/components/ui/Icon";
 
-import styles from "../ScheduleEvent.module.scss";
 import { DOG_SPECIES, SCHEDULE_SPECIES_ICON_SIZE } from "../ScheduleEvent.constants";
 import type { EventHeaderProps } from "../ScheduleEvent.types";
+import styles from "../ScheduleEvent.module.scss";
 
 /**
  * Species icon with the patient and reason.

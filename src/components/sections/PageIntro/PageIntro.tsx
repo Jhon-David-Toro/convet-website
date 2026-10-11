@@ -1,8 +1,8 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
-import styles from "./PageIntro.module.scss";
 import type { PageIntroProps } from "./PageIntro.types";
+import styles from "./PageIntro.module.scss";
 
 /**
  * Introduction band of a listing page: breadcrumbs plus the section header on the ivory background.

@@ -1,5 +1,5 @@
-import styles from "../OptionCard.module.scss";
 import type { OptionTextProps } from "../OptionCard.types";
+import styles from "../OptionCard.module.scss";
 
 /**
  * Title with an optional subtitle.

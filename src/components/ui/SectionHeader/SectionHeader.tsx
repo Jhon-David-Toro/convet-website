@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./SectionHeader.module.scss";
-import { HeaderUnderline } from "./parts/HeaderUnderline";
 import type { SectionHeaderProps } from "./SectionHeader.types";
+import { HeaderUnderline } from "./parts/HeaderUnderline";
+import styles from "./SectionHeader.module.scss";
 
 /**
  * Section heading with an optional eyebrow, brush underline and description.

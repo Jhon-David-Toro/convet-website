@@ -1,7 +1,7 @@
-import { StepContent } from "./StepContent";
-import { StepHeading } from "./StepHeading";
 import type { FlowContentProps } from "../BookingFlow.types";
 import { petName, stepCopy } from "../BookingFlow.utils";
+import { StepContent } from "./StepContent";
+import { StepHeading } from "./StepHeading";
 
 /**
  * Title of the step (not on the confirmation, which has its own) and its content.

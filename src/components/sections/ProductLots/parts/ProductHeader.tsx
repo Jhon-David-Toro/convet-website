@@ -1,8 +1,8 @@
 import { Icon, Syringe } from "@/components/ui/Icon";
 
-import styles from "../ProductLots.module.scss";
 import type { ProductHeaderProps } from "../ProductLots.types";
 import { ProductActions } from "./ProductActions";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Top of the product page: its icon, the line with category, SKU and UUID, the name, what it is, and the adjust, dispense and receive buttons.

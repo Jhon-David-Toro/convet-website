@@ -4,12 +4,12 @@ import { BookingSummary } from "@/components/patterns/BookingSummary";
 import { BookingFrame } from "@/components/sections/BookingFrame";
 
 import { EXIT_HREF, MOBILE_TITLE, STEP_LABELS } from "./RescheduleFlow.constants";
-import styles from "./RescheduleFlow.module.scss";
 import type { RescheduleFlowProps } from "./RescheduleFlow.types";
 import { rescheduleSummary } from "./RescheduleFlow.utils";
 import { useReschedule } from "./hooks/useReschedule";
 import { RescheduleActions } from "./parts/RescheduleActions";
 import { RescheduleBody } from "./parts/RescheduleBody";
+import styles from "./RescheduleFlow.module.scss";
 
 /**
  * Reschedule: pick a new day and time with the same vet, then confirm the change. Keeping the current time leaves the visit as it was.

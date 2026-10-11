@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./AppTopBar.module.scss";
 import type { AppTopBarProps } from "./AppTopBar.types";
+import styles from "./AppTopBar.module.scss";
 
 /**
  * Navigation/App Top Bar: top bar of the private areas (72px). Content comes through slots.

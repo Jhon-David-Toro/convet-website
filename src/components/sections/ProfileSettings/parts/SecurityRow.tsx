@@ -1,5 +1,5 @@
-import styles from "../ProfileSettings.module.scss";
 import type { SecurityRowProps } from "../ProfileSettings.types";
+import styles from "../ProfileSettings.module.scss";
 
 /**
  * Row of the security card: a label with a note and the action that goes with it.

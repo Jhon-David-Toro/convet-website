@@ -1,5 +1,5 @@
-import { petOptions } from "../BookingFlow.utils";
 import type { StepProps } from "../BookingFlow.types";
+import { petOptions } from "../BookingFlow.utils";
 import { OptionList } from "./OptionList";
 
 /**

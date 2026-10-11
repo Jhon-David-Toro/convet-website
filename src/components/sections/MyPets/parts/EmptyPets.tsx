@@ -3,8 +3,8 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Paw, Plus } from "@/components/ui/Icon";
 
 import { ADD_LABEL, EMPTY_TEXT, EMPTY_TITLE } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { EmptyPetsProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * Dashed card shown when the customer has no pets yet, with the button that adds the first one.

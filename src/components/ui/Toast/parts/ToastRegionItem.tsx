@@ -1,7 +1,7 @@
-import styles from "../ToastProvider.module.scss";
 import { Toast } from "../Toast";
 import type { ToastRegionItemProps } from "../Toast.types";
 import { toastDuration } from "../Toast.utils";
+import styles from "../ToastProvider.module.scss";
 
 /**
  * One toast of the region: pauses its countdown while the pointer or focus is on it.

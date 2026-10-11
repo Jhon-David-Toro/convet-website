@@ -1,9 +1,9 @@
 import { CheckCircle, Icon } from "@/components/ui/Icon";
 
 import { ONLINE_ACCOUNT_LABEL } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { OwnerContactProps } from "../PatientRecord.types";
 import { ownerContacts } from "../PatientRecord.utils";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Phone and email of the owner, and whether they have an online account.

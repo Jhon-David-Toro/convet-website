@@ -7,8 +7,8 @@ import { PET_TABS } from "@/lib/customer/customer.paths.constants";
 import { petHref } from "@/lib/customer/customer.utils";
 
 import { PANEL_ID, TAB_LABELS, TABS_LABEL } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { PetTabsProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Tabs of the pet profile; choosing one opens its page.

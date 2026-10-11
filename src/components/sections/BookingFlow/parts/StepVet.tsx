@@ -1,5 +1,5 @@
-import { vetOptions } from "../BookingFlow.utils";
 import type { StepVetProps } from "../BookingFlow.types";
+import { vetOptions } from "../BookingFlow.utils";
 import { OptionList } from "./OptionList";
 
 /**

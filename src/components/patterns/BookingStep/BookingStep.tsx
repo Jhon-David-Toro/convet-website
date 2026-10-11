@@ -1,9 +1,9 @@
 import { Check, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./BookingStep.module.scss";
 import { BOOKING_STEP_CHECK_SIZE, CURRENT_STEP_STATE, DONE_STEP_STATE } from "./BookingStep.constants";
 import type { BookingStepProps } from "./BookingStep.types";
+import styles from "./BookingStep.module.scss";
 
 /**
  * Booking/Step: step of the booking wizard. Use it inside an `<ol>`.

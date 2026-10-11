@@ -4,11 +4,11 @@ import { CUSTOMER_APPOINTMENTS, CUSTOMER_REMINDERS } from "@/lib/customer/custom
 import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_LABEL } from "./CustomerOverview.constants";
-import styles from "./CustomerOverview.module.scss";
 import { OverviewActivity } from "./parts/OverviewActivity";
 import { OverviewAppointment } from "./parts/OverviewAppointment";
 import { OverviewPets } from "./parts/OverviewPets";
 import { OverviewReminders } from "./parts/OverviewReminders";
+import styles from "./CustomerOverview.module.scss";
 
 /**
  * Overview of the customer area: next appointment, reminders, the pets and the recent activity.

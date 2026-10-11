@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../BookingSummary.module.scss";
 import { BOOKING_SUMMARY_ICON_SIZE } from "../BookingSummary.constants";
 import type { SummaryRowItemProps } from "../BookingSummary.types";
+import styles from "../BookingSummary.module.scss";
 
 /**
  * One detail of the ticket: icon, title and detail.

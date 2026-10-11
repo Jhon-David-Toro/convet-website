@@ -1,11 +1,11 @@
 import { useState } from "react";
 
 import { useToast } from "@/components/ui/Toast";
+import type { ServiceRow } from "@/lib/admin/admin.types";
 
 import { PUBLISHED_MESSAGE } from "../AdminServices.constants";
 import type { ServiceDraft, ServiceDraftState } from "../AdminServices.types";
 import { draftOf, flipSpecies } from "../AdminServices.utils";
-import type { ServiceRow } from "@/lib/admin/admin.types";
 
 /**
  * Booking rules of a service being edited: the draft values, the functions that change them, and the buttons that discard or publish.

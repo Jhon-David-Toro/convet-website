@@ -1,9 +1,9 @@
 import { Icon, Loader } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Loading.module.scss";
 import { LOADING_ICON_SIZE } from "./Loading.constants";
 import type { LoadingProps } from "./Loading.types";
+import styles from "./Loading.module.scss";
 
 /**
  * Spinner with a message, announced to assistive technology as a live status.

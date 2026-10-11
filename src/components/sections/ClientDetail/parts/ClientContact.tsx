@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../ClientDetail.module.scss";
 import type { ClientContactProps } from "../ClientDetail.types";
 import { contactLines } from "../ClientDetail.utils";
+import styles from "../ClientDetail.module.scss";
 
 /**
  * Phone, email and since when the person is a client.

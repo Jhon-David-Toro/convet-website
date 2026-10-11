@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { Clock, Paw } from "@/components/ui/Icon";
 
-import styles from "../ServiceCard.module.scss";
 import type { ServiceMetaProps } from "../ServiceCard.types";
+import styles from "../ServiceCard.module.scss";
 
 /**
  * Duration and species badges; renders nothing when neither is given.

@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Toast.module.scss";
 import { TOAST_ICONS } from "./Toast.constants";
 import type { ToastProps } from "./Toast.types";
+import styles from "./Toast.module.scss";
 
 /**
  * Feedback/Toast: short message on navy with an optional action (e.g. "Undo").

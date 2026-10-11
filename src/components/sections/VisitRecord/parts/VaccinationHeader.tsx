@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Icon, Syringe, Trash } from "@/components/ui/Icon";
 
 import { REMOVE_LABEL, VACCINATION_TITLE } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VaccinationHeaderProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Title of the vaccination card and the button that removes the vaccination from the visit.

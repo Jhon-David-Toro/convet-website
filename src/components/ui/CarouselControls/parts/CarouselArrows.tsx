@@ -1,8 +1,8 @@
 import { ArrowLeft, ArrowRight } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../CarouselControls.module.scss";
 import type { CarouselArrowsProps } from "../CarouselControls.types";
+import styles from "../CarouselControls.module.scss";
 
 /**
  * Previous / next buttons; each is disabled at its end of the carousel.

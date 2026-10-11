@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../AuthLayout.module.scss";
 import type { AuthHeadingProps } from "../AuthLayout.types";
+import styles from "../AuthLayout.module.scss";
 
 /**
  * Title (the only `h1` of the page) and the sentence under it.

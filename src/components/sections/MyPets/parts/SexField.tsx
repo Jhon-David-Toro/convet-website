@@ -1,8 +1,8 @@
 import { Radio } from "@/components/ui/Radio";
 
 import { SEX_OPTIONS } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { SexFieldProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * Sex of the pet as a group of radio buttons.

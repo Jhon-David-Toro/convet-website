@@ -1,10 +1,10 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./OptionCard.module.scss";
 import { OPTION_CARD_ICON_SIZE } from "./OptionCard.constants";
 import type { OptionCardProps } from "./OptionCard.types";
 import { OptionText } from "./parts/OptionText";
+import styles from "./OptionCard.module.scss";
 
 /**
  * Booking/Option Card: option of a group (pet, service, vet). A native radio styled as a card.

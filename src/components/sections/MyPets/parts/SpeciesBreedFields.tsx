@@ -2,8 +2,8 @@ import { Select } from "@/components/ui/Select";
 import { TextInput } from "@/components/ui/TextInput";
 
 import { BREEDS_LIST_ID, SPECIES_OPTIONS } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { AddPetFieldsProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * Species and breed side by side; the breed is typed or picked from suggestions.

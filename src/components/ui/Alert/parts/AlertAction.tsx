@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import styles from "../Alert.module.scss";
 import type { AlertActionProps } from "../Alert.types";
+import styles from "../Alert.module.scss";
 
 /**
  * Highlighted action under the message: a link when it has `href`, otherwise a button.

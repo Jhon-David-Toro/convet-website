@@ -4,8 +4,8 @@ import { Badge } from "@/components/ui/Badge";
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./NavItem.module.scss";
 import type { NavItemProps } from "./NavItem.types";
+import styles from "./NavItem.module.scss";
 
 /**
  * Navigation item of the sidebar and menus, with an icon and an optional counter.

@@ -1,8 +1,8 @@
 import { Alert } from "@/components/ui/Alert";
 
 import { SENT_ACTION_LABEL, SENT_TEXT, SENT_TITLE } from "../ContactSection.constants";
-import styles from "../ContactSection.module.scss";
 import type { ContactSentProps } from "../ContactSection.types";
+import styles from "../ContactSection.module.scss";
 
 /**
  * Confirmation shown instead of the form after a valid submit, with a way back to an empty form.

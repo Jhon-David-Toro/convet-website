@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Select.module.scss";
 import type { SelectTriggerProps } from "../Select.types";
 import { getActiveDescendant } from "../Select.utils";
+import styles from "../Select.module.scss";
 
 /**
  * Button of the select-only combobox: shows the selected label (or the placeholder) and opens the list.

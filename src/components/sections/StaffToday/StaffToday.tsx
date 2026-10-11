@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import { STAFF_VETS } from "@/lib/staff/staff.constants";
 
-import styles from "./StaffToday.module.scss";
 import type { AgendaFilter } from "./StaffToday.types";
 import { Agenda } from "./parts/Agenda";
 import { AttentionPanel } from "./parts/AttentionPanel";
 import { ScheduleGrid } from "./parts/ScheduleGrid";
 import { TodayHeader } from "./parts/TodayHeader";
 import { TodayStats } from "./parts/TodayStats";
+import styles from "./StaffToday.module.scss";
 
 /**
  * Today page of the staff area. Desktop: the day's figures, the schedule by vet and what needs attention.

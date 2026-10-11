@@ -3,9 +3,9 @@ import { Select } from "@/components/ui/Select";
 import { TextInput } from "@/components/ui/TextInput";
 import { SUPPLIER_NAMES } from "@/lib/admin/admin.constants";
 
-import styles from "../ReceiveStock.module.scss";
 import { INVOICE_LABEL, RECEIVED_ON_LABEL, SUPPLIER_LABEL } from "../ReceiveStock.constants";
 import type { SupplierCardProps } from "../ReceiveStock.types";
+import styles from "../ReceiveStock.module.scss";
 
 const SUPPLIER_OPTIONS = SUPPLIER_NAMES.map((name) => ({ value: name, label: name }));
 

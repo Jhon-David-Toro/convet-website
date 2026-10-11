@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { AlertTriangle, Icon } from "@/components/ui/Icon";
 
-import styles from "../ScheduleEvent.module.scss";
 import { COMPLETED_STATUS, SCHEDULE_ALERT_ICON_SIZE } from "../ScheduleEvent.constants";
 import type { EventFooterProps } from "../ScheduleEvent.types";
+import styles from "../ScheduleEvent.module.scss";
 
 /**
  * Status badge with the optional medical alert.

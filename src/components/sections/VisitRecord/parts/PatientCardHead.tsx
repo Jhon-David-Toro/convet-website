@@ -1,7 +1,7 @@
 import { Avatar } from "@/components/ui/Avatar";
 
-import styles from "../VisitRecord.module.scss";
 import type { PatientCardHeadProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Avatar, name and short description of the patient.

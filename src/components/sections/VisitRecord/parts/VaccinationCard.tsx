@@ -2,10 +2,10 @@ import { DateInput } from "@/components/ui/DateInput";
 import { Select } from "@/components/ui/Select";
 
 import { NEXT_DOSE_LABEL, VACCINE_LABEL, VACCINE_OPTIONS } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VaccinationCardProps } from "../VisitRecord.types";
 import { LotPicker } from "./LotPicker";
 import { VaccinationHeader } from "./VaccinationHeader";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Vaccine given during the visit: which vaccine, when the next dose is due and the lot used. It can be removed from the visit.

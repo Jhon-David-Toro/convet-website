@@ -2,8 +2,8 @@ import { ProductCard } from "@/components/ui/ProductCard";
 import { productCategoryLine, productDetailHref, productWhatsappHref } from "@/lib/catalog/products.utils";
 
 import { ASK_LABEL } from "../ProductCatalog.constants";
-import styles from "../ProductCatalog.module.scss";
 import type { ProductGridProps } from "../ProductCatalog.types";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * Grid of product cards; each card links to the detail page and asks about availability on WhatsApp.

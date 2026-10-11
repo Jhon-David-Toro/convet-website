@@ -1,6 +1,6 @@
-import styles from "../Footer.module.scss";
 import type { FooterColumnProps } from "../Footer.types";
 import { FooterItem } from "./FooterItem";
+import styles from "../Footer.module.scss";
 
 /**
  * A titled column of links.

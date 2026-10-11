@@ -1,7 +1,7 @@
-import { PetCardFull } from "./parts/PetCardFull";
-import { PetCardRow } from "./parts/PetCardRow";
 import { ROW_LAYOUT } from "./PetCard.constants";
 import type { PetCardProps } from "./PetCard.types";
+import { PetCardFull } from "./parts/PetCardFull";
+import { PetCardRow } from "./parts/PetCardRow";
 
 /**
  * Card/Pet: a pet's profile. `card` is the full card; `row` is the compact row of a list.

@@ -1,8 +1,8 @@
 import { Select } from "@/components/ui/Select";
 
 import { STATUS_FILTER_LABEL, STATUS_OPTIONS, VET_FILTER_LABEL, VET_OPTIONS } from "../StaffAppointments.constants";
-import styles from "../StaffAppointments.module.scss";
 import type { VetStatusSelectsProps } from "../StaffAppointments.types";
+import styles from "../StaffAppointments.module.scss";
 
 /**
  * Lists that filter the table by vet and by status; their labels are only read by screen readers.

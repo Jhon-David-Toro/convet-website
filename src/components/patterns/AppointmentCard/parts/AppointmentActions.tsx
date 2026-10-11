@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { Refresh } from "@/components/ui/Icon";
 
-import styles from "../AppointmentCard.module.scss";
 import { CANCELLABLE_STATUSES } from "../AppointmentCard.constants";
 import type { AppointmentActionsProps } from "../AppointmentCard.types";
+import styles from "../AppointmentCard.module.scss";
 
 /**
  * Primary action and, for upcoming appointments, the cancel link.

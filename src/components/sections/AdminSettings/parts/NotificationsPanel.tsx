@@ -5,8 +5,8 @@ import { useToast } from "@/components/ui/Toast";
 import { Toggle } from "@/components/ui/Toggle";
 
 import { NOTIFICATION_TOGGLES, NOTIFICATIONS_SAVED_MESSAGE, PANEL_ID, SAVE_LABEL } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import { useToggleList } from "../hooks/useToggleList";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * Notification settings: which messages the clinic sends and which alerts the staff receive.

@@ -2,11 +2,11 @@ import { Avatar } from "@/components/ui/Avatar";
 import { AlertTriangle, ChevronRight, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../PetCard.module.scss";
 import { PET_ALERT_ICON_SIZE } from "../PetCard.constants";
 import type { PetCardLayoutProps } from "../PetCard.types";
 import { PetRowName } from "./PetRowName";
 import { PetVaccineBadge } from "./PetVaccineBadge";
+import styles from "../PetCard.module.scss";
 
 /**
  * Compact row of a list: the whole row is the link to the profile.

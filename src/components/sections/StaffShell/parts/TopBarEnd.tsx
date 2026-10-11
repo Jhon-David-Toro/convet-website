@@ -4,9 +4,9 @@ import { IconButton } from "@/components/ui/IconButton";
 import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { MENU_LABEL, NEW_APPOINTMENT_LABEL, NOTIFICATIONS_LABEL, OPEN_SEARCH_LABEL } from "../StaffShell.constants";
-import styles from "../StaffShell.module.scss";
 import type { StaffTopBarEndProps } from "../StaffShell.types";
 import { topBarFor } from "../StaffShell.utils";
+import styles from "../StaffShell.module.scss";
 
 /**
  * End of the top bar. Desktop: the notifications bell and the new appointment button.

@@ -1,9 +1,9 @@
 import { Chip } from "@/components/ui/Chip";
 
 import { HISTORY_FILTERS, HISTORY_FILTERS_LABEL } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { HistoryFiltersProps } from "../PetProfile.types";
 import { filterEvents } from "../PetProfile.utils";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Chips that filter the history by kind of event, each with the number of events it would show.

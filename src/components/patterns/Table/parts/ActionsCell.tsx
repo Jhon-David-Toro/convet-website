@@ -2,8 +2,8 @@ import { More } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Table.module.scss";
 import type { ActionsCellProps } from "../Table.types";
+import styles from "../Table.module.scss";
 
 /**
  * Cell with the row actions button.

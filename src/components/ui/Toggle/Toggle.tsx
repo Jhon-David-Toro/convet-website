@@ -3,8 +3,8 @@ import { useId } from "react";
 import { ChoiceText } from "@/components/ui/ChoiceText";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Toggle.module.scss";
 import type { ToggleProps } from "./Toggle.types";
+import styles from "./Toggle.module.scss";
 
 /**
  * Switch with a label and an optional description.

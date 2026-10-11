@@ -1,7 +1,7 @@
 import { NavLink } from "@/components/ui/NavLink";
 
-import styles from "../Header.module.scss";
 import type { HeaderLinksProps } from "../Header.types";
+import styles from "../Header.module.scss";
 
 /**
  * Main navigation links, visible on desktop.

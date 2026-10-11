@@ -2,8 +2,8 @@ import { Icon, Loader } from "@/components/ui/Icon";
 import { shortDay } from "@/lib/booking/booking.utils";
 
 import { LOADING_ICON_SIZE, LOADING_ROWS } from "../DateTimePicker.constants";
-import styles from "../DateTimePicker.module.scss";
 import type { SlotsLoadingProps } from "../DateTimePicker.types";
+import styles from "../DateTimePicker.module.scss";
 
 /**
  * Placeholder shown while the times of a day are looked up: a status line and grey boxes where the times will go.

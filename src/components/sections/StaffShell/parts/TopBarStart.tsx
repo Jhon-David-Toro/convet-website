@@ -1,10 +1,10 @@
 import { SearchInput } from "@/components/ui/SearchInput";
 
 import { SEARCH_LABEL, SEARCH_SHORTCUT } from "../StaffShell.constants";
-import styles from "../StaffShell.module.scss";
 import type { StaffTopBarStartProps } from "../StaffShell.types";
 import { topBarFor } from "../StaffShell.utils";
 import { LeadingButton } from "./LeadingButton";
+import styles from "../StaffShell.module.scss";
 
 /**
  * Start of the top bar: the search on desktop; below it a back arrow or the menu button with the page title.

@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/Badge";
 import { Paw } from "@/components/ui/Icon";
 import { ScriptAccent } from "@/components/ui/ScriptAccent";
 
-import styles from "../HeroSection.module.scss";
 import { HERO_ACCENT, HERO_BADGE_LABEL, HERO_HEADLINE_LINES, HERO_LEAD, HERO_LEAD_SHORT } from "../HeroSection.constants";
+import styles from "../HeroSection.module.scss";
 
 /**
  * Badge, headline, script accent and lead of the hero.

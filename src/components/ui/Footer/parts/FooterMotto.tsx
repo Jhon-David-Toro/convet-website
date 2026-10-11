@@ -1,8 +1,8 @@
 import { Icon, Paw } from "@/components/ui/Icon";
 
-import styles from "../Footer.module.scss";
 import { FOOTER_MOTTO_ICON_SIZE } from "../Footer.constants";
 import type { FooterMottoProps } from "../Footer.types";
+import styles from "../Footer.module.scss";
 
 /**
  * Brand motto with a paw icon and a highlighted phrase.

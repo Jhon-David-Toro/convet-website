@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
 
-import styles from "./AdminServices.module.scss";
 import { NEW_LABEL, SUBTITLE, TITLE } from "./AdminServices.constants";
 import { ServicePanel } from "./parts/ServicePanel";
 import { ServicesTable } from "./parts/ServicesTable";
+import styles from "./AdminServices.module.scss";
 
 /**
  * Services page of the admin area: the services clients see on the website and can book, and the settings of the selected one.

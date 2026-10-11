@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Avatar } from "@/components/ui/Avatar";
 import { Icon, LogOut } from "@/components/ui/Icon";
 
-import styles from "../Sidebar.module.scss";
 import { SIDEBAR_SIGN_OUT_ICON_SIZE } from "../Sidebar.constants";
 import type { SidebarUserProps } from "../Sidebar.types";
+import styles from "../Sidebar.module.scss";
 
 /**
  * Signed-in user (name and role) with the sign out link.

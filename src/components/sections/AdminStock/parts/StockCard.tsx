@@ -1,10 +1,10 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
 
-import styles from "../AdminStock.module.scss";
 import type { StockCardProps } from "../AdminStock.types";
 import { onHandLine } from "../AdminStock.utils";
 import { StockCardTop } from "./StockCardTop";
+import styles from "../AdminStock.module.scss";
 
 /**
  * A product as a card for mobile: name, SKU, status and what is on hand against the minimum.

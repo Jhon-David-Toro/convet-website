@@ -2,11 +2,11 @@ import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { STAFF_HOME_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { CLIENT_BREADCRUMB_CLIENTS, CLIENT_BREADCRUMB_HOME, CLIENTS_HREF } from "./ClientDetail.constants";
-import styles from "./ClientDetail.module.scss";
 import type { ClientDetailProps } from "./ClientDetail.types";
 import { ClientAppointments } from "./parts/ClientAppointments";
 import { ClientHeader } from "./parts/ClientHeader";
 import { ClientPets } from "./parts/ClientPets";
+import styles from "./ClientDetail.module.scss";
 
 /**
  * Client page of the staff area: the client card, their pets and their appointments.

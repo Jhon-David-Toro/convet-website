@@ -1,8 +1,8 @@
 import { Calendar } from "@/components/ui/Calendar";
 import { Dropdown } from "@/components/ui/Dropdown";
 
-import styles from "../MaskedInput.module.scss";
 import type { DatePickerPopupProps } from "../MaskedInput.types";
+import styles from "../MaskedInput.module.scss";
 
 /**
  * Floating calendar of a date `MaskedInput`.

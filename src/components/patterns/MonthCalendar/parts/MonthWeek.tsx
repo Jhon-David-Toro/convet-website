@@ -1,6 +1,6 @@
-import styles from "../MonthCalendar.module.scss";
 import type { MonthWeekProps } from "../MonthCalendar.types";
 import { MonthDay } from "./MonthDay";
+import styles from "../MonthCalendar.module.scss";
 
 /**
  * One row of seven days.

@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./CarouselControls.module.scss";
 import type { CarouselControlsProps } from "./CarouselControls.types";
 import { CarouselArrows } from "./parts/CarouselArrows";
 import { CarouselIndicators } from "./parts/CarouselIndicators";
+import styles from "./CarouselControls.module.scss";
 
 /**
  * Navigation/Carousel Controls: indicators and arrows (arrows are hidden on mobile, where users swipe).

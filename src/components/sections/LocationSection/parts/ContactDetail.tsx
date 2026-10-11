@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../LocationSection.module.scss";
 import type { ContactLineProps } from "../LocationSection.types";
+import styles from "../LocationSection.module.scss";
 
 /**
  * Secondary text of a contact line. When the line has a short text, the short one shows below desktop

@@ -1,6 +1,6 @@
-import styles from "../Footer.module.scss";
 import type { FooterLegalProps } from "../Footer.types";
 import { FooterLegalLinks } from "./FooterLegalLinks";
+import styles from "../Footer.module.scss";
 
 /**
  * Copyright line and, when given, the legal links.

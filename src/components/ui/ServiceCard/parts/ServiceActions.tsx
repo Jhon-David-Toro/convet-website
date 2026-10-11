@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/Icon";
 
-import styles from "../ServiceCard.module.scss";
 import type { ServiceActionsProps } from "../ServiceCard.types";
+import styles from "../ServiceCard.module.scss";
 
 /**
  * "Details" link and "Book" button.

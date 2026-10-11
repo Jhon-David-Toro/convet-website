@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./BookingDay.module.scss";
 import { BOOKING_DAY_STATE_CLASS, FEW_LEFT_DAY_STATE, SELECTED_DAY_STATE, UNAVAILABLE_DAY_STATE } from "./BookingDay.constants";
 import type { BookingDayProps } from "./BookingDay.types";
 import { FewLeftMarker } from "./parts/FewLeftMarker";
+import styles from "./BookingDay.module.scss";
 
 /**
  * Booking/Day: selectable day of the date picker. `selected` uses `aria-pressed`; `unavailable` is disabled.

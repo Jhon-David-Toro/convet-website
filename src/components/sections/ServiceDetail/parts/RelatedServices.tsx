@@ -2,8 +2,8 @@ import { ServiceCard } from "@/components/ui/ServiceCard";
 import { serviceBookingHref, serviceDetailHref } from "@/lib/catalog/services.utils";
 
 import { RELATED_TITLE } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { RelatedServicesProps } from "../ServiceDetail.types";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Services that are often booked together with the current one, as compact cards on the subtle background.

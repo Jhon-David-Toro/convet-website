@@ -2,9 +2,9 @@ import { Calendar, Icon } from "@/components/ui/Icon";
 import { fullDayMessage, nextOpenDay, shortDay } from "@/lib/booking/booking.utils";
 
 import { EMPTY_ICON_SIZE } from "../DateTimePicker.constants";
-import styles from "../DateTimePicker.module.scss";
 import type { NoAvailabilityProps } from "../DateTimePicker.types";
 import { NoAvailabilityActions } from "./NoAvailabilityActions";
+import styles from "../DateTimePicker.module.scss";
 
 /**
  * Shown when the chosen day is full: explains it and offers the vet's next open day or any available vet.

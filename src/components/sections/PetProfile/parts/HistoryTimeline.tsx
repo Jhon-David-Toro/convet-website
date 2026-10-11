@@ -1,8 +1,8 @@
 import { TimelineItem } from "@/components/patterns/TimelineItem";
 
-import styles from "../PetProfile.module.scss";
 import type { HistoryTimelineProps } from "../PetProfile.types";
 import { groupByYear } from "../PetProfile.utils";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Timeline of events grouped under their year.

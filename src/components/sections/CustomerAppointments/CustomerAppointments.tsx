@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 
-import styles from "./CustomerAppointments.module.scss";
 import type { AppointmentTab, CustomerAppointmentsProps } from "./CustomerAppointments.types";
 import { defaultGroups } from "./CustomerAppointments.utils";
 import { useAppointments } from "./hooks/useAppointments";
@@ -12,6 +11,7 @@ import { AppointmentTabs } from "./parts/AppointmentTabs";
 import { AppointmentsHeader } from "./parts/AppointmentsHeader";
 import { CancelModal } from "./parts/CancelModal";
 import { ChangeAlert } from "./parts/ChangeAlert";
+import styles from "./CustomerAppointments.module.scss";
 
 /**
  * Appointments page: title with the booking button, tabs by state, the appointments of the selected tab, the 24-hour notice and the

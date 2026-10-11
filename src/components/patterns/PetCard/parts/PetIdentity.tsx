@@ -1,7 +1,7 @@
 import { Avatar } from "@/components/ui/Avatar";
 
-import styles from "../PetCard.module.scss";
 import type { PetIdentityProps } from "../PetCard.types";
+import styles from "../PetCard.module.scss";
 
 /**
  * Large avatar with the pet name and description.

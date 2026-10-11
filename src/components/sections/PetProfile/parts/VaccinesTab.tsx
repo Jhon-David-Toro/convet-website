@@ -3,11 +3,11 @@ import { vaccinesOf } from "@/lib/customer/customer.utils";
 import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_BOOSTER_LABEL } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { PetProps } from "../PetProfile.types";
 import { NextStepCard } from "./NextStepCard";
 import { UpcomingCard } from "./UpcomingCard";
 import { VaccinationCard } from "./VaccinationCard";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Vaccines tab: the vaccination card and, on desktop, the next step and the upcoming appointment at its side.

@@ -4,9 +4,9 @@ import { useState } from "react";
 
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../AdminLocations.module.scss";
 import { PHONE_LABEL, WHATSAPP_LABEL } from "../AdminLocations.constants";
 import type { PhoneFieldsProps } from "../AdminLocations.types";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * The phone and WhatsApp numbers the clinic shows to clients.

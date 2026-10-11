@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./ProductCatalog.module.scss";
 import type { ProductCatalogProps } from "./ProductCatalog.types";
 import { useProductCatalog } from "./hooks/useProductCatalog";
 import { useSearchShortcut } from "./hooks/useSearchShortcut";
 import { ProductResults } from "./parts/ProductResults";
 import { ProductSidebar } from "./parts/ProductSidebar";
+import styles from "./ProductCatalog.module.scss";
 
 /**
  * Products catalog: filters column and the results (kind chips, grid of cards and pagination).

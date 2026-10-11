@@ -1,7 +1,7 @@
-import styles from "../RescheduleFlow.module.scss";
 import { FROM_LABEL, TO_LABEL } from "../RescheduleFlow.constants";
 import type { ChangeReviewProps } from "../RescheduleFlow.types";
 import { whenText } from "../RescheduleFlow.utils";
+import styles from "../RescheduleFlow.module.scss";
 
 /**
  * Confirmation of the change: the current day and time next to the new ones.

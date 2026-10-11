@@ -1,12 +1,12 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { relatedServices } from "@/lib/catalog/services.utils";
 
+import type { ServiceDetailProps } from "./ServiceDetail.types";
+import { serviceBreadcrumbs } from "./ServiceDetail.utils";
 import { BookingPanel } from "./parts/BookingPanel";
 import { RelatedServices } from "./parts/RelatedServices";
 import { ServiceMain } from "./parts/ServiceMain";
 import styles from "./ServiceDetail.module.scss";
-import type { ServiceDetailProps } from "./ServiceDetail.types";
-import { serviceBreadcrumbs } from "./ServiceDetail.utils";
 
 /**
  * Detail page of a service: breadcrumbs, photo, intro, steps, optional table, booking column and related services.

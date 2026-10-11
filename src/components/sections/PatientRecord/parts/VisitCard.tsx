@@ -2,11 +2,11 @@ import { Badge } from "@/components/ui/Badge";
 import { Lock } from "@/components/ui/Icon";
 
 import { SIGNED_LABEL } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { VisitCardProps } from "../PatientRecord.types";
 import { ClinicalFields } from "./ClinicalFields";
 import { VisitNotes } from "./VisitNotes";
 import { Vitals } from "./Vitals";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * A signed visit: title, measurements, findings, diagnosis and plan, the internal notes and the summary the owner sees.

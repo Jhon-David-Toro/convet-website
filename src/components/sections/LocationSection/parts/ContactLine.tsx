@@ -1,10 +1,10 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../LocationSection.module.scss";
 import { CONTACT_ICON_SIZE } from "../LocationSection.constants";
 import type { ContactLineProps } from "../LocationSection.types";
 import { ContactDetail } from "./ContactDetail";
+import styles from "../LocationSection.module.scss";
 
 /**
  * A line of contact information with its icon, main text and detail.

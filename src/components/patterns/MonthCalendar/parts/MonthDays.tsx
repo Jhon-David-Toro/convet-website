@@ -1,8 +1,8 @@
-import styles from "../MonthCalendar.module.scss";
 import { MONTH_TITLE_FORMAT } from "../MonthCalendar.constants";
 import type { MonthDaysProps } from "../MonthCalendar.types";
 import { buildWeeks, monthStart } from "../MonthCalendar.utils";
 import { MonthWeek } from "./MonthWeek";
+import styles from "../MonthCalendar.module.scss";
 
 /**
  * Group of weeks of the visible month.

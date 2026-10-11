@@ -1,11 +1,11 @@
 "use client";
 
 import { PANEL_ID } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import { useBookingRules } from "../hooks/useBookingRules";
 import { RuleActions } from "./RuleActions";
 import { RuleSelects } from "./RuleSelects";
 import { RuleToggles } from "./RuleToggles";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * Form of the booking rules: the six lists, the two switches and the buttons that save or discard the changes.

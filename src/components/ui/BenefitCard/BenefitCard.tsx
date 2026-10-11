@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./BenefitCard.module.scss";
 import type { BenefitCardProps } from "./BenefitCard.types";
+import styles from "./BenefitCard.module.scss";
 
 /**
  * Card/Benefit: icon on a soft orange circle, title and description (no border).

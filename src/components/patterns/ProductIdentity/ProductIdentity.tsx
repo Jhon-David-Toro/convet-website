@@ -2,10 +2,10 @@ import { Badge } from "@/components/ui/Badge";
 import { Check, CheckCircle, Icon, Pill } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./ProductIdentity.module.scss";
-import { ProductText } from "./parts/ProductText";
 import { PRODUCT_SELECTED_ICON_SIZE, PRODUCT_THUMB_ICON_SIZE } from "./ProductIdentity.constants";
 import type { ProductIdentityProps } from "./ProductIdentity.types";
+import { ProductText } from "./parts/ProductText";
+import styles from "./ProductIdentity.module.scss";
 
 /**
  * Inventory/Product Identity: product identified by name, SKU and UUID. Chosen like a selection button.

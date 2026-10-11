@@ -1,9 +1,9 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 
+import { PRESCRIPTION_VIEWS } from "../AdminProducts.constants";
 import type { CatalogCellsProps } from "../AdminProducts.types";
 import { publishedView } from "../AdminProducts.utils";
-import { PRESCRIPTION_VIEWS } from "../AdminProducts.constants";
 
 /**
  * Last cells of a catalog row: the prescription rule and whether the product is published on the website.

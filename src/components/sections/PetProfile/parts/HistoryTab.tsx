@@ -2,14 +2,14 @@
 
 import { eventsOf, weightsOf } from "@/lib/customer/customer.utils";
 
-import { useHistoryFilter } from "../hooks/useHistoryFilter";
-import styles from "../PetProfile.module.scss";
 import type { HistoryTabProps } from "../PetProfile.types";
 import { filterEvents } from "../PetProfile.utils";
+import { useHistoryFilter } from "../hooks/useHistoryFilter";
 import { HistoryFilters } from "./HistoryFilters";
 import { HistoryInfo } from "./HistoryInfo";
 import { HistoryTimeline } from "./HistoryTimeline";
 import { WeightCard } from "./WeightCard";
+import styles from "../PetProfile.module.scss";
 
 /**
  * History tab: the filterable timeline of the pet and, on desktop, its weight and an explanation at the side.

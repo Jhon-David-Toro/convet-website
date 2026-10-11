@@ -4,9 +4,9 @@ import { serviceActionHref } from "@/lib/catalog/services.utils";
 import { whatsappLink } from "@/lib/site/whatsapp";
 
 import { ASK_WHATSAPP_LABEL } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { BookingPanelProps } from "../ServiceDetail.types";
 import { ServiceFacts } from "./ServiceFacts";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Card with the facts of the service (duration, species, price) and its booking and WhatsApp actions.

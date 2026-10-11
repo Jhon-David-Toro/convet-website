@@ -1,9 +1,9 @@
 import { FilterChips } from "@/components/patterns/FilterChips";
 import { SearchInput } from "@/components/ui/SearchInput";
 
-import styles from "../AdminStock.module.scss";
 import { FILTER_OPTIONS, FILTERS_LABEL, SEARCH_LABEL, SEARCH_SHORTCUT } from "../AdminStock.constants";
 import type { StockFiltersProps } from "../AdminStock.types";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Search (desktop only) and chips that filter the stock by kind of product or by what needs attention.

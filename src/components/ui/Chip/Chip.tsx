@@ -1,8 +1,8 @@
 import { Check, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Chip.module.scss";
 import type { ChipProps } from "./Chip.types";
+import styles from "./Chip.module.scss";
 
 /**
  * Selectable filter chip with an optional count. The parent controls the selected state.

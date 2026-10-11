@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
 import { STAMP_TONES } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { VaccineStampProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Round dashed stamp of a vaccine, coloured by its status, with the vaccine name and the date it was given.

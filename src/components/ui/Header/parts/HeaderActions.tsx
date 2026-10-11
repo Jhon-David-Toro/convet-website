@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Menu, User, WhatsApp, X } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../Header.module.scss";
 import type { HeaderActionsProps } from "../Header.types";
+import styles from "../Header.module.scss";
 
 /**
  * Sign in, WhatsApp, booking and menu buttons; each breakpoint shows only its own subset.

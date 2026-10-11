@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./TimeSlot.module.scss";
 import type { TimeSlotProps } from "./TimeSlot.types";
+import styles from "./TimeSlot.module.scss";
 
 /**
  * Booking/Time Slot: time with its remaining capacity. `selected` uses `aria-pressed`; `full` and `disabled` cannot be chosen.

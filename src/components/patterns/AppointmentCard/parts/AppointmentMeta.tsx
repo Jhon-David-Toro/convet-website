@@ -1,7 +1,7 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../AppointmentCard.module.scss";
 import type { AppointmentMetaProps } from "../AppointmentCard.types";
+import styles from "../AppointmentCard.module.scss";
 
 /**
  * List of time, pet, vet and location, each with its icon.

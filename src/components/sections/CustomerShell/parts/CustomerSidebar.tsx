@@ -2,9 +2,9 @@ import { Sidebar } from "@/components/ui/Sidebar";
 import { CUSTOMER_NAME, CUSTOMER_ROLE } from "@/lib/customer/customer.constants";
 
 import { ACCOUNT_NAV, MAIN_NAV, SIGN_OUT_HREF } from "../CustomerShell.constants";
-import styles from "../CustomerShell.module.scss";
 import type { CustomerNavItem, CustomerPathProps } from "../CustomerShell.types";
 import { isActivePath } from "../CustomerShell.utils";
+import styles from "../CustomerShell.module.scss";
 
 /**
  * Builds the items of a sidebar group, marking the one of the current page.

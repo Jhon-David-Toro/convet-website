@@ -1,7 +1,7 @@
 import { Icon, Phone } from "@/components/ui/Icon";
 
-import styles from "../EmergencyBar.module.scss";
 import type { EmergencyCallProps } from "../EmergencyBar.types";
+import styles from "../EmergencyBar.module.scss";
 
 /**
  * Red pill that calls the emergency phone number.

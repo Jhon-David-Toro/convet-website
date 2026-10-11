@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { Clock } from "@/components/ui/Icon";
 
-import styles from "../ServiceList.module.scss";
 import type { ServiceRowProps } from "../ServiceList.types";
 import { ServiceHighlights } from "./ServiceHighlights";
+import styles from "../ServiceList.module.scss";
 
 /**
  * Text of a row: the name with its duration, the description and the highlights.

@@ -5,12 +5,12 @@ import { useId, useImperativeHandle, useRef } from "react";
 import { ChoiceText } from "@/components/ui/ChoiceText";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Checkbox.module.scss";
 import { MIXED_STATE } from "./Checkbox.constants";
 import type { CheckboxProps } from "./Checkbox.types";
 import { toNativeChecked } from "./Checkbox.utils";
 import { useIndeterminate } from "./hooks/useIndeterminate";
 import { CheckboxControl } from "./parts/CheckboxControl";
+import styles from "./Checkbox.module.scss";
 
 /**
  * Checkbox with a label and an optional description. Client Component only because "indeterminate" is a DOM property.

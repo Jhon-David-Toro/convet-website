@@ -1,8 +1,8 @@
 import { AlertTriangle, Icon, Info } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Field.module.scss";
 import type { FieldHintProps } from "../Field.types";
+import styles from "../Field.module.scss";
 
 /**
  * Helper or error message under the control, with its icon.

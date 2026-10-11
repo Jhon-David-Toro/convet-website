@@ -3,8 +3,8 @@ import { ArrowRight, WhatsApp } from "@/components/ui/Icon";
 import { serviceActionHref, serviceDetailHref } from "@/lib/catalog/services.utils";
 
 import { DETAILS_LABEL } from "../ServiceList.constants";
-import styles from "../ServiceList.module.scss";
 import type { ServiceRowProps } from "../ServiceList.types";
+import styles from "../ServiceList.module.scss";
 
 /**
  * Main action of a row (book online, or ask on WhatsApp for services booked by the team) and the details link.

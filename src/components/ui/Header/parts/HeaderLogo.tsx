@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { Logo } from "@/components/ui/Logo";
 
-import styles from "../Header.module.scss";
 import type { HeaderLogoProps } from "../Header.types";
+import styles from "../Header.module.scss";
 
 /**
  * Logo that links to the home page.

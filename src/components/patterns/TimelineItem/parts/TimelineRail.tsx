@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../TimelineItem.module.scss";
 import { TIMELINE_ICON_SIZE, TIMELINE_ICONS } from "../TimelineItem.constants";
 import type { TimelineRailProps } from "../TimelineItem.types";
+import styles from "../TimelineItem.module.scss";
 
 /**
  * Icon dot of the entry and, unless it is the last one, the line going down.

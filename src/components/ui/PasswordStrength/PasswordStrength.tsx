@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./PasswordStrength.module.scss";
 import { STRENGTH_LEVELS, STRENGTH_SEGMENTS } from "./PasswordStrength.constants";
 import type { PasswordStrengthProps } from "./PasswordStrength.types";
 import { scorePassword } from "./PasswordStrength.utils";
+import styles from "./PasswordStrength.module.scss";
 
 /**
  * Strength meter of a password: four segments that fill up and a label. Shows nothing while the password is empty.

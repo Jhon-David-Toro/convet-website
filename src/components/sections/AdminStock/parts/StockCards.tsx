@@ -1,7 +1,7 @@
-import styles from "../AdminStock.module.scss";
 import { CARDS_LABEL } from "../AdminStock.constants";
 import type { StockCardsProps } from "../AdminStock.types";
 import { StockCard } from "./StockCard";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Products as cards for mobile.

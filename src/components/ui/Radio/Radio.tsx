@@ -3,8 +3,8 @@ import { useId } from "react";
 import { ChoiceText } from "@/components/ui/ChoiceText";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Radio.module.scss";
 import type { RadioProps } from "./Radio.types";
+import styles from "./Radio.module.scss";
 
 /**
  * Radio button with a label and an optional description.

@@ -2,8 +2,8 @@ import { Dropdown } from "@/components/ui/Dropdown";
 import { MenuItem } from "@/components/ui/MenuItem";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../MaskedInput.module.scss";
 import type { TimePickerPopupProps } from "../MaskedInput.types";
+import styles from "../MaskedInput.module.scss";
 
 /**
  * Floating list of time slots of a time `MaskedInput`. Focus stays in the text field.

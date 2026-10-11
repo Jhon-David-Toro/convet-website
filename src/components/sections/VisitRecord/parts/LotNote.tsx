@@ -1,7 +1,7 @@
 import { Icon, Lock } from "@/components/ui/Icon";
 
-import styles from "../VisitRecord.module.scss";
 import type { LotNoteProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Small note with a lock under the lot field: why a lot cannot be picked.

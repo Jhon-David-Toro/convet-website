@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Icon.module.scss";
 import { ICON_PIXEL_SIZES, ICON_STROKE_WIDTH } from "./Icon.constants";
 import type { IconProps } from "./Icon.types";
+import styles from "./Icon.module.scss";
 
 /**
  * Draws an icon from the icon set at a named or custom size. Decorative unless a `label` is given.

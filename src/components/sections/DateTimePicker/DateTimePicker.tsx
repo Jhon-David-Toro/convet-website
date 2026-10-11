@@ -4,11 +4,11 @@ import { MonthCalendar } from "@/components/patterns/MonthCalendar";
 import { BOOKING_MONTH, BOOKING_TODAY } from "@/lib/booking/booking.constants";
 import { calendarStates } from "@/lib/booking/booking.utils";
 
-import styles from "./DateTimePicker.module.scss";
 import { SLOTS_NOTE } from "./DateTimePicker.constants";
 import type { DateTimePickerProps } from "./DateTimePicker.types";
 import { SlotsPanel } from "./parts/SlotsPanel";
 import { VetBanner } from "./parts/VetBanner";
+import styles from "./DateTimePicker.module.scss";
 
 /**
  * Day and time picker of a booking: the vet banner, a month calendar with the days the vet works, and the times of the selected day.

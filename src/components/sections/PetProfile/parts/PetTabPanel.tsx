@@ -1,9 +1,9 @@
 import { PANEL_ID } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { PetTabPanelProps } from "../PetProfile.types";
 import { HistoryTab } from "./HistoryTab";
 import { TabPlaceholder } from "./TabPlaceholder";
 import { VaccinesTab } from "./VaccinesTab";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Panel of the selected tab: vaccines and history have content, the rest show an empty state for now.

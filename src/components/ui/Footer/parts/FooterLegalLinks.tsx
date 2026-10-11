@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import styles from "../Footer.module.scss";
 import { LEGAL_LINK_SEPARATOR } from "../Footer.constants";
 import type { FooterLegalLinksProps } from "../Footer.types";
+import styles from "../Footer.module.scss";
 
 /**
  * Legal links separated by a middle dot.

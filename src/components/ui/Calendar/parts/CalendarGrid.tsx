@@ -1,8 +1,8 @@
-import styles from "../Calendar.module.scss";
 import { dayKey } from "../Calendar.dates";
 import type { CalendarGridProps } from "../Calendar.types";
 import { CalendarWeek } from "./CalendarWeek";
 import { CalendarWeekdays } from "./CalendarWeekdays";
+import styles from "../Calendar.module.scss";
 
 /**
  * Table of days (ARIA grid) with a single day in the tab order.

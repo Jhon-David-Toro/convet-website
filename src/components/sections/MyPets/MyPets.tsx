@@ -3,12 +3,12 @@
 import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
 import { useDisclosure } from "@/lib/shared/useDisclosure";
 
-import styles from "./MyPets.module.scss";
 import type { MyPetsProps } from "./MyPets.types";
 import { AddPetModal } from "./parts/AddPetModal";
 import { EmptyPets } from "./parts/EmptyPets";
 import { MyPetsHeader } from "./parts/MyPetsHeader";
 import { PetGrid } from "./parts/PetGrid";
+import styles from "./MyPets.module.scss";
 
 /**
  * My pets page: title with the pet count, the pet cards (or an empty state) and the "Add a pet" modal.

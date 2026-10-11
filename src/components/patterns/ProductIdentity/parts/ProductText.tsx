@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/Badge";
 
-import styles from "../ProductIdentity.module.scss";
 import type { ProductTextProps } from "../ProductIdentity.types";
+import styles from "../ProductIdentity.module.scss";
 
 /**
  * Name with its kind badge, presentation and SKU / UUID line.

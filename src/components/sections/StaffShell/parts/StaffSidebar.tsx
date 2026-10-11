@@ -1,9 +1,9 @@
 import { Sidebar } from "@/components/ui/Sidebar";
 import { STAFF_SIGN_OUT_HREF } from "@/lib/staff/staff.paths.constants";
 
-import styles from "../StaffShell.module.scss";
 import type { StaffPathProps } from "../StaffShell.types";
 import { sidebarGroups } from "../StaffShell.utils";
+import styles from "../StaffShell.module.scss";
 
 /**
  * Sidebar of the staff or admin area (desktop only): the pages of the area, the branch and the signed-in user.

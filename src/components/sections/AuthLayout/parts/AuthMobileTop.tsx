@@ -5,8 +5,8 @@ import { IconButton } from "@/components/ui/IconButton";
 import { Logo } from "@/components/ui/Logo";
 
 import { BACK_LABEL, HOME_LABEL } from "../AuthLayout.constants";
-import styles from "../AuthLayout.module.scss";
 import type { AuthMobileTopProps } from "../AuthLayout.types";
+import styles from "../AuthLayout.module.scss";
 
 /**
  * Top of the auth pages below desktop: a back arrow and the circular logo.

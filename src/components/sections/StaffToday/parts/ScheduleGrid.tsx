@@ -1,11 +1,11 @@
 import { GRID_LABEL } from "../StaffToday.constants";
-import styles from "../StaffToday.module.scss";
 import type { ScheduleGridProps } from "../StaffToday.types";
 import { gridHeight } from "../StaffToday.utils";
 import { GridColumns } from "./GridColumns";
 import { NowLine } from "./NowLine";
 import { TimeLabels } from "./TimeLabels";
 import { VetHeads } from "./VetHeads";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Schedule of the day: one column per vet over the hours, with each appointment where it belongs and a line at the current time.

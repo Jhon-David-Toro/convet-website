@@ -1,6 +1,6 @@
 import { MICROCHIP_LABEL, WEIGHT_LABEL } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { PatientFactsProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Microchip and weight of the patient.

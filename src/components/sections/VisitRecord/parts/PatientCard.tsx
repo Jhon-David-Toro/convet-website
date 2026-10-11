@@ -2,11 +2,11 @@ import { Badge } from "@/components/ui/Badge";
 import { AlertTriangle, Clock } from "@/components/ui/Icon";
 
 import { PROFILE_HREF } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { PatientCardProps } from "../VisitRecord.types";
 import { PatientCardHead } from "./PatientCardHead";
 import { PatientFacts } from "./PatientFacts";
 import { ProfileLink } from "./ProfileLink";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Card of the patient next to the form: name and description, the allergy, the facts, the rabies status and the link to the record.

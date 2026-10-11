@@ -1,6 +1,6 @@
-import styles from "../ToastProvider.module.scss";
 import type { ToastRegionProps } from "../Toast.types";
 import { ToastRegionItem } from "./ToastRegionItem";
+import styles from "../ToastProvider.module.scss";
 
 /**
  * Live region where toasts stack at the bottom; screen readers announce them politely.

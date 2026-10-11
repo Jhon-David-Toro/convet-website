@@ -1,7 +1,7 @@
-import styles from "../StaffToday.module.scss";
 import type { GridColumnProps } from "../StaffToday.types";
 import { columnAppointments } from "../StaffToday.utils";
 import { GridEvent } from "./GridEvent";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Column of one vet: the appointments of the vet over the hour lines.

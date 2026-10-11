@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./DataTable.module.scss";
 import type { DataTableProps } from "./DataTable.types";
 import { DataTableHead } from "./parts/DataTableHead";
+import styles from "./DataTable.module.scss";
 
 /**
  * Data/Table: the frame of a table of records. It draws the rounded border, the header row and scrolls sideways on small screens;

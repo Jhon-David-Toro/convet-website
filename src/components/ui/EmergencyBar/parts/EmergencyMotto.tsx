@@ -1,7 +1,7 @@
 import { Icon, Paw } from "@/components/ui/Icon";
 
-import styles from "../EmergencyBar.module.scss";
 import type { EmergencyMottoProps } from "../EmergencyBar.types";
+import styles from "../EmergencyBar.module.scss";
 
 /**
  * Brand motto with a paw icon and a highlighted phrase.

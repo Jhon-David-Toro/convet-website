@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Tab.module.scss";
 import type { TabProps } from "./Tab.types";
+import styles from "./Tab.module.scss";
 
 /**
  * Navigation/Tab. Use it inside a container with `role="tablist"` and link each tab to its panel (`aria-controls`).

@@ -6,12 +6,12 @@ import { AppTopBar } from "@/components/ui/AppTopBar";
 import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import { SHELL_CONFIGS } from "./StaffShell.constants";
-import styles from "./StaffShell.module.scss";
 import type { StaffShellProps } from "./StaffShell.types";
 import { StaffMenu } from "./parts/StaffMenu";
 import { StaffSidebar } from "./parts/StaffSidebar";
 import { TopBarEnd } from "./parts/TopBarEnd";
 import { TopBarStart } from "./parts/TopBarStart";
+import styles from "./StaffShell.module.scss";
 
 /**
  * Frame of the staff area: sidebar on desktop, top bar with the search, the page and, below desktop, a menu dialog.

@@ -1,6 +1,6 @@
-import styles from "../PetProfile.module.scss";
 import type { VaccineStampsProps } from "../PetProfile.types";
 import { VaccineStamp } from "./VaccineStamp";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Row of vaccine stamps, like the stamps of a paper vaccination card (hidden on mobile).

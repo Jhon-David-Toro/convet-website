@@ -1,8 +1,8 @@
 import { TimeSlot } from "@/components/patterns/TimeSlot";
 import { capacityLabel, hoursLabel, longDay } from "@/lib/booking/booking.utils";
 
-import styles from "../DateTimePicker.module.scss";
 import type { SlotGridProps } from "../DateTimePicker.types";
+import styles from "../DateTimePicker.module.scss";
 
 /**
  * The day's agenda: its title, the hours of the vet and a button per time with the places left.

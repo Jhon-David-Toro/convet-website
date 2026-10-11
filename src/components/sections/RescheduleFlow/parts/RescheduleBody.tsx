@@ -1,10 +1,10 @@
 import { DateTimePicker } from "@/components/sections/DateTimePicker";
 import { agendaVet } from "@/lib/booking/booking.utils";
 
-import styles from "../RescheduleFlow.module.scss";
 import { PICK_SUBTITLE, PICK_TITLE, REVIEW_SUBTITLE, REVIEW_TITLE } from "../RescheduleFlow.constants";
 import type { RescheduleFlowProps, RescheduleState } from "../RescheduleFlow.types";
 import { ChangeReview } from "./ChangeReview";
+import styles from "../RescheduleFlow.module.scss";
 
 /**
  * Content of the current step: the day and time picker, then the confirmation of the change.

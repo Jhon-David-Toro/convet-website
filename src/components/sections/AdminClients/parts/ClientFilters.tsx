@@ -2,8 +2,8 @@ import { FilterChips } from "@/components/patterns/FilterChips";
 import { SearchInput } from "@/components/ui/SearchInput";
 
 import { SEARCH_LABEL, SEARCH_SHORTCUT } from "../AdminClients.constants";
-import styles from "../AdminClients.module.scss";
 import type { ClientFiltersProps } from "../AdminClients.types";
+import styles from "../AdminClients.module.scss";
 
 /**
  * Search by name, phone or email and the chips that filter by kind of account.

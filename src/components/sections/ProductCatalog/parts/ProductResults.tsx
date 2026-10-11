@@ -4,10 +4,10 @@ import { Pagination } from "@/components/ui/Pagination";
 import { PRODUCTS_PAGE_SIZE } from "@/lib/catalog/products.constants";
 
 import { EMPTY_MESSAGE, EMPTY_TITLE } from "../ProductCatalog.constants";
-import styles from "../ProductCatalog.module.scss";
 import type { ProductResultsProps } from "../ProductCatalog.types";
 import { ProductGrid } from "./ProductGrid";
 import { ProductToolbar } from "./ProductToolbar";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * Results column: toolbar, the grid of the current page (or an empty state) and the pagination when there are several pages.

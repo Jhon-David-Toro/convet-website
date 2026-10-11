@@ -1,9 +1,9 @@
-import styles from "./BookingFrame.module.scss";
 import type { BookingFrameProps } from "./BookingFrame.types";
 import { BookingBody } from "./parts/BookingBody";
 import { BookingHeader } from "./parts/BookingHeader";
 import { MobileHeader } from "./parts/MobileHeader";
 import { MobileProgress } from "./parts/MobileProgress";
+import styles from "./BookingFrame.module.scss";
 
 /**
  * Frame of the booking pages: header with the steps (a back arrow, title and progress bar on mobile), the step content with an

@@ -1,5 +1,5 @@
-import styles from "../Skeleton.module.scss";
 import { Bone } from "./Bone";
+import styles from "../Skeleton.module.scss";
 
 /**
  * Placeholder of a card: thumbnail, title, two lines and two chips.

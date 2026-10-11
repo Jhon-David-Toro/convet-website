@@ -3,8 +3,8 @@ import { Checkbox } from "@/components/ui/Checkbox";
 import { FORGOT_PASSWORD_HREF } from "@/lib/auth/auth.constants";
 
 import { FORGOT_LABEL, REMEMBER_LABEL } from "../SignInForm.constants";
-import styles from "../SignInForm.module.scss";
 import type { SignInOptionsProps } from "../SignInForm.types";
+import styles from "../SignInForm.module.scss";
 
 /**
  * Row with the "keep me signed in" checkbox and the link to reset the password.

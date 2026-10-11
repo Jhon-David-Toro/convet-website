@@ -2,8 +2,8 @@ import { Badge } from "@/components/ui/Badge";
 import { AlertTriangle } from "@/components/ui/Icon";
 
 import { OVERDUE_BADGE, VACCINATION_TITLE } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { VaccinationHeaderProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Title of the vaccination card with a badge that counts the overdue vaccines (hidden on mobile).

@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/Button";
 import { ArrowDownCircle, ArrowUpCircle, Sliders } from "@/components/ui/Icon";
 import { ADMIN_RECEIVE_HREF } from "@/lib/admin/admin.paths.constants";
 
-import styles from "../ProductLots.module.scss";
 import { ADJUST_LABEL, DISPENSE_LABEL, RECEIVE_LABEL } from "../ProductLots.constants";
 import type { ProductActionsProps } from "../ProductLots.types";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Buttons of the product page: adjust, dispense and receive stock.

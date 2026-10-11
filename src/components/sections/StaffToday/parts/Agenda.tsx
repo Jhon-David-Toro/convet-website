@@ -2,10 +2,10 @@ import { ScheduleEvent } from "@/components/patterns/ScheduleEvent";
 import { cx } from "@/lib/shared/cx";
 import { STAFF_APPOINTMENTS } from "@/lib/staff/staff.constants";
 
-import styles from "../StaffToday.module.scss";
 import type { AgendaProps } from "../StaffToday.types";
 import { agendaAppointments, agendaGroups, eventTitle, rangeMeta } from "../StaffToday.utils";
 import { AgendaFilters } from "./AgendaFilters";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Agenda for small screens: a list of the day's appointments grouped into now, next and earlier.

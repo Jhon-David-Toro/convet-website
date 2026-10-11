@@ -1,8 +1,8 @@
 import { Icon, X } from "@/components/ui/Icon";
 
-import styles from "../Alert.module.scss";
 import { ALERT_DISMISS_ICON_SIZE } from "../Alert.constants";
 import type { AlertDismissProps } from "../Alert.types";
+import styles from "../Alert.module.scss";
 
 /**
  * Button that closes the alert.

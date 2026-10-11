@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../FileUpload.module.scss";
 import { FILE_UPLOAD_ICON_SIZE } from "../FileUpload.constants";
 import type { FileUploadContentProps } from "../FileUpload.types";
+import styles from "../FileUpload.module.scss";
 
 /**
  * Icon and texts of the upload zone. Without a heading it shows the idle and dragging titles.

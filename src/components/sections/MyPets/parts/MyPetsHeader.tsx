@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 
 import { ADD_LABEL, TITLE } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { MyPetsHeaderProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * Title of the page with how many pets there are and the button that opens the "Add a pet" modal (not on mobile).

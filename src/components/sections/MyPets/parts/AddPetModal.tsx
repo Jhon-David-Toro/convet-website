@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { Modal } from "@/components/ui/Modal";
 
-import { useAddPet } from "../hooks/useAddPet";
 import { CANCEL_LABEL, FORM_ID, MODAL_DESCRIPTION, MODAL_TITLE, SAVE_LABEL } from "../MyPets.constants";
 import type { AddPetModalProps } from "../MyPets.types";
+import { useAddPet } from "../hooks/useAddPet";
 import { AddPetForm } from "./AddPetForm";
 
 /**

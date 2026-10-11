@@ -1,8 +1,8 @@
 import { Toggle } from "@/components/ui/Toggle";
 
 import { RULE_TOGGLES } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import type { RulesFormProps } from "../AdminSettings.types";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * The two switches of the booking rules: confirm online bookings automatically, and let clients choose a vet.

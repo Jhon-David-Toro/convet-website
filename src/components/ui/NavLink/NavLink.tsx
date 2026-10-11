@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./NavLink.module.scss";
 import type { NavLinkProps } from "./NavLink.types";
+import styles from "./NavLink.module.scss";
 
 /**
  * Navigation link of the header. The current page is bold, has an indicator and `aria-current="page"`.

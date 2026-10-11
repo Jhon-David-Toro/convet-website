@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 
-import styles from "../StockMovementModal.module.scss";
 import { CANCEL_LABEL, SUBMIT_LABELS } from "../StockMovementModal.constants";
 import type { MovementActionsProps } from "../StockMovementModal.types";
+import styles from "../StockMovementModal.module.scss";
 
 /**
  * Buttons of the dialog: cancel, and record the movement. The record button waits until the form has no problems.

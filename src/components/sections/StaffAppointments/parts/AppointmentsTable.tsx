@@ -2,10 +2,10 @@ import { EmptyState } from "@/components/ui/EmptyState";
 import { Calendar } from "@/components/ui/Icon";
 
 import { EMPTY_MESSAGE, EMPTY_TITLE, TABLE_LABEL } from "../StaffAppointments.constants";
-import styles from "../StaffAppointments.module.scss";
 import type { AppointmentsTableProps } from "../StaffAppointments.types";
 import { AppointmentsBody } from "./AppointmentsBody";
 import { AppointmentsHead } from "./AppointmentsHead";
+import styles from "../StaffAppointments.module.scss";
 
 /**
  * Table of the appointments of the day, or an empty state when no appointment matches the filters.

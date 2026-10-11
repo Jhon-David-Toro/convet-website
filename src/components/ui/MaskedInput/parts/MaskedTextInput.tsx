@@ -1,7 +1,7 @@
-import styles from "../MaskedInput.module.scss";
 import { MASK_CONFIG } from "../MaskedInput.constants";
 import type { MaskedTextInputProps } from "../MaskedInput.types";
 import { getTimeComboboxProps } from "../MaskedInput.utils";
+import styles from "../MaskedInput.module.scss";
 
 /**
  * Text input of a masked field; the time variant is a combobox bound to its list of slots.

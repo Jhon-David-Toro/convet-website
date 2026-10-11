@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./TimelineItem.module.scss";
-import { TimelineRail } from "./parts/TimelineRail";
 import type { TimelineItemProps } from "./TimelineItem.types";
+import { TimelineRail } from "./parts/TimelineRail";
+import styles from "./TimelineItem.module.scss";
 
 /**
  * List/Timeline Item: entry of the clinical history. Use it inside an `<ol>`.

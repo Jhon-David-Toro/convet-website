@@ -1,10 +1,10 @@
 import { BREEDS, BREEDS_LIST_ID, FORM_ID } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { AddPetState } from "../MyPets.types";
 import { BirthFields } from "./BirthFields";
 import { PetIdentityFields } from "./PetIdentityFields";
 import { PetPhotoUpload } from "./PetPhotoUpload";
 import { SexField } from "./SexField";
+import styles from "../MyPets.module.scss";
 
 /**
  * Form of the "Add a pet" modal: photo or document, identity, sex and date of birth. Its buttons live in the modal footer.

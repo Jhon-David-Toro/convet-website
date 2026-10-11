@@ -8,10 +8,10 @@ import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
 import { pickLabel } from "@/lib/shared/labels";
 
 import { BACK_LABEL, FORGOT_SUBTITLE, FORGOT_TITLE, SEND_LABELS } from "./ForgotPasswordForm.constants";
-import styles from "./ForgotPasswordForm.module.scss";
 import type { ForgotPasswordFormProps } from "./ForgotPasswordForm.types";
 import { useForgotPassword } from "./hooks/useForgotPassword";
 import { ResetSent } from "./parts/ResetSent";
+import styles from "./ForgotPasswordForm.module.scss";
 
 /**
  * Password reset page content: a link back to sign in, the heading, the email form and, once sent, the confirmation.

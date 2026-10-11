@@ -1,6 +1,6 @@
-import styles from "../StaffToday.module.scss";
 import type { GridColumnsProps } from "../StaffToday.types";
 import { GridColumn } from "./GridColumn";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Columns of the grid, one per vet.

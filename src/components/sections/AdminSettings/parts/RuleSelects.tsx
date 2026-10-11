@@ -1,8 +1,8 @@
 import { Select } from "@/components/ui/Select";
 
 import { RULE_FIELDS } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import type { RulesFormProps } from "../AdminSettings.types";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * The six lists of the booking rules: notice, horizon, reschedule window, upcoming appointments, slot interval and requests per slot.

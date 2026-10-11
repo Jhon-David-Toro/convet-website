@@ -6,13 +6,13 @@ import { useAnchoredPosition } from "@/components/ui/Dropdown";
 import { Field, useField } from "@/components/ui/Field";
 import { useOutsidePointerDown } from "@/lib/shared/useOutsidePointerDown";
 
-import styles from "./MaskedInput.module.scss";
-import { useMaskedInput } from "./hooks/useMaskedInput";
 import { MASK_CONFIG } from "./MaskedInput.constants";
 import type { MaskedInputProps } from "./MaskedInput.types";
+import { useMaskedInput } from "./hooks/useMaskedInput";
 import { MaskedTextInput } from "./parts/MaskedTextInput";
 import { PickerPopup } from "./parts/PickerPopup";
 import { PickerTrigger } from "./parts/PickerTrigger";
+import styles from "./MaskedInput.module.scss";
 
 /**
  * Masked text field for dates (MM / DD / YYYY) and times (h:mm AM). Figma only defines the field;

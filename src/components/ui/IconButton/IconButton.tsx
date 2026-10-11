@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./IconButton.module.scss";
 import type { IconButtonAsButtonProps, IconButtonAsLinkProps, IconButtonProps, IconButtonVariant } from "./IconButton.types";
+import styles from "./IconButton.module.scss";
 
 /**
  * Builds the class list of a button from its variant, size and loading state.

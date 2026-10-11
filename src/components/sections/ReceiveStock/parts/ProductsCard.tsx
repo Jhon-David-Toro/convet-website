@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 
-import styles from "../ReceiveStock.module.scss";
 import { ADD_PRODUCT_LABEL, PRODUCTS_TITLE } from "../ReceiveStock.constants";
 import type { ProductsCardProps } from "../ReceiveStock.types";
 import { expiryError } from "../ReceiveStock.utils";
 import { ReceiptLineView } from "./ReceiptLineView";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * Products received: one block per line and the button that adds another product.

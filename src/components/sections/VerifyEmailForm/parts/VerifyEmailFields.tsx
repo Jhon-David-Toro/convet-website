@@ -1,8 +1,8 @@
 import { CodeInput } from "@/components/ui/CodeInput";
 
 import { CODE_LABEL, INVALID_CODE } from "../VerifyEmailForm.constants";
-import styles from "../VerifyEmailForm.module.scss";
 import type { VerifyEmailFieldsProps } from "../VerifyEmailForm.types";
+import styles from "../VerifyEmailForm.module.scss";
 
 /**
  * The six-digit code and, when it was rejected, the message under it.

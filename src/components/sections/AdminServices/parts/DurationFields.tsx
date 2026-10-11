@@ -1,8 +1,8 @@
 import { Select } from "@/components/ui/Select";
 
-import styles from "../AdminServices.module.scss";
 import { BUFFER_LABEL, BUFFER_OPTIONS, DURATION_LABEL, DURATION_OPTIONS } from "../AdminServices.constants";
 import type { DraftFieldsProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Duration of the service and the buffer left after it.

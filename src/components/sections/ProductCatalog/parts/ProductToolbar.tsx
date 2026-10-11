@@ -1,7 +1,7 @@
-import styles from "../ProductCatalog.module.scss";
 import type { ProductToolbarProps } from "../ProductCatalog.types";
 import { productCountLabel } from "../ProductCatalog.utils";
 import { KindChips } from "./KindChips";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * Kind chips on the left and the number of matching products on the right.

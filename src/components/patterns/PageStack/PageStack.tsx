@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./PageStack.module.scss";
 import type { PageStackProps } from "./PageStack.types";
+import styles from "./PageStack.module.scss";
 
 /**
  * Page/Stack: the blocks of a staff or admin page one under the other, with the vertical rhythm of the design.

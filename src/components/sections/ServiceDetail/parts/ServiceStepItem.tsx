@@ -1,5 +1,5 @@
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceStepItemProps } from "../ServiceDetail.types";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * One step of the visit: a numbered circle with the title and what happens.

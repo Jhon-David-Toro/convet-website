@@ -3,9 +3,9 @@ import { Badge } from "@/components/ui/Badge";
 import { Stethoscope } from "@/components/ui/Icon";
 
 import { IN_PROGRESS_LABEL, TITLE_PREFIX } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VisitHeaderProps } from "../VisitRecord.types";
 import { visitTitle } from "../VisitRecord.utils";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Top of the visit form: the kind of visit, the time and the vet, the title with the patient, its status, and the allergy alert.

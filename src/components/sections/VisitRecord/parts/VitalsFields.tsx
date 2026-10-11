@@ -1,8 +1,8 @@
 import { TextInput } from "@/components/ui/TextInput";
 
 import { HEART_RATE_LABEL, REASON_LABEL, TEMPERATURE_LABEL, WEIGHT_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VitalsFieldsProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Reason for the visit and the three measurements: weight (with the last one as a reference), temperature and heart rate.

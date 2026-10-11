@@ -2,8 +2,8 @@ import Image from "next/image";
 
 import { photoUrl } from "@/lib/site/photos";
 
-import styles from "../HeroSection.module.scss";
 import { HERO_IMAGE_ALT, HERO_IMAGE_NAME, HERO_IMAGE_SIZES } from "../HeroSection.constants";
+import styles from "../HeroSection.module.scss";
 
 /**
  * Hero photo inside the gold frame of the brand.

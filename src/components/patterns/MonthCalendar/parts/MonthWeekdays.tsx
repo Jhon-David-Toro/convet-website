@@ -1,5 +1,5 @@
-import styles from "../MonthCalendar.module.scss";
 import { MONTH_CALENDAR_WEEKDAYS } from "../MonthCalendar.constants";
+import styles from "../MonthCalendar.module.scss";
 
 /**
  * Decorative weekday headers (each day already has an accessible name).

@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../AdminTeam.module.scss";
 import type { DayTileProps } from "../AdminTeam.types";
+import styles from "../AdminTeam.module.scss";
 
 /**
  * One day of the week with the shifts of the vet, or "Off" when they do not work.

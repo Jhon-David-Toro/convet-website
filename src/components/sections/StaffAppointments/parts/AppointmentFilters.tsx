@@ -1,10 +1,10 @@
 import { SearchInput } from "@/components/ui/SearchInput";
 
 import { SEARCH_LABEL, SEARCH_SHORTCUT } from "../StaffAppointments.constants";
-import styles from "../StaffAppointments.module.scss";
 import type { AppointmentFiltersProps } from "../StaffAppointments.types";
 import { RangeChips } from "./RangeChips";
 import { VetStatusSelects } from "./VetStatusSelects";
+import styles from "../StaffAppointments.module.scss";
 
 /**
  * Filters of the table: search by pet or owner, the day range, the vet and the status.

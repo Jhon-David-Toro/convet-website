@@ -1,9 +1,9 @@
 import { Icon, Paw } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./PawPattern.module.scss";
 import { PAW_PATTERN_HEIGHT, PAW_PATTERN_PAWS, PAW_PATTERN_WIDTH } from "./PawPattern.constants";
 import type { PawPatternProps } from "./PawPattern.types";
+import styles from "./PawPattern.module.scss";
 
 /**
  * Brand/Paw Pattern: navy paw-print watermark at 6%. Decorative: place it behind the content of a section.

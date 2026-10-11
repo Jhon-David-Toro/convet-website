@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import styles from "../PetCard.module.scss";
 import type { PetRowNameProps } from "../PetCard.types";
+import styles from "../PetCard.module.scss";
 
 /**
  * Name and description of the row layout; the name link stretches over the whole row.

@@ -1,7 +1,7 @@
 import { ChevronDown, Icon } from "@/components/ui/Icon";
 
-import styles from "../Select.module.scss";
 import type { SelectAdornmentsProps } from "../Select.types";
+import styles from "../Select.module.scss";
 
 /**
  * Chevron icon and, when the select has a `name`, the hidden input that submits its value.

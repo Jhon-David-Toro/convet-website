@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Check, Icon, Lock } from "@/components/ui/Icon";
 
 import { FINISH_LABEL, SAVE_DRAFT_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VisitFooterProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Bar fixed to the bottom of the visit form: when the draft was last saved, the button that saves it and the one that signs the visit.

@@ -1,8 +1,8 @@
 import { Chip } from "@/components/ui/Chip";
 
-import styles from "../AdminServices.module.scss";
 import { SPECIES_LABEL, SPECIES_OPTIONS } from "../AdminServices.constants";
 import type { SpeciesChipsProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Chips that pick the species the service is shown for in the booking flow.

@@ -3,8 +3,8 @@ import { CUSTOMER_APPOINTMENTS_HREF } from "@/lib/customer/customer.paths.consta
 import { cardProps } from "@/lib/customer/customer.utils";
 
 import { NEXT_TITLE } from "../CustomerOverview.constants";
-import styles from "../CustomerOverview.module.scss";
 import type { OverviewAppointmentProps } from "../CustomerOverview.types";
+import styles from "../CustomerOverview.module.scss";
 
 /**
  * Next appointment of the customer with the buttons to reschedule or cancel it.

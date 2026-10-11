@@ -3,9 +3,9 @@ import Image from "next/image";
 import { cx } from "@/lib/shared/cx";
 import { photoUrl } from "@/lib/site/photos";
 
-import styles from "./Logo.module.scss";
 import { FULL_VARIANT, INVERSE_TONE, LOGO_ALT, LOGO_MARK_NAME, LOGO_MARK_SIZE, MARK_VARIANT } from "./Logo.constants";
 import type { LogoProps } from "./Logo.types";
+import styles from "./Logo.module.scss";
 
 /**
  * CONVET logo: circular seal with or without the wordmark, in default or inverse tone.

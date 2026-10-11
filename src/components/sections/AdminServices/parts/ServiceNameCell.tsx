@@ -1,7 +1,7 @@
 import { TableCell } from "@/components/patterns/Table";
 
-import styles from "../AdminServices.module.scss";
 import type { ServiceNameCellProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Name of a service in the table: a button that selects the service.

@@ -1,8 +1,8 @@
-import styles from "../Pagination.module.scss";
 import { PageItem } from "../PageItem";
-import { pageTokens } from "../pages";
 import { ELLIPSIS_TOKEN } from "../Pagination.constants";
 import type { PageListProps } from "../Pagination.types";
+import { pageTokens } from "../pages";
+import styles from "../Pagination.module.scss";
 
 /**
  * Numbered pages with ellipses for the skipped ranges.

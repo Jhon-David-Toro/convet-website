@@ -1,10 +1,10 @@
 import { X } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../Modal.module.scss";
 import type { ModalHeaderProps } from "../Modal.types";
 import { ModalHeading } from "./ModalHeading";
 import { ModalIcon } from "./ModalIcon";
+import styles from "../Modal.module.scss";
 
 /**
  * Panel header: optional icon, title with description, and the close button.

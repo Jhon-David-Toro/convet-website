@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Table.module.scss";
 import type { DefaultCellProps } from "../Table.types";
+import styles from "../Table.module.scss";
 
 /**
  * Plain data cell (text, strong, mono, number and badge types).

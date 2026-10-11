@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Field.module.scss";
 import type { FieldLabelProps } from "../Field.types";
+import styles from "../Field.module.scss";
 
 /**
  * Label of the control; hidden visually (but kept for assistive technology) when `showLabel` is false.

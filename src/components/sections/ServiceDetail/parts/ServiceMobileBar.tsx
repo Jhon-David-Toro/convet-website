@@ -6,8 +6,8 @@ import { serviceActionHref } from "@/lib/catalog/services.utils";
 import { whatsappLink } from "@/lib/site/whatsapp";
 
 import { MOBILE_CHAT_LABEL } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceMobileBarProps } from "../ServiceDetail.types";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Fixed bar of the mobile site on a service page: WhatsApp and the main action of the service.

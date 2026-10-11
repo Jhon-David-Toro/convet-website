@@ -4,9 +4,9 @@ import { Stethoscope, WhatsApp } from "@/components/ui/Icon";
 import { MediaImage } from "@/components/ui/MediaImage";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./ProductCard.module.scss";
-import { ProductText } from "./parts/ProductText";
 import type { ProductCardProps } from "./ProductCard.types";
+import { ProductText } from "./parts/ProductText";
+import styles from "./ProductCard.module.scss";
 
 /**
  * Card/Product: image, category, name, description and the availability inquiry.

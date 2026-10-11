@@ -1,11 +1,11 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Pagination.module.scss";
 import type { PaginationProps } from "./Pagination.types";
 import { getPageRange } from "./Pagination.utils";
 import { PageList } from "./parts/PageList";
 import { PaginationStep } from "./parts/PaginationStep";
 import { PaginationSummary } from "./parts/PaginationSummary";
+import styles from "./Pagination.module.scss";
 
 /**
  * Data/Pagination: summary on the left and previous / next buttons around the numbered pages.

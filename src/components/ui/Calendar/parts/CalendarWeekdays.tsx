@@ -1,5 +1,5 @@
-import styles from "../Calendar.module.scss";
 import { CALENDAR_WEEKDAYS } from "../Calendar.constants";
+import styles from "../Calendar.module.scss";
 
 /**
  * Column headers with the short weekday and the full name as abbreviation.

@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
 import { FACT_ICON_SIZE } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceFactsProps } from "../ServiceDetail.types";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Facts of a service in the booking card: an icon with a headline and a supporting line.

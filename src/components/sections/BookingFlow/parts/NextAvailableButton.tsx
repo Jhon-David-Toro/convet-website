@@ -3,8 +3,8 @@ import { Clock } from "@/components/ui/Icon";
 import { agendaVet, nextAvailable, shortDay } from "@/lib/booking/booking.utils";
 
 import { NEXT_AVAILABLE_PREFIX } from "../BookingFlow.constants";
-import styles from "../BookingFlow.module.scss";
 import type { NextAvailableButtonProps } from "../BookingFlow.types";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Button that jumps to the first free time of the chosen vet.

@@ -1,9 +1,9 @@
-import styles from "./ProfileSettings.module.scss";
 import type { ProfileSettingsProps } from "./ProfileSettings.types";
 import { NotificationsCard } from "./parts/NotificationsCard";
 import { PersonalInfoCard } from "./parts/PersonalInfoCard";
 import { ProfileHeading } from "./parts/ProfileHeading";
 import { SecurityCard } from "./parts/SecurityCard";
+import styles from "./ProfileSettings.module.scss";
 
 /**
  * Profile and settings page: personal information on the left; notifications and security on the right (below it on small screens).

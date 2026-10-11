@@ -1,8 +1,8 @@
 import { Dropdown } from "@/components/ui/Dropdown";
 import { MenuItem } from "@/components/ui/MenuItem";
 
-import styles from "../Select.module.scss";
 import type { SelectListboxProps } from "../Select.types";
+import styles from "../Select.module.scss";
 
 /**
  * Open list of options of a `Select`.

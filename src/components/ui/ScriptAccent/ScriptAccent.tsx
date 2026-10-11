@@ -1,9 +1,9 @@
 import { Heart, Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./ScriptAccent.module.scss";
 import { SCRIPT_ACCENT_HEART_SIZE } from "./ScriptAccent.constants";
 import type { ScriptAccentProps } from "./ScriptAccent.types";
+import styles from "./ScriptAccent.module.scss";
 
 /**
  * Brand/Script Accent: the brand phrase in orange handwriting, with a heart. One per screen.

@@ -3,8 +3,8 @@ import Link from "next/link";
 import { ArrowRight, Icon } from "@/components/ui/Icon";
 
 import { VIEW_PROFILE_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { ProfileLinkProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Link to the full record of the patient.

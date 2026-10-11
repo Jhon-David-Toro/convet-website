@@ -2,8 +2,8 @@ import { DateInput } from "@/components/ui/DateInput";
 import { Clock, Icon } from "@/components/ui/Icon";
 
 import { AGE_LABEL, AGE_NOTE, BIRTH_HELPER } from "../MyPets.constants";
-import styles from "../MyPets.module.scss";
 import type { BirthFieldsProps } from "../MyPets.types";
+import styles from "../MyPets.module.scss";
 
 /**
  * Date of birth and the age that is worked out from it, side by side.

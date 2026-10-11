@@ -4,8 +4,8 @@ import { photoUrl } from "@/lib/site/photos";
 import { appointmentsOfVet } from "@/lib/staff/staff.utils";
 
 import { VET_PHOTO_SIZE } from "../StaffToday.constants";
-import styles from "../StaffToday.module.scss";
 import type { ScheduleGridProps } from "../StaffToday.types";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Row above the grid: each vet with their photo and how many appointments they have.

@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../MaskedInput.module.scss";
 import { MASK_CONFIG } from "../MaskedInput.constants";
 import type { PickerTriggerProps } from "../MaskedInput.types";
+import styles from "../MaskedInput.module.scss";
 
 /**
  * Button that opens and closes the picker popup.

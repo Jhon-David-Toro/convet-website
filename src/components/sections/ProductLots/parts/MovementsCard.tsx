@@ -1,7 +1,7 @@
-import styles from "../ProductLots.module.scss";
 import type { MovementsCardProps } from "../ProductLots.types";
 import { LedgerLink } from "./LedgerLink";
 import { MovementItem } from "./MovementItem";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Card with the stock movements of the product, newest first, and a link to the full ledger.

@@ -2,8 +2,8 @@ import { AppointmentCard } from "@/components/patterns/AppointmentCard";
 import { STAFF_PATIENTS_HREF, STAFF_SCHEDULE_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { APPOINTMENTS_TITLE } from "../ClientDetail.constants";
-import styles from "../ClientDetail.module.scss";
 import type { ClientAppointmentsProps } from "../ClientDetail.types";
+import styles from "../ClientDetail.module.scss";
 
 /**
  * Appointments of the client: today's with reschedule and cancel, and past ones with the link to the visit summary.

@@ -3,9 +3,9 @@ import { Trash } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../ReceiveStock.module.scss";
 import { EXPIRY_LABEL, QUANTITY_LABEL, REMOVE_LINE_LABEL } from "../ReceiveStock.constants";
 import type { LineStockFieldsProps } from "../ReceiveStock.types";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * Expiry (with the error when it already passed), quantity and the remove button of a line.

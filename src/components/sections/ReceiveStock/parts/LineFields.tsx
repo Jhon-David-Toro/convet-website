@@ -1,7 +1,7 @@
-import styles from "../ReceiveStock.module.scss";
 import type { LineFieldsProps } from "../ReceiveStock.types";
 import { LineProductFields } from "./LineProductFields";
 import { LineStockFields } from "./LineStockFields";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * Fields of a line: the product, the lot number, the expiry, the quantity and the remove button.

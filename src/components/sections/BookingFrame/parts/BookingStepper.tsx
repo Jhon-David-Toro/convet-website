@@ -1,9 +1,9 @@
 import { BookingStep } from "@/components/patterns/BookingStep";
 
 import { STEPS_LABEL } from "../BookingFrame.constants";
-import styles from "../BookingFrame.module.scss";
 import type { BookingStepperProps } from "../BookingFrame.types";
 import { stepState } from "../BookingFrame.utils";
+import styles from "../BookingFrame.module.scss";
 
 /**
  * The steps of the booking in a row: finished ones with a check, the current one filled and the rest outlined.

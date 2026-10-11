@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Avatar.module.scss";
 import { AVATAR_GLYPHS, AVATAR_GLYPH_SIZES } from "./Avatar.constants";
 import type { AvatarProps } from "./Avatar.types";
+import styles from "./Avatar.module.scss";
 
 /**
  * Circular avatar with the glyph of a dog, a cat or a person. Decorative unless a `label` is given.

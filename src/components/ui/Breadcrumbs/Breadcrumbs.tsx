@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Breadcrumbs.module.scss";
 import type { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { BreadcrumbEntry } from "./parts/BreadcrumbEntry";
+import styles from "./Breadcrumbs.module.scss";
 
 /**
  * Navigation/Breadcrumbs: path to the current page; the last item is the current page.

@@ -6,7 +6,6 @@ import { StatGrid } from "@/components/patterns/StatGrid";
 import { StockMovementModal } from "@/components/sections/StockMovementModal";
 import { PRODUCT_DETAIL } from "@/lib/admin/admin.constants";
 
-import styles from "./AdminStock.module.scss";
 import { STATS, SUBTITLE, TITLE } from "./AdminStock.constants";
 import { useMovementModal } from "./hooks/useMovementModal";
 import { useStockTable } from "./hooks/useStockTable";
@@ -14,6 +13,7 @@ import { CompactActions } from "./parts/CompactActions";
 import { MobileBar } from "./parts/MobileBar";
 import { StockActions } from "./parts/StockActions";
 import { StockBody } from "./parts/StockBody";
+import styles from "./AdminStock.module.scss";
 
 /**
  * Stock page of the admin inventory: the figures of the stock, filters, and the products with what is on hand and their status.

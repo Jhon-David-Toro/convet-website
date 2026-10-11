@@ -12,8 +12,8 @@ import {
   SESSIONS_NOTE,
   SIGN_OUT_OTHERS_LABEL,
 } from "../ProfileSettings.constants";
-import styles from "../ProfileSettings.module.scss";
 import { SecurityRow } from "./SecurityRow";
+import styles from "../ProfileSettings.module.scss";
 
 /**
  * Security card: change the password, sign out of other sessions and delete the account.

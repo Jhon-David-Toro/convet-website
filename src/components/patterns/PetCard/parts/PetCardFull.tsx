@@ -1,11 +1,11 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../PetCard.module.scss";
 import type { PetCardLayoutProps } from "../PetCard.types";
 import { PetAlert } from "./PetAlert";
 import { PetCardFooter } from "./PetCardFooter";
 import { PetFacts } from "./PetFacts";
 import { PetIdentity } from "./PetIdentity";
+import styles from "../PetCard.module.scss";
 
 /**
  * Full card: identity, alert, key facts and footer.

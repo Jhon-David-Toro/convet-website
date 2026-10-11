@@ -4,8 +4,8 @@ import { productService, productWhatsappHref } from "@/lib/catalog/products.util
 import { serviceBookingHref } from "@/lib/catalog/services.utils";
 
 import { ASK_LABEL } from "../ProductDetail.constants";
-import styles from "../ProductDetail.module.scss";
 import type { ProductActionsProps } from "../ProductDetail.types";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Availability question on WhatsApp and, for products that need a visit, the booking of the matching service.

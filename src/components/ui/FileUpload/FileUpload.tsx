@@ -2,7 +2,6 @@
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./FileUpload.module.scss";
 import { FILE_UPLOAD_ROLES, UPLOADED_STATUS } from "./FileUpload.constants";
 import type { FileUploadProps } from "./FileUpload.types";
 import { getUploadStatus, getUploadView } from "./FileUpload.utils";
@@ -10,6 +9,7 @@ import { useFileDrop } from "./hooks/useFileDrop";
 import { FileUploadContent } from "./parts/FileUploadContent";
 import { UploadDropzone } from "./parts/UploadDropzone";
 import { UploadedFile } from "./parts/UploadedFile";
+import styles from "./FileUpload.module.scss";
 
 /**
  * Zone to pick or drop a file. Client Component because of dragging and the file input.

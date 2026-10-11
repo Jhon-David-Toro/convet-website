@@ -1,8 +1,8 @@
 import { StatCard } from "@/components/ui/StatCard";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./StatGrid.module.scss";
 import type { StatGridProps, StatGridStyle } from "./StatGrid.types";
+import styles from "./StatGrid.module.scss";
 
 /**
  * Stat/Grid: a row of stat cards that share the width. Some cards can be left for desktop only, and the whole grid can be hidden on mobile.

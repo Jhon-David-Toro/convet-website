@@ -1,6 +1,6 @@
 import { NOW_LABEL } from "../StaffToday.constants";
-import styles from "../StaffToday.module.scss";
 import { nowOffset } from "../StaffToday.utils";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Line across the grid that marks the current time, with the time on its left.

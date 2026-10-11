@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Skeleton.module.scss";
-import { SkeletonCard } from "./parts/SkeletonCard";
-import { SkeletonListRow } from "./parts/SkeletonListRow";
 import { CARD_TYPE } from "./Skeleton.constants";
 import type { SkeletonProps } from "./Skeleton.types";
+import { SkeletonCard } from "./parts/SkeletonCard";
+import { SkeletonListRow } from "./parts/SkeletonListRow";
+import styles from "./Skeleton.module.scss";
 
 /**
  * Loading placeholder. It is decorative: the loading container must announce

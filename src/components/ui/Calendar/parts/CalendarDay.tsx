@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Calendar.module.scss";
 import { DAY_FORMAT } from "../Calendar.constants";
 import { dayKey } from "../Calendar.dates";
 import type { CalendarDayProps } from "../Calendar.types";
+import styles from "../Calendar.module.scss";
 
 /**
  * One day of the grid; days of adjacent months render an empty cell.

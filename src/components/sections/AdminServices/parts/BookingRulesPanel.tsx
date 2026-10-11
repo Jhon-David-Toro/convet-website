@@ -1,6 +1,5 @@
 "use client";
 
-import styles from "../AdminServices.module.scss";
 import { PANEL_ID } from "../AdminServices.constants";
 import type { BookingRulesPanelProps } from "../AdminServices.types";
 import { useServiceDraft } from "../hooks/useServiceDraft";
@@ -8,6 +7,7 @@ import { DurationFields } from "./DurationFields";
 import { OnlineAndPrice } from "./OnlineAndPrice";
 import { RulesActions } from "./RulesActions";
 import { SpeciesChips } from "./SpeciesChips";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Booking rules of a service: duration, buffer after, whether it is bookable online, the species and the price shown on the website.

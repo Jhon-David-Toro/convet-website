@@ -3,12 +3,12 @@
 import { SectionHeader } from "@/components/ui/SectionHeader";
 
 import { CONTACT_DESCRIPTION, CONTACT_EYEBROW, CONTACT_TITLE } from "./ContactSection.constants";
-import styles from "./ContactSection.module.scss";
 import type { ContactSectionProps } from "./ContactSection.types";
 import { useContactForm } from "./hooks/useContactForm";
 import { ContactForm } from "./parts/ContactForm";
 import { ContactSent } from "./parts/ContactSent";
 import { ContactSide } from "./parts/ContactSide";
+import styles from "./ContactSection.module.scss";
 
 /**
  * Contact page content: header, the message form (or its confirmation) and the side column with chat, map and hours.

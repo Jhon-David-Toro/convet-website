@@ -1,9 +1,9 @@
 import { DataTable } from "@/components/patterns/DataTable";
 
-import styles from "../AdminStock.module.scss";
 import { COLUMNS_AFTER_SORT, COLUMNS_BEFORE_SORT, ON_HAND_LABEL, TABLE_LABEL } from "../AdminStock.constants";
 import type { StockTableProps } from "../AdminStock.types";
 import { StockRow } from "./StockRow";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Full stock table (desktop only). The on hand column can be sorted.

@@ -1,8 +1,8 @@
 import { Tab } from "@/components/ui/Tab";
 
-import styles from "../ProductLots.module.scss";
 import { PANEL_ID, TABS, TABS_LABEL } from "../ProductLots.constants";
 import type { LotsTabsProps } from "../ProductLots.types";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Tabs of the product: lots (with how many there are), movements, public page and settings.

@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Field.module.scss";
 import type { FieldProps } from "./Field.types";
 import { FieldHint } from "./parts/FieldHint";
 import { FieldLabel } from "./parts/FieldLabel";
+import styles from "./Field.module.scss";
 
 /**
  * Label, control and helper / error message of a form field.

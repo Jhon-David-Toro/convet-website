@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./StatCard.module.scss";
 import { STAT_CARD_ICON_SIZE } from "./StatCard.constants";
 import type { StatCardProps } from "./StatCard.types";
+import styles from "./StatCard.module.scss";
 
 /**
  * Card/Stat: indicator with label, icon, numeric value and footer.

@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Skeleton.module.scss";
 import type { BoneProps } from "../Skeleton.types";
+import styles from "../Skeleton.module.scss";
 
 /**
  * A single placeholder bar.

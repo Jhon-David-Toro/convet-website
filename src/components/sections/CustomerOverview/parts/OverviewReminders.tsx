@@ -4,9 +4,9 @@ import { Alert } from "@/components/ui/Alert";
 import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { DISMISS_LABEL, REMINDERS_TITLE } from "../CustomerOverview.constants";
-import styles from "../CustomerOverview.module.scss";
 import type { OverviewRemindersProps } from "../CustomerOverview.types";
 import { useDismissed } from "../hooks/useDismissed";
+import styles from "../CustomerOverview.module.scss";
 
 /**
  * Reminders about vaccines and visits as alerts that can be dismissed, each with a link to book.

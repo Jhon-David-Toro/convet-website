@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./EmergencyBar.module.scss";
 import { DEFAULT_EMERGENCY_LABEL, DEFAULT_MOTTO, DEFAULT_PHONE, DEFAULT_PHONE_HREF } from "./EmergencyBar.constants";
 import type { EmergencyBarProps } from "./EmergencyBar.types";
 import { EmergencyCall } from "./parts/EmergencyCall";
 import { EmergencyMotto } from "./parts/EmergencyMotto";
+import styles from "./EmergencyBar.module.scss";
 
 /**
  * Navigation/Emergency Bar: motto on the left (from tablet up) and the red emergency pill, which is a call link.

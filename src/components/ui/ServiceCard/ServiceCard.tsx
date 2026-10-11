@@ -1,11 +1,11 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./ServiceCard.module.scss";
-import { ServiceActions } from "./parts/ServiceActions";
-import { ServiceMeta } from "./parts/ServiceMeta";
 import { SERVICE_CARD_ICON_SIZE } from "./ServiceCard.constants";
 import type { ServiceCardProps } from "./ServiceCard.types";
+import { ServiceActions } from "./parts/ServiceActions";
+import { ServiceMeta } from "./parts/ServiceMeta";
+import styles from "./ServiceCard.module.scss";
 
 /**
  * Card/Service: icon, title, description, duration / species and the details and booking actions.

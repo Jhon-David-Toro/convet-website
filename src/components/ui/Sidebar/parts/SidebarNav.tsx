@@ -1,6 +1,6 @@
-import styles from "../Sidebar.module.scss";
 import type { SidebarNavProps } from "../Sidebar.types";
 import { SidebarGroupView } from "./SidebarGroupView";
+import styles from "../Sidebar.module.scss";
 
 /**
  * Primary navigation: every group of items.

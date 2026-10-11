@@ -4,8 +4,8 @@ import { Clock } from "@/components/ui/Icon";
 import { BOOKING_HREF } from "@/lib/site/site.constants";
 
 import { BOOK_BOOSTER_LABEL, DUE_BADGE, NEXT_STEP_TEXT } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { NextStepCardProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Peach card that points to the next step for the pet: book the booster that is about to be due.

@@ -2,10 +2,10 @@
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./CodeInput.module.scss";
 import { DEFAULT_CODE_LENGTH } from "./CodeInput.constants";
 import type { CodeInputProps } from "./CodeInput.types";
 import { useCodeInput } from "./hooks/useCodeInput";
+import styles from "./CodeInput.module.scss";
 
 /**
  * Code entry with one box per digit (verification codes). Typing moves forward, Backspace and the arrow keys move back and forth,

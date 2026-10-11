@@ -1,7 +1,7 @@
 import { Field, useField } from "@/components/ui/Field";
 
-import styles from "./TextInput.module.scss";
 import type { TextInputProps } from "./TextInput.types";
+import styles from "./TextInput.module.scss";
 
 /**
  * Single-line text field with label, helper and error message.

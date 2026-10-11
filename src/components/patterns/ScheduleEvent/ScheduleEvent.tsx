@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./ScheduleEvent.module.scss";
-import { EventFooter } from "./parts/EventFooter";
-import { EventHeader } from "./parts/EventHeader";
 import { SCHEDULE_STATUS_VIEWS } from "./ScheduleEvent.constants";
 import type { ScheduleEventProps } from "./ScheduleEvent.types";
+import { EventFooter } from "./parts/EventFooter";
+import { EventHeader } from "./parts/EventHeader";
+import styles from "./ScheduleEvent.module.scss";
 
 /**
  * Schedule/Event: appointment on the schedule. The side bar and the label convey the status (never color alone).

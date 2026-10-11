@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 
-import styles from "../AdminStock.module.scss";
 import { DISPENSE_LABEL, RECEIVE_HREF, RECEIVE_SHORT_LABEL } from "../AdminStock.constants";
 import type { MobileBarProps } from "../AdminStock.types";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Bar fixed to the bottom of the screen on mobile with the two main actions: dispense and receive.

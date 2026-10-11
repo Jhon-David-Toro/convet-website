@@ -1,9 +1,9 @@
 import { ChevronRight, Icon } from "@/components/ui/Icon";
 
-import styles from "../Breadcrumbs.module.scss";
 import { BREADCRUMBS_SEPARATOR_SIZE } from "../Breadcrumbs.constants";
 import type { BreadcrumbEntryProps } from "../Breadcrumbs.types";
 import { BreadcrumbLabel } from "./BreadcrumbLabel";
+import styles from "../Breadcrumbs.module.scss";
 
 /**
  * One item with the chevron that separates it from the next (not drawn after the current page).

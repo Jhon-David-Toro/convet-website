@@ -1,9 +1,9 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Modal.module.scss";
 import { MODAL_ICON_SIZE } from "../Modal.constants";
 import type { ModalIconProps } from "../Modal.types";
+import styles from "../Modal.module.scss";
 
 /**
  * Circle with the header icon, tinted by tone; renders nothing without an icon.

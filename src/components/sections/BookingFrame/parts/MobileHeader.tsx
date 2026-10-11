@@ -2,8 +2,8 @@ import { ArrowLeft, X } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
 import { BACK_LABEL, CLOSE_LABEL } from "../BookingFrame.constants";
-import styles from "../BookingFrame.module.scss";
 import type { MobileHeaderProps } from "../BookingFrame.types";
+import styles from "../BookingFrame.module.scss";
 
 /**
  * Header of the booking on mobile: back arrow, page title and a close button.

@@ -1,8 +1,8 @@
 import { Check, Icon } from "@/components/ui/Icon";
 
 import { HIGHLIGHT_ICON_SIZE } from "../ServiceList.constants";
-import styles from "../ServiceList.module.scss";
 import type { ServiceHighlightsProps } from "../ServiceList.types";
+import styles from "../ServiceList.module.scss";
 
 /**
  * Short selling points of a service, each with a check icon.

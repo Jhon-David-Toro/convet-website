@@ -5,8 +5,8 @@ import { WORKING_DAYS, WORKING_HOURS_OWNER } from "@/lib/admin/admin.constants";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
 import { ADD_TIME_OFF_LABEL, HOURS_TITLE_PREFIX, TIME_OFF_ACTION, TIME_OFF_TEXT, TIME_OFF_TITLE } from "../AdminTeam.constants";
-import styles from "../AdminTeam.module.scss";
 import { DayTile } from "./DayTile";
+import styles from "../AdminTeam.module.scss";
 
 /**
  * Working hours of a vet by day, with the button that adds time off and the warning about the appointments the time off affects.

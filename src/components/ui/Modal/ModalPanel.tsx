@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Modal.module.scss";
 import type { ModalPanelProps } from "./Modal.types";
 import { ModalHeader } from "./parts/ModalHeader";
+import styles from "./Modal.module.scss";
 
 /**
  * Modal: header, body and footer on an elevated surface. Used inside `Modal` or on its own (documentation).

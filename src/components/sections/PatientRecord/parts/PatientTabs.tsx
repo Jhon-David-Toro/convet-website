@@ -1,8 +1,8 @@
 import { Tab } from "@/components/ui/Tab";
 
 import { PANEL_ID, TABS, TABS_LABEL } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { PatientTabsProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Tabs of the record: visits, vaccines, treatments, documents and appointments, with a count where there is one.

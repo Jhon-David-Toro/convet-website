@@ -1,5 +1,5 @@
-import styles from "../BookingSummary.module.scss";
 import type { SummaryHeaderProps } from "../BookingSummary.types";
+import styles from "../BookingSummary.module.scss";
 
 /**
  * Ticket header: eyebrow, date and time.

@@ -3,13 +3,13 @@
 import { EmergencyBar } from "@/components/ui/EmergencyBar";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Header.module.scss";
 import type { HeaderProps } from "./Header.types";
 import { useHeaderMenu } from "./hooks/useHeaderMenu";
 import { HeaderActions } from "./parts/HeaderActions";
 import { HeaderLinks } from "./parts/HeaderLinks";
 import { HeaderLogo } from "./parts/HeaderLogo";
 import { HeaderMenu } from "./parts/HeaderMenu";
+import styles from "./Header.module.scss";
 
 /**
  * Navigation/Header: emergency band + navigation row. Desktop: inline links and actions;

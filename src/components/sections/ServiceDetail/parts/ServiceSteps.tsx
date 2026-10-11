@@ -1,7 +1,7 @@
 import { STEPS_TITLE } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceStepsProps } from "../ServiceDetail.types";
 import { ServiceStepItem } from "./ServiceStepItem";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * "What to expect": the numbered steps of a visit.

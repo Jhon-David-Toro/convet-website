@@ -3,11 +3,11 @@ import { Clipboard } from "@/components/ui/Icon";
 import { STAFF_LAST_VISIT } from "@/lib/staff/staff.constants";
 
 import { EMPTY_MESSAGES, PANEL_ID } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { PatientPanelProps } from "../PatientRecord.types";
 import { entriesFor } from "../PatientRecord.utils";
 import { TimelineList } from "./TimelineList";
 import { VisitCard } from "./VisitCard";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Content of the selected tab: on visits the last signed visit and the history; on the others the matching entries or an empty state.

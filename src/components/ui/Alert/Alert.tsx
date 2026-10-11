@@ -1,12 +1,12 @@
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Alert.module.scss";
 import { ALERT_ICONS } from "./Alert.constants";
 import type { AlertProps } from "./Alert.types";
 import { getAlertRole } from "./Alert.utils";
 import { AlertContent } from "./parts/AlertContent";
 import { AlertDismiss } from "./parts/AlertDismiss";
+import styles from "./Alert.module.scss";
 
 /**
  * Feedback/Alert: tinted message with an optional action and dismiss button.

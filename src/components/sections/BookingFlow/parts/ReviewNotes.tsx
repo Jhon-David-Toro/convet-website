@@ -3,8 +3,8 @@ import { Textarea } from "@/components/ui/Textarea";
 import { BOOKING_NOTES_MAX } from "@/lib/booking/booking.constants";
 
 import { NOTES_HELPER, NOTES_LABEL, OWNER_LINE, OWNER_TITLE, WHATSAPP_DESCRIPTION, WHATSAPP_LABEL } from "../BookingFlow.constants";
-import styles from "../BookingFlow.module.scss";
 import type { ReviewNotesProps } from "../BookingFlow.types";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Notes for the vet, who the confirmation goes to and the WhatsApp option.

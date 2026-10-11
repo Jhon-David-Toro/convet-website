@@ -2,10 +2,10 @@
 
 import { Toggle } from "@/components/ui/Toggle";
 
-import { useNotifications } from "../hooks/useNotifications";
 import { NOTIFICATIONS_TITLE } from "../ProfileSettings.constants";
-import styles from "../ProfileSettings.module.scss";
 import type { NotificationsCardProps } from "../ProfileSettings.types";
+import { useNotifications } from "../hooks/useNotifications";
+import styles from "../ProfileSettings.module.scss";
 
 /**
  * Card with a switch for every kind of notification; the ones that are not available yet are disabled.

@@ -1,7 +1,7 @@
 import { Field, useField } from "@/components/ui/Field";
 
-import styles from "./Textarea.module.scss";
 import type { TextareaProps } from "./Textarea.types";
+import styles from "./Textarea.module.scss";
 
 /**
  * Multi-line text field with label, helper and error message.

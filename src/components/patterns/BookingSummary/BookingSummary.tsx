@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./BookingSummary.module.scss";
 import { SUMMARY_ROW_ICONS } from "./BookingSummary.constants";
 import type { BookingSummaryProps } from "./BookingSummary.types";
 import { SummaryHeader } from "./parts/SummaryHeader";
 import { SummaryRowItem } from "./parts/SummaryRowItem";
+import styles from "./BookingSummary.module.scss";
 
 /**
  * Booking/Summary: appointment summary styled as a ticket (header, perforation, details).

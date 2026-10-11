@@ -1,9 +1,9 @@
 import { TableHeaderCell } from "@/components/patterns/Table";
 
-import styles from "../DataTable.module.scss";
 import { ACTIONS_COLUMN_LABEL } from "../DataTable.constants";
 import type { DataTableHeadProps } from "../DataTable.types";
 import { toColumn } from "../DataTable.utils";
+import styles from "../DataTable.module.scss";
 
 /**
  * Header row of the table: one cell per column, plus a last one for the row actions that is only named for screen readers.

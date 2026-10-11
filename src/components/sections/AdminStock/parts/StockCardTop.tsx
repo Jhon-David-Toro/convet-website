@@ -1,8 +1,8 @@
 import { More } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../AdminStock.module.scss";
 import type { StockCardTopProps } from "../AdminStock.types";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Top of a stock card: the name, the SKU and the button with the actions of the product.

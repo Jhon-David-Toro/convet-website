@@ -1,10 +1,10 @@
 import { Map } from "@/components/ui/Map";
 
-import styles from "../AdminLocations.module.scss";
 import { MAP_LABEL } from "../AdminLocations.constants";
 import type { LocationCardProps } from "../AdminLocations.types";
 import { LocationHeader } from "./LocationHeader";
 import { PhoneFields } from "./PhoneFields";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * Card of a location: its name and state, the map, and the phone and WhatsApp numbers the clinic shows to clients.

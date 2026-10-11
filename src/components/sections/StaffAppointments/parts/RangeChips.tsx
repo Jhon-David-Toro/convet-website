@@ -1,8 +1,8 @@
 import { Chip } from "@/components/ui/Chip";
 
 import { RANGES, RANGES_LABEL } from "../StaffAppointments.constants";
-import styles from "../StaffAppointments.module.scss";
 import type { RangeChipsProps } from "../StaffAppointments.types";
+import styles from "../StaffAppointments.module.scss";
 
 /**
  * Chips that pick the day range: today, tomorrow or this week.

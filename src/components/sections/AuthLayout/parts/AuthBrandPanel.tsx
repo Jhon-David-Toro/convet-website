@@ -6,8 +6,8 @@ import { PawPattern } from "@/components/ui/PawPattern";
 import { photoUrl } from "@/lib/site/photos";
 
 import { BRAND_PHOTO_ALT, BRAND_PHOTO_NAME, BRAND_PHOTO_SIZES, HOME_LABEL } from "../AuthLayout.constants";
-import styles from "../AuthLayout.module.scss";
 import { AuthBrandMessage } from "./AuthBrandMessage";
+import styles from "../AuthLayout.module.scss";
 
 /**
  * Ivory panel at the left of the auth pages (desktop only): logo, the gold framed photo and the brand message.

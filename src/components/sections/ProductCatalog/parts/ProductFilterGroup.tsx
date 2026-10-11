@@ -1,7 +1,7 @@
 import { Checkbox } from "@/components/ui/Checkbox";
 
-import styles from "../ProductCatalog.module.scss";
 import type { ProductFilterGroupProps } from "../ProductCatalog.types";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * One group of the filters column: an overline heading and a checkbox per option.

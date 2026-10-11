@@ -2,12 +2,12 @@
 
 import { useState } from "react";
 
-import styles from "../AdminServices.module.scss";
 import type { ServicePanelProps, ServiceTab } from "../AdminServices.types";
 import { BookingRulesPanel } from "./BookingRulesPanel";
 import { PublicPanel } from "./PublicPanel";
 import { ServiceTabs } from "./ServiceTabs";
 import { VetsPanel } from "./VetsPanel";
+import styles from "../AdminServices.module.scss";
 
 const PANELS = {
   public: PublicPanel,

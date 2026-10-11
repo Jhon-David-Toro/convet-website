@@ -4,13 +4,13 @@ import { useState } from "react";
 
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 
-import styles from "./PatientRecord.module.scss";
 import type { PatientRecordProps, PatientTab } from "./PatientRecord.types";
 import { patientCrumbs } from "./PatientRecord.utils";
 import { PatientHeader } from "./parts/PatientHeader";
 import { PatientPanel } from "./parts/PatientPanel";
 import { PatientSide } from "./parts/PatientSide";
 import { PatientTabs } from "./parts/PatientTabs";
+import styles from "./PatientRecord.module.scss";
 
 /**
  * Patient record of the staff area: the patient card, the tabs of the clinical history, and the owner and the vaccines on the side.

@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/Badge";
 
-import styles from "../AppointmentCard.module.scss";
 import { SUCCESS_STATUS } from "../AppointmentCard.constants";
 import type { AppointmentHeadingProps } from "../AppointmentCard.types";
+import styles from "../AppointmentCard.module.scss";
 
 /**
  * Service name with the status badge.

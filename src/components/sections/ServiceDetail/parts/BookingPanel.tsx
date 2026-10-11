@@ -1,7 +1,7 @@
-import styles from "../ServiceDetail.module.scss";
 import type { BookingPanelProps } from "../ServiceDetail.types";
 import { BookingCard } from "./BookingCard";
 import { VetsCard } from "./VetsCard";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Side column of a service page: booking card and vets; hidden on mobile, where the fixed bar takes over.

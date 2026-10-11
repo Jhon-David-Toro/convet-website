@@ -1,9 +1,9 @@
 import { Check, Icon } from "@/components/ui/Icon";
 
 import { OWNER_CONTACT, SUCCESS_ICON_SIZE } from "../BookingFlow.constants";
-import styles from "../BookingFlow.module.scss";
 import type { ConfirmedHeaderProps } from "../BookingFlow.types";
 import { confirmedTitle } from "../BookingFlow.utils";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Green check, title and sentence of the confirmation page.

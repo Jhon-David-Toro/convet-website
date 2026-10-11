@@ -2,10 +2,10 @@
 
 import { cloneElement, useId } from "react";
 
-import styles from "./Tooltip.module.scss";
-import { useTooltip } from "./hooks/useTooltip";
 import type { TooltipProps } from "./Tooltip.types";
 import { TooltipContent } from "./TooltipContent";
+import { useTooltip } from "./hooks/useTooltip";
+import styles from "./Tooltip.module.scss";
 
 /**
  * Shown on pointer or focus, can be dismissed with Escape and does not disappear while

@@ -1,8 +1,8 @@
 import { Textarea } from "@/components/ui/Textarea";
 
 import { DIAGNOSIS_LABEL, FINDINGS_LABEL, PLAN_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { VisitFieldsProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Clinical text of the visit: the exam findings, the diagnosis and the plan.

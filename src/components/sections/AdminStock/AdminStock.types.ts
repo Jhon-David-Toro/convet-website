@@ -1,6 +1,5 @@
-import type { StockProduct } from "@/lib/admin/admin.types";
-
 import type { MovementType } from "@/components/sections/StockMovementModal";
+import type { StockProduct } from "@/lib/admin/admin.types";
 
 export type SortDirection = "none" | "ascending" | "descending";
 

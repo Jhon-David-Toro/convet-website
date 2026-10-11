@@ -1,9 +1,9 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceTableProps } from "../ServiceDetail.types";
 import { ServiceTableHead } from "./ServiceTableHead";
 import { ServiceTableRow } from "./ServiceTableRow";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Reference table of a service (e.g. the vaccines that are offered); the first column is emphasized.

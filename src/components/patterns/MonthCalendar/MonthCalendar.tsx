@@ -2,15 +2,15 @@
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./MonthCalendar.module.scss";
-import { useMonthCalendar } from "./hooks/useMonthCalendar";
 import { DEFAULT_LEGEND, MONTH_TITLE_FORMAT } from "./MonthCalendar.constants";
 import type { MonthCalendarProps } from "./MonthCalendar.types";
 import { monthStart } from "./MonthCalendar.utils";
+import { useMonthCalendar } from "./hooks/useMonthCalendar";
 import { MonthDays } from "./parts/MonthDays";
 import { MonthLegend } from "./parts/MonthLegend";
 import { MonthNav } from "./parts/MonthNav";
 import { MonthWeekdays } from "./parts/MonthWeekdays";
+import styles from "./MonthCalendar.module.scss";
 
 /**
  * Booking/Month Calendar: month with selectable, few-left and closed days, plus a legend.

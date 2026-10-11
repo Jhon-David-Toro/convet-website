@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
-import styles from "../MediaImage.module.scss";
 import { MEDIA_IMAGE_ICON_SIZE, MEDIA_IMAGE_SUBJECT_ICONS } from "../MediaImage.constants";
 import type { MediaPlaceholderProps } from "../MediaImage.types";
+import styles from "../MediaImage.module.scss";
 
 /**
  * Illustration of the subject: two soft circles, its icon and an optional caption.

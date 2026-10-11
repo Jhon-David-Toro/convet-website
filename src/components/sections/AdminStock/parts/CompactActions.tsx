@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 import { ArrowDownCircle, ArrowUpCircle } from "@/components/ui/Icon";
 
-import styles from "../AdminStock.module.scss";
 import { DISPENSE_LABEL, RECEIVE_HREF, RECEIVE_LABEL } from "../AdminStock.constants";
 import type { CompactActionsProps } from "../AdminStock.types";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Receive and dispense buttons under the figures on tablet, side by side and as wide as the screen.

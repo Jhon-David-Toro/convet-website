@@ -2,12 +2,12 @@
 
 import { Button } from "@/components/ui/Button";
 
-import { useProfileForm } from "../hooks/useProfileForm";
 import { PERSONAL_TITLE, SAVE_LABEL, SAVED_LABEL } from "../ProfileSettings.constants";
-import styles from "../ProfileSettings.module.scss";
 import type { PersonalInfoCardProps } from "../ProfileSettings.types";
+import { useProfileForm } from "../hooks/useProfileForm";
 import { ContactFields } from "./ContactFields";
 import { NameFields } from "./NameFields";
+import styles from "../ProfileSettings.module.scss";
 
 /**
  * Card with the personal information form: names, email, WhatsApp number, address and the save button.

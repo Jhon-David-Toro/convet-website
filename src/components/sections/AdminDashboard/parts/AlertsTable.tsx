@@ -5,9 +5,9 @@ import { ArrowRight, Icon } from "@/components/ui/Icon";
 import { INVENTORY_ALERTS } from "@/lib/admin/admin.constants";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
-import styles from "../AdminDashboard.module.scss";
 import { ALERT_COLUMNS, ALERTS_TABLE_LABEL, ALERTS_TITLE, OPEN_INVENTORY_LABEL } from "../AdminDashboard.constants";
 import { AlertRow } from "./AlertRow";
+import styles from "../AdminDashboard.module.scss";
 
 /**
  * Inventory alerts: the products and lots that need attention, with a link to the inventory.

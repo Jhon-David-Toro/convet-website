@@ -3,9 +3,9 @@ import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
 
-import styles from "../AdminStock.module.scss";
 import { COMPACT_COLUMNS, COMPACT_TABLE_LABEL } from "../AdminStock.constants";
 import type { StockCompactTableProps } from "../AdminStock.types";
+import styles from "../AdminStock.module.scss";
 
 /**
  * Short stock table for tablet: product, what is on hand and the status.

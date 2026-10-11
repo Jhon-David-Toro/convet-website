@@ -1,8 +1,8 @@
 import { QuickActionCard } from "@/components/patterns/QuickActionCard";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./QuickAccessSection.module.scss";
 import { QUICK_ACCESS_ITEMS } from "./QuickAccessSection.constants";
+import styles from "./QuickAccessSection.module.scss";
 
 /**
  * Shortcuts to the main areas of the site: services, products, the clinic and the private area.

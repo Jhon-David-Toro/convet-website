@@ -1,7 +1,7 @@
 import { Avatar } from "@/components/ui/Avatar";
 
-import styles from "../PatientRecord.module.scss";
 import type { OwnerHeadProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Avatar, name and client-since line of the owner.

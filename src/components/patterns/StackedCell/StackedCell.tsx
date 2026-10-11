@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./StackedCell.module.scss";
 import type { StackedCellProps } from "./StackedCell.types";
+import styles from "./StackedCell.module.scss";
 
 /**
  * Stacked/Cell: content of a table cell with two lines, the main text and a smaller one under it.

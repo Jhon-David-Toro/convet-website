@@ -1,5 +1,5 @@
-import styles from "../PetCard.module.scss";
 import type { PetFactsProps } from "../PetCard.types";
+import styles from "../PetCard.module.scss";
 
 /**
  * Key facts (microchip, weight, next visit) as a definition list.

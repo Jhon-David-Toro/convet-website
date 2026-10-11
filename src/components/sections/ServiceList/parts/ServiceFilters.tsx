@@ -2,8 +2,8 @@ import { Chip } from "@/components/ui/Chip";
 import { SERVICE_FILTERS } from "@/lib/catalog/services.constants";
 
 import { FILTERS_LABEL } from "../ServiceList.constants";
-import styles from "../ServiceList.module.scss";
 import type { ServiceFiltersProps } from "../ServiceList.types";
+import styles from "../ServiceList.module.scss";
 
 /**
  * Species chips above the list; the selected one is pressed.

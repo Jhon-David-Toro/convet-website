@@ -1,8 +1,8 @@
 import { Avatar } from "@/components/ui/Avatar";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../Table.module.scss";
 import type { AvatarCellProps } from "../Table.types";
+import styles from "../Table.module.scss";
 
 /**
  * Cell with an avatar, the value and an optional secondary line.

@@ -1,9 +1,9 @@
 import { Button } from "@/components/ui/Button";
 
 import { RESEND_COUNTDOWN_LABEL, RESEND_LABEL, RESEND_PREFIX } from "../VerifyEmailForm.constants";
-import styles from "../VerifyEmailForm.module.scss";
 import type { ResendRowProps } from "../VerifyEmailForm.types";
 import { formatCountdown } from "../VerifyEmailForm.utils";
+import styles from "../VerifyEmailForm.module.scss";
 
 /**
  * "Didn't get it?" line with the button that asks for a new code once the countdown reaches zero.

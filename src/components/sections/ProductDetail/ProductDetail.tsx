@@ -1,12 +1,12 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { relatedProducts } from "@/lib/catalog/products.utils";
 
+import type { ProductDetailProps } from "./ProductDetail.types";
+import { productBreadcrumbs } from "./ProductDetail.utils";
 import { ProductGallery } from "./parts/ProductGallery";
 import { ProductInfo } from "./parts/ProductInfo";
 import { RelatedProducts } from "./parts/RelatedProducts";
 import styles from "./ProductDetail.module.scss";
-import type { ProductDetailProps } from "./ProductDetail.types";
-import { productBreadcrumbs } from "./ProductDetail.utils";
 
 /**
  * Detail page of a product: breadcrumbs, gallery, product information and related products.

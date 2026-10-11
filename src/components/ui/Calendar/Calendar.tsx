@@ -2,12 +2,12 @@
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Calendar.module.scss";
 import { MONTH_FORMAT } from "./Calendar.constants";
 import type { CalendarProps } from "./Calendar.types";
 import { useCalendar } from "./hooks/useCalendar";
 import { CalendarGrid } from "./parts/CalendarGrid";
 import { CalendarHeader } from "./parts/CalendarHeader";
+import styles from "./Calendar.module.scss";
 
 /**
  * Accessible month calendar ("date picker grid" pattern): a table with a single day in the tab order

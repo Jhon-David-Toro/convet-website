@@ -3,11 +3,11 @@ import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
 import { DASHBOARD_STATS } from "@/lib/admin/admin.constants";
 
-import styles from "./AdminDashboard.module.scss";
 import { GREETING, SUBTITLE } from "./AdminDashboard.constants";
 import { AlertsTable } from "./parts/AlertsTable";
 import { OnlineBookingsNote } from "./parts/OnlineBookingsNote";
 import { VetDayList } from "./parts/VetDayList";
+import styles from "./AdminDashboard.module.scss";
 
 /**
  * Dashboard of the admin area: the figures of the day, the inventory alerts, how each vet's day is going and the new online bookings.

@@ -1,8 +1,8 @@
-import styles from "../ProductLots.module.scss";
 import { PANEL_ID } from "../ProductLots.constants";
 import type { LotsPanelProps } from "../ProductLots.types";
 import { PublicSettings, StockSettings } from "./SettingsPanels";
 import { LotsView, MovementsView } from "./TabViews";
+import styles from "../ProductLots.module.scss";
 
 const VIEWS = {
   lots: LotsView,

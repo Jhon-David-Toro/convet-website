@@ -1,8 +1,8 @@
 import { Chip } from "@/components/ui/Chip";
 
-import styles from "../StockMovementModal.module.scss";
 import { TYPE_LABEL, TYPE_OPTIONS } from "../StockMovementModal.constants";
 import type { TypeChipsProps } from "../StockMovementModal.types";
+import styles from "../StockMovementModal.module.scss";
 
 /**
  * Chips that pick the type of movement: clinical use, waste, expired or adjustment.

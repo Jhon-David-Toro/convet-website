@@ -1,8 +1,8 @@
 import { Tab } from "@/components/ui/Tab";
 
-import styles from "../AdminServices.module.scss";
 import { PANEL_ID, TABS, TABS_LABEL } from "../AdminServices.constants";
 import type { ServiceTabsProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Tabs of the service panel: public page, booking rules and vets.

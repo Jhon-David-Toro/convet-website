@@ -3,8 +3,8 @@ import { CUSTOMER_APPOINTMENTS_HREF } from "@/lib/customer/customer.paths.consta
 import { cardProps, nextAppointmentOf } from "@/lib/customer/customer.utils";
 
 import { UPCOMING_TITLE } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { NextStepCardProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Upcoming appointment of the pet; shows nothing when there is none.

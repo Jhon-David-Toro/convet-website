@@ -1,6 +1,6 @@
-import styles from "../AdminLocations.module.scss";
 import type { ClosureListProps } from "../AdminLocations.types";
 import { ClosureItem } from "./ClosureItem";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * List of the upcoming closures of the clinic.

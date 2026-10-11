@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Pagination.module.scss";
 import type { PageItemProps } from "./Pagination.types";
+import styles from "./Pagination.module.scss";
 
 /**
  * Data/Page Item: 40px circle; the current page is blue.

@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import styles from "../Breadcrumbs.module.scss";
 import type { BreadcrumbEntryProps } from "../Breadcrumbs.types";
+import styles from "../Breadcrumbs.module.scss";
 
 /**
  * The label of an item: plain text for the current page or an item without link, otherwise a link.

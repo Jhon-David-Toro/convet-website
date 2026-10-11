@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./MobileActionBar.module.scss";
 import type { MobileActionBarProps } from "./MobileActionBar.types";
+import styles from "./MobileActionBar.module.scss";
 
 /**
  * Navigation/Mobile Action Bar: quick actions (Book · Chat · SOS 24/7). The buttons come as children.

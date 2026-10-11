@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Pill, Syringe, Upload } from "@/components/ui/Icon";
 
 import { ADD_TREATMENT_LABEL, ADD_VACCINE_LABEL, ATTACH_FILE_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { ExtrasProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Buttons that add more to the visit: a vaccination (once it was removed), a treatment and a file.

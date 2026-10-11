@@ -4,8 +4,8 @@ import { Plus } from "@/components/ui/Icon";
 import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { ADD_PET_LABEL, PETS_TITLE, VACCINE_ICONS } from "../ClientDetail.constants";
-import styles from "../ClientDetail.module.scss";
 import type { ClientPetsProps } from "../ClientDetail.types";
+import styles from "../ClientDetail.module.scss";
 
 /**
  * Pets of the client as rows with their vaccine status, each linking to the patient record, and the button that adds a pet.

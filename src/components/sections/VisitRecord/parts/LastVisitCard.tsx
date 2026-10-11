@@ -3,8 +3,8 @@ import Link from "next/link";
 import { File, Icon } from "@/components/ui/Icon";
 
 import { PROFILE_HREF } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { LastVisitCardProps } from "../VisitRecord.types";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Reminder of the previous visit: when it was, what was found and a link to the paper record.

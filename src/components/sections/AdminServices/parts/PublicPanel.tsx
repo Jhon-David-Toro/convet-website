@@ -1,9 +1,9 @@
-import { Textarea } from "@/components/ui/Textarea";
 import { TextInput } from "@/components/ui/TextInput";
+import { Textarea } from "@/components/ui/Textarea";
 
-import styles from "../AdminServices.module.scss";
 import { DESCRIPTION_LABEL, NAME_LABEL, PANEL_ID } from "../AdminServices.constants";
 import type { PublicPanelProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Public page of a service: the name and the description clients read on the website.

@@ -1,7 +1,7 @@
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../SignUpForm.module.scss";
 import type { SignUpFieldsProps } from "../SignUpForm.types";
+import styles from "../SignUpForm.module.scss";
 
 /**
  * First and last name side by side (stacked on mobile).

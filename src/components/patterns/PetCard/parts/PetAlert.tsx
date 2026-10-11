@@ -1,7 +1,7 @@
 import { AlertTriangle, Icon } from "@/components/ui/Icon";
 
-import styles from "../PetCard.module.scss";
 import type { PetAlertProps } from "../PetCard.types";
+import styles from "../PetCard.module.scss";
 
 /**
  * Visible medical alert of the full card.

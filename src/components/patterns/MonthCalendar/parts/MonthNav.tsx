@@ -1,8 +1,8 @@
 import { ChevronLeft, ChevronRight } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../MonthCalendar.module.scss";
 import type { MonthNavProps } from "../MonthCalendar.types";
+import styles from "../MonthCalendar.module.scss";
 
 /**
  * Month title with the previous / next month buttons.

@@ -1,5 +1,5 @@
-import styles from "../StaffToday.module.scss";
 import { gridTimes } from "../StaffToday.utils";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Hours on the left of the schedule grid, one per half hour.

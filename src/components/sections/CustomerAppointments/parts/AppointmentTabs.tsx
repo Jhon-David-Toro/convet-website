@@ -1,8 +1,8 @@
 import { Tab } from "@/components/ui/Tab";
 
 import { PANEL_ID, TABS, TABS_LABEL } from "../CustomerAppointments.constants";
-import styles from "../CustomerAppointments.module.scss";
 import type { AppointmentTabsProps } from "../CustomerAppointments.types";
+import styles from "../CustomerAppointments.module.scss";
 
 /**
  * Tabs that switch between upcoming, past and cancelled appointments; the upcoming tab shows how many there are.

@@ -5,9 +5,9 @@ import { ChevronRight, Icon } from "@/components/ui/Icon";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 import { photoUrl } from "@/lib/site/photos";
 
-import styles from "../AdminDashboard.module.scss";
 import { VET_PHOTO_SIZE } from "../AdminDashboard.constants";
 import type { VetDayCardProps } from "../AdminDashboard.types";
+import styles from "../AdminDashboard.module.scss";
 
 /**
  * Card of one vet's day: their photo, name and how many appointments are done, in progress or arrived. It links to the schedule.

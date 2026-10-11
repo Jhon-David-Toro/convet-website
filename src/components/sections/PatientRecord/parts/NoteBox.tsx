@@ -1,8 +1,8 @@
 import { Eye, Icon, Lock } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../PatientRecord.module.scss";
 import type { NoteBoxProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Note under a visit: the internal one (staff only) or the summary shared with the owner.

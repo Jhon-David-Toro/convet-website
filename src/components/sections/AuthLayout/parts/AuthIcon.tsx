@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
 import { AUTH_ICON_SIZE } from "../AuthLayout.constants";
-import styles from "../AuthLayout.module.scss";
 import type { AuthIconProps } from "../AuthLayout.types";
+import styles from "../AuthLayout.module.scss";
 
 /**
  * Round badge with an icon at the top of the verification pages.

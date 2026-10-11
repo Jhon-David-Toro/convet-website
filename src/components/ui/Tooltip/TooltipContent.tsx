@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Tooltip.module.scss";
 import type { TooltipContentProps } from "./Tooltip.types";
+import styles from "./Tooltip.module.scss";
 
 /**
  * Overlay/Tooltip: navy box with a 12×7 arrow. Used inside `Tooltip` or on its own (documentation).

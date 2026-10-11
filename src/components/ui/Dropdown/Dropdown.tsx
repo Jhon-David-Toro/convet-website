@@ -1,8 +1,8 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Dropdown.module.scss";
 import { PANEL_PADDING } from "./Dropdown.constants";
 import type { DropdownProps, MenuDividerProps } from "./Dropdown.types";
+import styles from "./Dropdown.module.scss";
 
 /**
  * Floating panel for menus, listboxes and dialogs. The consumer defines the role and the behavior.

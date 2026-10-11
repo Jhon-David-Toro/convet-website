@@ -1,8 +1,8 @@
 import { Tab } from "@/components/ui/Tab";
 
 import { PANEL_ID, TABS, TABS_LABEL } from "../AdminSettings.constants";
-import styles from "../AdminSettings.module.scss";
 import type { SettingsTabsProps } from "../AdminSettings.types";
+import styles from "../AdminSettings.module.scss";
 
 /**
  * Tabs of the settings page.

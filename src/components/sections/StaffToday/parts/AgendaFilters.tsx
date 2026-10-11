@@ -1,8 +1,8 @@
 import { Chip } from "@/components/ui/Chip";
 
 import { AGENDA_FILTER_LABEL, AGENDA_FILTERS } from "../StaffToday.constants";
-import styles from "../StaffToday.module.scss";
 import type { AgendaHeaderProps } from "../StaffToday.types";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Chips that switch the agenda between the signed-in vet's patients and every vet.

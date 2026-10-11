@@ -2,9 +2,9 @@ import { Badge } from "@/components/ui/Badge";
 import { Check, Paw, Stethoscope } from "@/components/ui/Icon";
 
 import { AVAILABLE_LABEL, PRESCRIPTION_LABEL } from "../ProductDetail.constants";
-import styles from "../ProductDetail.module.scss";
 import type { ProductBadgesProps } from "../ProductDetail.types";
 import { speciesBadge } from "../ProductDetail.utils";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Badges under the product name: prescription (when needed), species and availability.

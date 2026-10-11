@@ -1,8 +1,8 @@
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceMainProps } from "../ServiceDetail.types";
 import { ServiceIntro } from "./ServiceIntro";
 import { ServiceSteps } from "./ServiceSteps";
 import { ServiceTable } from "./ServiceTable";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Main column of a service page: intro, what to expect and, when the service has one, its reference table.

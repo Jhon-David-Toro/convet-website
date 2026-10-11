@@ -1,9 +1,9 @@
 import { TabBar, TabBarItem } from "@/components/ui/TabBar";
 
 import { TAB_BAR_NAV } from "../CustomerShell.constants";
-import styles from "../CustomerShell.module.scss";
 import type { CustomerPathProps } from "../CustomerShell.types";
 import { isActivePath } from "../CustomerShell.utils";
+import styles from "../CustomerShell.module.scss";
 
 /**
  * Bottom navigation of the customer area below desktop: home, pets, visits and profile.

@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { ArrowRight, Icon } from "@/components/ui/Icon";
 
-import styles from "../ProductLots.module.scss";
 import { FULL_LEDGER_LABEL } from "../ProductLots.constants";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Link to the full ledger of movements of the product.

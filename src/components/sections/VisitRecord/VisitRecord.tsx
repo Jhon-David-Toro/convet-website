@@ -1,11 +1,11 @@
 "use client";
 
-import styles from "./VisitRecord.module.scss";
 import type { VisitRecordProps } from "./VisitRecord.types";
 import { useVisitForm } from "./hooks/useVisitForm";
 import { VisitFooter } from "./parts/VisitFooter";
 import { VisitForm } from "./parts/VisitForm";
 import { VisitSide } from "./parts/VisitSide";
+import styles from "./VisitRecord.module.scss";
 
 /**
  * Visit record of the staff area: the form the vet fills in during the visit, the patient next to it on desktop,

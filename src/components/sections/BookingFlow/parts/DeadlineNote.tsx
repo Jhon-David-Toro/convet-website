@@ -1,8 +1,8 @@
 import { Icon, Info } from "@/components/ui/Icon";
 
-import styles from "../BookingFlow.module.scss";
 import type { DeadlineNoteProps } from "../BookingFlow.types";
 import { freeChangeDeadline } from "../BookingFlow.utils";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Note about the free change window: the visit can be moved for free until 24 hours before it starts.

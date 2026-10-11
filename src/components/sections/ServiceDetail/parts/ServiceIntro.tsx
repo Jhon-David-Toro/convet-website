@@ -5,8 +5,8 @@ import { Clock, Paw } from "@/components/ui/Icon";
 import { photoUrl } from "@/lib/site/photos";
 
 import { SERVICE_PHOTO_ALT, SERVICE_PHOTO_NAME, SERVICE_PHOTO_SIZES } from "../ServiceDetail.constants";
-import styles from "../ServiceDetail.module.scss";
 import type { ServiceIntroProps } from "../ServiceDetail.types";
+import styles from "../ServiceDetail.module.scss";
 
 /**
  * Photo, title and lead of a service; the duration and species badges only show on mobile, where there is no booking card.

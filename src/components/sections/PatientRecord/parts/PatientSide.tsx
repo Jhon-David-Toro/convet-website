@@ -1,8 +1,8 @@
 import { STAFF_OWNER } from "@/lib/staff/staff.constants";
 
-import styles from "../PatientRecord.module.scss";
 import { OwnerCard } from "./OwnerCard";
 import { VaccinesCard } from "./VaccinesCard";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Column next to the history: the owner and the vaccines of the patient.

@@ -1,10 +1,10 @@
 import { Icon } from "@/components/ui/Icon";
 
 import { ROW_ICON_SIZE } from "../ServiceList.constants";
-import styles from "../ServiceList.module.scss";
 import type { ServiceRowProps } from "../ServiceList.types";
 import { ServiceRowActions } from "./ServiceRowActions";
 import { ServiceRowText } from "./ServiceRowText";
+import styles from "../ServiceList.module.scss";
 
 /**
  * Service/Row: icon, text and actions of one service.

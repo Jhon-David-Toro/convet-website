@@ -1,7 +1,7 @@
-import styles from "../VisitRecord.module.scss";
 import type { VisitSideProps } from "../VisitRecord.types";
 import { LastVisitCard } from "./LastVisitCard";
 import { PatientCard } from "./PatientCard";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Column next to the form (desktop only): the patient with its facts, and a reminder of the last visit.

@@ -1,7 +1,7 @@
 import type { ChangeEvent } from "react";
 
-import styles from "../FileUpload.module.scss";
 import type { UploadDropzoneProps } from "../FileUpload.types";
+import styles from "../FileUpload.module.scss";
 
 /**
  * Dashed border plus the clickable / droppable label that wraps the native file input.

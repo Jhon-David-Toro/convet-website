@@ -1,5 +1,5 @@
-import styles from "../Modal.module.scss";
 import type { ModalHeadingProps } from "../Modal.types";
+import styles from "../Modal.module.scss";
 
 /**
  * Title with an optional description.

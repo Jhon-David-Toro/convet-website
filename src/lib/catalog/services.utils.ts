@@ -1,7 +1,7 @@
-import { SERVICES } from "./services.constants";
-import type { ServiceItem } from "./services.types";
 import { BOOKING_HREF } from "../site/site.constants";
 import { whatsappLink } from "../site/whatsapp";
+import { SERVICES } from "./services.constants";
+import type { ServiceItem } from "./services.types";
 
 /**
  * Finds a service by its URL segment.

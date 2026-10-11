@@ -1,6 +1,6 @@
-import styles from "../BookingFrame.module.scss";
 import type { MobileProgressProps } from "../BookingFrame.types";
 import { progressLabel, progressPercent } from "../BookingFrame.utils";
+import styles from "../BookingFrame.module.scss";
 
 /**
  * Progress of the booking on mobile: "Step 4 of 5 · Date & time" over a bar that fills as the steps go by.

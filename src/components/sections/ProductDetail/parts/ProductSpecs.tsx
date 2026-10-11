@@ -1,7 +1,7 @@
 import { productSpecs } from "@/lib/catalog/products.utils";
 
-import styles from "../ProductDetail.module.scss";
 import type { ProductSpecsProps } from "../ProductDetail.types";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Card with the specs of the product as a list of label and value rows.

@@ -1,12 +1,12 @@
 import { productAvailabilityMessage } from "@/lib/catalog/products.utils";
 
 import { PREFILL_NOTE } from "../ProductDetail.constants";
-import styles from "../ProductDetail.module.scss";
 import type { ProductInfoProps } from "../ProductDetail.types";
 import { ProductActions } from "./ProductActions";
 import { ProductHeading } from "./ProductHeading";
 import { ProductNotice } from "./ProductNotice";
 import { ProductSpecs } from "./ProductSpecs";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Text column of the product page: heading, description, specs, notice, actions and the WhatsApp note.

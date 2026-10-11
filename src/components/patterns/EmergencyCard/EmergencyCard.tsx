@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/Button";
 import { Icon, Phone } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./EmergencyCard.module.scss";
 import { EMERGENCY_CARD_ICON_SIZE } from "./EmergencyCard.constants";
 import type { EmergencyCardProps } from "./EmergencyCard.types";
+import styles from "./EmergencyCard.module.scss";
 
 /**
  * Card/Emergency: red card with the 24/7 emergency phone number and the call button.

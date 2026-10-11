@@ -2,9 +2,9 @@ import { Chip } from "@/components/ui/Chip";
 import { PRODUCT_KIND_OPTIONS } from "@/lib/catalog/products.constants";
 
 import { ALL_KINDS_LABEL, KIND_CHIPS_LABEL } from "../ProductCatalog.constants";
-import styles from "../ProductCatalog.module.scss";
 import type { KindChipsProps } from "../ProductCatalog.types";
 import { totalCount } from "../ProductCatalog.utils";
+import styles from "../ProductCatalog.module.scss";
 
 /**
  * Chips that pick a single product kind, or all of them, with the number of products of each.

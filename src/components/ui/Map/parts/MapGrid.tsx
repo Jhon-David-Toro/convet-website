@@ -1,4 +1,3 @@
-import styles from "../Map.module.scss";
 import {
   MAP_ART_HEIGHT,
   MAP_ART_WIDTH,
@@ -7,6 +6,7 @@ import {
   MAP_STREET_OFFSETS,
 } from "../Map.constants";
 import { toPercent } from "../Map.utils";
+import styles from "../Map.module.scss";
 
 /**
  * Stylized roads (slightly tilted) and streets of the Figma map.

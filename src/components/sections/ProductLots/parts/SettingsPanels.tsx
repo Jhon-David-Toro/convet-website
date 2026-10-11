@@ -1,10 +1,10 @@
-import { Textarea } from "@/components/ui/Textarea";
 import { TextInput } from "@/components/ui/TextInput";
+import { Textarea } from "@/components/ui/Textarea";
 import { Toggle } from "@/components/ui/Toggle";
 
-import styles from "../ProductLots.module.scss";
 import { DESCRIPTION_LABEL, MINIMUM_LABEL, PUBLIC_DESCRIPTION, PUBLIC_LABEL, TRACK_LOTS_DESCRIPTION, TRACK_LOTS_LABEL } from "../ProductLots.constants";
 import type { ProductLotsProps } from "../ProductLots.types";
+import styles from "../ProductLots.module.scss";
 
 /**
  * Public page of the product: whether it is shown on the website and its description.

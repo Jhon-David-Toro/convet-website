@@ -3,12 +3,12 @@
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 
-import styles from "../AdminLocations.module.scss";
 import { ADD_CLOSURE_LABEL, CLOSURES_TITLE, HOURS_TITLE } from "../AdminLocations.constants";
 import type { HoursCardProps } from "../AdminLocations.types";
 import { useClosures } from "../hooks/useClosures";
 import { ClosureList } from "./ClosureList";
 import { HoursList } from "./HoursList";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * Opening hours of the clinic and its upcoming closures, which can be removed or added.

@@ -1,11 +1,11 @@
 import { EmergencyCard } from "@/components/patterns/EmergencyCard";
 import { PawPattern } from "@/components/ui/PawPattern";
 
-import styles from "./HeroSection.module.scss";
 import { HERO_EMERGENCY } from "./HeroSection.constants";
 import { HeroActions } from "./parts/HeroActions";
 import { HeroCopy } from "./parts/HeroCopy";
 import { HeroImage } from "./parts/HeroImage";
+import styles from "./HeroSection.module.scss";
 
 /**
  * Home hero: what the clinic is, the main actions, the emergency line and a photo.

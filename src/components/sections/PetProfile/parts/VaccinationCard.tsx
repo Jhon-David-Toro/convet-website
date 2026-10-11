@@ -2,12 +2,12 @@ import { Button } from "@/components/ui/Button";
 import { File } from "@/components/ui/Icon";
 
 import { CERTIFICATE_LABEL } from "../PetProfile.constants";
-import styles from "../PetProfile.module.scss";
 import type { VaccinationCardProps } from "../PetProfile.types";
 import { overdueCount } from "../PetProfile.utils";
 import { VaccinationHeader } from "./VaccinationHeader";
 import { VaccineList } from "./VaccineList";
 import { VaccineStamps } from "./VaccineStamps";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Vaccination card: the stamps, one row per vaccine with its status and the (not yet available) certificate download.

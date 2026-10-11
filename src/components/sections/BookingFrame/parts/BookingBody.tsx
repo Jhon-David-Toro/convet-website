@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../BookingFrame.module.scss";
 import type { BookingBodyProps } from "../BookingFrame.types";
+import styles from "../BookingFrame.module.scss";
 
 /**
  * Body of the booking: the step content with its buttons, and the summary card at its side on desktop.

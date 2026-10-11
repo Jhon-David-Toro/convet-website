@@ -3,8 +3,8 @@ import { Button } from "@/components/ui/Button";
 import { Users } from "@/components/ui/Icon";
 
 import { CHANGE_VET_LABEL, ONLY_FREE_TIMES } from "../DateTimePicker.constants";
-import styles from "../DateTimePicker.module.scss";
 import type { VetBannerProps } from "../DateTimePicker.types";
+import styles from "../DateTimePicker.module.scss";
 
 /**
  * Banner with the vet whose agenda is shown, their weekly schedule and the button that changes the vet.

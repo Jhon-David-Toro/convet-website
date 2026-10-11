@@ -1,7 +1,7 @@
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../ProfileSettings.module.scss";
 import type { ProfileFieldsProps } from "../ProfileSettings.types";
+import styles from "../ProfileSettings.module.scss";
 
 /**
  * First and last name side by side.

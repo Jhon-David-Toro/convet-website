@@ -2,9 +2,9 @@ import { Modal } from "@/components/ui/Modal";
 import { NavItem } from "@/components/ui/NavItem";
 
 import { MENU_LABEL } from "../StaffShell.constants";
-import styles from "../StaffShell.module.scss";
 import type { StaffMenuProps } from "../StaffShell.types";
 import { sidebarGroups } from "../StaffShell.utils";
+import styles from "../StaffShell.module.scss";
 
 /**
  * Navigation of the area on small screens: a dialog with the same links as the sidebar.

@@ -1,5 +1,5 @@
-import styles from "../PatientRecord.module.scss";
 import type { ClinicalFieldProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Block of the visit with an overline label and a paragraph (findings, diagnosis, plan).

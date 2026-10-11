@@ -1,10 +1,10 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../ProductLots.module.scss";
 import { MOVEMENT_VIEWS } from "../ProductLots.constants";
 import type { MovementItemProps } from "../ProductLots.types";
 import { signedQuantity } from "../ProductLots.utils";
+import styles from "../ProductLots.module.scss";
 
 /**
  * One stock movement: when, its type, what happened and the units that came in or went out.

@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/Button";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
-import styles from "../ReceiveStock.module.scss";
 import { CANCEL_LABEL, FOOTER_NOTE } from "../ReceiveStock.constants";
 import type { ReceiptFooterProps } from "../ReceiveStock.types";
 import { saveLabel } from "../ReceiveStock.utils";
+import styles from "../ReceiveStock.module.scss";
 
 /**
  * Footer of the page: the note that stock only changes on save, a cancel link and the save button, which waits until every error is fixed.

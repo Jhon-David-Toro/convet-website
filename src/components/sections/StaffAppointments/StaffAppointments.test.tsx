@@ -4,11 +4,9 @@ import { describe, expect, it } from "vitest";
 
 import { pickOption } from "@/test/pickOption";
 
-
-
 import { StaffAppointments } from "./StaffAppointments";
-import { filterAppointments, pageCountFor, pageRows } from "./StaffAppointments.utils";
 import { INITIAL_FILTERS } from "./StaffAppointments.constants";
+import { filterAppointments, pageCountFor, pageRows } from "./StaffAppointments.utils";
 
 describe("StaffAppointments", () => {
   it("shows the first page of the table with its summary", () => {

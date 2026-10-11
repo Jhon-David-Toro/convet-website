@@ -1,7 +1,7 @@
-import styles from "./AuthLayout.module.scss";
 import type { AuthLayoutProps } from "./AuthLayout.types";
 import { AuthBrandPanel } from "./parts/AuthBrandPanel";
 import { AuthMobileTop } from "./parts/AuthMobileTop";
+import styles from "./AuthLayout.module.scss";
 
 /**
  * Frame of the authentication pages: the brand panel at the left on desktop and the form centered at the right.

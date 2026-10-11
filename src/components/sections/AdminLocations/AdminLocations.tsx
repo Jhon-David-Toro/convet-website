@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 import { LOCATION } from "@/lib/admin/admin.constants";
 
-import styles from "./AdminLocations.module.scss";
 import { ADD_LABEL, SUBTITLE, TITLE } from "./AdminLocations.constants";
 import { HoursCard } from "./parts/HoursCard";
 import { LocationCard } from "./parts/LocationCard";
+import styles from "./AdminLocations.module.scss";
 
 /**
  * Locations page of the admin area: the clinic with its map and phones, its opening hours and the upcoming closures.

@@ -2,9 +2,9 @@ import { Button } from "@/components/ui/Button";
 import { Calendar, Plus, Refresh } from "@/components/ui/Icon";
 
 import { APPOINTMENTS_HREF, CONFIRMED_ACTIONS } from "../BookingFlow.constants";
-import styles from "../BookingFlow.module.scss";
 import type { ConfirmedActionsProps } from "../BookingFlow.types";
 import { calendarFileHref } from "../BookingFlow.utils";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Buttons of the confirmation: add to calendar, reschedule, go to the appointments and book for another pet.

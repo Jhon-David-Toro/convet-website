@@ -1,8 +1,8 @@
 import { Trash } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../FileUpload.module.scss";
 import type { UploadedFileProps } from "../FileUpload.types";
+import styles from "../FileUpload.module.scss";
 
 /**
  * The uploaded file with the button that removes it.

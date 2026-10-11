@@ -1,8 +1,8 @@
 import { ScheduleEvent } from "@/components/patterns/ScheduleEvent";
 
-import styles from "../StaffToday.module.scss";
 import type { GridEventProps } from "../StaffToday.types";
 import { eventMeta, eventStyle, eventTitle } from "../StaffToday.utils";
+import styles from "../StaffToday.module.scss";
 
 /**
  * Appointment placed on the schedule grid at its time, as tall as it lasts.

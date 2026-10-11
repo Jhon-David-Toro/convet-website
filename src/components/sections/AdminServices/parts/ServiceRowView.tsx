@@ -2,10 +2,10 @@ import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "../AdminServices.module.scss";
 import type { ServiceRowViewProps } from "../AdminServices.types";
 import { durationLabel, onlineView } from "../AdminServices.utils";
 import { ServiceNameCell } from "./ServiceNameCell";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Row of the services table. The name is a button that selects the service; the selected row is highlighted.

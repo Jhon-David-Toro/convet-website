@@ -2,11 +2,11 @@ import { Button } from "@/components/ui/Button";
 import { ArrowRight } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Map.module.scss";
 import type { MapProps } from "./Map.types";
 import { buildEmbedUrl, buildSearchUrl } from "./Map.utils";
 import { MapArt } from "./parts/MapArt";
 import { MapEmbed } from "./parts/MapEmbed";
+import styles from "./Map.module.scss";
 
 /**
  * Media/Map: 16:9 map with XL radius. Embeds Google Maps when given a key and place; otherwise shows the stylized Figma map.

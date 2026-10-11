@@ -1,10 +1,10 @@
 import { Button } from "@/components/ui/Button";
 
 import { CHANGE_LOT_LABEL, FEFO_NOTE, LOT_LABEL } from "../VisitRecord.constants";
-import styles from "../VisitRecord.module.scss";
 import type { LotPickerProps } from "../VisitRecord.types";
 import { expiredLotMessage, lotDetail, lotLine } from "../VisitRecord.utils";
 import { LotNote } from "./LotNote";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Lot of the vaccine: the suggested one (the one that expires first), a button to change it, and why an expired lot cannot be used.

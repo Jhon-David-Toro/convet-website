@@ -4,8 +4,8 @@ import { describe, expect, it, vi } from "vitest";
 
 import { BookingFlow } from "./BookingFlow";
 import { EMPTY_SELECTION } from "./BookingFlow.constants";
-import { NextAvailableButton } from "./parts/NextAvailableButton";
 import { barSummaryLine, bookingSummary, calendarFileHref, canContinueFrom, confirmedAppointment, confirmedTitle, freeChangeDeadline, petName, stepAt, stepCopy } from "./BookingFlow.utils";
+import { NextAvailableButton } from "./parts/NextAvailableButton";
 
 const WAIT = { timeout: 3000 };
 

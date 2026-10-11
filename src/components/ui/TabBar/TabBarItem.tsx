@@ -3,9 +3,9 @@ import Link from "next/link";
 import { Icon } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./TabBar.module.scss";
 import { TAB_BAR_ICON_SIZE } from "./TabBar.constants";
 import type { TabBarItemProps } from "./TabBar.types";
+import styles from "./TabBar.module.scss";
 
 /**
  * Navigation/Tab Bar Item: 88×68, 56×32 pill with the icon and the label below.

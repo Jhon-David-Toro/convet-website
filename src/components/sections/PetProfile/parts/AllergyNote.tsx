@@ -1,7 +1,7 @@
 import { AlertTriangle, Icon } from "@/components/ui/Icon";
 
-import styles from "../PetProfile.module.scss";
 import type { AllergyNoteProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Medical alert of a pet, e.g. an allergy, on a red background.

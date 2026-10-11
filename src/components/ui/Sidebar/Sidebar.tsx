@@ -1,11 +1,11 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Sidebar.module.scss";
+import type { SidebarProps } from "./Sidebar.types";
 import { SidebarBranch } from "./parts/SidebarBranch";
 import { SidebarLogo } from "./parts/SidebarLogo";
 import { SidebarNav } from "./parts/SidebarNav";
 import { SidebarUser } from "./parts/SidebarUser";
-import type { SidebarProps } from "./Sidebar.types";
+import styles from "./Sidebar.module.scss";
 
 /**
  * Navigation/Sidebar: navigation of the private areas by role (customer, staff, administrator).

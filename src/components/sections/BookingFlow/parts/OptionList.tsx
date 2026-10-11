@@ -1,7 +1,7 @@
 import { OptionCard } from "@/components/patterns/OptionCard";
 
-import styles from "../BookingFlow.module.scss";
 import type { OptionListProps } from "../BookingFlow.types";
+import styles from "../BookingFlow.module.scss";
 
 /**
  * Group of option cards of which one can be chosen (pets, services, vets).

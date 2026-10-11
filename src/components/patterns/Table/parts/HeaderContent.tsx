@@ -1,8 +1,8 @@
 import { ChevronDown, Icon } from "@/components/ui/Icon";
 
-import styles from "../Table.module.scss";
 import { ASCENDING_SORT, TABLE_SORT_ICON_SIZE } from "../Table.constants";
 import type { HeaderContentProps } from "../Table.types";
+import styles from "../Table.module.scss";
 
 /**
  * Column label with the sort chevron; becomes a button when `onSort` is given.

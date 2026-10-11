@@ -1,4 +1,3 @@
-import styles from "../VisitRecord.module.scss";
 import type { VisitFormProps } from "../VisitRecord.types";
 import { preventSubmit } from "../VisitRecord.utils";
 import { ExamFields } from "./ExamFields";
@@ -7,6 +6,7 @@ import { VaccinationCard } from "./VaccinationCard";
 import { VisitExtras } from "./VisitExtras";
 import { VisitHeader } from "./VisitHeader";
 import { VitalsFields } from "./VitalsFields";
+import styles from "../VisitRecord.module.scss";
 
 /**
  * Form of the visit: header, reason and measurements, exam, the vaccination given, the buttons that add more, and the notes.

@@ -1,8 +1,8 @@
 import { PetCard } from "@/components/patterns/PetCard";
 import { petCardProps } from "@/lib/customer/customer.utils";
 
-import styles from "../PetProfile.module.scss";
 import type { PetProps } from "../PetProfile.types";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Summary card of the pet that replaces the header below desktop.

@@ -1,8 +1,8 @@
 import { Icon } from "@/components/ui/Icon";
 
 import { VITALS } from "../PatientRecord.constants";
-import styles from "../PatientRecord.module.scss";
 import type { VitalsProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * The three measurements of a visit: weight, temperature and heart rate.

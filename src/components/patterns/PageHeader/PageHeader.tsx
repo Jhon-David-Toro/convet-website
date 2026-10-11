@@ -1,7 +1,7 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./PageHeader.module.scss";
 import type { PageHeaderProps } from "./PageHeader.types";
+import styles from "./PageHeader.module.scss";
 
 /**
  * Page/Header: the title of a staff or admin page (the `h1`), a sentence under it and the main actions on the right.

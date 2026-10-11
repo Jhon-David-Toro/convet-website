@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import styles from "../ProductCard.module.scss";
 import type { ProductTextProps } from "../ProductCard.types";
+import styles from "../ProductCard.module.scss";
 
 /**
  * Category, name and description of the product.

@@ -7,8 +7,8 @@ import { MediaImage } from "@/components/ui/MediaImage";
 import { cx } from "@/lib/shared/cx";
 
 import { GALLERY_CAPTIONS, THUMBNAIL_ICON_SIZE, THUMBNAILS_LABEL } from "../ProductDetail.constants";
-import styles from "../ProductDetail.module.scss";
 import type { ProductGalleryProps } from "../ProductDetail.types";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Gallery: the selected image large and a row of thumbnails below. Shows illustrations until real photos exist.

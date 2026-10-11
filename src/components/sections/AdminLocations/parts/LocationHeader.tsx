@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { Building, Check, Icon } from "@/components/ui/Icon";
 
-import styles from "../AdminLocations.module.scss";
 import { ACTIVE_LABEL } from "../AdminLocations.constants";
 import type { LocationHeaderProps } from "../AdminLocations.types";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * Top of the location card: its icon, name, time zone and the badge that says it is active.

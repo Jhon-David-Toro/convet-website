@@ -1,10 +1,10 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Footer.module.scss";
 import type { FooterProps } from "./Footer.types";
 import { FooterBrand } from "./parts/FooterBrand";
 import { FooterColumn } from "./parts/FooterColumn";
 import { FooterLegal } from "./parts/FooterLegal";
+import styles from "./Footer.module.scss";
 
 /**
  * Navigation/Footer: navy footer with brand, link columns and legal line.

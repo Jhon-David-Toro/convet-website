@@ -2,9 +2,9 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { SignUpForm } from "./SignUpForm";
 import { readPendingEmail } from "@/lib/auth/pendingEmail";
 
+import { SignUpForm } from "./SignUpForm";
 import { validateSignUp } from "./SignUpForm.utils";
 
 const push = vi.fn();

@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 
 import { ADD_PET_HREF, ADD_PET_LABEL, PETS_TITLE } from "../CustomerOverview.constants";
-import styles from "../CustomerOverview.module.scss";
 import { PetCards } from "./PetCards";
+import styles from "../CustomerOverview.module.scss";
 
 /**
  * "Your pets": the heading with the add button (not on mobile) and the pet cards.

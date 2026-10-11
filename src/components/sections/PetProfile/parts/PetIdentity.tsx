@@ -1,9 +1,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { PET_STATUS_BADGES } from "@/lib/customer/customer.constants";
 
-import styles from "../PetProfile.module.scss";
 import type { PetProps } from "../PetProfile.types";
 import { AllergyNote } from "./AllergyNote";
+import styles from "../PetProfile.module.scss";
 
 /**
  * Name with the vaccine status, the description line and the allergy of a pet.

@@ -1,8 +1,8 @@
 import { Icon, Paw } from "@/components/ui/Icon";
 
-import styles from "../Map.module.scss";
 import { MAP_PIN_ICON_SIZE } from "../Map.constants";
 import type { MapPinProps } from "../Map.types";
+import styles from "../Map.module.scss";
 
 /**
  * Pin with a paw marker and the clinic name.

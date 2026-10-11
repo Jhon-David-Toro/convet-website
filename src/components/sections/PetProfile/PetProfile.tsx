@@ -1,7 +1,6 @@
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { vaccinesOf } from "@/lib/customer/customer.utils";
 
-import styles from "./PetProfile.module.scss";
 import type { PetProfileProps } from "./PetProfile.types";
 import { petBreadcrumbs, tabCounts } from "./PetProfile.utils";
 import { NextStepCard } from "./parts/NextStepCard";
@@ -9,6 +8,7 @@ import { PetHeader } from "./parts/PetHeader";
 import { PetSummary } from "./parts/PetSummary";
 import { PetTabPanel } from "./parts/PetTabPanel";
 import { PetTabs } from "./parts/PetTabs";
+import styles from "./PetProfile.module.scss";
 
 /**
  * Pet profile: breadcrumbs, the header (a summary card below desktop), the tabs and the panel of the selected tab.

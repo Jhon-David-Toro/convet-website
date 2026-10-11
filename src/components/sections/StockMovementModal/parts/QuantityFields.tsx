@@ -1,9 +1,9 @@
 import { Select } from "@/components/ui/Select";
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../StockMovementModal.module.scss";
 import { ADJUSTMENT_TYPE, DIRECTION_LABEL, DIRECTION_OPTIONS, QUANTITY_LABEL } from "../StockMovementModal.constants";
 import type { QuantityFieldsProps } from "../StockMovementModal.types";
+import styles from "../StockMovementModal.module.scss";
 
 /**
  * Direction (remove or add) and quantity of the movement, with the balance that would be left. Only adjustments can add stock.

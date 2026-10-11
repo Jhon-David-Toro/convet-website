@@ -1,12 +1,12 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./Table.module.scss";
+import { ACTIONS_CELL_TYPE, AVATAR_CELL_TYPE, RIGHT_ALIGN } from "./Table.constants";
+import type { TableCellProps, TableHeaderCellProps } from "./Table.types";
 import { ActionsCell } from "./parts/ActionsCell";
 import { AvatarCell } from "./parts/AvatarCell";
 import { DefaultCell } from "./parts/DefaultCell";
 import { HeaderContent } from "./parts/HeaderContent";
-import { ACTIONS_CELL_TYPE, AVATAR_CELL_TYPE, RIGHT_ALIGN } from "./Table.constants";
-import type { TableCellProps, TableHeaderCellProps } from "./Table.types";
+import styles from "./Table.module.scss";
 
 /**
  * Table/Header Cell: column header in overline style, with optional sorting.

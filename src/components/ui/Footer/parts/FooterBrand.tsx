@@ -2,9 +2,9 @@ import Link from "next/link";
 
 import { Logo } from "@/components/ui/Logo";
 
-import styles from "../Footer.module.scss";
 import type { FooterBrandProps } from "../Footer.types";
 import { FooterMotto } from "./FooterMotto";
+import styles from "../Footer.module.scss";
 
 /**
  * Logo, about text and optional motto.

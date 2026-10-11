@@ -1,7 +1,7 @@
 import { TextInput } from "@/components/ui/TextInput";
 
-import styles from "../ContactSection.module.scss";
 import type { ContactFormProps } from "../ContactSection.types";
+import styles from "../ContactSection.module.scss";
 
 /**
  * Name and phone side by side, then the email address (validated when it loses focus).

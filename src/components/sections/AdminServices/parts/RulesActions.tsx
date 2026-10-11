@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 
-import styles from "../AdminServices.module.scss";
 import { DISCARD_LABEL, PUBLISH_LABEL } from "../AdminServices.constants";
 import type { RulesActionsProps } from "../AdminServices.types";
+import styles from "../AdminServices.module.scss";
 
 /**
  * Buttons under the booking rules of a service: go back to the saved values, or save and publish.

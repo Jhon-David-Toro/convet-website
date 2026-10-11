@@ -1,7 +1,7 @@
 import Image from "next/image";
 
-import styles from "../MediaImage.module.scss";
 import type { MediaPhotoProps } from "../MediaImage.types";
+import styles from "../MediaImage.module.scss";
 
 /**
  * The real photo, filling its 4:3 frame.

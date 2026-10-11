@@ -1,8 +1,8 @@
 import { productCategoryLine } from "@/lib/catalog/products.utils";
 
-import styles from "../ProductDetail.module.scss";
 import type { ProductInfoProps } from "../ProductDetail.types";
 import { ProductBadges } from "./ProductBadges";
+import styles from "../ProductDetail.module.scss";
 
 /**
  * Category, name and badges of the product.

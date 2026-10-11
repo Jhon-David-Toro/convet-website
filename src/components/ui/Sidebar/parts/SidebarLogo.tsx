@@ -2,8 +2,8 @@ import Link from "next/link";
 
 import { Logo } from "@/components/ui/Logo";
 
-import styles from "../Sidebar.module.scss";
 import type { SidebarLogoProps } from "../Sidebar.types";
+import styles from "../Sidebar.module.scss";
 
 /**
  * Logo that links to the home page.

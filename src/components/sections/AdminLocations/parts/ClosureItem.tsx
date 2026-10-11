@@ -1,8 +1,8 @@
 import { Calendar, Icon, Trash } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 
-import styles from "../AdminLocations.module.scss";
 import type { ClosureItemProps } from "../AdminLocations.types";
+import styles from "../AdminLocations.module.scss";
 
 /**
  * One upcoming closure: its date and reason, and the button that removes it.

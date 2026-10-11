@@ -1,8 +1,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { AlertTriangle, Clock } from "@/components/ui/Icon";
 
-import styles from "../PatientRecord.module.scss";
 import type { PatientIdentityProps } from "../PatientRecord.types";
+import styles from "../PatientRecord.module.scss";
 
 /**
  * Name of the patient with the rabies status, its description and the allergy.

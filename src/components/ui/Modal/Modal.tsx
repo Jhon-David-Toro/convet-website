@@ -2,10 +2,10 @@
 
 import { useId } from "react";
 
-import styles from "./Modal.module.scss";
-import { useModalDialog } from "./hooks/useModalDialog";
 import type { ModalProps } from "./Modal.types";
 import { ModalPanel } from "./ModalPanel";
+import { useModalDialog } from "./hooks/useModalDialog";
+import styles from "./Modal.module.scss";
 
 /**
  * Modal dialog built on the native <dialog> element: the browser handles the focus trap, making the

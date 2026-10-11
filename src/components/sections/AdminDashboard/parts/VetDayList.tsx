@@ -1,8 +1,8 @@
 import { VET_DAYS } from "@/lib/admin/admin.constants";
 
-import styles from "../AdminDashboard.module.scss";
 import { VETS_TITLE } from "../AdminDashboard.constants";
 import { VetDayCard } from "./VetDayCard";
+import styles from "../AdminDashboard.module.scss";
 
 /**
  * How each vet's day is going, one card per vet.

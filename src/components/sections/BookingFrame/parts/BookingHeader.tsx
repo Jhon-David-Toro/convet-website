@@ -5,9 +5,9 @@ import { X } from "@/components/ui/Icon";
 import { Logo } from "@/components/ui/Logo";
 
 import { BOOKING_HOME_HREF, EXIT_LABEL, HOME_LABEL } from "../BookingFrame.constants";
-import styles from "../BookingFrame.module.scss";
 import type { BookingHeaderProps } from "../BookingFrame.types";
 import { BookingStepper } from "./BookingStepper";
+import styles from "../BookingFrame.module.scss";
 
 /**
  * Header of the booking on tablet and desktop: logo, the steps and the button that leaves the booking.

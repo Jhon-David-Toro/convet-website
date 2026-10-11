@@ -1,12 +1,12 @@
 import { cx } from "@/lib/shared/cx";
 
-import styles from "./AppointmentCard.module.scss";
 import { APPOINTMENT_META_ICONS, APPOINTMENT_STATUS_VIEWS } from "./AppointmentCard.constants";
 import type { AppointmentCardProps } from "./AppointmentCard.types";
 import { AppointmentActions } from "./parts/AppointmentActions";
 import { AppointmentDate } from "./parts/AppointmentDate";
 import { AppointmentHeading } from "./parts/AppointmentHeading";
 import { AppointmentMeta } from "./parts/AppointmentMeta";
+import styles from "./AppointmentCard.module.scss";
 
 /**
  * Card/Appointment: appointment with a date block, details and actions that depend on its status.

@@ -1,7 +1,7 @@
-import styles from "../Map.module.scss";
 import type { MapArtProps } from "../Map.types";
 import { MapGrid } from "./MapGrid";
 import { MapPin } from "./MapPin";
+import styles from "../Map.module.scss";
 
 /**
  * Stylized map from Figma: roads, streets, sea and a pin with the clinic name.
