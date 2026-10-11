@@ -1,8 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 
 import { MaskedInput } from "./MaskedInput";
+import { timeSlots } from "./masks";
 
 const today = new Date(2026, 9, 7);
 
@@ -117,5 +119,49 @@ describe("MaskedInput time picker", () => {
     await userEvent.click(screen.getByRole("button", { name: "Choose time" }));
     await userEvent.keyboard("{Escape}");
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
+  });
+});
+
+describe("MaskedInput pickers", () => {
+  it("gives the native input to a ref", () => {
+    const ref = createRef<HTMLInputElement>();
+    render(<MaskedInput ref={ref} mask="date" label="Date" />);
+    expect(ref.current).toBeInstanceOf(HTMLInputElement);
+  });
+
+  it("opens and closes with the icon button", async () => {
+    render(<MaskedInput mask="time" label="Time" />);
+    const button = screen.getByRole("button", { name: "Choose time" });
+    await userEvent.click(button);
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    await userEvent.click(button);
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
+  });
+
+  it("moves up and down the times and closes with Tab", async () => {
+    render(<MaskedInput mask="time" label="Time" from="9:00 AM" to="10:00 AM" stepMinutes={30} />);
+    const input = screen.getByRole("combobox");
+    input.focus();
+    await userEvent.keyboard("{ArrowDown}{ArrowDown}{ArrowDown}{ArrowUp}");
+    expect(input).toHaveAttribute("aria-expanded", "true");
+    await userEvent.keyboard("{Tab}");
+    expect(input).toHaveAttribute("aria-expanded", "false");
+  });
+
+
+  it("leaves the keys to a handler that already handled them", async () => {
+    render(<MaskedInput mask="time" label="Time" onKeyDown={(event) => event.preventDefault()} />);
+    const input = screen.getByRole("combobox");
+    input.focus();
+    await userEvent.keyboard("{ArrowDown}");
+    expect(input).toHaveAttribute("aria-expanded", "false");
+  });
+});
+
+describe("timeSlots", () => {
+  it("falls back to the clinic hours when the range is not a time", () => {
+    const slots = timeSlots("bad", "worse", 60);
+    expect(slots[0]).toBe("7:00 AM");
+    expect(slots.at(-1)).toBe("7:00 PM");
   });
 });

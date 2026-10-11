@@ -53,3 +53,17 @@ describe("FileUpload", () => {
     expect(onFileSelect).not.toHaveBeenCalled();
   });
 });
+
+describe("FileUpload dragging", () => {
+  it("does not show the dragging state when disabled and clears it when the drag leaves", () => {
+    const { container, rerender } = render(<FileUpload disabled />);
+    const root = container.firstElementChild as HTMLElement;
+    fireEvent.dragOver(container.querySelector("label") as HTMLElement);
+    expect(root).not.toHaveAttribute("data-dragging");
+    rerender(<FileUpload />);
+    fireEvent.dragOver(container.querySelector("label") as HTMLElement);
+    expect(root).toHaveAttribute("data-dragging", "true");
+    fireEvent.dragLeave(container.querySelector("label") as HTMLElement);
+    expect(root).not.toHaveAttribute("data-dragging");
+  });
+});

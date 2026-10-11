@@ -31,3 +31,10 @@ describe("EmployeeCard", () => {
     expect(screen.getByRole("img", { name: "Dr. Shirley smiling" })).toBeInTheDocument();
   });
 });
+
+describe("EmployeeCard without services", () => {
+  it("leaves the list out when there are no services", () => {
+    render(<EmployeeCard {...props} services={[]} />);
+    expect(screen.queryByRole("list")).not.toBeInTheDocument();
+  });
+});

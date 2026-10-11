@@ -28,3 +28,11 @@ describe("Breadcrumbs", () => {
     container.querySelectorAll("svg").forEach((svg) => expect(svg).toHaveAttribute("aria-hidden", "true"));
   });
 });
+
+describe("Breadcrumbs without links", () => {
+  it("shows an ancestor without a link as plain text, not as the current page", () => {
+    render(<Breadcrumbs items={[{ label: "Stock" }, { label: "Receive stock" }]} />);
+    expect(screen.getByText("Stock")).not.toHaveAttribute("aria-current");
+    expect(screen.getByText("Receive stock")).toHaveAttribute("aria-current", "page");
+  });
+});

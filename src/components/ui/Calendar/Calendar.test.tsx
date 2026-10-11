@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
@@ -55,5 +55,32 @@ describe("Calendar", () => {
     expect(screen.getByRole("button", { name: "Tuesday, October 6, 2026" })).toBeDisabled();
     expect(screen.getByRole("button", { name: "Wednesday, October 7, 2026" })).toBeEnabled();
     expect(screen.getByRole("button", { name: "Wednesday, October 21, 2026" })).toBeDisabled();
+  });
+});
+
+describe("Calendar keyboard", () => {
+  it("moves the focus with the arrows, Home, End and the page keys", async () => {
+    render(<Calendar today={today} onSelect={() => {}} />);
+    const day = (name: string) => screen.getByRole("button", { name });
+    day("Wednesday, October 7, 2026").focus();
+    const steps: [string, string][] = [
+      ["{ArrowLeft}", "Tuesday, October 6, 2026"],
+      ["{ArrowUp}", "Tuesday, September 29, 2026"],
+      ["{Home}", "Sunday, September 27, 2026"],
+      ["{End}", "Saturday, October 3, 2026"],
+      ["{PageUp}", "Thursday, September 3, 2026"],
+      ["{Shift>}{PageUp}{/Shift}", "Wednesday, September 3, 2025"],
+      ["{Shift>}{PageDown}{/Shift}", "Thursday, September 3, 2026"],
+      ["{PageDown}", "Saturday, October 3, 2026"],
+    ];
+    for (const [keys, name] of steps) {
+      await userEvent.keyboard(keys);
+      await waitFor(() => expect(day(name)).toHaveFocus());
+    }
+  });
+
+  it("marks the real today when none is given", () => {
+    render(<Calendar onSelect={() => {}} />);
+    expect(document.querySelector("[aria-current='date']")).not.toBeNull();
   });
 });

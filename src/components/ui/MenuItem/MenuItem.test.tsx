@@ -22,3 +22,14 @@ describe("MenuItem", () => {
     icons.forEach((icon) => expect(icon).toHaveAttribute("aria-hidden", "true"));
   });
 });
+
+describe("MenuItem tones", () => {
+  it("renders the destructive tone and the selected state", () => {
+    render(
+      <MenuItem tone="destructive" selected role="menuitem">
+        Delete
+      </MenuItem>,
+    );
+    expect(screen.getByRole("menuitem", { name: "Delete" })).toBeInTheDocument();
+  });
+});

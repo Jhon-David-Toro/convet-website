@@ -4,7 +4,7 @@ import { useState } from "react";
 import { describe, expect, it } from "vitest";
 
 import { CodeInput } from "./CodeInput";
-import { replaceDigits, sanitizeDigits } from "./CodeInput.utils";
+import { replaceDigits, sanitizeDigits, typedDigits } from "./CodeInput.utils";
 
 /**
  * Controlled code input for the tests.
@@ -53,5 +53,12 @@ describe("code utils", () => {
   it("keeps digits only and writes them from a box", () => {
     expect(sanitizeDigits("48 1x9", 6)).toBe("4819");
     expect(replaceDigits({ value: "48", index: 1, digits: "91", length: 6 })).toBe("491");
+  });
+});
+
+describe("typedDigits", () => {
+  it("keeps only the digit that was just typed over an old one", () => {
+    expect(typedDigits("12", "1", 6)).toBe("2");
+    expect(typedDigits("7", "", 6)).toBe("7");
   });
 });

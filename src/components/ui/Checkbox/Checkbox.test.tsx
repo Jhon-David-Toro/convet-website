@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import { createRef } from "react";
 import { describe, expect, it, vi } from "vitest";
 
 import { Checkbox } from "./Checkbox";
@@ -37,5 +38,13 @@ describe("Checkbox", () => {
     render(<Checkbox label="Reminders" disabled onChange={onChange} />);
     await userEvent.click(screen.getByRole("checkbox"));
     expect(onChange).not.toHaveBeenCalled();
+  });
+});
+
+describe("Checkbox ref", () => {
+  it("gives the native input to a ref", () => {
+    const ref = createRef<HTMLInputElement>();
+    render(<Checkbox ref={ref} label="Reminders" />);
+    expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 });

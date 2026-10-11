@@ -50,3 +50,18 @@ describe("TooltipContent", () => {
     expect(screen.getByRole("tooltip")).toHaveAttribute("data-placement", "bottom");
   });
 });
+
+describe("Tooltip focus", () => {
+  it("hides when the trigger loses focus, and Escape does nothing while it is hidden", async () => {
+    render(
+      <Tooltip content="Pick a time to continue">
+        <button type="button">Confirm</button>
+      </Tooltip>,
+    );
+    await userEvent.keyboard("{Escape}");
+    await userEvent.tab();
+    expect(screen.getByRole("tooltip")).toBeInTheDocument();
+    await userEvent.tab();
+    expect(screen.queryByRole("tooltip")).not.toBeInTheDocument();
+  });
+});

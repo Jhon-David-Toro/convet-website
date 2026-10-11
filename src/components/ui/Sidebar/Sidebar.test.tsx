@@ -41,3 +41,10 @@ describe("Sidebar", () => {
     expect(onBranchClick).toHaveBeenCalledTimes(1);
   });
 });
+
+describe("Sidebar groups without a heading", () => {
+  it("renders a group that has no heading", () => {
+    render(<Sidebar groups={[{ items: [{ href: "/", icon: Home, label: "Overview" }] }]} user={{ name: "Anna Lee", role: "Client" }} signOutHref="/logout" />);
+    expect(screen.getByRole("link", { name: "Overview" })).toBeInTheDocument();
+  });
+});

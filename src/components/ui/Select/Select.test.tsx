@@ -67,3 +67,78 @@ describe("Select", () => {
     expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
   });
 });
+
+describe("Select keyboard and edge cases", () => {
+  it("goes to the first and last enabled options with Home and End, and up with ArrowUp", async () => {
+    const onValueChange = vi.fn();
+    render(<Select label="Species" options={options} onValueChange={onValueChange} />);
+    const combobox = screen.getByRole("combobox");
+    combobox.focus();
+    await userEvent.keyboard("{ArrowDown}{End}");
+    expect(screen.getByRole("option", { name: "Rabbit" })).toHaveAttribute("data-active", "true");
+    await userEvent.keyboard("{ArrowUp}{Home}{Enter}");
+    expect(onValueChange).toHaveBeenCalledWith("dog");
+  });
+
+  it("opens and chooses with the space bar", async () => {
+    const onValueChange = vi.fn();
+    render(<Select label="Species" options={options} onValueChange={onValueChange} />);
+    screen.getByRole("combobox").focus();
+    await userEvent.keyboard(" ");
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+    await userEvent.keyboard(" ");
+    expect(onValueChange).toHaveBeenCalledWith("dog");
+  });
+
+  it("jumps to the option that starts with the typed letter while open and ignores unknown letters", async () => {
+    const onValueChange = vi.fn();
+    render(<Select label="Species" options={options} onValueChange={onValueChange} />);
+    const combobox = screen.getByRole("combobox");
+    await userEvent.click(combobox);
+    await userEvent.keyboard("z");
+    await userEvent.keyboard("r");
+    await userEvent.keyboard("{Enter}");
+    expect(onValueChange).toHaveBeenCalledWith("rabbit");
+  });
+
+  it("opens when a letter is typed on the closed list", async () => {
+    render(<Select label="Species" options={options} />);
+    screen.getByRole("combobox").focus();
+    await userEvent.keyboard("c");
+    expect(screen.getByRole("listbox")).toBeInTheDocument();
+  });
+
+  it("closes with a second click on the trigger and ignores Escape when it is already closed", async () => {
+    render(<Select label="Species" options={options} />);
+    const combobox = screen.getByRole("combobox");
+    await userEvent.keyboard("{Escape}");
+    await userEvent.click(combobox);
+    await userEvent.click(combobox);
+    expect(screen.queryByRole("listbox")).not.toBeInTheDocument();
+  });
+
+  it("does not pick a disabled option", async () => {
+    const onValueChange = vi.fn();
+    render(<Select label="Species" options={options} onValueChange={onValueChange} />);
+    await userEvent.click(screen.getByRole("combobox"));
+    await userEvent.click(screen.getByRole("option", { name: "Bird" }));
+    expect(onValueChange).not.toHaveBeenCalled();
+  });
+
+  it("leaves the keys to a handler that already handled them", async () => {
+    render(<Select label="Species" options={options} onKeyDown={(event) => event.preventDefault()} />);
+    screen.getByRole("combobox").focus();
+    await userEvent.keyboard("{ArrowDown}");
+    expect(screen.getByRole("combobox")).toHaveAttribute("aria-expanded", "false");
+  });
+});
+
+describe("Select unhandled keys", () => {
+  it("ignores Escape, Home, other arrows and shortcuts while it is closed", async () => {
+    render(<Select label="Species" options={options} />);
+    const combobox = screen.getByRole("combobox");
+    combobox.focus();
+    await userEvent.keyboard("{Escape}{Home}{ArrowLeft}{Control>}c{/Control}");
+    expect(combobox).toHaveAttribute("aria-expanded", "false");
+  });
+});
