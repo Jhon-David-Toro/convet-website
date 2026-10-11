@@ -1,0 +1,131 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Overview: appointment (612px) and reminders (460px) side by side from desktop */
+.topRow {
+  display: grid;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 612fr) minmax(0, 460fr);
+    align-items: start;
+  }
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.blockTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+
+  @include desktop {
+    @include typography.style("heading-h3");
+  }
+}
+
+a.mobileBook {
+  @include tablet {
+    display: none;
+  }
+}
+
+.pets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.petsHeader,
+.activityHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-24);
+}
+
+.pets .addButton {
+  @include mobile-only {
+    display: none;
+  }
+}
+
+/* Compact rows on small screens, full cards with the add tile from tablet */
+.petRows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.petCards {
+  display: none;
+
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: start;
+    gap: var(--spacing-24);
+  }
+
+  @include desktop {
+    grid-template-columns: minmax(0, 374fr) minmax(0, 374fr) minmax(0, 300fr);
+  }
+}
+
+.addTile {
+  display: flex;
+  min-height: 12rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-12);
+  align-self: stretch;
+  border: var(--border-width-default) dashed var(--color-border-strong);
+  border-radius: var(--radius-xl);
+  color: var(--color-text-brand);
+  text-decoration: none;
+
+  @include typography.style("subtitle-m");
+}
+
+.addIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-primary-subtle);
+}
+
+/* Recent activity: a card with the timeline; not shown on mobile */
+.activity {
+  display: none;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    display: flex;
+  }
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
