@@ -1,4 +1,4 @@
-import { act, render, screen } from "@testing-library/react";
+import { act, fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
@@ -22,6 +22,13 @@ describe("Toast", () => {
   it("has no action button without a label", () => {
     render(<Toast>Saved</Toast>);
     expect(screen.queryByRole("button")).not.toBeInTheDocument();
+  });
+
+  it("shows a close button when it can be dismissed", async () => {
+    const onDismiss = vi.fn();
+    render(<Toast onDismiss={onDismiss}>Saved</Toast>);
+    await userEvent.click(screen.getByRole("button", { name: "Dismiss notification" }));
+    expect(onDismiss).toHaveBeenCalledTimes(1);
   });
 });
 
@@ -78,6 +85,29 @@ describe("ToastProvider", () => {
     act(() => void vi.advanceTimersByTime(10000));
     expect(screen.getByText("Appointment cancelled")).toBeInTheDocument();
     await userEvent.unhover(screen.getByText("Appointment cancelled"));
+    act(() => void vi.advanceTimersByTime(5100));
+    expect(screen.queryByText("Appointment cancelled")).not.toBeInTheDocument();
+  });
+
+  it("closes from its close button", async () => {
+    render(
+      <ToastProvider>
+        <Trigger />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    await userEvent.click(screen.getByRole("button", { name: "Dismiss notification" }));
+    expect(screen.queryByText("Appointment cancelled")).not.toBeInTheDocument();
+  });
+
+  it("keeps counting down when a finger touches it, since touch never fires a leave event", async () => {
+    render(
+      <ToastProvider>
+        <Trigger />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Cancel" }));
+    fireEvent.pointerEnter(screen.getByText("Appointment cancelled"), { pointerType: "touch" });
     act(() => void vi.advanceTimersByTime(5100));
     expect(screen.queryByText("Appointment cancelled")).not.toBeInTheDocument();
   });

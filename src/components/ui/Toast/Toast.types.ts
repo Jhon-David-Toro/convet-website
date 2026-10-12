@@ -6,6 +6,7 @@ export type ToastProps = ComponentPropsWithRef<"div"> & {
   tone?: ToastTone;
   actionLabel?: string;
   onAction?: () => void;
+  onDismiss?: () => void;
 };
 
 export type ToastOptions = {

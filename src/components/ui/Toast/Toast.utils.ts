@@ -1,4 +1,6 @@
-import { TOAST_DEFAULT_DURATION_MS } from "./Toast.constants";
+import type { PointerEvent } from "react";
+
+import { MOUSE_POINTER, TOAST_DEFAULT_DURATION_MS } from "./Toast.constants";
 import type { ToastDurationParams, ToastItem } from "./Toast.types";
 
 /**
@@ -35,3 +37,11 @@ export const appendToast = (items: ToastItem[], item: ToastItem): ToastItem[] =>
  * @returns The cleanup that cancels every pending timer of the map.
  */
 export const cancelAllTimers = (timers: Map<number, ReturnType<typeof setTimeout>>) => () => timers.forEach((timer) => clearTimeout(timer));
+
+/**
+ * Whether a pointer event comes from a mouse. Touch and pen have no hover, so they must not pause the countdown: they would never fire the matching leave event.
+ *
+ * @param event Pointer event of the toast.
+ * @returns `true` for a mouse.
+ */
+export const isMousePointer = (event: PointerEvent): boolean => event.pointerType === MOUSE_POINTER;

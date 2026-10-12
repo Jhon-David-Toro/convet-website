@@ -1,10 +1,10 @@
 import { Toast } from "../Toast";
 import type { ToastRegionItemProps } from "../Toast.types";
-import { toastDuration } from "../Toast.utils";
+import { isMousePointer, toastDuration } from "../Toast.utils";
 import styles from "../ToastProvider.module.scss";
 
 /**
- * One toast of the region: pauses its countdown while the pointer or focus is on it.
+ * One toast of the region: pauses its countdown while a mouse or the focus is on it, and can be closed.
  *
  * @param props Props of the component, see {@link ToastRegionItemProps}.
  * @param props.item Item to render.
@@ -32,8 +32,9 @@ export function ToastRegionItem({ item, dismiss, schedule, pause }: ToastRegionI
       className={styles.item}
       actionLabel={item.action?.label}
       onAction={runAction}
-      onPointerEnter={() => pause(item.id)}
-      onPointerLeave={resume}
+      onDismiss={() => dismiss(item.id)}
+      onPointerEnter={(event) => isMousePointer(event) && pause(item.id)}
+      onPointerLeave={(event) => isMousePointer(event) && resume()}
       onFocus={() => pause(item.id)}
       onBlur={resume}
     >

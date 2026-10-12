@@ -1,14 +1,21 @@
-/* Toasts stack at the bottom, centered; the region does not block clicks on the page */
+@use "abstracts" as *;
+
+/* Toasts stack centered, at the top on mobile (the bottom is taken by the fixed bars) and at the bottom from tablet; the region does not block clicks on the page */
 .region {
   position: fixed;
   z-index: var(--z-toast);
   inset-inline: var(--layout-margin);
-  bottom: var(--spacing-16);
+  top: var(--spacing-16);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-8);
   pointer-events: none;
+
+  @include tablet {
+    top: auto;
+    bottom: var(--spacing-16);
+  }
 }
 
 .item {
