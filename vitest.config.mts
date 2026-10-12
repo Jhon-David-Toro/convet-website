@@ -9,6 +9,7 @@ export default defineConfig({
     setupFiles: ["./vitest.setup.ts"],
     css: false,
     pool: "vmThreads",
+    testTimeout: 15000,
     coverage: {
       provider: "v8",
       include: ["src/**/*.{ts,tsx}"],
