@@ -1,0 +1,19 @@
+/* Row/Menu: the list opens under the button, aligned to its right edge; 240px wide, 44px items */
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.menu {
+  position: absolute;
+  z-index: var(--z-dropdown);
+  top: 100%;
+  right: 0;
+  width: 15rem;
+}
+
+.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
