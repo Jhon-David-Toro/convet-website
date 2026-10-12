@@ -58,7 +58,7 @@ describe("staff shell utils", () => {
 
   it("gives record pages a back arrow to Today", () => {
     expect(topBarFor("/staff", staff).backHref).toBeUndefined();
-    expect(topBarFor("/staff/visits/luna-today", staff)).toEqual({ title: "Today · Dr. Andreina", backHref: "/staff" });
+    expect(topBarFor("/staff/visits/luna-today", staff)).toEqual({ title: "Today · Dr. Shirley", backHref: "/staff" });
     expect(topBarFor("/staff/schedule", staff).title).toBe("Appointments");
   });
 

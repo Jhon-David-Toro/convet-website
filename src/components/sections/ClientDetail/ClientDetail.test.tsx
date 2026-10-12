@@ -20,7 +20,7 @@ describe("ClientDetail", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Anna Lee" })).toBeInTheDocument();
     expect(screen.getByText("Online account linked")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Luna/ })).toHaveAttribute("href", "/staff/patients/luna");
-    expect(screen.getAllByText("Consultation · Luna")).toHaveLength(2);
+    expect(screen.getByText("Consultation · Luna")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /Reschedule/ })).toBeInTheDocument();
   });
 });

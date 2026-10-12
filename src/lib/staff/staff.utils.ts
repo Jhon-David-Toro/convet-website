@@ -1,3 +1,5 @@
+import { minutesToLabel } from "@/lib/booking/booking.utils";
+
 import { MINUTES_PER_HOUR, STAFF_APPOINTMENTS, STAFF_VETS } from "./staff.constants";
 import type { StaffAppointment, StaffVet } from "./staff.types";
 
@@ -41,6 +43,16 @@ export function endTime(appointment: StaffAppointment): string {
  */
 export function findStaffVet(id: string): StaffVet {
   return STAFF_VETS.find((vet) => vet.id === id) ?? STAFF_VETS[0];
+}
+
+/**
+ * Start time of an appointment written with AM or PM, as the table shows it.
+ *
+ * @param time Time as `H:MM` on a 24-hour clock.
+ * @returns The time, e.g. "8:00 AM".
+ */
+export function timeLabel(time: string): string {
+  return minutesToLabel(toMinutes(time));
 }
 
 /**

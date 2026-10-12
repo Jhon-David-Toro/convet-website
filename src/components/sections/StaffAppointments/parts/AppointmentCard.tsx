@@ -1,5 +1,5 @@
 import { Avatar } from "@/components/ui/Avatar";
-import { findStaffVet } from "@/lib/staff/staff.utils";
+import { findStaffVet, timeLabel } from "@/lib/staff/staff.utils";
 
 import type { AppointmentRowProps } from "../StaffAppointments.types";
 import { StatusBadge } from "./StatusBadge";
@@ -16,7 +16,7 @@ export function AppointmentCard({ appointment }: AppointmentRowProps) {
   return (
     <li className={styles.card}>
       <div className={styles.cardTop}>
-        <span className={styles.cardTime}>{appointment.time}</span>
+        <span className={styles.cardTime}>{timeLabel(appointment.time)}</span>
         <StatusBadge status={appointment.status} />
       </div>
       <div className={styles.cardPatient}>

@@ -6,17 +6,17 @@ export const GRID_STEP_MINUTES = 30;
 
 export const ROW_HEIGHT = 100;
 
-export const EVENT_GAP = 3;
+export const EVENT_GAP = 2;
 
-export const NOW_MINUTES = 636;
+export const NOW_MINUTES = 580;
 
-export const NOW_LABEL = "10:36";
+export const NOW_LABEL = "9:40";
 
 export const WEEK_VIEW_LABEL = "Week view";
 
 export const WEEK_VIEW_HREF = "/staff/schedule";
 
-export const SUBTITLE = "14 appointments · 3 booked online since yesterday";
+export const SUBTITLE = "11 appointments · 3 booked online since yesterday";
 
 export const ATTENTION_TITLE = "Needs attention";
 

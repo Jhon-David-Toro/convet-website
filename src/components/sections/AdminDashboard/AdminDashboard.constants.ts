@@ -1,6 +1,6 @@
 export const GREETING = "Good morning, Maria";
 
-export const SUBTITLE = "Main clinic · Thursday, October 1";
+export const SUBTITLE = "Main clinic · Friday, October 9";
 
 export const ALERTS_TITLE = "Inventory alerts";
 

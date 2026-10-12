@@ -6,7 +6,7 @@ import type { AppointmentFilters, RangeValue } from "./StaffAppointments.types";
 
 export const TITLE = "Appointments";
 
-export const SUBTITLE = "Main clinic · Thursday, October 1";
+export const SUBTITLE = "Main clinic · Friday, October 9";
 
 export const NEW_APPOINTMENT_LABEL = "New appointment";
 
@@ -47,7 +47,7 @@ export const ACTIONS_COLUMN_LABEL = "Actions";
 
 export const TABLE_LABEL = "Appointments of the day";
 
-export const TABLE_ORDER = ["toby", "nala", "luna", "max", "coco", "kira", "duke", "rocky", "simba", "oreo", "pepper", "rex", "bella", "milo"];
+export const TABLE_ORDER = ["coco", "simba", "duke", "luna", "bruno", "lola", "toby", "pepper", "daisy", "kira", "oscar"];
 
 export const EMPTY_TITLE = "No appointments found";
 

@@ -10,7 +10,7 @@ import { agendaGroups, eventStyle, gridTimes, rangeMeta } from "./StaffToday.uti
 describe("StaffToday", () => {
   it("shows the figures, the schedule by vet and what needs attention", () => {
     render(<StaffToday />);
-    expect(screen.getByRole("heading", { level: 1, name: "Thursday, October 1" })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "Friday, October 9" })).toBeInTheDocument();
     expect(screen.getByText("Appointments today")).toBeInTheDocument();
     expect(within(screen.getByRole("region", { name: "Schedule of the day by vet" })).getByText("Dr. Larry")).toBeInTheDocument();
     expect(screen.getByRole("heading", { name: "Needs attention" })).toBeInTheDocument();
@@ -33,12 +33,14 @@ describe("staff today utils", () => {
 
   it("places an appointment where its time is and as tall as it lasts", () => {
     const toby = STAFF_APPOINTMENTS.find((appointment) => appointment.id === "toby");
-    expect(toby && eventStyle(toby)).toEqual({ top: 403, height: 194 });
+    const style = toby && eventStyle(toby);
+    expect(style?.top).toBeCloseTo(435, 0);
+    expect(style?.height).toBe(96);
   });
 
   it("describes the time range of an appointment", () => {
     const toby = STAFF_APPOINTMENTS.find((appointment) => appointment.id === "toby");
-    expect(toby && rangeMeta(toby)).toBe("10:00 – 11:00 · Anna Lee");
+    expect(toby && rangeMeta(toby)).toBe("10:10 – 10:40 · Peter Dijkhoff");
   });
 
   it("drops the groups without appointments", () => {

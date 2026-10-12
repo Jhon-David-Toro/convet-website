@@ -1,5 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
-import { findStaffVet } from "@/lib/staff/staff.utils";
+import { findStaffVet, timeLabel } from "@/lib/staff/staff.utils";
 
 import type { AppointmentRowProps } from "../StaffAppointments.types";
 import { StatusBadge } from "./StatusBadge";
@@ -14,7 +14,7 @@ import { StatusBadge } from "./StatusBadge";
 export function AppointmentRow({ appointment }: AppointmentRowProps) {
   return (
     <tr>
-      <TableCell type="mono">{appointment.time}</TableCell>
+      <TableCell type="mono">{timeLabel(appointment.time)}</TableCell>
       <TableCell type="avatar" avatar={appointment.species} secondary={appointment.owner}>
         {appointment.patient}
       </TableCell>

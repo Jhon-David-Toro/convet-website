@@ -12,7 +12,7 @@ describe("staff time helpers", () => {
 
   it("adds the duration of an appointment to its start", () => {
     const toby = STAFF_APPOINTMENTS.find((appointment) => appointment.id === "toby");
-    expect(toby && endTime(toby)).toBe("11:00");
+    expect(toby && endTime(toby)).toBe("10:40");
   });
 });
 
@@ -25,11 +25,11 @@ describe("staff vets", () => {
   it("lists the appointments of a vet by start time", () => {
     const times = appointmentsOfVet("shirley").map((appointment) => toMinutes(appointment.time));
     expect(times).toEqual([...times].sort((a, b) => a - b));
-    expect(times).toHaveLength(5);
+    expect(times).toHaveLength(4);
   });
 
-  it("keeps the counts the schedule shows: 5, 5 and 4 appointments", () => {
-    expect(appointmentsOfVet("larry")).toHaveLength(5);
-    expect(appointmentsOfVet("andreina")).toHaveLength(4);
+  it("keeps the counts the schedule shows: 4, 3 and 4 appointments", () => {
+    expect(appointmentsOfVet("larry")).toHaveLength(3);
+    expect(appointmentsOfVet("susana")).toHaveLength(4);
   });
 });

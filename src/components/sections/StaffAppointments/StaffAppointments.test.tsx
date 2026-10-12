@@ -13,14 +13,14 @@ describe("StaffAppointments", () => {
     render(<StaffAppointments />);
     expect(screen.getByRole("heading", { level: 1, name: "Appointments" })).toBeInTheDocument();
     expect(screen.getAllByRole("row")).toHaveLength(9);
-    expect(screen.getByText("Showing 1–8 of 14")).toBeInTheDocument();
+    expect(screen.getByText("Showing 1–8 of 11")).toBeInTheDocument();
   });
 
   it("lists the same appointments as cards for mobile", () => {
     render(<StaffAppointments />);
     const cards = within(screen.getByRole("list", { name: "Appointments of the day" })).getAllByRole("listitem");
     expect(cards).toHaveLength(8);
-    expect(within(cards[0]).getByText("Toby")).toBeInTheDocument();
+    expect(within(cards[0]).getByText("Coco")).toBeInTheDocument();
   });
 
   it("filters by what is typed in the search", async () => {
@@ -38,13 +38,13 @@ describe("StaffAppointments", () => {
   it("goes to the next page", async () => {
     render(<StaffAppointments />);
     await userEvent.click(screen.getByRole("button", { name: /next/i }));
-    expect(screen.getAllByRole("row")).toHaveLength(7);
+    expect(screen.getAllByRole("row")).toHaveLength(4);
   });
 });
 
 describe("staff appointments utils", () => {
   it("filters by vet and by status", () => {
-    expect(filterAppointments({ ...INITIAL_FILTERS, vet: "larry" })).toHaveLength(5);
+    expect(filterAppointments({ ...INITIAL_FILTERS, vet: "larry" })).toHaveLength(3);
     expect(filterAppointments({ ...INITIAL_FILTERS, status: "completed" })).toHaveLength(3);
   });
 
@@ -52,15 +52,15 @@ describe("staff appointments utils", () => {
     const rows = filterAppointments(INITIAL_FILTERS);
     expect(pageCountFor(rows.length)).toBe(2);
     expect(pageCountFor(0)).toBe(1);
-    expect(pageRows(rows, 2)).toHaveLength(6);
+    expect(pageRows(rows, 2)).toHaveLength(3);
   });
 });
 
 describe("StaffAppointments selects", () => {
   it("filters by vet and by status with the lists", async () => {
     render(<StaffAppointments />);
-    await pickOption("Vet", "Dr. Larry");
-    expect(screen.getAllByRole("row")).toHaveLength(6);
+    await pickOption("Vet", "Dr. Shirley");
+    expect(screen.getAllByRole("row")).toHaveLength(5);
     await pickOption("Status", "Completed");
     expect(screen.getAllByRole("row")).toHaveLength(2);
   });

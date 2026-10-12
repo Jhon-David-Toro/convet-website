@@ -21,7 +21,7 @@ import type {
 
 export const ADMIN_GREETING = "Good morning, Maria";
 
-export const ADMIN_SUBTITLE = "Main clinic · Thursday, October 1";
+export const ADMIN_SUBTITLE = "Main clinic · Friday, October 9";
 
 export const DASHBOARD_STATS: AdminStat[] = [
   { label: "Appointments today", value: 14, caption: "3 booked online", icon: Calendar, tone: "default" },
@@ -154,8 +154,8 @@ export const CATALOG_ROWS: CatalogRow[] = [
 ];
 
 export const ADMIN_APPOINTMENTS: AdminAppointment[] = [
-  { id: "a1", date: "Thu, Oct 1", time: "10:15", patient: "Luna", species: "dog", owner: "Anna Lee", service: "Consultation", vet: "Dr. Andreina", source: "Phone", status: "in-progress" },
-  { id: "a2", date: "Thu, Oct 1", time: "11:00", patient: "Coco", species: "cat", owner: "M. Ras", service: "Vaccination", vet: "Dr. Andreina", source: "Online", status: "booked-online" },
+  { id: "a1", date: "Fri, Oct 9", time: "10:15", patient: "Luna", species: "dog", owner: "Anna Lee", service: "Consultation", vet: "Dr. Andreina", source: "Phone", status: "in-progress" },
+  { id: "a2", date: "Fri, Oct 9", time: "11:00", patient: "Coco", species: "cat", owner: "M. Ras", service: "Vaccination", vet: "Dr. Andreina", source: "Online", status: "booked-online" },
   { id: "a3", date: "Fri, Oct 2", time: "9:00", patient: "Bruno", species: "dog", owner: "L. Geerman", service: "Consultation", vet: "Dr. Shirley", source: "Online", status: "scheduled" },
   { id: "a4", date: "Wed, Oct 7", time: "9:45", patient: "Luna", species: "dog", owner: "Anna Lee", service: "Vaccination", vet: "Dr. Shirley", source: "Online", status: "scheduled" },
   { id: "a5", date: "Wed, Sep 30", time: "16:00", patient: "Pip", species: "cat", owner: "H. Werlem…", service: "Consultation", vet: "Dr. Larry", source: "Walk-in", status: "cancelled" },
