@@ -5,6 +5,7 @@ export type FormErrors<Values> = Partial<Record<keyof Values, string>>;
 export type UseFormModalParams<Values> = {
   initial: Values;
   validate: (values: Values) => FormErrors<Values>;
+  onSaved?: () => void;
 };
 
 export type FormModalState<Values> = {

@@ -24,3 +24,8 @@ export type FormModalProps = {
   onSubmit: () => void;
   children: ReactNode;
 };
+
+export type DialogControlProps = {
+  open: boolean;
+  onClose: () => void;
+};

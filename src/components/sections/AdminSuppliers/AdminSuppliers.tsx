@@ -1,8 +1,8 @@
 import { DataTable } from "@/components/patterns/DataTable";
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Alert } from "@/components/ui/Alert";
-import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
 import { SUPPLIERS } from "@/lib/admin/admin.constants";
 
@@ -21,9 +21,9 @@ export function AdminSuppliers() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <Button type="button" leadingIcon={Plus}>
+          <ModalButton modal="supplier" leadingIcon={Plus}>
             {ADD_LABEL}
-          </Button>
+          </ModalButton>
         }
       />
       <DataTable label={TABLE_LABEL} columns={COLUMNS}>

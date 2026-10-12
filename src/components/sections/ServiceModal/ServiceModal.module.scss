@@ -1,0 +1,44 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Service dialog: two fields per row from tablet; the vets as a list of checkboxes */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.vets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.vetList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-12) var(--spacing-24);
+}
+
+.error {
+  margin: 0;
+  color: var(--color-feedback-error-text);
+
+  @include typography.style("caption");
+}

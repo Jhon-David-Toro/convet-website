@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import { SAVING_DELAY_MS } from "./formModal.constants";
-import { scheduleDone } from "./formModal.utils";
+import { finishSaving } from "./formModal.utils";
 import type { FormErrors, FormModalState, FormModalStatus, UseFormModalParams } from "./useFormModal.types";
 
 /**
@@ -11,14 +11,18 @@ import type { FormErrors, FormModalState, FormModalStatus, UseFormModalParams } 
  * @param params Parameters of the hook, see {@link UseFormModalParams}.
  * @param params.initial Values the form starts with.
  * @param params.validate Gives the message of every invalid field; empty when the form can be saved.
+ * @param params.onSaved Called when saving is done, for dialogs that have no confirmation of their own.
  * @returns The values, errors and status of the form, how many fields are wrong, and the functions that change a value or submit it.
  */
-export function useFormModal<Values>({ initial, validate }: UseFormModalParams<Values>): FormModalState<Values> {
+export function useFormModal<Values>({ initial, validate, onSaved }: UseFormModalParams<Values>): FormModalState<Values> {
   const [values, setValues] = useState<Values>(initial);
   const [errors, setErrors] = useState<FormErrors<Values>>({});
   const [status, setStatus] = useState<FormModalStatus>("idle");
 
-  useEffect(() => (status === "saving" ? scheduleDone(() => setStatus("success"), SAVING_DELAY_MS) : undefined), [status]);
+  useEffect(() => finishSaving(status, SAVING_DELAY_MS, () => {
+    setStatus("success");
+    onSaved?.();
+  }), [status, onSaved]);
 
   return {
     values,

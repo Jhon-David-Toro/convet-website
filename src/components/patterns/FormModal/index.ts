@@ -1,2 +1,2 @@
 export { FormModal } from "./FormModal";
-export type { FormModalDone, FormModalProps } from "./FormModal.types";
+export type { DialogControlProps, FormModalDone, FormModalProps } from "./FormModal.types";
