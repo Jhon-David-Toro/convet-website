@@ -22,7 +22,7 @@ export function BookingHeader({ steps, current, exitHref }: BookingHeaderProps) 
   return (
     <header className={styles.header}>
       <div className={styles.headerInner}>
-        <Link href={BOOKING_HOME_HREF} aria-label={HOME_LABEL}>
+        <Link href={BOOKING_HOME_HREF} aria-label={HOME_LABEL} className={styles.logo}>
           <Logo />
         </Link>
         <BookingStepper steps={steps} current={current} />

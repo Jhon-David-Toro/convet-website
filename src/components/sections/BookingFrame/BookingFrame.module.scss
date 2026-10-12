@@ -28,6 +28,11 @@
   min-height: 5.5rem;
 }
 
+/* The logo is a link: no underline under the wordmark */
+.logo {
+  text-decoration: none;
+}
+
 /* Steps joined by a short line */
 .stepper {
   display: flex;
