@@ -15,12 +15,17 @@
 .header {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--spacing-16) var(--spacing-24);
-  padding: var(--spacing-24);
+  gap: var(--spacing-16) var(--spacing-16);
+  padding: var(--spacing-16);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-xl);
   background-color: var(--color-background-surface);
   box-shadow: var(--shadow-md);
+
+  @include tablet {
+    gap: var(--spacing-16) var(--spacing-24);
+    padding: var(--spacing-24);
+  }
 
   @include desktop {
     grid-template-columns: auto minmax(0, 1fr) auto auto;
@@ -30,7 +35,16 @@
   }
 }
 
-.avatar {
+/* Smaller on mobile so the badges fit next to it; nested to win over the Avatar size regardless of CSS load order */
+.header .avatar {
+  width: 4rem;
+  height: 4rem;
+
+  @include tablet {
+    width: 5rem;
+    height: 5rem;
+  }
+
   @include desktop {
     width: 7.25rem;
     height: 7.25rem;
@@ -101,6 +115,7 @@
   dd {
     margin: 0;
     color: var(--color-text-heading);
+    white-space: nowrap;
 
     @include typography.style("body-m-strong");
   }
