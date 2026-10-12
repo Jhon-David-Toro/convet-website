@@ -7,8 +7,6 @@ export const TITLE = "Clients & pets";
 
 export const SUBTITLE = "1,284 clients · 1,902 pets";
 
-export const IMPORT_LABEL = "Import from Excel";
-
 export const NEW_LABEL = "New client";
 
 export const FILTERS_LABEL = "Kind of account";
