@@ -9,7 +9,7 @@ export const STOCK_STATUS_VIEWS: Record<StockStatus, StatusView> = {
   "out-of-stock": { tone: "error", icon: XCircle, label: "Out of stock" },
   "low-stock": { tone: "warning", icon: AlertTriangle, label: "Low stock" },
   "expired-blocked": { tone: "error", icon: Lock, label: "Expired · blocked" },
-  "expires-soon": { tone: "warning", icon: Clock, label: "Expires in 60 days" },
+  "expires-soon": { tone: "warning", icon: Clock, label: "Expires in 52 days" },
   available: { tone: "success", icon: Check, label: "Available" },
-  "use-first": { tone: "warning", icon: Clock, label: "Use first · 60 days" },
+  "use-first": { tone: "warning", icon: Clock, label: "Use first · 52 days" },
 };

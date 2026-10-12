@@ -31,7 +31,7 @@ export function SessionsCard({ sessions, signOutSession, signOutOthers }: Sessio
             icon={session.current ? Grid : Phone}
             title={session.device}
             note={session.detail}
-            badge={session.current ? <Badge tone="info">{CURRENT_LABEL}</Badge> : undefined}
+            badge={session.current ? <Badge tone="brand">{CURRENT_LABEL}</Badge> : undefined}
             action={
               session.current ? undefined : (
                 <Button type="button" variant="tertiary" size="small" onClick={() => signOutSession(session.id)}>

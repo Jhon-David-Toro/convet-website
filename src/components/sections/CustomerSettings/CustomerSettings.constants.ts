@@ -61,7 +61,7 @@ export const FIXED_CHANNELS: SettingsChannel[] = ["inApp"];
 export const DISABLED_CHANNELS: SettingsChannel[] = ["whatsapp"];
 
 export const LEGEND = [
-  { badge: "In-app", tone: "info", text: "Shown in the bell and on /notifications." },
+  { badge: "In-app", tone: "brand", text: "Shown in the bell and on /notifications." },
   { badge: "Email · planned", tone: "warning", text: "Your choice is saved: sending needs the email service." },
   { badge: "WhatsApp · proposal", tone: "neutral", text: "Not available yet. Today we only open a WhatsApp chat link." },
 ] as const;

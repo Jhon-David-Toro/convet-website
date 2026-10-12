@@ -43,7 +43,7 @@
   margin: 0;
   color: var(--color-text-heading);
 
-  @include typography.style("heading-h3");
+  @include typography.style("heading-h4");
 }
 
 .status {

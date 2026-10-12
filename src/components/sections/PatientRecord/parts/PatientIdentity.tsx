@@ -1,11 +1,11 @@
 import { Badge } from "@/components/ui/Badge";
-import { AlertTriangle, Clock } from "@/components/ui/Icon";
+import { AlertTriangle, Clock, Icon } from "@/components/ui/Icon";
 
 import type { PatientIdentityProps } from "../PatientRecord.types";
 import styles from "../PatientRecord.module.scss";
 
 /**
- * Name of the patient with the rabies status, its description and the allergy.
+ * Name of the patient with the rabies status, its description and the allergy on a red background.
  *
  * @param props Props of the component, see {@link PatientIdentityProps}.
  * @param props.patient Patient of the record.
@@ -23,9 +23,10 @@ export function PatientIdentity({ patient }: PatientIdentityProps) {
         </Badge>
       </div>
       <p className={styles.description}>{patient.description}</p>
-      <Badge tone="error" icon={AlertTriangle}>
+      <p className={styles.allergy}>
+        <Icon icon={AlertTriangle} tone="error" />
         {patient.allergy}
-      </Badge>
+      </p>
     </div>
   );
 }

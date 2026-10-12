@@ -90,7 +90,11 @@
 .name {
   color: var(--color-text-heading);
 
-  @include typography.style("display-m");
+  @include typography.style("heading-h2");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
 }
 
 .meta {
@@ -109,7 +113,7 @@
   background-color: var(--color-error-soft);
   color: var(--color-error-strong);
 
-  @include typography.style("body-s-strong");
+  @include typography.style("label-m");
 }
 
 .facts {
@@ -141,8 +145,7 @@
 }
 
 .fact .mono {
-  font-family: var(--font-family-data);
-  font-weight: var(--font-weight-regular, 400);
+  @include typography.style("data-m");
 }
 
 /* Tabs scroll sideways on small screens */
@@ -260,7 +263,7 @@
 }
 
 .stampName {
-  @include typography.style("label-m");
+  @include typography.style("overline");
 }
 
 .stampDate {
@@ -314,6 +317,11 @@
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-xl);
   background-color: var(--color-background-surface);
+}
+
+/* Upcoming appointment: its title is a small heading, not the card title */
+.upcoming .cardTitle {
+  @include typography.style("heading-h5");
 }
 
 a.mobileBook {
@@ -372,7 +380,7 @@ a.mobileBook {
   strong {
     color: var(--color-text-heading);
 
-    @include typography.style("display-m");
+    @include typography.style("numeric-l");
   }
 
   span {

@@ -25,7 +25,7 @@ describe("ProductLots", () => {
   it("shows the product, its figures, its lots and the note about movements", () => {
     renderPage();
     expect(screen.getByRole("heading", { level: 1, name: "Rabies vaccine, inactivated" })).toBeInTheDocument();
-    expect(screen.getByText("60 days")).toBeInTheDocument();
+    expect(screen.getByText("52 days")).toBeInTheDocument();
     expect(screen.getByRole("table", { name: "Lots" })).toBeInTheDocument();
     expect(screen.getByText("Expired · blocked")).toBeInTheDocument();
     expect(screen.getByText("Stock can't be edited directly")).toBeInTheDocument();
@@ -51,7 +51,7 @@ describe("ProductLots", () => {
 describe("product lots utils", () => {
   it("builds the path and the figures", () => {
     expect(productCrumbs(PRODUCT_DETAIL).map((crumb) => crumb.label)).toEqual(["Stock", "Vaccines", "Rabies vaccine, inactivated"]);
-    expect(productStats(PRODUCT_DETAIL).map((stat) => stat.value)).toEqual([26, "60 days", 2]);
+    expect(productStats(PRODUCT_DETAIL).map((stat) => stat.value)).toEqual([26, "52 days", 2]);
   });
 
   it("signs the quantity of a movement", () => {

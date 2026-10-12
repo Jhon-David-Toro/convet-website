@@ -74,7 +74,7 @@
 .name {
   color: var(--color-text-heading);
 
-  @include typography.style("display-m");
+  @include typography.style("heading-h2");
 
   @include desktop {
     @include typography.style("display-l");
@@ -101,13 +101,28 @@
   }
 }
 
+/* Medical alert of the patient on a red background */
+.allergy {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-12);
+  border-radius: var(--radius-md);
+  background-color: var(--color-error-soft);
+  color: var(--color-error-strong);
+
+  @include typography.style("label-m");
+}
+
 .fact {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-4);
 
   dt {
-    color: var(--color-text-secondary);
+    color: var(--color-text-tertiary);
 
     @include typography.style("overline");
   }
@@ -121,7 +136,7 @@
   }
 }
 
-.mono {
+.fact .mono {
   @include typography.style("data-m");
 }
 
@@ -254,7 +269,7 @@
 }
 
 .clinicalLabel {
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
 
   @include typography.style("overline");
 }

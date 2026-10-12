@@ -146,8 +146,8 @@ export const WEIGHT_HISTORY: Record<string, WeightPoint[]> = {
 };
 
 export const CUSTOMER_APPOINTMENTS: CustomerAppointment[] = [
-  { id: "rabies-booster", iso: "2026-10-09", startTime: "9:30 AM", vetId: "shirley", serviceId: "vaccinations", status: "upcoming", month: "Oct", day: "09", weekday: "Fri", service: "Rabies booster", time: "9:30 AM · 20 min", pet: "Luna", vet: "Dr. Shirley", location: "CONVET · Aruba" },
-  { id: "annual-checkup", iso: "2026-11-12", startTime: "10:30 AM", vetId: "larry", serviceId: "consultations", status: "upcoming", month: "Nov", day: "12", weekday: "Thu", service: "Annual check-up", time: "10:30 AM · 30 min", pet: "Milo", vet: "Dr. Larry", location: "CONVET · Aruba" },
+  { id: "rabies-booster", iso: "2026-10-09", startTime: "9:30 AM", vetId: "shirley", serviceId: "vaccinations", status: "today", month: "Oct", day: "09", weekday: "Fri", service: "Rabies booster", time: "9:30 AM · 20 min", pet: "Luna", vet: "Dr. Shirley", location: "Main clinic" },
+  { id: "annual-checkup", iso: "2026-11-14", startTime: "10:30 AM", vetId: "larry", serviceId: "consultations", status: "upcoming", month: "Nov", day: "14", weekday: "Sat", service: "Annual check-up", time: "10:30 AM · 30 min", pet: "Milo", vet: "Dr. Larry", location: "Main clinic" },
 ];
 
 export const CUSTOMER_REMINDERS: CustomerReminder[] = [

@@ -202,7 +202,7 @@ export function confirmedAppointment(selection: BookingSelection) {
     time: `${selection.time} · ${service?.duration} min`,
     pet: petName(selection.petId),
     vet: agendaVet(selection.vetId).name,
-    location: "CONVET · Aruba",
+    location: "Main clinic",
   };
 }
 

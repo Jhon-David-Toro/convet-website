@@ -40,7 +40,7 @@ export const INVENTORY_ALERTS: InventoryAlert[] = [
 export const VET_DAYS: VetDay[] = [
   { id: "shirley", name: "Dr. Shirley", photo: "dr-shirley", summary: "5 appointments · 2 done · 1 in progress" },
   { id: "larry", name: "Dr. Larry", photo: "dr-larry", summary: "5 appointments · 1 done · 1 arrived" },
-  { id: "andreina", name: "Dr. Andreina", photo: "dr-andreina", summary: "4 appointments · 1 done · 1 in progress" },
+  { id: "susana", name: "Dr. Susana", photo: "dr-andreina", summary: "4 appointments · 1 done · 1 in progress" },
 ];
 
 export const ADMIN_CLIENTS: AdminClient[] = [
@@ -77,7 +77,7 @@ export const PRODUCT_DETAIL: ProductDetail = {
   overline: "Medication · Vaccines · SKU MED-VAC-RAB-01 · UUID 3F9C2A71-5B0E-4C1D-9A8F-61E4B2D7A21E",
   description: "1 mL single-dose vial · tracks lots and expiry · prescription only",
   usable: { value: 26, caption: "doses · minimum 10" },
-  nextExpiry: { value: "60 days", caption: "RB-24187 · Nov 30, 2026" },
+  nextExpiry: { value: "52 days", caption: "RB-24187 · Nov 30, 2026" },
   blocked: { value: 2, caption: "expired · RB-23990" },
   lots: [
     { code: "RB-24187", expiry: "Nov 30, 2026", supplier: "Caribbean Vet Supply", received: "Mar 14, 2026", onHand: 6, status: "use-first" },

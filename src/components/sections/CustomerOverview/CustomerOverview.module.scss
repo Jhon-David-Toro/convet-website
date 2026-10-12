@@ -23,8 +23,14 @@
   margin: 0;
   color: var(--color-text-heading);
 
-  @include typography.style("heading-h4");
+  @include typography.style("heading-h5");
 
+  @include desktop {
+    @include typography.style("heading-h4");
+  }
+}
+
+.petsTitle {
   @include desktop {
     @include typography.style("heading-h3");
   }
@@ -95,7 +101,7 @@ a.mobileBook {
   color: var(--color-text-brand);
   text-decoration: none;
 
-  @include typography.style("subtitle-m");
+  @include typography.style("body-m-strong");
 }
 
 .addIcon {
