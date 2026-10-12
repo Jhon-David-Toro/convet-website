@@ -34,6 +34,8 @@ export const TOP_BAR_TITLES: Record<string, string> = {
   [CUSTOMER_PETS_HREF]: "My pets",
   [CUSTOMER_APPOINTMENTS_HREF]: "Appointments",
   [CUSTOMER_PROFILE_HREF]: "Profile",
+  [CUSTOMER_RECORDS_HREF]: "Health records",
+  [CUSTOMER_SETTINGS_HREF]: "Settings",
 };
 
 export const FALLBACK_TITLE = "CONVET";

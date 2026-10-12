@@ -49,6 +49,6 @@ describe("CustomerShell on the home page", () => {
   });
 
   it("falls back to the brand name for a page without title", () => {
-    expect(topBarFor("/app/health-records")).toEqual({ title: "CONVET" });
+    expect(topBarFor("/app/unknown-page")).toEqual({ title: "CONVET" });
   });
 });

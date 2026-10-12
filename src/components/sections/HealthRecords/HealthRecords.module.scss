@@ -1,0 +1,293 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Health records: pet switch, summary card, figures, then history (left) and medications and diagnoses (right) from desktop */
+.switch {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.switchLabel {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.switchNote {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-tertiary);
+
+  @include typography.style("caption");
+}
+
+.sample {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding-inline: var(--spacing-12);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+
+  @include typography.style("overline");
+}
+
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-24);
+    padding: var(--spacing-24);
+  }
+}
+
+.summary .avatar {
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 auto;
+
+  @include tablet {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.identity {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.nameRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.name,
+.description,
+.born {
+  margin: 0;
+}
+
+.name {
+  color: var(--color-text-heading);
+
+  @include typography.style("display-m");
+}
+
+.description {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m");
+}
+
+.born {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--spacing-16);
+  margin: 0;
+
+  @include tablet {
+    display: flex;
+    gap: var(--spacing-24);
+  }
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  dt {
+    color: var(--color-text-secondary);
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+    white-space: nowrap;
+
+    @include typography.style("body-m-strong");
+  }
+}
+
+.mono {
+  @include typography.style("data-m");
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: minmax(0, 1fr) 24.5rem;
+    gap: var(--spacing-32);
+  }
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.year {
+  margin: 0 0 var(--spacing-12);
+  color: var(--color-text-secondary);
+
+  @include typography.style("overline");
+}
+
+.events {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.medications,
+.diagnoses {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.medication {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-12);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+}
+
+.medicationText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.medicationName,
+.medicationDetail,
+.diagnosisTitle,
+.diagnosisMeta,
+.diagnosisText {
+  margin: 0;
+}
+
+.medicationName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.medicationDetail,
+.diagnosisMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.diagnoses {
+  gap: var(--spacing-12);
+}
+
+.diagnosis {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-brand);
+}
+
+.diagnosisTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
+
+.diagnosisText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.emptyCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-12);
+}

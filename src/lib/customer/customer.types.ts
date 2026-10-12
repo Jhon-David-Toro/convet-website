@@ -85,3 +85,37 @@ export type NotificationSetting = {
   enabled: boolean;
   disabled?: boolean;
 };
+
+export type RecordStat = {
+  value: string;
+  caption: string;
+  tone?: "default" | "warning";
+};
+
+export type RecordMedication = {
+  name: string;
+  detail: string;
+  active: boolean;
+};
+
+export type RecordDiagnosis = {
+  title: string;
+  meta: string;
+  text: string;
+};
+
+export type PetHealthRecord = {
+  petId: string;
+  description: string;
+  born: string;
+  primaryVet: string;
+  weightLabel: string;
+  vaccines: RecordStat;
+  treatments: RecordStat;
+  lastVisit: RecordStat;
+  nextAppointment: RecordStat;
+  events: PetEvent[];
+  medications: RecordMedication[];
+  diagnoses: RecordDiagnosis[];
+  firstVisit?: string;
+};
