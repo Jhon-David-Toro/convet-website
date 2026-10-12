@@ -2,6 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
+import { ToastProvider } from "@/components/ui/Toast";
 import { pickOption } from "@/test/pickOption";
 
 import { StaffPatients } from "./StaffPatients";
@@ -46,6 +47,27 @@ describe("StaffPatients", () => {
     expect(screen.getAllByRole("row")).toHaveLength(7);
   });
 
+  it("asks to confirm before archiving a patient from the menu", async () => {
+    render(
+      <ToastProvider>
+        <StaffPatients />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Actions for Luna" }));
+    await userEvent.click(screen.getByRole("menuitem", { name: "Archive patient" }));
+    expect(screen.getByRole("dialog", { name: "Archive Luna?" })).toBeInTheDocument();
+  });
+
+  it("opens the new patient dialog", async () => {
+    render(
+      <ToastProvider>
+        <StaffPatients />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "New patient" }));
+    expect(screen.getByRole("dialog", { name: "New patient" })).toBeInTheDocument();
+  });
+
   it("opens the menu of a row with its actions", async () => {
     render(<StaffPatients />);
     await userEvent.click(screen.getByRole("button", { name: "Actions for Luna" }));
@@ -62,6 +84,6 @@ describe("patients utils", () => {
 
   it("writes the breed line and builds the menu of a row", () => {
     expect(breedLine({ species: "bird", breed: "Lovebird" } as Parameters<typeof breedLine>[0])).toBe("Bird · Lovebird");
-    expect(rowMenuItems().at(-1)?.tone).toBe("destructive");
+    expect(rowMenuItems(() => {}).at(-1)?.tone).toBe("destructive");
   });
 });

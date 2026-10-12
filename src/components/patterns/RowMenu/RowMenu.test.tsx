@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { Eye, Trash } from "@/components/ui/Icon";
 
@@ -12,6 +12,15 @@ const ITEMS = [
 ];
 
 describe("RowMenu", () => {
+  it("runs the function of an action that is not a link and closes", async () => {
+    const onSelect = vi.fn();
+    render(<RowMenu label="Actions" items={[{ label: "Archive", icon: Trash, onSelect }]} />);
+    await userEvent.click(screen.getByRole("button", { name: "Actions" }));
+    await userEvent.click(screen.getByRole("menuitem", { name: "Archive" }));
+    expect(onSelect).toHaveBeenCalledTimes(1);
+    expect(screen.queryByRole("menu")).not.toBeInTheDocument();
+  });
+
   it("opens the actions from its button and links each one", async () => {
     render(<RowMenu label="Actions for Luna" items={ITEMS} />);
     expect(screen.queryByRole("menu")).not.toBeInTheDocument();

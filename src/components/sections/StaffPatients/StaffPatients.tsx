@@ -3,7 +3,7 @@
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
-import { Button } from "@/components/ui/Button";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Plus } from "@/components/ui/Icon";
 import { Pagination } from "@/components/ui/Pagination";
 
@@ -28,9 +28,9 @@ export function StaffPatients() {
         subtitle={SUBTITLE}
         compactHidden
         actions={
-          <Button type="button" leadingIcon={Plus}>
+          <ModalButton modal="patient" leadingIcon={Plus}>
             {NEW_PATIENT_LABEL}
-          </Button>
+          </ModalButton>
         }
       />
       <StatGrid stats={STATS} mobileHidden />

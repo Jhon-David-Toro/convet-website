@@ -6,6 +6,7 @@ import { EmailModal } from "@/components/sections/EmailModal";
 import { InviteModal } from "@/components/sections/InviteModal";
 import { NewClientModal } from "@/components/sections/ClientModal/NewClientModal";
 import { PasswordModal } from "@/components/sections/PasswordModal";
+import { PatientModal } from "@/components/sections/PatientModal";
 import { ProductModal } from "@/components/sections/ProductModal";
 import { ServiceModal } from "@/components/sections/ServiceModal";
 import { SupplierModal } from "@/components/sections/SupplierModal";
@@ -23,4 +24,5 @@ export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps
   "delete-account": DeleteAccountModal,
   invite: InviteModal,
   "time-off": TimeOffModal,
+  patient: PatientModal,
 };

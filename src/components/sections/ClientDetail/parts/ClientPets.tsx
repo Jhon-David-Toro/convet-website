@@ -1,5 +1,5 @@
 import { PetCard } from "@/components/patterns/PetCard";
-import { Button } from "@/components/ui/Button";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Plus } from "@/components/ui/Icon";
 import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 
@@ -32,9 +32,9 @@ export function ClientPets({ pets }: ClientPetsProps) {
           href={`${STAFF_PATIENTS_HREF}/${id}`}
         />
       ))}
-      <Button type="button" variant="tertiary" size="small" leadingIcon={Plus} className={styles.addPet}>
+      <ModalButton modal="patient" variant="tertiary" size="small" leadingIcon={Plus} className={styles.addPet}>
         {ADD_PET_LABEL}
-      </Button>
+      </ModalButton>
     </section>
   );
 }

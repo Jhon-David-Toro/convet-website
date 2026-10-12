@@ -63,9 +63,10 @@ export function patientHref(): string {
 /**
  * Actions of the "..." menu of a row.
  *
+ * @param onArchive Called when the archive action is chosen.
  * @returns The items of the menu; the last one is destructive.
  */
-export function rowMenuItems(): RowMenuItem[] {
+export function rowMenuItems(onArchive: () => void): RowMenuItem[] {
   const record = patientHref();
   return [
     { label: "View patient record", icon: Eye, href: record },
@@ -73,7 +74,7 @@ export function rowMenuItems(): RowMenuItem[] {
     { label: "Edit patient", icon: Edit, href: record },
     { label: "Book appointment", icon: Calendar, href: STAFF_NEW_APPOINTMENT_HREF },
     { label: "View owner (client)", icon: User, href: `${STAFF_CLIENTS_HREF}/${STAFF_CLIENT.id}` },
-    { label: "Archive patient", icon: Trash, href: record, tone: "destructive" },
+    { label: "Archive patient", icon: Trash, onSelect: onArchive, tone: "destructive" },
   ];
 }
 

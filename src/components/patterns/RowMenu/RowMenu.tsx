@@ -18,7 +18,7 @@ import styles from "./RowMenu.module.scss";
  *
  * @param props Props of the component, see {@link RowMenuProps}.
  * @param props.label Accessible name of the button.
- * @param props.items Actions of the menu; each one leads to a page.
+ * @param props.items Actions of the menu; each one leads to a page or runs a function.
  * @param props.className Extra class name for the root element.
  * @returns The rendered element.
  */
@@ -30,13 +30,31 @@ export function RowMenu({ label, items, className }: RowMenuProps) {
       <IconButton icon={More} label={label} variant="ghost" aria-haspopup={MENU_ROLE} aria-expanded={open} onClick={toggle} />
       {open && (
         <Dropdown role={MENU_ROLE} aria-label={label} className={styles.menu}>
-          {items.map((item) => (
-            <Link key={item.label} href={item.href} role="menuitem" className={styles.link} onClick={close}>
+          {items.map((item) => {
+            const content = (
               <MenuItem icon={item.icon} tone={item.tone}>
                 {item.label}
               </MenuItem>
-            </Link>
-          ))}
+            );
+            return item.href ? (
+              <Link key={item.label} href={item.href} role="menuitem" className={styles.link} onClick={close}>
+                {content}
+              </Link>
+            ) : (
+              <button
+                key={item.label}
+                type="button"
+                role="menuitem"
+                className={styles.link}
+                onClick={() => {
+                  close();
+                  item.onSelect?.();
+                }}
+              >
+                {content}
+              </button>
+            );
+          })}
         </Dropdown>
       )}
     </div>

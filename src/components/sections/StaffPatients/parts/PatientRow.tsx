@@ -1,6 +1,10 @@
+"use client";
+
 import { RowMenu } from "@/components/patterns/RowMenu";
 import { StackedCell } from "@/components/patterns/StackedCell";
 import { TableCell } from "@/components/patterns/Table";
+import { ArchivePatientModal } from "@/components/sections/ArchivePatientModal";
+import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import { ACTIONS_LABEL_PREFIX } from "../StaffPatients.constants";
 import type { PatientRowProps } from "../StaffPatients.types";
@@ -16,6 +20,8 @@ import styles from "../StaffPatients.module.scss";
  * @returns The rendered element.
  */
 export function PatientRow({ patient }: PatientRowProps) {
+  const archive = useDisclosure();
+
   return (
     <tr>
       <TableCell type="avatar" avatar={patient.species} secondary={breedLine(patient)}>
@@ -35,7 +41,8 @@ export function PatientRow({ patient }: PatientRowProps) {
         <VaccineBadge vaccine={patient.vaccine} vaccineLabel={patient.vaccineLabel} />
       </TableCell>
       <TableCell className={styles.menuCell}>
-        <RowMenu label={`${ACTIONS_LABEL_PREFIX} ${patient.name}`} items={rowMenuItems()} />
+        <RowMenu label={`${ACTIONS_LABEL_PREFIX} ${patient.name}`} items={rowMenuItems(archive.show)} />
+        <ArchivePatientModal open={archive.open} onClose={archive.hide} patient={patient} />
       </TableCell>
     </tr>
   );

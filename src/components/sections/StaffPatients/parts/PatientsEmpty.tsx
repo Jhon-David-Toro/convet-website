@@ -1,3 +1,4 @@
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Plus, Search, X } from "@/components/ui/Icon";
@@ -24,9 +25,9 @@ export function PatientsEmpty({ query, onClear }: PatientsEmptyProps) {
       message={EMPTY_MESSAGE}
       action={
         <div className={styles.emptyActions}>
-          <Button type="button" leadingIcon={Plus}>
+          <ModalButton modal="patient" leadingIcon={Plus}>
             {EMPTY_ADD_LABEL}
-          </Button>
+          </ModalButton>
           <Button type="button" variant="secondary" leadingIcon={X} onClick={onClear}>
             {EMPTY_CLEAR_LABEL}
           </Button>

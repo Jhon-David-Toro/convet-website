@@ -1,0 +1,1 @@
+export { ArchivePatientModal } from "./ArchivePatientModal";
