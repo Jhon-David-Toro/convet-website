@@ -40,6 +40,7 @@
   @include on-focus {
     border-width: var(--border-width-strong);
     border-color: var(--color-border-focus);
+    outline: none;
   }
 
   &[aria-invalid="true"] {

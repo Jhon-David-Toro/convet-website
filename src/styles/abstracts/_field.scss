@@ -3,8 +3,8 @@
 
 /*
  * Figma form control (Input/*): height 48, horizontal padding 16, MD radius,
- * 1px border. Hover = strong border; Focus = 2px blue border (+ global ring);
- * Error = 2px red border; Disabled = Muted background.
+ * 1px border. Hover = strong border; Focus = 2px blue border; Error = 2px red border;
+ * Disabled = Muted background. The border is the focus indicator, so the global ring is off here (border + ring was too heavy).
  */
 @mixin field-control {
   box-sizing: border-box;
@@ -32,6 +32,7 @@
   @include states.on-focus {
     border-width: var(--border-width-strong);
     border-color: var(--color-border-focus);
+    outline: none;
   }
 
   &[aria-invalid="true"] {
