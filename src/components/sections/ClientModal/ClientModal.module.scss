@@ -1,0 +1,30 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Client dialog: first and last name side by side from tablet; the invitation note of the confirmation */
+.names {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.invitation {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-feedback-info-background);
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+
+  strong {
+    color: var(--color-text-heading);
+  }
+}

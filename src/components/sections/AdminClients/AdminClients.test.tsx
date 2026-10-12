@@ -6,6 +6,12 @@ import { AdminClients } from "./AdminClients";
 import { clientsFor } from "./AdminClients.utils";
 
 describe("AdminClients", () => {
+  it("opens the new client dialog", async () => {
+    render(<AdminClients />);
+    await userEvent.click(screen.getByRole("button", { name: "New client" }));
+    expect(screen.getByRole("dialog", { name: "New client" })).toBeInTheDocument();
+  });
+
   it("lists the clients with their accounts and the pagination", () => {
     render(<AdminClients />);
     expect(screen.getByRole("heading", { level: 1, name: "Clients & pets" })).toBeInTheDocument();

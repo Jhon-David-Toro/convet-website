@@ -20,6 +20,7 @@ export type ModalPlacement = "center" | "end";
 export type ModalProps = Omit<ModalPanelProps, "titleId" | "descriptionId" | "ref" | "className"> & {
   open: boolean;
   placement?: ModalPlacement;
+  width?: string;
   onClose: () => void;
 };
 

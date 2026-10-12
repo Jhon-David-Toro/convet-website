@@ -3,7 +3,7 @@
 
 /* Native <dialog> without its own chrome: the panel provides the surface */
 .dialog {
-  width: min(30rem, calc(100% - var(--spacing-32)));
+  width: min(var(--modal-width, 30rem), calc(100% - var(--spacing-32)));
   max-width: none;
   max-height: none;
   padding: 0;

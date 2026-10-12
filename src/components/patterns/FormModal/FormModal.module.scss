@@ -1,0 +1,6 @@
+/* Form/Modal: the fields one under the other, 16px apart */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}

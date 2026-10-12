@@ -1,4 +1,4 @@
-import { EMAIL_ERROR, EMAIL_PATTERN } from "./validation.constants";
+import { EMAIL_ERROR, EMAIL_PATTERN, PHONE_ERROR, PHONE_PATTERN } from "./validation.constants";
 
 /**
  * Error message of an email address.
@@ -39,4 +39,14 @@ export function onlyErrors<Field extends string>(messages: Record<Field, string 
  */
 export function hasErrors(errors: object): boolean {
   return Object.keys(errors).length > 0;
+}
+
+/**
+ * Error message of a phone number: it needs the country code.
+ *
+ * @param phone Number typed by the user.
+ * @returns The message, or `undefined` when the number starts with a country code and has enough digits.
+ */
+export function validatePhone(phone: string): string | undefined {
+  return PHONE_PATTERN.test(phone.trim()) ? undefined : PHONE_ERROR;
 }
