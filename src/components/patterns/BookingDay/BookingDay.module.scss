@@ -57,6 +57,12 @@
   background-color: var(--color-brand-accent);
 }
 
+/* In the 44 px cell the number is wide, so the dot goes to the very corner to stay clear of it */
+.compact .dot {
+  top: var(--spacing-4);
+  right: var(--spacing-4);
+}
+
 .selected {
   --day-bg: var(--color-action-primary);
   --day-border: var(--color-action-primary);
