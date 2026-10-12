@@ -159,3 +159,25 @@ export type StaffVisitForm = {
   lastVisit: { title: string; text: string; document: string };
   draftSaved: string;
 };
+
+export type PatientSpecies = "dog" | "cat" | "bird" | "horse";
+
+export type PatientVaccineStatus = "due" | "ok" | "overdue" | "none" | "not-required";
+
+export type StaffPatientRow = {
+  id: string;
+  name: string;
+  species: PatientSpecies;
+  breed: string;
+  born: string;
+  age: string;
+  color: string;
+  owner: string;
+  phone: string;
+  nextWhen: string;
+  nextWhat: string;
+  nextShort: string;
+  vetId: string;
+  vaccine: PatientVaccineStatus;
+  vaccineLabel: string;
+};

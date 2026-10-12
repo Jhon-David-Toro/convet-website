@@ -15,13 +15,15 @@ export function isActivePath(base: string, pathname: string, homeHref: string): 
 }
 
 /**
- * Title (and back link) of the top bar on small screens: the most specific entry of the area that matches the page.
+ * Title (and back link) of the top bar on small screens: the entry of the area made for exactly this page, or else the most specific one that matches it.
  *
  * @param pathname Path of the current page.
  * @param config Configuration of the area.
  * @returns What the top bar shows.
  */
 export function topBarFor(pathname: string, config: ShellConfig): StaffTopBarConfig {
+  const exact = config.exactTitles?.[pathname];
+  if (exact) return exact;
   const matches = Object.keys(config.titles).filter((key) => key === pathname || (key !== config.homeHref && pathname.startsWith(`${key}/`)));
   const best = matches.sort((a, b) => b.length - a.length)[0];
   return best ? config.titles[best] : { title: FALLBACK_TITLE };

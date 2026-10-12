@@ -1,0 +1,1 @@
+export { StaffPatients } from "./StaffPatients";

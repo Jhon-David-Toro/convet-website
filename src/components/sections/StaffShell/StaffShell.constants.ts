@@ -27,7 +27,7 @@ export const SHELL_CONFIGS: Record<ShellVariant, ShellConfig> = {
         items: [
           { icon: Home, label: "Today", href: STAFF_HOME_HREF, base: STAFF_HOME_HREF },
           { icon: Calendar, label: "Schedule", href: STAFF_SCHEDULE_HREF, base: STAFF_SCHEDULE_HREF },
-          { icon: Paw, label: "Patients", href: `${STAFF_PATIENTS_HREF}/luna`, base: STAFF_PATIENTS_HREF },
+          { icon: Paw, label: "Patients", href: STAFF_PATIENTS_HREF, base: STAFF_PATIENTS_HREF },
           { icon: Users, label: "Clients", href: `${STAFF_CLIENTS_HREF}/anna-lee`, base: STAFF_CLIENTS_HREF },
         ],
       },
@@ -39,6 +39,9 @@ export const SHELL_CONFIGS: Record<ShellVariant, ShellConfig> = {
         ],
       },
     ],
+    exactTitles: {
+      [STAFF_PATIENTS_HREF]: { title: "Patients", subtitle: "Main clinic · 214" },
+    },
     titles: {
       [STAFF_HOME_HREF]: { title: "Today · Thu, Oct 1", subtitle: "Dr. Shirley · 5 appointments" },
       [STAFF_SCHEDULE_HREF]: { title: "Appointments", subtitle: "Main clinic · Thursday, October 1" },

@@ -1,0 +1,150 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Patients: search with the species, vet and vaccine lists (desktop), then the chips; cards on mobile, table from tablet */
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--spacing-16);
+  }
+}
+
+.search {
+  width: 100%;
+}
+
+.selects {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 10.625rem);
+    gap: var(--spacing-12);
+  }
+}
+
+.chips {
+  @include desktop {
+    grid-column: 1 / -1;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.tableOnly {
+  display: none;
+  min-width: 0;
+
+  @include tablet {
+    display: block;
+  }
+
+  /* Column widths of the design (256, 120, 88, 164, 196, 206 and 64px) */
+  th:nth-child(1) {
+    width: 16rem;
+  }
+
+  th:nth-child(2) {
+    width: 7.5rem;
+  }
+
+  th:nth-child(3) {
+    width: 5.5rem;
+  }
+
+  th:nth-child(4) {
+    width: 10.25rem;
+  }
+
+  th:nth-child(5) {
+    width: 12.25rem;
+  }
+
+  th:nth-child(6) {
+    width: 12.875rem;
+  }
+
+  th:nth-child(7) {
+    width: 4rem;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.cardPatient {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-12);
+}
+
+.cardNames {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardName {
+  color: var(--color-text-primary);
+  text-decoration: none;
+
+  @include typography.style("body-m-strong");
+}
+
+.cardMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.cardOwner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s");
+}
+
+.cardBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.menuCell {
+  width: 4rem;
+  text-align: right;
+}
+
+.emptyActions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-12);
+}

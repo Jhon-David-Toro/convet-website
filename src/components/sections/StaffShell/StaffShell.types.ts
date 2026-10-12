@@ -33,6 +33,7 @@ export type ShellConfig = {
   user: { name: string; role: string };
   branch: string;
   titles: Record<string, StaffTopBarConfig>;
+  exactTitles?: Record<string, StaffTopBarConfig>;
 };
 
 export type StaffPathProps = {
