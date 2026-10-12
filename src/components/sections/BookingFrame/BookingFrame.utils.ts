@@ -16,20 +16,21 @@ export function stepState(index: number, current: number): BookingStepState {
  * Text of the progress line on mobile, e.g. "Step 4 of 5 · Date & time".
  *
  * @param steps Names of the steps.
- * @param current Position of the current step, from 0.
+ * @param current Position of the current step, from 0; past the last step it shows the last one.
  * @returns The progress text.
  */
 export function progressLabel(steps: string[], current: number): string {
-  return `Step ${current + 1} of ${steps.length} · ${steps[current]}`;
+  const position = Math.min(current, steps.length - 1);
+  return `Step ${position + 1} of ${steps.length} · ${steps[position]}`;
 }
 
 /**
  * Share of the progress bar that is filled.
  *
  * @param steps Names of the steps.
- * @param current Position of the current step, from 0.
+ * @param current Position of the current step, from 0; past the last step the bar is full.
  * @returns A percentage from 0 to 100.
  */
 export function progressPercent(steps: string[], current: number): number {
-  return ((current + 1) / steps.length) * 100;
+  return (Math.min(current + 1, steps.length) / steps.length) * 100;
 }

@@ -54,4 +54,9 @@ describe("booking frame utils", () => {
     expect(progressLabel(steps, 3)).toBe("Step 4 of 5 · Date & time");
     expect(progressPercent(steps, 3)).toBe(80);
   });
+
+  it("keeps the last step and a full bar once everything is done", () => {
+    expect(progressLabel(steps, steps.length)).toBe(`Step ${steps.length} of ${steps.length} · ${steps[steps.length - 1]}`);
+    expect(progressPercent(steps, steps.length)).toBe(100);
+  });
 });
