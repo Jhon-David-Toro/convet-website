@@ -7,15 +7,28 @@
   gap: var(--spacing-24);
 }
 
-/* Vet banner: info colors, avatar, text and the change button */
+/* Vet banner: info colors, avatar, text and the change button. On mobile everything is stacked and centered. */
 .banner {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: var(--spacing-12);
   padding: var(--spacing-16);
   border: var(--border-width-default) solid var(--color-info-border);
   border-radius: var(--radius-lg);
   background-color: var(--color-info-soft);
+
+  @include tablet {
+    flex-direction: row;
+  }
+}
+
+.banner > :first-child {
+  box-shadow: 0 0 0 var(--spacing-4) var(--color-background-surface);
+
+  @include tablet {
+    box-shadow: none;
+  }
 }
 
 .bannerText {
@@ -24,6 +37,11 @@
   flex-direction: column;
   gap: var(--spacing-4);
   min-width: 0;
+  text-align: center;
+
+  @include tablet {
+    text-align: start;
+  }
 }
 
 .bannerTitle,
