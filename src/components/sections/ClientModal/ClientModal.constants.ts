@@ -34,6 +34,10 @@ export const LAST_NAME_ERROR = "Enter the last name.";
 
 export const DONE_TITLE = "Client created";
 
+export const EDIT_DONE_TITLE = "Client updated";
+
+export const EDIT_SAVING_LABEL = "Saving…";
+
 export const INVITATION_TITLE = "Invitation email queued";
 
 export const OPEN_CLIENT_LABEL = "Open client";

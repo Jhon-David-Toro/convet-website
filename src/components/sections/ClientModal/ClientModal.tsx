@@ -14,6 +14,8 @@ import {
   ADD_PET_LABEL,
   DONE_LABEL,
   DONE_TITLE,
+  EDIT_DONE_TITLE,
+  EDIT_SAVING_LABEL,
   EDIT_SUBMIT_LABEL,
   EDIT_TITLE,
   EMAIL_HELPER,
@@ -73,7 +75,7 @@ function ClientDialog({ mode, onClose, initial = EMPTY_CLIENT, clientLabel }: Cl
       status={form.status}
       errorTitle={errorTitle(form.errorCount, mode)}
       submitLabel={isNew ? NEW_SUBMIT_LABEL : EDIT_SUBMIT_LABEL}
-      savingLabel={NEW_SAVING_LABEL}
+      savingLabel={isNew ? NEW_SAVING_LABEL : EDIT_SAVING_LABEL}
       onClose={onClose}
       onSubmit={form.submit}
       done={
@@ -102,7 +104,7 @@ function ClientDialog({ mode, onClose, initial = EMPTY_CLIENT, clientLabel }: Cl
                 </>
               ),
             }
-          : { title: DONE_TITLE, actions: <Button onClick={onClose}>{DONE_LABEL}</Button> }
+          : { title: EDIT_DONE_TITLE, description: `${name} was updated.`, actions: <Button onClick={onClose}>{DONE_LABEL}</Button> }
       }
     >
       <div className={styles.names}>

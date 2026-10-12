@@ -54,6 +54,22 @@ describe("ClientModal", () => {
     expect(screen.queryByRole("checkbox")).not.toBeInTheDocument();
     expect(screen.getByRole("button", { name: "Save changes" })).toBeInTheDocument();
   });
+
+  it("confirms an edit as updated, not created", async () => {
+    render(
+      <ClientModal
+        open
+        mode="edit"
+        onClose={() => {}}
+        initial={{ firstName: "Anna", lastName: "Lee", email: "anna@example.com", phone: "+297 560 1234", address: "", invite: false }}
+        clientLabel="Anna Lee"
+      />,
+    );
+    await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
+    act(() => void vi.advanceTimersByTime(900));
+    expect(screen.getByRole("dialog", { name: "Client updated" })).toBeInTheDocument();
+    expect(screen.getByText("Anna Lee was updated.")).toBeInTheDocument();
+  });
 });
 
 describe("client utils", () => {
