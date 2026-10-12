@@ -1,7 +1,7 @@
 @use "abstracts" as *;
 @use "abstracts/typography";
 
-/* Booking/Time Slot: 104×56, border 1.5, MD radius; time and capacity stacked */
+/* Booking/Time Slot: 104×56, border 2, MD radius; time and capacity stacked */
 .slot {
   --slot-bg: var(--color-background-surface);
   --slot-border: var(--color-border-default);
@@ -15,7 +15,7 @@
   min-width: 6.5rem;
   height: 3.5rem;
   padding: 0 var(--spacing-16);
-  border: var(--border-width-medium) solid var(--slot-border);
+  border: var(--border-width-strong) solid var(--slot-border);
   border-radius: var(--radius-md);
   background-color: var(--slot-bg);
   color: var(--slot-label);
