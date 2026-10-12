@@ -1,0 +1,58 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Dispense dialog: the product card, then the lot and the quantity side by side from tablet */
+.product {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-brand);
+}
+
+.icon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-accent-soft);
+  color: var(--color-brand-accent-ink);
+}
+
+.productText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.productName,
+.productMeta {
+  margin: 0;
+}
+
+.productName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.productMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

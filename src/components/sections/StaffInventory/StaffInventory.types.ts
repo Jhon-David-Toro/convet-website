@@ -1,4 +1,3 @@
-import type { MovementType } from "@/components/sections/StockMovementModal";
 import type { StaffInventoryRow } from "@/lib/staff/staff.types";
 
 export type InventoryFilters = {
@@ -27,10 +26,11 @@ export type InventoryState = {
   openProduct: (id: string) => void;
   closeProduct: () => void;
   adjustOpen: boolean;
-  adjustType: MovementType;
   openAdjust: () => void;
-  openDispense: () => void;
   closeAdjust: () => void;
+  dispenseOpen: boolean;
+  openDispense: () => void;
+  closeDispense: () => void;
 };
 
 export type InventoryRowsProps = {

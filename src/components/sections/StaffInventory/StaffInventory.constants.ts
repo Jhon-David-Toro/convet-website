@@ -8,10 +8,6 @@ import type { InventoryFilters } from "./StaffInventory.types";
 
 export const TITLE = "Inventory";
 
-export const ADJUSTMENT = "adjustment";
-
-export const CLINICAL_USE = "clinical-use";
-
 export const SUBTITLE = "Medications, supplements and veterinary products at Main clinic.";
 
 export const ADJUST_LABEL = "Adjust stock";

@@ -3,6 +3,7 @@
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
+import { DispenseModal } from "@/components/sections/DispenseModal";
 import { StockMovementModal } from "@/components/sections/StockMovementModal";
 import { Alert } from "@/components/ui/Alert";
 import { Button } from "@/components/ui/Button";
@@ -36,7 +37,7 @@ import styles from "./StaffInventory.module.scss";
 
 /**
  * Inventory page of the staff area: the figures of the stock, filters, the products with what is on hand, and a side panel with the detail of a product.
- * Adjust and Dispense open the stock movement dialog.
+ * Adjust opens the stock movement dialog and Dispense the dialog that gives out a medication.
  *
  * @returns The rendered element.
  */
@@ -96,9 +97,9 @@ export function StaffInventory() {
           onClose={state.closeAdjust}
           productName={lotsOwner.name}
           lots={movementLots(lotsOwner)}
-          initialType={state.adjustType}
         />
       )}
+      {lotsOwner && <DispenseModal open={state.dispenseOpen} onClose={state.closeDispense} product={lotsOwner} />}
     </PageStack>
   );
 }

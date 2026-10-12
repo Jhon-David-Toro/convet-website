@@ -54,6 +54,17 @@ describe("StaffInventory", () => {
     expect(screen.getByText("Edit product · admin only")).toBeInTheDocument();
   });
 
+  it("dispenses from the panel of a product", async () => {
+    render(
+      <ToastProvider>
+        <StaffInventory />
+      </ToastProvider>,
+    );
+    await userEvent.click(screen.getAllByRole("button", { name: "Open Carprofen 50 mg" })[0]);
+    await userEvent.click(screen.getByRole("button", { name: "Dispense" }));
+    expect(screen.getByRole("dialog", { name: "Dispense medication" })).toBeInTheDocument();
+  });
+
   it("opens the stock dialog from the page and from the panel", async () => {
     render(
       <ToastProvider>
