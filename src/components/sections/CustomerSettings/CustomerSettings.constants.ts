@@ -40,8 +40,6 @@ export const CHANGE_PASSWORD_LABEL = "Change password";
 
 export const PASSWORD_NOTE = "Last changed Mar 3, 2026";
 
-export const FORGOT_HREF = "/forgot-password";
-
 export const COMMUNICATION_TITLE = "Communication preferences";
 
 export const COMMUNICATION_NOTE = "Where we send confirmations and reminders.";

@@ -1,3 +1,4 @@
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { ArrowDownCircle, File, Shield, Trash } from "@/components/ui/Icon";
@@ -55,9 +56,9 @@ export function PrivacyCard() {
           title="Delete account"
           note={DELETE_NOTE}
           action={
-            <Button type="button" variant="destructive" size="small">
+            <ModalButton modal="delete-account" variant="destructive" size="small">
               {DELETE_LABEL}
-            </Button>
+            </ModalButton>
           }
         />
       </ul>

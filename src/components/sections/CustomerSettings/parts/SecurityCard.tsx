@@ -1,9 +1,9 @@
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Badge } from "@/components/ui/Badge";
-import { Button } from "@/components/ui/Button";
 import { Check, Lock, Mail } from "@/components/ui/Icon";
 import { SETTINGS_EMAIL } from "@/lib/customer/customer.settings.constants";
 
-import { CHANGE_EMAIL_LABEL, CHANGE_PASSWORD_LABEL, FORGOT_HREF, PASSWORD_NOTE, SECURITY_TITLE, VERIFIED_LABEL } from "../CustomerSettings.constants";
+import { CHANGE_EMAIL_LABEL, CHANGE_PASSWORD_LABEL, PASSWORD_NOTE, SECURITY_TITLE, VERIFIED_LABEL } from "../CustomerSettings.constants";
 import { SettingsRow } from "./SettingsRow";
 import styles from "../CustomerSettings.module.scss";
 
@@ -29,9 +29,9 @@ export function SecurityCard() {
             </Badge>
           }
           action={
-            <Button type="button" variant="secondary" size="small">
+            <ModalButton modal="email" variant="secondary" size="small">
               {CHANGE_EMAIL_LABEL}
-            </Button>
+            </ModalButton>
           }
         />
         <SettingsRow
@@ -39,9 +39,9 @@ export function SecurityCard() {
           title="Password"
           note={PASSWORD_NOTE}
           action={
-            <Button href={FORGOT_HREF} variant="secondary" size="small">
+            <ModalButton modal="password" variant="secondary" size="small">
               {CHANGE_PASSWORD_LABEL}
-            </Button>
+            </ModalButton>
           }
         />
       </ul>
