@@ -1,6 +1,6 @@
 import { ModalButton } from "@/components/sections/ModalButton";
 import { Button } from "@/components/ui/Button";
-import { Plus, Upload } from "@/components/ui/Icon";
+import { Upload } from "@/components/ui/Icon";
 
 import { IMPORT_LABEL, NEW_LABEL } from "../AdminClients.constants";
 
@@ -15,7 +15,7 @@ export function ClientsActions() {
       <Button type="button" variant="secondary" leadingIcon={Upload}>
         {IMPORT_LABEL}
       </Button>
-      <ModalButton modal="new-client" leadingIcon={Plus}>
+      <ModalButton modal="new-client" icon="plus">
         {NEW_LABEL}
       </ModalButton>
     </>

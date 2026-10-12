@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Alert } from "@/components/ui/Alert";
 import { ModalButton } from "@/components/sections/ModalButton";
-import { Mail } from "@/components/ui/Icon";
 import { TEAM_MEMBERS } from "@/lib/admin/admin.constants";
 
 import { COLUMNS, IDENTIFIERS_TEXT, IDENTIFIERS_TITLE, INVITE_LABEL, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminTeam.constants";
@@ -23,7 +22,7 @@ export function AdminTeam() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <ModalButton modal="invite" leadingIcon={Mail}>
+          <ModalButton modal="invite" icon="mail">
             {INVITE_LABEL}
           </ModalButton>
         }

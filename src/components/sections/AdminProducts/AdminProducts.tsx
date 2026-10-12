@@ -2,7 +2,6 @@ import { DataTable } from "@/components/patterns/DataTable";
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { ModalButton } from "@/components/sections/ModalButton";
-import { Plus } from "@/components/ui/Icon";
 import { CATALOG_ROWS } from "@/lib/admin/admin.constants";
 
 import { ADD_LABEL, COLUMNS, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminProducts.constants";
@@ -20,7 +19,7 @@ export function AdminProducts() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <ModalButton modal="product" leadingIcon={Plus}>
+          <ModalButton modal="product" icon="plus">
             {ADD_LABEL}
           </ModalButton>
         }

@@ -4,7 +4,6 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { StatGrid } from "@/components/patterns/StatGrid";
 import { ModalButton } from "@/components/sections/ModalButton";
-import { Plus } from "@/components/ui/Icon";
 import { Pagination } from "@/components/ui/Pagination";
 
 import { NEW_PATIENT_LABEL, PAGE_COUNT, PAGE_SIZE, STATS, SUBTITLE, TITLE, TOTAL } from "./StaffPatients.constants";
@@ -28,7 +27,7 @@ export function StaffPatients() {
         subtitle={SUBTITLE}
         compactHidden
         actions={
-          <ModalButton modal="patient" leadingIcon={Plus}>
+          <ModalButton modal="patient" icon="plus">
             {NEW_PATIENT_LABEL}
           </ModalButton>
         }

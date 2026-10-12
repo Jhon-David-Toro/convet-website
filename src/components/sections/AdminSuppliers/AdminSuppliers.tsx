@@ -3,7 +3,6 @@ import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { ModalButton } from "@/components/sections/ModalButton";
 import { Alert } from "@/components/ui/Alert";
-import { Plus } from "@/components/ui/Icon";
 import { SUPPLIERS } from "@/lib/admin/admin.constants";
 
 import { ADD_LABEL, COLUMNS, NOTE_TEXT, NOTE_TITLE, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminSuppliers.constants";
@@ -21,7 +20,7 @@ export function AdminSuppliers() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <ModalButton modal="supplier" leadingIcon={Plus}>
+          <ModalButton modal="supplier" icon="plus">
             {ADD_LABEL}
           </ModalButton>
         }

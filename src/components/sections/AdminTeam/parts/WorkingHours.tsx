@@ -1,6 +1,5 @@
 import { ModalButton } from "@/components/sections/ModalButton";
 import { Alert } from "@/components/ui/Alert";
-import { Calendar } from "@/components/ui/Icon";
 import { WORKING_DAYS, WORKING_HOURS_OWNER } from "@/lib/admin/admin.constants";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
 
@@ -20,7 +19,7 @@ export function WorkingHours() {
         <h2 id="team-hours" className={styles.hoursTitle}>
           {`${HOURS_TITLE_PREFIX} · ${WORKING_HOURS_OWNER}`}
         </h2>
-        <ModalButton modal="time-off" variant="secondary" size="small" leadingIcon={Calendar}>
+        <ModalButton modal="time-off" variant="secondary" size="small" icon="calendar">
           {ADD_TIME_OFF_LABEL}
         </ModalButton>
       </header>

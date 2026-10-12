@@ -5,7 +5,6 @@ import { useState } from "react";
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { ModalButton } from "@/components/sections/ModalButton";
-import { Plus } from "@/components/ui/Icon";
 import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
 
 import { NEW_LABEL, SUBTITLE, TITLE } from "./AdminServices.constants";
@@ -28,7 +27,7 @@ export function AdminServices() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <ModalButton modal="service" leadingIcon={Plus}>
+          <ModalButton modal="service" icon="plus">
             {NEW_LABEL}
           </ModalButton>
         }

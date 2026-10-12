@@ -1,5 +1,7 @@
 import type { ComponentType } from "react";
 
+import type { LucideIcon } from "lucide-react";
+
 import type { DialogControlProps } from "@/components/patterns/FormModal";
 import { DeleteAccountModal } from "@/components/sections/DeleteAccountModal";
 import { EmailModal } from "@/components/sections/EmailModal";
@@ -12,7 +14,9 @@ import { ServiceModal } from "@/components/sections/ServiceModal";
 import { SupplierModal } from "@/components/sections/SupplierModal";
 import { TimeOffModal } from "@/components/sections/TimeOffModal";
 
-import type { ModalKey } from "./ModalButton.types";
+import { Calendar, Mail, Plus } from "@/components/ui/Icon";
+
+import type { ModalIconKey, ModalKey } from "./ModalButton.types";
 
 export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps>> = {
   "new-client": NewClientModal,
@@ -26,3 +30,5 @@ export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps
   "time-off": TimeOffModal,
   patient: PatientModal,
 };
+
+export const MODAL_ICONS: Record<ModalIconKey, LucideIcon> = { plus: Plus, mail: Mail, calendar: Calendar };
