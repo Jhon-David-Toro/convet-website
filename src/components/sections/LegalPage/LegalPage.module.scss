@@ -1,0 +1,231 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Legal page: ivory hero, then the table of contents (240px, sticky) and the text (up to 760px) from desktop */
+.hero {
+  background-color: var(--color-background-brand);
+}
+
+.heroInner {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+  padding-block: var(--spacing-24) var(--spacing-32);
+
+  @include desktop {
+    padding-block: var(--spacing-32) var(--spacing-40);
+  }
+}
+
+.title,
+.intro {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
+}
+
+.intro {
+  max-width: 45rem;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+
+  @include desktop {
+    @include typography.style("body-l");
+  }
+}
+
+.badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-8);
+}
+
+.layout {
+  @include content-container;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-24);
+  padding-block: var(--spacing-24) var(--spacing-48);
+
+  @include desktop {
+    grid-template-columns: 15rem minmax(0, 47.5rem);
+    align-items: start;
+    gap: var(--spacing-48);
+    padding-block: var(--spacing-32) var(--spacing-64);
+  }
+}
+
+.toc {
+  display: none;
+
+  @include desktop {
+    position: sticky;
+    top: var(--spacing-24);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    padding: var(--spacing-16);
+    border: var(--border-width-default) solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    background-color: var(--color-background-surface);
+  }
+}
+
+.tocTitle {
+  margin: 0;
+  color: var(--color-text-tertiary);
+
+  @include typography.style("overline");
+}
+
+.tocList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tocLink {
+  display: flex;
+  gap: var(--spacing-8);
+  padding: var(--spacing-8);
+  border-radius: var(--radius-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+
+  @include typography.style("body-s");
+}
+
+.tocActive {
+  background-color: var(--color-brand-primary-subtle);
+  color: var(--color-text-brand);
+}
+
+.tocNumber {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("caption");
+}
+
+.jump {
+  @include desktop {
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+  min-width: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding-bottom: var(--spacing-32);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+  scroll-margin-top: var(--spacing-24);
+}
+
+.sectionTitle,
+.paragraph {
+  margin: 0;
+}
+
+.sectionTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h2");
+}
+
+.paragraph {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m");
+}
+
+.bullets {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    gap: var(--spacing-8);
+    color: var(--color-text-primary);
+
+    @include typography.style("body-m");
+  }
+}
+
+.related {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-brand);
+
+  @include desktop {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.relatedText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.relatedTitle,
+.relatedNote {
+  margin: 0;
+}
+
+.relatedTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.relatedNote {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.relatedActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}

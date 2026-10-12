@@ -1,0 +1,158 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Not found: ivory band with a paw watermark, the 404 and its text side by side from tablet, then the popular pages */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--color-background-brand);
+}
+
+.hero .pattern {
+  position: absolute;
+  top: -1.25rem;
+  right: -2.5rem;
+  width: 45rem;
+}
+
+.heroInner {
+  @include content-container;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-24);
+  padding-block: var(--spacing-32);
+
+  @include desktop {
+    flex-direction: row;
+    gap: var(--spacing-64);
+    padding-block: var(--spacing-96);
+  }
+}
+
+.code {
+  position: relative;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.digits {
+  color: var(--color-action-primary);
+  font-family: var(--font-family-display);
+  font-size: 7.5rem;
+  font-weight: 700;
+  line-height: 1;
+
+  @include desktop {
+    font-size: 11.25rem;
+  }
+}
+
+.paw {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  height: 3.5rem;
+  margin-top: calc(var(--spacing-24) * -1);
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-accent);
+  color: var(--color-text-heading);
+
+  @include desktop {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
+}
+
+.text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.title,
+.message,
+.note {
+  margin: 0;
+}
+
+.title {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h1");
+
+  @include desktop {
+    @include typography.style("display-l");
+  }
+}
+
+.message {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+
+  @include desktop {
+    @include typography.style("body-l");
+  }
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  width: 100%;
+
+  @include tablet {
+    flex-direction: row;
+    width: auto;
+  }
+}
+
+.note {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("body-s");
+}
+
+.popular {
+  @include content-container;
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding-block: var(--spacing-32) var(--spacing-48);
+
+  @include desktop {
+    padding-block: var(--spacing-48) var(--spacing-64);
+  }
+}
+
+.popularTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
