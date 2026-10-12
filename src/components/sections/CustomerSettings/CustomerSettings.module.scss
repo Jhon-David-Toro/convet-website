@@ -1,0 +1,182 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Settings: cards in one column; two columns from desktop (profile, security and communication | notifications, sessions and privacy) */
+.columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  gap: var(--spacing-24);
+
+  @include desktop {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-32);
+  }
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  min-width: 0;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-24);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.cardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h3");
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-4);
+  color: var(--color-feedback-success-text);
+
+  @include typography.style("caption");
+}
+
+.statusError {
+  color: var(--color-feedback-error-text);
+}
+
+.names {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+
+.note {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.rows {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-12);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+}
+
+.rowText {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  min-width: 0;
+}
+
+.rowTitle,
+.rowNote {
+  margin: 0;
+}
+
+.rowTitle {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-8);
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.rowNote {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.choices {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.choiceRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.notification {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding-block: var(--spacing-16);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+}
+
+.channels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
+  padding-inline-start: var(--spacing-48);
+}
+
+.legend {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-brand);
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-8);
+    color: var(--color-text-secondary);
+
+    @include typography.style("caption");
+  }
+}
+
+.signOutOthers {
+  align-self: flex-start;
+}

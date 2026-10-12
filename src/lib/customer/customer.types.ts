@@ -119,3 +119,28 @@ export type PetHealthRecord = {
   diagnoses: RecordDiagnosis[];
   firstVisit?: string;
 };
+
+export type SettingsChannel = "inApp" | "email" | "whatsapp";
+
+export type SettingsNotification = {
+  id: string;
+  title: string;
+  description: string;
+  enabled: boolean;
+  locked: boolean;
+  channels: Record<SettingsChannel, boolean>;
+};
+
+export type SettingsSession = {
+  id: string;
+  device: string;
+  detail: string;
+  current: boolean;
+};
+
+export type SettingsProfile = {
+  firstName: string;
+  lastName: string;
+  phone: string;
+  address: string;
+};
