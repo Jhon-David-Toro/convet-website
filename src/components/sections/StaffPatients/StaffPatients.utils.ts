@@ -2,7 +2,7 @@ import type { RowMenuItem } from "@/components/patterns/RowMenu";
 import { Calendar, Clipboard, Edit, Eye, Trash, User } from "@/components/ui/Icon";
 import { STAFF_CLIENT, STAFF_PATIENT } from "@/lib/staff/staff.constants";
 import { STAFF_PATIENT_ROWS } from "@/lib/staff/staff.patients.constants";
-import { STAFF_CLIENTS_HREF, STAFF_NEW_APPOINTMENT_HREF, STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
+import { STAFF_CLIENTS_HREF, STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 import type { StaffPatientRow } from "@/lib/staff/staff.types";
 
 import { ALL_VALUE, CHIP_OTHER, CHIP_UPCOMING, MAIN_SPECIES, SPECIES_NAMES } from "./StaffPatients.constants";
@@ -63,16 +63,17 @@ export function patientHref(): string {
 /**
  * Actions of the "..." menu of a row.
  *
+ * @param onBook Called when the book appointment action is chosen.
  * @param onArchive Called when the archive action is chosen.
  * @returns The items of the menu; the last one is destructive.
  */
-export function rowMenuItems(onArchive: () => void): RowMenuItem[] {
+export function rowMenuItems(onBook: () => void, onArchive: () => void): RowMenuItem[] {
   const record = patientHref();
   return [
     { label: "View patient record", icon: Eye, href: record },
     { label: "Clinical history", icon: Clipboard, href: record },
     { label: "Edit patient", icon: Edit, href: record },
-    { label: "Book appointment", icon: Calendar, href: STAFF_NEW_APPOINTMENT_HREF },
+    { label: "Book appointment", icon: Calendar, onSelect: onBook },
     { label: "View owner (client)", icon: User, href: `${STAFF_CLIENTS_HREF}/${STAFF_CLIENT.id}` },
     { label: "Archive patient", icon: Trash, onSelect: onArchive, tone: "destructive" },
   ];

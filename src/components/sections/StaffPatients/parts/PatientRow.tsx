@@ -3,6 +3,7 @@
 import { RowMenu } from "@/components/patterns/RowMenu";
 import { StackedCell } from "@/components/patterns/StackedCell";
 import { TableCell } from "@/components/patterns/Table";
+import { AppointmentModal } from "@/components/sections/AppointmentModal";
 import { ArchivePatientModal } from "@/components/sections/ArchivePatientModal";
 import { useDisclosure } from "@/lib/shared/useDisclosure";
 
@@ -21,6 +22,7 @@ import styles from "../StaffPatients.module.scss";
  */
 export function PatientRow({ patient }: PatientRowProps) {
   const archive = useDisclosure();
+  const book = useDisclosure();
 
   return (
     <tr>
@@ -41,7 +43,8 @@ export function PatientRow({ patient }: PatientRowProps) {
         <VaccineBadge vaccine={patient.vaccine} vaccineLabel={patient.vaccineLabel} />
       </TableCell>
       <TableCell className={styles.menuCell}>
-        <RowMenu label={`${ACTIONS_LABEL_PREFIX} ${patient.name}`} items={rowMenuItems(archive.show)} />
+        <RowMenu label={`${ACTIONS_LABEL_PREFIX} ${patient.name}`} items={rowMenuItems(book.show, archive.show)} />
+        <AppointmentModal open={book.open} onClose={book.hide} />
         <ArchivePatientModal open={archive.open} onClose={archive.hide} patient={patient} />
       </TableCell>
     </tr>

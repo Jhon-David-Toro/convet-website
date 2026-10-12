@@ -84,6 +84,6 @@ describe("patients utils", () => {
 
   it("writes the breed line and builds the menu of a row", () => {
     expect(breedLine({ species: "bird", breed: "Lovebird" } as Parameters<typeof breedLine>[0])).toBe("Bird · Lovebird");
-    expect(rowMenuItems(() => {}).at(-1)?.tone).toBe("destructive");
+    expect(rowMenuItems(() => {}, () => {}).at(-1)?.tone).toBe("destructive");
   });
 });
