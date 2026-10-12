@@ -1,6 +1,6 @@
 import type { ComponentPropsWithRef } from "react";
 
-export type AvatarSubject = "dog" | "cat" | "person";
+export type AvatarSubject = "dog" | "cat" | "bird" | "horse" | "person";
 
 export type AvatarSize = "small" | "medium" | "large";
 

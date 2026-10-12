@@ -24,7 +24,9 @@
 }
 
 .dog,
-.cat {
+.cat,
+.bird,
+.horse {
   --avatar-bg: var(--color-brand-accent-soft);
   --avatar-fg: var(--color-brand-accent-ink);
 }

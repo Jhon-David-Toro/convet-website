@@ -6,7 +6,7 @@ import type { AvatarProps } from "./Avatar.types";
 import styles from "./Avatar.module.scss";
 
 /**
- * Circular avatar with the glyph of a dog, a cat or a person. Decorative unless a `label` is given.
+ * Circular avatar with the glyph of a dog, a cat, a bird, a horse or a person. Decorative unless a `label` is given.
  *
  * @param props Props of the component, see {@link AvatarProps}.
  * @param props.subject What the avatar or image represents (dog, cat, person…).
