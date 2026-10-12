@@ -6,10 +6,10 @@ import { DataTable } from "@/components/patterns/DataTable";
 import { FilterChips } from "@/components/patterns/FilterChips";
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Button } from "@/components/ui/Button";
-import { Calendar, Plus } from "@/components/ui/Icon";
+import { Calendar } from "@/components/ui/Icon";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { COLUMNS, DAY_VIEW_LABEL, FILTERS_LABEL, FILTER_OPTIONS, NEW_LABEL, SUBTITLE, TABLE_LABEL, TITLE } from "./AdminAppointments.constants";
 import { appointmentsFor } from "./AdminAppointments.utils";
@@ -33,9 +33,9 @@ export function AdminAppointments() {
             <Button href={ADMIN_NAV_HREFS.schedule} variant="secondary" leadingIcon={Calendar}>
               {DAY_VIEW_LABEL}
             </Button>
-            <Button href={STAFF_NEW_APPOINTMENT_HREF} leadingIcon={Plus}>
+            <ModalButton modal="appointment" icon="plus">
               {NEW_LABEL}
-            </Button>
+            </ModalButton>
           </>
         }
       />

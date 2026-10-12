@@ -1,6 +1,7 @@
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Button } from "@/components/ui/Button";
-import { Clipboard, Plus } from "@/components/ui/Icon";
-import { STAFF_NEW_APPOINTMENT_HREF, STAFF_VISITS_HREF } from "@/lib/staff/staff.paths.constants";
+import { Clipboard } from "@/components/ui/Icon";
+import { STAFF_VISITS_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { NEW_APPOINTMENT_LABEL, START_VISIT_LABEL } from "../PatientRecord.constants";
 import type { PatientHeaderProps } from "../PatientRecord.types";
@@ -19,9 +20,9 @@ export function PatientActions({ patient }: PatientHeaderProps) {
       <Button href={`${STAFF_VISITS_HREF}/${patient.id}-today`} size="small" leadingIcon={Clipboard}>
         {START_VISIT_LABEL}
       </Button>
-      <Button href={STAFF_NEW_APPOINTMENT_HREF} variant="secondary" size="small" leadingIcon={Plus}>
+      <ModalButton modal="appointment" icon="plus" variant="secondary" size="small">
         {NEW_APPOINTMENT_LABEL}
-      </Button>
+      </ModalButton>
     </div>
   );
 }

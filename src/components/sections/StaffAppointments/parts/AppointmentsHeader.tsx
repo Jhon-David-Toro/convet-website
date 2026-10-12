@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/Button";
-import { Plus } from "@/components/ui/Icon";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
+import { ModalButton } from "@/components/sections/ModalButton";
 
 import { NEW_APPOINTMENT_LABEL, SUBTITLE, TITLE } from "../StaffAppointments.constants";
 import styles from "../StaffAppointments.module.scss";
@@ -17,9 +15,9 @@ export function AppointmentsHeader() {
         <h1 className={styles.title}>{TITLE}</h1>
         <p className={styles.subtitle}>{SUBTITLE}</p>
       </div>
-      <Button href={STAFF_NEW_APPOINTMENT_HREF} leadingIcon={Plus}>
+      <ModalButton modal="appointment" icon="plus">
         {NEW_APPOINTMENT_LABEL}
-      </Button>
+      </ModalButton>
     </header>
   );
 }

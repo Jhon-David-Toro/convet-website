@@ -1,11 +1,11 @@
 "use client";
 
 import { ClientModal } from "@/components/sections/ClientModal";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Button } from "@/components/ui/Button";
-import { Edit, Plus } from "@/components/ui/Icon";
+import { Edit } from "@/components/ui/Icon";
 import { useDisclosure } from "@/lib/shared/useDisclosure";
 import { STAFF_CLIENT } from "@/lib/staff/staff.constants";
-import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { EDIT_CLIENT_LABEL, NEW_APPOINTMENT_LABEL } from "../ClientDetail.constants";
 import styles from "../ClientDetail.module.scss";
@@ -21,9 +21,9 @@ export function ClientActions() {
 
   return (
     <div className={styles.actions}>
-      <Button href={STAFF_NEW_APPOINTMENT_HREF} size="small" leadingIcon={Plus}>
+      <ModalButton modal="appointment" icon="plus" size="small">
         {NEW_APPOINTMENT_LABEL}
-      </Button>
+      </ModalButton>
       <Button type="button" variant="secondary" size="small" leadingIcon={Edit} onClick={dialog.show}>
         {EDIT_CLIENT_LABEL}
       </Button>

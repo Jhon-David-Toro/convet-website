@@ -23,7 +23,7 @@ describe("StaffShell", () => {
     );
     expect(screen.getByRole("main")).toHaveTextContent("Page");
     expect(screen.getAllByRole("link", { name: "Schedule" })[0]).toHaveAttribute("aria-current", "page");
-    expect(screen.getAllByRole("link", { name: /New appointment/ })[0]).toHaveAttribute("href", "/book");
+    expect(screen.getAllByRole("button", { name: /New appointment/ })[0]).toBeInTheDocument();
   });
 
   it("opens the menu with the same links on small screens", async () => {

@@ -1,0 +1,61 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* New appointment dialog: service and vet side by side from tablet; the free times as a grid */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.slots {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-8);
+
+  @include tablet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.message,
+.error,
+.note {
+  margin: 0;
+
+  @include typography.style("body-s");
+}
+
+.message {
+  color: var(--color-text-secondary);
+}
+
+.error {
+  color: var(--color-text-error);
+}
+
+.note {
+  color: var(--color-text-tertiary);
+}

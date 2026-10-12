@@ -3,6 +3,7 @@ import type { ComponentType } from "react";
 import type { LucideIcon } from "lucide-react";
 
 import type { DialogControlProps } from "@/components/patterns/FormModal";
+import { AppointmentModal } from "@/components/sections/AppointmentModal";
 import { DeleteAccountModal } from "@/components/sections/DeleteAccountModal";
 import { EmailModal } from "@/components/sections/EmailModal";
 import { InviteModal } from "@/components/sections/InviteModal";
@@ -29,6 +30,7 @@ export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps
   invite: InviteModal,
   "time-off": TimeOffModal,
   patient: PatientModal,
+  appointment: AppointmentModal,
 };
 
 export const MODAL_ICONS: Record<ModalIconKey, LucideIcon> = { plus: Plus, mail: Mail, calendar: Calendar };
