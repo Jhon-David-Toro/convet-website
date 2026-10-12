@@ -89,7 +89,11 @@
 .name {
   color: var(--color-text-heading);
 
-  @include typography.style("display-m");
+  @include typography.style("heading-h2");
+
+  @include tablet {
+    @include typography.style("heading-h1");
+  }
 }
 
 .description {

@@ -28,7 +28,7 @@ export const CERTIFICATE_LABEL = "Certificate (coming soon)";
 
 export const BOOK_BOOSTER_LABEL = "Book booster";
 
-export const DUE_BADGE = "Due in 20 days";
+export const DUE_BADGE = "Due in 11 days";
 
 export const NEXT_STEP_TEXT = "Book now — we can also give the overdue leptospirosis vaccine at the same visit.";
 

@@ -29,7 +29,7 @@
   @include typography.style("heading-h2");
 
   @include desktop {
-    @include typography.style("display-m");
+    @include typography.style("heading-h1");
   }
 }
 

@@ -34,10 +34,6 @@
   color: var(--color-text-heading);
 
   @include typography.style("heading-h1");
-
-  @include desktop {
-    @include typography.style("display-m");
-  }
 }
 
 .subtitle {

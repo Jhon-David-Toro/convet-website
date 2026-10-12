@@ -53,10 +53,10 @@
 .title {
   color: var(--color-text-heading);
 
-  @include typography.style("heading-h1");
+  @include typography.style("heading-h2");
 
   @include desktop {
-    @include typography.style("display-m");
+    @include typography.style("heading-h1");
   }
 }
 
