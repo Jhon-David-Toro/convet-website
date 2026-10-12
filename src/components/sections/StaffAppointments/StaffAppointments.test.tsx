@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
@@ -14,6 +14,13 @@ describe("StaffAppointments", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Appointments" })).toBeInTheDocument();
     expect(screen.getAllByRole("row")).toHaveLength(9);
     expect(screen.getByText("Showing 1–8 of 14")).toBeInTheDocument();
+  });
+
+  it("lists the same appointments as cards for mobile", () => {
+    render(<StaffAppointments />);
+    const cards = within(screen.getByRole("list", { name: "Appointments of the day" })).getAllByRole("listitem");
+    expect(cards).toHaveLength(8);
+    expect(within(cards[0]).getByText("Toby")).toBeInTheDocument();
   });
 
   it("filters by what is typed in the search", async () => {

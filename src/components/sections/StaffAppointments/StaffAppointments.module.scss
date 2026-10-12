@@ -79,7 +79,78 @@
   @include visually-hidden;
 }
 
-/* The table scrolls sideways on small screens instead of squeezing its columns */
+/* Mobile shows the appointments as cards; the table (which scrolls sideways when narrow) takes over from tablet. Nested so it wins over the display of the other rules. */
+.page .cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+}
+
+.cardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.cardTime {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-m");
+}
+
+.cardPatient {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.cardNames {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.cardName {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.cardOwner,
+.cardMeta {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.page .tableWrap {
+  display: none;
+
+  @include tablet {
+    display: block;
+  }
+}
+
+/* The table scrolls sideways when it does not fit instead of squeezing its columns */
 .tableWrap {
   position: relative;
   overflow-x: auto;

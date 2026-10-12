@@ -125,7 +125,8 @@
   flex: 1 1 auto;
   align-items: center;
   gap: var(--spacing-32);
-  padding-block: var(--spacing-24) var(--spacing-96);
+  /* Room under the content for the fixed bar, which holds the summary line and the button (up to ~140px tall) */
+  padding-block: var(--spacing-24) calc(var(--spacing-96) + var(--spacing-64));
 
   @include desktop {
     padding-block: var(--spacing-40) var(--spacing-64);
