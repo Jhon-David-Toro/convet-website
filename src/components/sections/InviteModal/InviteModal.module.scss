@@ -1,0 +1,88 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Invite dialog: two fields per row from tablet, the roles as cards, and the identifiers of the invitation that was sent */
+.pair {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-16);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.roles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.legend {
+  padding: 0;
+  margin-bottom: var(--spacing-8);
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.roleGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--spacing-12);
+
+  @include tablet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.sent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.sentTitle,
+.sentNote {
+  margin: 0;
+}
+
+.sentTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.sentNote {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.ids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-24);
+  margin: var(--spacing-8) 0 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-md);
+  background-color: var(--color-background-brand);
+
+  dt {
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+
+    @include typography.style("data-m");
+  }
+}

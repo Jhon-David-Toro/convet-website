@@ -1,5 +1,5 @@
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Alert } from "@/components/ui/Alert";
-import { Button } from "@/components/ui/Button";
 import { Calendar } from "@/components/ui/Icon";
 import { WORKING_DAYS, WORKING_HOURS_OWNER } from "@/lib/admin/admin.constants";
 import { ADMIN_NAV_HREFS } from "@/lib/admin/admin.paths.constants";
@@ -20,9 +20,9 @@ export function WorkingHours() {
         <h2 id="team-hours" className={styles.hoursTitle}>
           {`${HOURS_TITLE_PREFIX} · ${WORKING_HOURS_OWNER}`}
         </h2>
-        <Button type="button" variant="secondary" size="small" leadingIcon={Calendar}>
+        <ModalButton modal="time-off" variant="secondary" size="small" leadingIcon={Calendar}>
           {ADD_TIME_OFF_LABEL}
-        </Button>
+        </ModalButton>
       </header>
       <ul className={styles.days}>
         {WORKING_DAYS.map((day) => (

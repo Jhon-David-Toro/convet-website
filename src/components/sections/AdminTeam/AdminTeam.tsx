@@ -2,7 +2,7 @@ import { DataTable } from "@/components/patterns/DataTable";
 import { PageHeader } from "@/components/patterns/PageHeader";
 import { PageStack } from "@/components/patterns/PageStack";
 import { Alert } from "@/components/ui/Alert";
-import { Button } from "@/components/ui/Button";
+import { ModalButton } from "@/components/sections/ModalButton";
 import { Mail } from "@/components/ui/Icon";
 import { TEAM_MEMBERS } from "@/lib/admin/admin.constants";
 
@@ -23,9 +23,9 @@ export function AdminTeam() {
         title={TITLE}
         subtitle={SUBTITLE}
         actions={
-          <Button type="button" leadingIcon={Mail}>
+          <ModalButton modal="invite" leadingIcon={Mail}>
             {INVITE_LABEL}
-          </Button>
+          </ModalButton>
         }
       />
       <DataTable label={TABLE_LABEL} columns={COLUMNS} minWidth="64rem">
