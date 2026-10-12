@@ -49,6 +49,7 @@ export const SHELL_CONFIGS: Record<ShellVariant, ShellConfig> = {
       [STAFF_PATIENTS_HREF]: { title: "Patient record", backHref: STAFF_HOME_HREF },
       [STAFF_CLIENTS_HREF]: { title: "Client", backHref: STAFF_HOME_HREF },
       [STAFF_VISITS_HREF]: { title: "Today · Dr. Andreina", backHref: STAFF_HOME_HREF },
+      "/staff/notifications": { title: "Notifications" },
     },
   },
   admin: {
@@ -97,6 +98,7 @@ export const SHELL_CONFIGS: Record<ShellVariant, ShellConfig> = {
       [ADMIN_NAV_HREFS.team]: { title: "Team" },
       [ADMIN_NAV_HREFS.locations]: { title: "Locations" },
       [ADMIN_NAV_HREFS.settings]: { title: "Settings" },
+      "/admin/notifications": { title: "Notifications" },
     },
   },
 };

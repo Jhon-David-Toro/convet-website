@@ -1,0 +1,19 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Notifications page: the grouped list sits in one bordered card */
+.list {
+  overflow: hidden;
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-xl);
+  background-color: var(--color-background-surface);
+}
+
+.empty {
+  margin: 0;
+  padding: var(--spacing-32) var(--spacing-24);
+  color: var(--color-text-secondary);
+  text-align: center;
+
+  @include typography.style("body-m");
+}

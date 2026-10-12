@@ -1,9 +1,10 @@
+import { NotificationBell } from "@/components/sections/NotificationCenter";
 import { Button } from "@/components/ui/Button";
-import { Bell, Menu, Plus, Search } from "@/components/ui/Icon";
+import { Menu, Plus, Search } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
 import { STAFF_NEW_APPOINTMENT_HREF } from "@/lib/staff/staff.paths.constants";
 
-import { MENU_LABEL, NEW_APPOINTMENT_LABEL, NOTIFICATIONS_LABEL, OPEN_SEARCH_LABEL } from "../StaffShell.constants";
+import { MENU_LABEL, NEW_APPOINTMENT_LABEL, OPEN_SEARCH_LABEL } from "../StaffShell.constants";
 import type { StaffTopBarEndProps } from "../StaffShell.types";
 import { topBarFor } from "../StaffShell.utils";
 import styles from "../StaffShell.module.scss";
@@ -25,7 +26,7 @@ export function TopBarEnd({ pathname, config, onMenu }: StaffTopBarEndProps) {
     <>
       <IconButton variant="ghost" icon={Search} label={OPEN_SEARCH_LABEL} className={styles.compactEnd} />
       {hasBack && <IconButton variant="ghost" icon={Menu} label={MENU_LABEL} onClick={onMenu} className={styles.compactEnd} />}
-      <IconButton variant="ghost" icon={Bell} label={NOTIFICATIONS_LABEL} className={styles.desktopEnd} />
+      <NotificationBell />
       <Button href={STAFF_NEW_APPOINTMENT_HREF} leadingIcon={Plus} className={styles.desktopEnd}>
         {NEW_APPOINTMENT_LABEL}
       </Button>

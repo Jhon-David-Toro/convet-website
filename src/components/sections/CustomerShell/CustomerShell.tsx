@@ -2,6 +2,8 @@
 
 import { usePathname } from "next/navigation";
 
+import { NotificationsProvider } from "@/components/sections/NotificationCenter";
+
 import type { CustomerShellProps } from "./CustomerShell.types";
 import { CustomerSidebar } from "./parts/CustomerSidebar";
 import { CustomerTabBar } from "./parts/CustomerTabBar";
@@ -19,13 +21,15 @@ export function CustomerShell({ children }: CustomerShellProps) {
   const pathname = usePathname();
 
   return (
-    <div className={styles.shell}>
-      <CustomerSidebar pathname={pathname} />
-      <div className={styles.main}>
-        <CustomerTopBar pathname={pathname} />
-        <main className={styles.content}>{children}</main>
+    <NotificationsProvider area="customer">
+      <div className={styles.shell}>
+        <CustomerSidebar pathname={pathname} />
+        <div className={styles.main}>
+          <CustomerTopBar pathname={pathname} />
+          <main className={styles.content}>{children}</main>
+        </div>
+        <CustomerTabBar pathname={pathname} />
       </div>
-      <CustomerTabBar pathname={pathname} />
-    </div>
+    </NotificationsProvider>
   );
 }

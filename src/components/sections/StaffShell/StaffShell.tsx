@@ -2,6 +2,7 @@
 
 import { usePathname } from "next/navigation";
 
+import { NotificationsProvider } from "@/components/sections/NotificationCenter";
 import { AppTopBar } from "@/components/ui/AppTopBar";
 import { useDisclosure } from "@/lib/shared/useDisclosure";
 
@@ -27,13 +28,35 @@ export function StaffShell({ children, variant = "staff" }: StaffShellProps) {
   const menu = useDisclosure();
 
   return (
-    <div className={styles.shell}>
-      <StaffSidebar pathname={pathname} config={config} />
-      <div className={styles.main}>
-        <AppTopBar start={<TopBarStart pathname={pathname} config={config} onMenu={menu.show} />} end={<TopBarEnd pathname={pathname} config={config} onMenu={menu.show} />} />
-        <main className={styles.content}>{children}</main>
+    <NotificationsProvider area={variant === "admin" ? "admin" : "staff"}>
+      <div className={styles.shell}>
+        <StaffSidebar pathname={pathname} config={config} />
+        <div className={styles.main}>
+          <AppTopBar
+            start={
+              <TopBarStart
+                pathname={pathname}
+                config={config}
+                onMenu={menu.show}
+              />
+            }
+            end={
+              <TopBarEnd
+                pathname={pathname}
+                config={config}
+                onMenu={menu.show}
+              />
+            }
+          />
+          <main className={styles.content}>{children}</main>
+        </div>
+        <StaffMenu
+          pathname={pathname}
+          config={config}
+          open={menu.open}
+          onClose={menu.hide}
+        />
       </div>
-      <StaffMenu pathname={pathname} config={config} open={menu.open} onClose={menu.hide} />
-    </div>
+    </NotificationsProvider>
   );
 }

@@ -1,0 +1,157 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Notifications bell and panel: a 400px dropdown under the bell from tablet; a full-screen sheet on mobile */
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.count {
+  position: absolute;
+  top: -0.125rem;
+  right: -0.125rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.125rem;
+  height: 1.125rem;
+  padding-inline: var(--spacing-4);
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-accent-ink);
+  color: var(--color-text-on-primary);
+  pointer-events: none;
+
+  @include typography.style("label-s");
+}
+
+.panel {
+  position: fixed;
+  z-index: var(--z-dropdown);
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-surface);
+
+  @include tablet {
+    position: absolute;
+    inset: auto;
+    top: calc(100% + var(--spacing-8));
+    right: 0;
+    width: 25rem;
+    max-height: calc(100dvh - 6rem);
+    border: var(--border-width-default) solid var(--color-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+  }
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-12) var(--spacing-16);
+}
+
+.back {
+  @include tablet {
+    display: none;
+  }
+}
+
+.title {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.markAll {
+  margin-inline-start: auto;
+}
+
+.tabs {
+  display: flex;
+  padding-inline: var(--spacing-16);
+  border-bottom: var(--border-width-default) solid var(--color-border-default);
+}
+
+.scroll {
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+}
+
+.groupTitle {
+  margin: 0;
+  padding: var(--spacing-8) var(--spacing-16);
+  background-color: var(--color-background-brand);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+
+  @include typography.style("overline");
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.viewAll {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  min-height: var(--layout-touch-target);
+  border-top: var(--border-width-default) solid var(--color-border-default);
+  color: var(--color-text-brand);
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include typography.style("label-m");
+}
+
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-8);
+  padding: var(--spacing-32) var(--spacing-24);
+  text-align: center;
+}
+
+.emptyIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border-radius: var(--radius-full);
+  background-color: var(--color-brand-primary-subtle);
+  color: var(--color-text-brand);
+}
+
+.emptyTitle,
+.emptyText {
+  margin: 0;
+}
+
+.emptyTitle {
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.emptyText {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
