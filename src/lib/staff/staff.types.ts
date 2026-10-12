@@ -181,3 +181,42 @@ export type StaffPatientRow = {
   vaccine: PatientVaccineStatus;
   vaccineLabel: string;
 };
+
+export type InventoryStatus = "in-stock" | "expires" | "low" | "out" | "blocked";
+
+export type InventoryLotStatus = "use-first" | "ok";
+
+export type InventoryLot = {
+  code: string;
+  expiry: string;
+  quantity: number;
+  status: InventoryLotStatus;
+};
+
+export type InventoryMovement = {
+  id: string;
+  text: string;
+  meta: string;
+};
+
+export type StaffInventoryRow = {
+  id: string;
+  name: string;
+  description: string;
+  sku: string;
+  type: string;
+  onHand: string;
+  unit: string;
+  stockNote: string;
+  lotCode: string;
+  lotNote: string;
+  status: InventoryStatus;
+  statusLabel: string;
+  unitName: string;
+  minimum: string;
+  prescription: string;
+  storage: string;
+  uuid: string;
+  lots: InventoryLot[];
+  movements: InventoryMovement[];
+};

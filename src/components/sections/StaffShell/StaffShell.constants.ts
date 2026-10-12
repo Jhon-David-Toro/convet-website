@@ -41,6 +41,7 @@ export const SHELL_CONFIGS: Record<ShellVariant, ShellConfig> = {
     ],
     exactTitles: {
       [STAFF_PATIENTS_HREF]: { title: "Patients", subtitle: "Main clinic · 214" },
+      [STAFF_INVENTORY_HREF]: { title: "Inventory", subtitle: "Main clinic · 48 products" },
     },
     titles: {
       [STAFF_HOME_HREF]: { title: "Today · Thu, Oct 1", subtitle: "Dr. Shirley · 5 appointments" },

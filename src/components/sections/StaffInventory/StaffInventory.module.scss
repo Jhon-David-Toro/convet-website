@@ -1,0 +1,360 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+/* Staff inventory: role note, figures, search with the type, availability and status lists (desktop), chips; cards on mobile, table from tablet */
+.role {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: var(--spacing-16);
+  }
+}
+
+.search {
+  width: 100%;
+}
+
+.selects {
+  display: none;
+
+  @include desktop {
+    display: grid;
+    grid-template-columns: repeat(3, 10.625rem);
+    gap: var(--spacing-12);
+  }
+}
+
+.chips {
+  @include desktop {
+    grid-column: 1 / -1;
+  }
+}
+
+.attention {
+  @include tablet {
+    display: none;
+  }
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include tablet {
+    display: none;
+  }
+}
+
+.tableOnly {
+  display: none;
+  min-width: 0;
+
+  @include tablet {
+    display: block;
+  }
+
+  /* Column widths of the design (240, 172, 118, 130, 170, 200 and 64px) */
+  th:nth-child(1) {
+    width: 15rem;
+  }
+
+  th:nth-child(2) {
+    width: 10.75rem;
+  }
+
+  th:nth-child(3) {
+    width: 7.375rem;
+  }
+
+  th:nth-child(4) {
+    width: 8.125rem;
+  }
+
+  th:nth-child(5) {
+    width: 10.625rem;
+  }
+
+  th:nth-child(6) {
+    width: 12.5rem;
+  }
+
+  th:nth-child(7) {
+    width: 4rem;
+  }
+}
+
+.productButton {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0;
+  border: 0;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.productName {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.productDescription {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.menuCell {
+  width: 4rem;
+  text-align: right;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  width: 100%;
+  padding: var(--spacing-16);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-background-surface);
+  text-align: left;
+  cursor: pointer;
+}
+
+.cardTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-8);
+}
+
+.cardName {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.cardMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.cardStock {
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-12);
+}
+
+.cardSku {
+  color: var(--color-text-secondary);
+
+  @include typography.style("data-s");
+}
+
+.cardOnHand {
+  color: var(--color-text-heading);
+
+  @include typography.style("body-s-strong");
+}
+
+.cardLot {
+  color: var(--color-text-tertiary);
+
+  @include typography.style("data-s");
+}
+
+.drawerBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.drawerProduct {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-12);
+  padding: var(--spacing-16);
+  border: var(--border-width-strong) solid var(--color-action-primary);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-brand-primary-subtle);
+}
+
+.drawerIcon {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-brand-accent-soft);
+  color: var(--color-brand-accent-ink);
+}
+
+.drawerIdentity {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.drawerName,
+.drawerDescription,
+.drawerSku {
+  margin: 0;
+}
+
+.drawerName {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-m-strong");
+}
+
+.drawerDescription {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.drawerSku {
+  color: var(--color-text-primary);
+
+  @include typography.style("data-s");
+}
+
+.facts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.factList {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-16);
+  margin: 0;
+
+  @include tablet {
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+  }
+}
+
+.fact {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+
+  dt,
+  .factLabel {
+    margin: 0;
+    color: var(--color-text-secondary);
+
+    @include typography.style("overline");
+  }
+
+  dd {
+    margin: 0;
+    color: var(--color-text-heading);
+
+    @include typography.style("body-m-strong");
+  }
+}
+
+.uuid {
+  margin: 0;
+  color: var(--color-text-secondary);
+  overflow-wrap: anywhere;
+
+  @include typography.style("data-s");
+}
+
+.drawerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.drawerHeading {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h5");
+}
+
+.movements {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.movement {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+}
+
+.movementText {
+  color: var(--color-text-primary);
+
+  @include typography.style("body-s-strong");
+}
+
+.movementMeta {
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.drawerActions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  width: 100%;
+}
+
+.adminOnly {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-end;
+  gap: var(--spacing-8);
+  color: var(--color-text-tertiary);
+  text-transform: uppercase;
+
+  @include typography.style("label-m");
+}
+
+.drawerButtons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spacing-12);
+}
