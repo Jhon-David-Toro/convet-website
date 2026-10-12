@@ -7,7 +7,7 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: var(--spacing-8);
+  gap: var(--spacing-4);
 
   @include tablet {
     gap: var(--spacing-24);
@@ -16,6 +16,13 @@
 
 .options > :first-child {
   white-space: nowrap;
+}
+
+/* The ghost button has 16px of side padding; pull it out so its label lines up with the right edge on mobile */
+.options > :last-child {
+  @include mobile-only {
+    margin-inline-end: calc(var(--spacing-16) * -1);
+  }
 }
 
 .divider {

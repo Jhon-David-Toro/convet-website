@@ -90,7 +90,7 @@
 
 .table {
   width: 100%;
-  min-width: 40rem;
+  min-width: 60rem;
   border-collapse: separate;
   border-spacing: 0;
 
@@ -100,6 +100,10 @@
 
   th:nth-child(1) {
     width: 6.875rem;
+  }
+
+  th:nth-child(2) {
+    min-width: 11rem;
   }
 
   th:nth-child(3) {

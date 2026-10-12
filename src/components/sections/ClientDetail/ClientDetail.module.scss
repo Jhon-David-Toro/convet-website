@@ -15,12 +15,16 @@
 .header {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  gap: var(--spacing-16) var(--spacing-24);
+  gap: var(--spacing-16) var(--spacing-16);
   padding: var(--spacing-24);
   border: var(--border-width-default) solid var(--color-border-default);
   border-radius: var(--radius-xl);
   background-color: var(--color-background-surface);
   box-shadow: var(--shadow-md);
+
+  @include tablet {
+    column-gap: var(--spacing-24);
+  }
 
   @include desktop {
     grid-template-columns: auto minmax(0, 1fr) auto;
@@ -29,7 +33,11 @@
   }
 }
 
-.avatar {
+/* Smaller below desktop so the account badges fit next to it; nested to win over the Avatar size regardless of CSS load order */
+.header .avatar {
+  width: 4rem;
+  height: 4rem;
+
   @include desktop {
     width: 4.75rem;
     height: 4.75rem;

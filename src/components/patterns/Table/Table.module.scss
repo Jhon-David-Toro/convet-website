@@ -73,6 +73,7 @@
 
 .mono {
   color: var(--color-text-primary);
+  white-space: nowrap;
 
   @include typography.style("data-m");
 }

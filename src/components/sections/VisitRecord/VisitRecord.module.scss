@@ -304,10 +304,20 @@
 .footerActions {
   display: flex;
   flex: 1 1 auto;
-  gap: var(--spacing-12);
+  gap: var(--spacing-8);
 
   > * {
     flex: 1 1 auto;
+  }
+
+  /* Nested so it wins over the Button padding regardless of CSS load order: both buttons must fit in 343px */
+  .footer & > * {
+    min-width: 0;
+    padding-inline: var(--spacing-16);
+
+    @include tablet {
+      padding-inline: var(--spacing-24);
+    }
   }
 
   @include tablet {

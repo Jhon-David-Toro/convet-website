@@ -139,6 +139,7 @@
 
 .cardStock {
   color: var(--color-text-heading);
+  white-space: nowrap;
 
   @include typography.style("body-s-strong");
 }
