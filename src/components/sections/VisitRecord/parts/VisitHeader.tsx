@@ -1,6 +1,5 @@
-import { Alert } from "@/components/ui/Alert";
 import { Badge } from "@/components/ui/Badge";
-import { Stethoscope } from "@/components/ui/Icon";
+import { AlertTriangle, Icon, Stethoscope } from "@/components/ui/Icon";
 
 import { IN_PROGRESS_LABEL, TITLE_PREFIX } from "../VisitRecord.constants";
 import type { VisitHeaderProps } from "../VisitRecord.types";
@@ -25,7 +24,10 @@ export function VisitHeader({ visit, patient }: VisitHeaderProps) {
           {IN_PROGRESS_LABEL}
         </Badge>
       </div>
-      <Alert tone="error" title={patient.allergy} />
+      <p className={styles.allergy}>
+        <Icon icon={AlertTriangle} tone="error" />
+        {patient.allergy}
+      </p>
     </header>
   );
 }

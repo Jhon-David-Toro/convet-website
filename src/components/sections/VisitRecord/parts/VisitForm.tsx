@@ -23,7 +23,7 @@ export function VisitForm({ form, visit, patient }: VisitFormProps) {
       <VisitHeader visit={visit} patient={patient} />
       <VitalsFields bind={form.bind} lastWeight={visit.lastWeight} />
       <ExamFields bind={form.bind} />
-      {form.vaccinating && <VaccinationCard values={form.values} setValue={form.setValue} removeVaccine={form.removeVaccine} lot={visit.lot} expiredLot={visit.expiredLot} />}
+      {form.vaccinating && <VaccinationCard values={form.values} setValue={form.setValue} removeVaccine={form.removeVaccine} lot={visit.lot} />}
       <VisitExtras vaccinating={form.vaccinating} onAddVaccine={form.addVaccine} />
       <NotesFields bind={form.bind} />
     </form>

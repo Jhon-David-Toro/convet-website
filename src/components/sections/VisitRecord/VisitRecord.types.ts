@@ -57,12 +57,10 @@ export type VisitHeaderProps = Pick<VisitRecordProps, "visit" | "patient">;
 
 export type VaccinationCardProps = Pick<VisitFormState, "values" | "setValue" | "removeVaccine"> & {
   lot: StaffLot;
-  expiredLot: string;
 };
 
 export type LotPickerProps = {
   lot: StaffLot;
-  expiredLot: string;
 };
 
 export type VisitFooterProps = Pick<VisitFormState, "saveDraft" | "finish"> & {

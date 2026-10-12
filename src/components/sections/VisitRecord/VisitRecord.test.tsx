@@ -7,7 +7,7 @@ import { STAFF_PATIENT, STAFF_VISIT } from "@/lib/staff/staff.constants";
 import { pickOption } from "@/test/pickOption";
 
 import { VisitRecord } from "./VisitRecord";
-import { expiredLotMessage, lotDetail, lotLine, visitTitle } from "./VisitRecord.utils";
+import { lotDetail, lotLine, visitTitle } from "./VisitRecord.utils";
 
 const push = vi.fn();
 
@@ -32,7 +32,7 @@ describe("VisitRecord", () => {
     expect(screen.getByRole("heading", { level: 1, name: "New visit · Luna" })).toBeInTheDocument();
     expect(screen.getByLabelText("Reason for visit")).toHaveValue("Limping has not improved after a week of rest");
     expect(screen.getByLabelText("Temperature (°C)")).toHaveValue("38.6");
-    expect(screen.getByText("LP-25102 · exp Jan 31, 2027")).toBeInTheDocument();
+    expect(screen.getByText("RB-25190 · exp Jun 30, 2027")).toBeInTheDocument();
   });
 
   it("lets the vet edit a field", async () => {
@@ -62,12 +62,8 @@ describe("VisitRecord", () => {
 
 describe("visit record utils", () => {
   it("describes the suggested lot", () => {
-    expect(lotLine(STAFF_VISIT.lot)).toBe("LP-25102 · exp Jan 31, 2027");
-    expect(lotDetail(STAFF_VISIT.lot, "Suggested")).toBe("9 doses left · Suggested");
-  });
-
-  it("explains why an expired lot cannot be used", () => {
-    expect(expiredLotMessage("LP-23877")).toBe("Lot LP-23877 is expired and can't be used.");
+    expect(lotLine(STAFF_VISIT.lot)).toBe("RB-25190 · exp Jun 30, 2027");
+    expect(lotDetail(STAFF_VISIT.lot, "Suggested")).toBe("30 doses left · Suggested");
   });
 
   it("titles the visit with the patient", () => {

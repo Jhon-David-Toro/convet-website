@@ -2,7 +2,7 @@ import type { SubmitEvent } from "react";
 
 import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff/staff.types";
 
-import { EXPIRED_LOT_NOTE, MICROCHIP_LABEL, NEXT_VISIT_LABEL, WEIGHT_FACT_LABEL } from "./VisitRecord.constants";
+import { MICROCHIP_LABEL, NEXT_VISIT_LABEL, WEIGHT_FACT_LABEL } from "./VisitRecord.constants";
 import type { PatientFact, VisitValues } from "./VisitRecord.types";
 
 /**
@@ -48,15 +48,6 @@ export function lotDetail(lot: StaffLot, note: string): string {
   return `${lot.dosesLeft} doses left · ${note}`;
 }
 
-/**
- * Message that explains why an expired lot cannot be picked.
- *
- * @param lot Code of the expired lot.
- * @returns The sentence with the code of the lot.
- */
-export function expiredLotMessage(lot: string): string {
-  return EXPIRED_LOT_NOTE.replace("{lot}", lot);
-}
 
 /**
  * Stops the browser from sending the form: the visit is saved or signed with the footer buttons.

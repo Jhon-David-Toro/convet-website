@@ -152,7 +152,6 @@ export type StaffVisitForm = {
   vaccine: string;
   nextDose: string;
   lot: StaffLot;
-  expiredLot: string;
   internalNotes: string;
   ownerSummary: string;
   lastWeight: string;

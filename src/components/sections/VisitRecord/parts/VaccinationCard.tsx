@@ -15,10 +15,9 @@ import styles from "../VisitRecord.module.scss";
  * @param props.setValue Changes the value of a field.
  * @param props.removeVaccine Removes the vaccination from the visit.
  * @param props.lot Suggested lot.
- * @param props.expiredLot Code of a lot that is expired.
  * @returns The rendered element.
  */
-export function VaccinationCard({ values, setValue, removeVaccine, lot, expiredLot }: VaccinationCardProps) {
+export function VaccinationCard({ values, setValue, removeVaccine, lot }: VaccinationCardProps) {
   return (
     <section className={styles.vaccination} aria-labelledby="visit-vaccination">
       <VaccinationHeader removeVaccine={removeVaccine} />
@@ -26,7 +25,7 @@ export function VaccinationCard({ values, setValue, removeVaccine, lot, expiredL
         <Select label={VACCINE_LABEL} options={VACCINE_OPTIONS} value={values.vaccine} onValueChange={(value) => setValue("vaccine", value)} />
         <DateInput label={NEXT_DOSE_LABEL} value={values.nextDose} onValueChange={(value) => setValue("nextDose", value)} />
       </div>
-      <LotPicker lot={lot} expiredLot={expiredLot} />
+      <LotPicker lot={lot} />
     </section>
   );
 }

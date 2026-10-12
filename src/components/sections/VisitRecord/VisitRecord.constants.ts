@@ -75,5 +75,5 @@ export const VACCINE_OPTIONS: SelectOption[] = [
   { value: "dhpp", label: "DHPP" },
 ];
 
-export const EXPIRED_LOT_NOTE = "Lot {lot} is expired and can't be used.";
+export const EXPIRED_LOT_NOTE = "Expired lots are hidden and can’t be selected.";
 

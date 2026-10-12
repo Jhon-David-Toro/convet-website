@@ -37,9 +37,23 @@
 }
 
 .overline {
-  color: var(--color-text-secondary);
+  color: var(--color-text-tertiary);
 
   @include typography.style("overline");
+}
+
+/* Medical alert of the patient across the top of the form */
+.allergy {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: var(--spacing-12) var(--spacing-16);
+  border-radius: var(--radius-lg);
+  background-color: var(--color-error-soft);
+  color: var(--color-error-strong);
+
+  @include typography.style("label-m");
 }
 
 .titleRow {
@@ -105,7 +119,7 @@
   margin: 0;
   color: var(--color-text-heading);
 
-  @include typography.style("body-l");
+  @include typography.style("heading-h5");
 }
 
 .lotField {
@@ -124,7 +138,7 @@
 .lotLabel {
   color: var(--color-text-heading);
 
-  @include typography.style("body-s-strong");
+  @include typography.style("label-m");
 }
 
 .lot {

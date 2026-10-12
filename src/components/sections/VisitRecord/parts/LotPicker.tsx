@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/Button";
 
-import { CHANGE_LOT_LABEL, FEFO_NOTE, LOT_LABEL } from "../VisitRecord.constants";
+import { CHANGE_LOT_LABEL, EXPIRED_LOT_NOTE, FEFO_NOTE, LOT_LABEL } from "../VisitRecord.constants";
 import type { LotPickerProps } from "../VisitRecord.types";
-import { expiredLotMessage, lotDetail, lotLine } from "../VisitRecord.utils";
+import { lotDetail, lotLine } from "../VisitRecord.utils";
 import { LotNote } from "./LotNote";
 import styles from "../VisitRecord.module.scss";
 
@@ -11,10 +11,9 @@ import styles from "../VisitRecord.module.scss";
  *
  * @param props Props of the component, see {@link LotPickerProps}.
  * @param props.lot Suggested lot.
- * @param props.expiredLot Code of a lot that is expired.
  * @returns The rendered element.
  */
-export function LotPicker({ lot, expiredLot }: LotPickerProps) {
+export function LotPicker({ lot }: LotPickerProps) {
   return (
     <div className={styles.lotField}>
       <p className={styles.lotLabel}>{LOT_LABEL}</p>
@@ -27,7 +26,7 @@ export function LotPicker({ lot, expiredLot }: LotPickerProps) {
           {CHANGE_LOT_LABEL}
         </Button>
       </div>
-      <LotNote text={expiredLotMessage(expiredLot)} />
+      <LotNote text={EXPIRED_LOT_NOTE} />
     </div>
   );
 }
