@@ -34,7 +34,8 @@
   flex: 1 1 auto;
   flex-direction: column;
   gap: var(--spacing-24);
-  padding: var(--spacing-16) var(--spacing-16) var(--spacing-96);
+  /* The bottom padding clears the fixed tab bar (about 88px) and leaves a gap above it */
+  padding: var(--spacing-16) var(--spacing-16) calc(var(--spacing-96) + var(--spacing-32));
 
   @include tablet {
     padding-inline: var(--spacing-32);
