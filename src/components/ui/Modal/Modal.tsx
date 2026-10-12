@@ -2,6 +2,9 @@
 
 import { useId } from "react";
 
+import { cx } from "@/lib/shared/cx";
+
+import { END_PLACEMENT } from "./Modal.constants";
 import type { ModalProps } from "./Modal.types";
 import { ModalPanel } from "./ModalPanel";
 import { useModalDialog } from "./hooks/useModalDialog";
@@ -14,12 +17,13 @@ import styles from "./Modal.module.scss";
  *
  * @param props Props of the component, see {@link ModalProps}.
  * @param props.open Whether the popup or menu is open.
+ * @param props.placement `center` (default) or `end`: a panel that fills the height of the screen on its right side.
  * @param props.onClose Called on the close button, Escape or the backdrop. The consumer sets `open` to false.
  * @param props.children Content of the element.
  * @param props.panel Remaining properties, forwarded to the root element.
  * @returns The rendered element.
  */
-export function Modal({ open, onClose, children, ...panel }: ModalProps) {
+export function Modal({ open, onClose, placement, children, ...panel }: ModalProps) {
   const { dialogRef, handleCancel, handleClick } = useModalDialog({ open, onClose });
   const titleId = useId();
   const descriptionId = useId();
@@ -27,7 +31,7 @@ export function Modal({ open, onClose, children, ...panel }: ModalProps) {
   return (
     <dialog
       ref={dialogRef}
-      className={styles.dialog}
+      className={cx(styles.dialog, placement === END_PLACEMENT && styles.end)}
       aria-labelledby={titleId}
       aria-describedby={panel.description ? descriptionId : undefined}
       onCancel={handleCancel}

@@ -15,8 +15,11 @@ export type ModalPanelProps = Omit<ComponentPropsWithRef<"div">, "title"> & {
   descriptionId?: string;
 };
 
+export type ModalPlacement = "center" | "end";
+
 export type ModalProps = Omit<ModalPanelProps, "titleId" | "descriptionId" | "ref" | "className"> & {
   open: boolean;
+  placement?: ModalPlacement;
   onClose: () => void;
 };
 
