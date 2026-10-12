@@ -52,6 +52,12 @@
   gap: var(--spacing-8);
 }
 
+/* The long notice badge wraps instead of pushing the page wider on mobile */
+.badges > span {
+  max-width: 100%;
+  white-space: normal;
+}
+
 .layout {
   @include content-container;
 

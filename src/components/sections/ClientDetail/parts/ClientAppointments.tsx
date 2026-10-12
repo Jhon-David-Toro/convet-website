@@ -1,4 +1,5 @@
 import { AppointmentCard } from "@/components/patterns/AppointmentCard";
+import { STAFF_BRANCH } from "@/lib/staff/staff.constants";
 import { STAFF_PATIENTS_HREF, STAFF_SCHEDULE_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { APPOINTMENTS_TITLE } from "../ClientDetail.constants";
@@ -24,7 +25,7 @@ export function ClientAppointments({ appointments }: ClientAppointmentsProps) {
           <AppointmentCard
             key={id}
             {...appointment}
-            location=""
+            location={STAFF_BRANCH}
             primaryHref={upcoming ? STAFF_SCHEDULE_HREF : `${STAFF_PATIENTS_HREF}/luna`}
             secondaryHref={upcoming ? STAFF_SCHEDULE_HREF : undefined}
           />
