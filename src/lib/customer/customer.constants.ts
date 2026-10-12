@@ -46,7 +46,7 @@ export const CUSTOMER_PETS: PetItem[] = [
     summary: "Cat · Domestic shorthair · Orange tabby · 7 yrs 2 mos",
     profileLine: "Cat · Domestic shorthair · Orange tabby · Male, neutered · Born Jul 2019 · 7 yrs 2 mos",
     microchip: "900164001234568",
-    weight: "18.4 kg",
+    weight: "4.6 kg",
     weightDate: "Sep 12",
     vet: "Dr. Larry",
     nextVisit: "Oct 9",
@@ -147,7 +147,7 @@ export const WEIGHT_HISTORY: Record<string, WeightPoint[]> = {
 
 export const CUSTOMER_APPOINTMENTS: CustomerAppointment[] = [
   { id: "rabies-booster", iso: "2026-10-09", startTime: "9:30 AM", vetId: "shirley", serviceId: "vaccinations", status: "upcoming", month: "Oct", day: "09", weekday: "Fri", service: "Rabies booster", time: "9:30 AM · 20 min", pet: "Luna", vet: "Dr. Shirley", location: "CONVET · Aruba" },
-  { id: "annual-checkup", iso: "2026-11-14", startTime: "10:30 AM", vetId: "larry", serviceId: "consultations", status: "upcoming", month: "Nov", day: "14", weekday: "Thu", service: "Annual check-up", time: "10:30 AM · 30 min", pet: "Milo", vet: "Dr. Larry", location: "CONVET · Aruba" },
+  { id: "annual-checkup", iso: "2026-11-12", startTime: "10:30 AM", vetId: "larry", serviceId: "consultations", status: "upcoming", month: "Nov", day: "12", weekday: "Thu", service: "Annual check-up", time: "10:30 AM · 30 min", pet: "Milo", vet: "Dr. Larry", location: "CONVET · Aruba" },
 ];
 
 export const CUSTOMER_REMINDERS: CustomerReminder[] = [

@@ -24,7 +24,7 @@ export const VACCINATION_TITLE = "Vaccination card";
 
 export const OVERDUE_BADGE = "overdue";
 
-export const CERTIFICATE_LABEL = "Download certificate (coming soon)";
+export const CERTIFICATE_LABEL = "Certificate (coming soon)";
 
 export const BOOK_BOOSTER_LABEL = "Book booster";
 
