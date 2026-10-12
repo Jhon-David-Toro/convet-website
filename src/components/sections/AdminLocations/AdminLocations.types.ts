@@ -29,5 +29,5 @@ export type ClosureItemProps = {
 export type ClosuresState = {
   closures: ClosureEntry[];
   remove: (id: string) => void;
-  add: () => void;
+  add: (closure: ClosureEntry) => void;
 };

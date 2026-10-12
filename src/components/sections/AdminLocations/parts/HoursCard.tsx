@@ -1,7 +1,9 @@
 "use client";
 
+import { ClosureModal } from "@/components/sections/ClosureModal";
 import { Button } from "@/components/ui/Button";
 import { Plus } from "@/components/ui/Icon";
+import { useDisclosure } from "@/lib/shared/useDisclosure";
 
 import { ADD_CLOSURE_LABEL, CLOSURES_TITLE, HOURS_TITLE } from "../AdminLocations.constants";
 import type { HoursCardProps } from "../AdminLocations.types";
@@ -19,6 +21,7 @@ import styles from "../AdminLocations.module.scss";
  */
 export function HoursCard({ location }: HoursCardProps) {
   const { closures, remove, add } = useClosures(location.closures);
+  const dialog = useDisclosure();
 
   return (
     <section className={styles.card} aria-labelledby="location-hours">
@@ -28,9 +31,10 @@ export function HoursCard({ location }: HoursCardProps) {
       <HoursList hours={location.hours} />
       <h3 className={styles.sectionTitle}>{CLOSURES_TITLE}</h3>
       <ClosureList closures={closures} onRemove={remove} />
-      <Button type="button" variant="secondary" size="small" leadingIcon={Plus} onClick={add} className={styles.addClosure}>
+      <Button type="button" variant="secondary" size="small" leadingIcon={Plus} onClick={dialog.show} className={styles.addClosure}>
         {ADD_CLOSURE_LABEL}
       </Button>
+      <ClosureModal open={dialog.open} onClose={dialog.hide} onAdd={add} />
     </section>
   );
 }

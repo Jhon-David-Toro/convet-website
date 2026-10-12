@@ -2,6 +2,8 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
 
+import { ToastProvider } from "@/components/ui/Toast";
+
 import { AdminLocations } from "./AdminLocations";
 
 describe("AdminLocations", () => {
@@ -14,12 +16,18 @@ describe("AdminLocations", () => {
   });
 
   it("removes and adds closures", async () => {
-    render(<AdminLocations />);
+    render(
+      <ToastProvider>
+        <AdminLocations />
+      </ToastProvider>,
+    );
     expect(screen.getByText("Christmas Day")).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Remove closure Dec 25, 2026" }));
     expect(screen.queryByText("Christmas Day")).not.toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Add closure" }));
-    expect(screen.getByText("New closure")).toBeInTheDocument();
+    await userEvent.type(screen.getByLabelText("Reason shown to clients"), "Staff day");
+    await userEvent.click(screen.getByRole("button", { name: "Save closure" }));
+    expect(await screen.findByText("Staff day", {}, { timeout: 3000 })).toBeInTheDocument();
   });
 });
 

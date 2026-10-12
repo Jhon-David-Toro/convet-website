@@ -16,6 +16,4 @@ export const CLOSURES_TITLE = "Upcoming closures";
 
 export const ADD_CLOSURE_LABEL = "Add closure";
 
-export const NEW_CLOSURE = { date: "Dec 31, 2026", note: "New closure" };
-
 export const MAP_LABEL = "CONVET · Aruba";
