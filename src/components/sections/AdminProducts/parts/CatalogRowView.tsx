@@ -1,3 +1,5 @@
+"use client";
+
 import { TableCell } from "@/components/patterns/Table";
 import { CATALOG_MENU } from "@/lib/admin/admin.menus.constants";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { TableCell } from "@/components/patterns/Table";
 import { STAFF_APPOINTMENT_MENU } from "@/lib/staff/staff.menus.constants";
 import { findStaffVet, timeLabel } from "@/lib/staff/staff.utils";

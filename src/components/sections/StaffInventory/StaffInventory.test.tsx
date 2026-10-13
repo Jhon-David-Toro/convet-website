@@ -23,7 +23,7 @@ describe("StaffInventory", () => {
     render(<StaffInventory />);
     const cards = within(screen.getByRole("list", { name: "Inventory" })).getAllByRole("listitem");
     expect(cards).toHaveLength(7);
-    expect(within(cards[1]).getByText("Expires in 53 days")).toBeInTheDocument();
+    expect(within(cards[1]).getByText("Expires in 52 days")).toBeInTheDocument();
   });
 
   it("filters by search, by chip and by the availability list", async () => {

@@ -1,3 +1,5 @@
+"use client";
+
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 import { APPOINTMENT_MENU } from "@/lib/admin/admin.menus.constants";

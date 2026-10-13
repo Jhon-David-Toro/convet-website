@@ -1,3 +1,5 @@
+"use client";
+
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
