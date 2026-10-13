@@ -8,6 +8,12 @@
   @include choice-label;
 }
 
+/* Links inside the text stay above the 44px touch target overlay of the row, so they can be clicked */
+.label a,
+.description a {
+  position: relative;
+}
+
 /* The input is the previous sibling of the text block in Checkbox, Radio and Toggle */
 input:disabled ~ .text .label {
   color: var(--color-text-disabled);
