@@ -36,7 +36,7 @@ export const STAFF_INVENTORY_ROWS: StaffInventoryRow[] = [
     lotCode: "CP-7802",
     lotNote: "Exp Nov 30, 2026",
     status: "expires",
-    statusLabel: "Expires in 53 days",
+    statusLabel: "Expires in 52 days",
     unitName: "Tablet",
     minimum: "20 tablets",
     prescription: "Rx only",
