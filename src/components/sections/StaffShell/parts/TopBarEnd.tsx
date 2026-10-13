@@ -2,6 +2,7 @@ import { ModalButton } from "@/components/sections/ModalButton";
 import { NotificationBell } from "@/components/sections/NotificationCenter";
 import { Menu, Search } from "@/components/ui/Icon";
 import { IconButton } from "@/components/ui/IconButton";
+import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
 
 import { MENU_LABEL, NEW_APPOINTMENT_LABEL, OPEN_SEARCH_LABEL } from "../StaffShell.constants";
 import type { StaffTopBarEndProps } from "../StaffShell.types";
@@ -23,7 +24,7 @@ export function TopBarEnd({ pathname, config, onMenu }: StaffTopBarEndProps) {
 
   return (
     <>
-      <IconButton variant="ghost" icon={Search} label={OPEN_SEARCH_LABEL} className={styles.compactEnd} />
+      <IconButton variant="ghost" icon={Search} label={OPEN_SEARCH_LABEL} href={STAFF_PATIENTS_HREF} className={styles.compactEnd} />
       {hasBack && <IconButton variant="ghost" icon={Menu} label={MENU_LABEL} onClick={onMenu} className={styles.compactEnd} />}
       <NotificationBell />
       <ModalButton modal="appointment" icon="plus" className={styles.desktopEnd}>

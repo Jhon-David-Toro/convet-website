@@ -1,6 +1,7 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
 import { STOCK_STATUS_VIEWS } from "@/lib/admin/admin.status.constants";
+import { LOT_MENU } from "@/lib/admin/admin.menus.constants";
 
 import type { LotRowProps } from "../ProductLots.types";
 import { LotIdentityCells } from "./LotIdentityCells";
@@ -20,7 +21,7 @@ export function LotRow({ lot }: LotRowProps) {
       <TableCell type="badge">
         <StatusBadge view={STOCK_STATUS_VIEWS[lot.status]} />
       </TableCell>
-      <TableCell type="actions" actionLabel={`Actions for lot ${lot.code}`} />
+      <TableCell type="actions" actionLabel={`Actions for lot ${lot.code}`} items={LOT_MENU} />
     </tr>
   );
 }

@@ -1,10 +1,11 @@
 import { ModalButton } from "@/components/sections/ModalButton";
 import { Badge } from "@/components/ui/Badge";
+import { ToastButton } from "@/components/sections/ToastButton";
 import { Button } from "@/components/ui/Button";
 import { ArrowDownCircle, File, Shield, Trash } from "@/components/ui/Icon";
 import { PRIVACY_HREF, TERMS_HREF } from "@/lib/auth/auth.constants";
 
-import { COPY_NOTE, DELETE_LABEL, DELETE_NOTE, PRIVACY_TITLE, PROPOSAL_LABEL, READ_LABEL, REQUEST_LABEL } from "../CustomerSettings.constants";
+import { COPY_NOTE, DELETE_LABEL, DELETE_NOTE, PRIVACY_TITLE, REQUEST_SENT_MESSAGE, PROPOSAL_LABEL, READ_LABEL, REQUEST_LABEL } from "../CustomerSettings.constants";
 import { SettingsRow } from "./SettingsRow";
 import styles from "../CustomerSettings.module.scss";
 
@@ -46,9 +47,9 @@ export function PrivacyCard() {
           note={COPY_NOTE}
           badge={<Badge tone="warning">{PROPOSAL_LABEL}</Badge>}
           action={
-            <Button type="button" variant="secondary" size="small">
+            <ToastButton message={REQUEST_SENT_MESSAGE} variant="secondary" size="small">
               {REQUEST_LABEL}
-            </Button>
+            </ToastButton>
           }
         />
         <SettingsRow

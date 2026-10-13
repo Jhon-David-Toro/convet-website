@@ -82,6 +82,8 @@ export const PROPOSAL_LABEL = "Proposal";
 
 export const REQUEST_LABEL = "Request";
 
+export const REQUEST_SENT_MESSAGE = "Request received. We will email you when the copy of your data is ready.";
+
 export const DELETE_LABEL = "Delete account";
 
 export const DELETE_NOTE = "Clinical records are kept as required by law; we confirm by email first.";

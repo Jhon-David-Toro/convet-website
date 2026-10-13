@@ -1,4 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
+import { SUPPLIER_MENU } from "@/lib/admin/admin.menus.constants";
 
 import type { SupplierRowProps } from "../AdminSuppliers.types";
 
@@ -17,7 +18,7 @@ export function SupplierRow({ supplier }: SupplierRowProps) {
       <TableCell type="mono">{supplier.phone}</TableCell>
       <TableCell>{supplier.email}</TableCell>
       <TableCell>{supplier.lastDelivery}</TableCell>
-      <TableCell type="actions" actionLabel={`Actions for ${supplier.name}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${supplier.name}`} items={SUPPLIER_MENU} />
     </tr>
   );
 }

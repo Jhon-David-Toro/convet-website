@@ -75,5 +75,11 @@ export const VACCINE_OPTIONS: SelectOption[] = [
   { value: "dhpp", label: "DHPP" },
 ];
 
+export const NO_OTHER_LOTS_MESSAGE = "No other lots with stock for this vaccine.";
+
+export const TREATMENT_ADDED_MESSAGE = "Treatment added to the visit draft.";
+
+export const FILE_ATTACHED_PREFIX = "Attached";
+
 export const EXPIRED_LOT_NOTE = "Expired lots are hidden and can’t be selected.";
 

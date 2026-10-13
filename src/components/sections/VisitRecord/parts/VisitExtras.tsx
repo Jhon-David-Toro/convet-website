@@ -1,8 +1,10 @@
+import { ToastButton } from "@/components/sections/ToastButton";
 import { Button } from "@/components/ui/Button";
-import { Pill, Syringe, Upload } from "@/components/ui/Icon";
+import { Pill, Syringe } from "@/components/ui/Icon";
 
-import { ADD_TREATMENT_LABEL, ADD_VACCINE_LABEL, ATTACH_FILE_LABEL } from "../VisitRecord.constants";
+import { ADD_TREATMENT_LABEL, ADD_VACCINE_LABEL, TREATMENT_ADDED_MESSAGE } from "../VisitRecord.constants";
 import type { ExtrasProps } from "../VisitRecord.types";
+import { AttachFileButton } from "./AttachFileButton";
 import styles from "../VisitRecord.module.scss";
 
 /**
@@ -21,12 +23,10 @@ export function VisitExtras({ vaccinating, onAddVaccine }: ExtrasProps) {
           {ADD_VACCINE_LABEL}
         </Button>
       )}
-      <Button type="button" variant="secondary" size="small" leadingIcon={Pill}>
+      <ToastButton message={TREATMENT_ADDED_MESSAGE} variant="secondary" size="small" leadingIcon={Pill}>
         {ADD_TREATMENT_LABEL}
-      </Button>
-      <Button type="button" variant="secondary" size="small" leadingIcon={Upload}>
-        {ATTACH_FILE_LABEL}
-      </Button>
+      </ToastButton>
+      <AttachFileButton />
     </div>
   );
 }

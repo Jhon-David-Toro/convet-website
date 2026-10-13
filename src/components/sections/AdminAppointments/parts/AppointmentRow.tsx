@@ -1,5 +1,6 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
+import { APPOINTMENT_MENU } from "@/lib/admin/admin.menus.constants";
 
 import { STATUS_VIEWS } from "../AdminAppointments.constants";
 import type { AppointmentRowProps } from "../AdminAppointments.types";
@@ -22,7 +23,7 @@ export function AppointmentRow({ appointment }: AppointmentRowProps) {
       <TableCell type="badge">
         <StatusBadge view={STATUS_VIEWS[appointment.status]} />
       </TableCell>
-      <TableCell type="actions" actionLabel={`Actions for ${appointment.patient}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${appointment.patient}`} items={APPOINTMENT_MENU} />
     </tr>
   );
 }

@@ -1,6 +1,7 @@
 import type { ComponentPropsWithRef } from "react";
 
 import type { AvatarSubject } from "@/components/ui/Avatar";
+import type { RowMenuItem } from "@/components/patterns/RowMenu";
 
 export type TableAlign = "left" | "right";
 
@@ -25,6 +26,7 @@ export type TableCellProps =
       type: "actions";
       actionLabel: string;
       onAction?: () => void;
+      items?: RowMenuItem[];
     });
 
 export type AvatarCellProps = Extract<TableCellProps, { type: "avatar" }>;

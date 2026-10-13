@@ -1,4 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
+import { CATALOG_MENU } from "@/lib/admin/admin.menus.constants";
 
 import type { CatalogRowViewProps } from "../AdminProducts.types";
 import { CatalogIdentityCells } from "./CatalogIdentityCells";
@@ -16,7 +17,7 @@ export function CatalogRowView({ product }: CatalogRowViewProps) {
     <tr>
       <CatalogIdentityCells product={product} />
       <CatalogStateCells product={product} />
-      <TableCell type="actions" actionLabel={`Actions for ${product.name}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${product.name}`} items={CATALOG_MENU} />
     </tr>
   );
 }

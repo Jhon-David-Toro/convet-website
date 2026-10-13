@@ -1,4 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
+import { stockMenu } from "@/lib/admin/admin.menus.constants";
 
 import type { StockRowProps } from "../AdminStock.types";
 import { StockIdentityCells } from "./StockIdentityCells";
@@ -16,7 +17,7 @@ export function StockRow({ product }: StockRowProps) {
     <tr>
       <StockIdentityCells product={product} />
       <StockLevelCells product={product} />
-      <TableCell type="actions" actionLabel={`Actions for ${product.name}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${product.name}`} items={stockMenu(product.id)} />
     </tr>
   );
 }

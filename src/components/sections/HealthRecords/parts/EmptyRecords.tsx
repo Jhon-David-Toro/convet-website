@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/Button";
 import { EmptyState } from "@/components/ui/EmptyState";
 import { Calendar, Clipboard, Plus, WhatsApp } from "@/components/ui/Icon";
+import { ADD_PET_HREF } from "@/components/sections/CustomerOverview/CustomerOverview.constants";
 import { CUSTOMER_APPOINTMENTS_HREF } from "@/lib/customer/customer.paths.constants";
 import { WHATSAPP_HREF } from "@/lib/site/site.constants";
 
@@ -23,7 +24,7 @@ export function EmptyRecords({ record }: Pick<RecordProps, "record">) {
         title={EMPTY_TITLE}
         message={record.firstVisit}
         action={
-          <Button type="button" leadingIcon={Plus}>
+          <Button href={ADD_PET_HREF} leadingIcon={Plus}>
             {ADD_PET_LABEL}
           </Button>
         }

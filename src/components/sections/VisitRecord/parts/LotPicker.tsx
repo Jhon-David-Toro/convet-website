@@ -1,6 +1,6 @@
-import { Button } from "@/components/ui/Button";
+import { ToastButton } from "@/components/sections/ToastButton";
 
-import { CHANGE_LOT_LABEL, EXPIRED_LOT_NOTE, FEFO_NOTE, LOT_LABEL } from "../VisitRecord.constants";
+import { CHANGE_LOT_LABEL, EXPIRED_LOT_NOTE, FEFO_NOTE, LOT_LABEL, NO_OTHER_LOTS_MESSAGE } from "../VisitRecord.constants";
 import type { LotPickerProps } from "../VisitRecord.types";
 import { lotDetail, lotLine } from "../VisitRecord.utils";
 import { LotNote } from "./LotNote";
@@ -22,9 +22,9 @@ export function LotPicker({ lot }: LotPickerProps) {
           <p className={styles.lotCode}>{lotLine(lot)}</p>
           <p className={styles.lotDetail}>{lotDetail(lot, FEFO_NOTE)}</p>
         </div>
-        <Button type="button" variant="tertiary" size="small">
+        <ToastButton message={NO_OTHER_LOTS_MESSAGE} tone="info" variant="tertiary" size="small">
           {CHANGE_LOT_LABEL}
-        </Button>
+        </ToastButton>
       </div>
       <LotNote text={EXPIRED_LOT_NOTE} />
     </div>

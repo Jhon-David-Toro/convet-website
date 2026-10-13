@@ -1,13 +1,15 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { describe, expect, it } from "vitest";
+
+import { renderWithToast } from "@/test/renderWithToast";
 
 import { CustomerSettings } from "./CustomerSettings";
 import { attentionTitle, notSavedStatus, validateSettings } from "./CustomerSettings.utils";
 
 describe("CustomerSettings", () => {
   it("shows the cards of the page", () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     expect(screen.getByRole("heading", { level: 1, name: "Settings" })).toBeInTheDocument();
     for (const name of ["Profile & contact", "Sign-in & security", "Communication preferences", "Notifications", "Active sessions", "Privacy & data"]) {
       expect(screen.getByRole("heading", { level: 2, name })).toBeInTheDocument();
@@ -15,14 +17,14 @@ describe("CustomerSettings", () => {
   });
 
   it("saves a valid profile and says so", async () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
     expect(screen.getByRole("status")).toHaveTextContent("Changes saved. Your profile is up to date.");
     expect(screen.getByText("All changes saved")).toBeInTheDocument();
   });
 
   it("does not save an invalid number or address and explains each field", async () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     const phone = screen.getByRole("textbox", { name: /Mobile/ });
     await userEvent.clear(phone);
     await userEvent.type(phone, "560 12");
@@ -38,7 +40,7 @@ describe("CustomerSettings", () => {
   });
 
   it("switches notifications and channels, but not the ones that are fixed", async () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     const switches = screen.getAllByRole("switch");
     expect(switches[0]).toBeDisabled();
     expect(switches[3]).not.toBeChecked();
@@ -48,7 +50,7 @@ describe("CustomerSettings", () => {
   });
 
   it("signs out of the other devices", async () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     expect(screen.getByText("Safari on iPhone")).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Sign out of all other devices" }));
     expect(screen.queryByText("Safari on iPhone")).not.toBeInTheDocument();
@@ -56,7 +58,7 @@ describe("CustomerSettings", () => {
   });
 
   it("keeps the proposal of email plus WhatsApp from being chosen", () => {
-    render(<CustomerSettings />);
+    renderWithToast(<CustomerSettings />);
     expect(screen.getByRole("radio", { name: /Email \+ WhatsApp/ })).toBeDisabled();
     expect(screen.getAllByRole("radio")[0]).toBeChecked();
   });

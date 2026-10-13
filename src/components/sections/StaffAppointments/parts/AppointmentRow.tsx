@@ -1,4 +1,5 @@
 import { TableCell } from "@/components/patterns/Table";
+import { STAFF_APPOINTMENT_MENU } from "@/lib/staff/staff.menus.constants";
 import { findStaffVet, timeLabel } from "@/lib/staff/staff.utils";
 
 import type { AppointmentRowProps } from "../StaffAppointments.types";
@@ -23,7 +24,7 @@ export function AppointmentRow({ appointment }: AppointmentRowProps) {
       <TableCell type="badge">
         <StatusBadge status={appointment.status} />
       </TableCell>
-      <TableCell type="actions" actionLabel={`Actions for ${appointment.patient}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${appointment.patient}`} items={STAFF_APPOINTMENT_MENU} />
     </tr>
   );
 }

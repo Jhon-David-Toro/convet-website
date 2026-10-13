@@ -1,5 +1,6 @@
 import { StatusBadge } from "@/components/patterns/StatusBadge";
 import { TableCell } from "@/components/patterns/Table";
+import { CLIENT_MENU } from "@/lib/admin/admin.menus.constants";
 
 import { ACCOUNT_VIEWS } from "../AdminClients.constants";
 import type { ClientRowProps } from "../AdminClients.types";
@@ -21,7 +22,7 @@ export function ClientRow({ client }: ClientRowProps) {
         <StatusBadge view={ACCOUNT_VIEWS[client.account]} />
       </TableCell>
       <TableCell>{client.lastVisit}</TableCell>
-      <TableCell type="actions" actionLabel={`Actions for ${client.name}`} />
+      <TableCell type="actions" actionLabel={`Actions for ${client.name}`} items={CLIENT_MENU} />
     </tr>
   );
 }

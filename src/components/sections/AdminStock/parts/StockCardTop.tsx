@@ -1,5 +1,5 @@
-import { More } from "@/components/ui/Icon";
-import { IconButton } from "@/components/ui/IconButton";
+import { RowMenu } from "@/components/patterns/RowMenu";
+import { stockMenu } from "@/lib/admin/admin.menus.constants";
 
 import type { StockCardTopProps } from "../AdminStock.types";
 import styles from "../AdminStock.module.scss";
@@ -18,7 +18,7 @@ export function StockCardTop({ product }: StockCardTopProps) {
         <p className={styles.cardName}>{product.name}</p>
         <p className={styles.cardSku}>{product.sku}</p>
       </div>
-      <IconButton variant="ghost" icon={More} label={`Actions for ${product.name}`} />
+      <RowMenu label={`Actions for ${product.name}`} items={stockMenu(product.id)} />
     </div>
   );
 }
