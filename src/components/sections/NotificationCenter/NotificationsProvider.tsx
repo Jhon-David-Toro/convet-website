@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import { markAllRead, markRead, notificationsFor, unreadCount } from "@/lib/notifications/notifications.utils";
+import { markAllRead, markRead, notificationsFor, olderFor, unreadCount } from "@/lib/notifications/notifications.utils";
 
 import type { NotificationsProviderProps } from "./NotificationCenter.types";
 import { NotificationsContext } from "./NotificationsContext";
@@ -17,6 +17,7 @@ import { NotificationsContext } from "./NotificationsContext";
  */
 export function NotificationsProvider({ area, children }: NotificationsProviderProps) {
   const [items, setItems] = useState(() => notificationsFor(area));
+  const [hasOlder, setHasOlder] = useState(() => olderFor(area).length > 0);
 
   return (
     <NotificationsContext
@@ -26,6 +27,11 @@ export function NotificationsProvider({ area, children }: NotificationsProviderP
         unread: unreadCount(items),
         markRead: (id) => setItems((current) => markRead(current, id)),
         markAllRead: () => setItems(markAllRead),
+        hasOlder,
+        loadOlder: () => {
+          setItems((current) => [...current, ...olderFor(area)]);
+          setHasOlder(false);
+        },
       }}
     >
       {children}

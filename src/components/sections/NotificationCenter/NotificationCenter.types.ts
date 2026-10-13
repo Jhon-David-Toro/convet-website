@@ -8,6 +8,8 @@ export type NotificationCenterValue = {
   unread: number;
   markRead: (id: string) => void;
   markAllRead: () => void;
+  hasOlder: boolean;
+  loadOlder: () => void;
 };
 
 export type NotificationsProviderProps = {

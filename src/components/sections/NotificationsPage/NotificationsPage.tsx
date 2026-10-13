@@ -12,7 +12,7 @@ import { Check } from "@/components/ui/Icon";
 import { CATEGORIES, RETENTION_NOTES, SETTINGS_HREFS } from "@/lib/notifications/notifications.constants";
 import { categoryCount, FILTER_ALL, FILTER_UNREAD, filterNotifications } from "@/lib/notifications/notifications.utils";
 
-import { ALL_LABEL, EMPTY_TEXT, EMPTY_TITLE, FILTERS_LABEL, MARK_ALL_LABEL, SETTINGS_LABEL, SUBTITLE, TITLE, UNREAD_LABEL } from "./NotificationsPage.constants";
+import { ALL_LABEL, EMPTY_TEXT, EMPTY_TITLE, FILTERS_LABEL, LOAD_OLDER_LABEL, MARK_ALL_LABEL, SETTINGS_LABEL, SUBTITLE, TITLE, UNREAD_LABEL } from "./NotificationsPage.constants";
 import styles from "./NotificationsPage.module.scss";
 
 /**
@@ -21,7 +21,7 @@ import styles from "./NotificationsPage.module.scss";
  * @returns The rendered element.
  */
 export function NotificationsPage() {
-  const { area, items, unread, markAllRead } = useNotificationCenter();
+  const { area, items, unread, markAllRead, hasOlder, loadOlder } = useNotificationCenter();
   const [filter, setFilter] = useState(FILTER_ALL);
   const shown = filterNotifications(items, filter);
   const options = [
@@ -50,6 +50,11 @@ export function NotificationsPage() {
       <div className={styles.list}>
         {shown.length > 0 ? <NotificationList items={shown} /> : <p className={styles.empty}>{EMPTY_TITLE}. {EMPTY_TEXT}</p>}
       </div>
+      {hasOlder && (
+        <Button variant="secondary" className={styles.loadOlder} onClick={loadOlder}>
+          {LOAD_OLDER_LABEL}
+        </Button>
+      )}
       <Alert tone="info" title={RETENTION_NOTES[area].title}>
         {RETENTION_NOTES[area].text}
       </Alert>

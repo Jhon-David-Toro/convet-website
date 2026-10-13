@@ -12,6 +12,8 @@ export const ALL_LABEL = "All";
 
 export const UNREAD_LABEL = "Unread";
 
+export const LOAD_OLDER_LABEL = "Load older notifications";
+
 export const EMPTY_TITLE = "Nothing to show";
 
 export const EMPTY_TEXT = "There are no notifications for this filter.";

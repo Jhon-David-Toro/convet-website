@@ -33,6 +33,13 @@ describe("NotificationsPage", () => {
     expect(screen.getByRole("button", { name: "Mark all read" })).toBeDisabled();
   });
 
+  it("loads the older notifications once", async () => {
+    setup();
+    await userEvent.click(screen.getByRole("button", { name: "Load older notifications" }));
+    expect(screen.getByText("Visit summary shared")).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Load older notifications" })).not.toBeInTheDocument();
+  });
+
   it("links to the notification settings of the area", () => {
     setup();
     expect(screen.getByRole("link", { name: "Notification settings" })).toHaveAttribute("href", "/app/settings");

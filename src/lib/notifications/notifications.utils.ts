@@ -1,4 +1,4 @@
-import { GROUP_ORDER, NOTIFICATIONS } from "./notifications.constants";
+import { GROUP_ORDER, NOTIFICATIONS, OLDER_NOTIFICATIONS } from "./notifications.constants";
 import type { NotificationArea, NotificationGroup, NotificationItem } from "./notifications.types";
 
 export const FILTER_ALL = "all";
@@ -15,6 +15,16 @@ export const MAX_BADGE = 9;
  */
 export function notificationsFor(area: NotificationArea): NotificationItem[] {
   return NOTIFICATIONS.filter((item) => item.area === area);
+}
+
+/**
+ * Older notifications of an area, the ones that load when the user asks for more.
+ *
+ * @param area Area of the app: customer, staff or admin.
+ * @returns The older notifications that area received, newest first.
+ */
+export function olderFor(area: NotificationArea): NotificationItem[] {
+  return OLDER_NOTIFICATIONS.filter((item) => item.area === area);
 }
 
 /**
