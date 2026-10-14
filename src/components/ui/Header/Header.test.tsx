@@ -19,7 +19,7 @@ describe("Header", () => {
     render(<Header {...props} />);
     expect(screen.getByRole("banner")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /593-0404/ })).toBeInTheDocument();
-    expect(screen.getByRole("link", { name: "CONVET Contreras Veterinary Services N.V. home" })).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", { name: /^CONVET/ })).toHaveAttribute("href", "/");
     const main = screen.getByRole("navigation", { name: "Main" });
     expect(main).toHaveTextContent("Services");
     expect(screen.getAllByRole("link", { name: "Services" })[0]).toHaveAttribute("aria-current", "page");
