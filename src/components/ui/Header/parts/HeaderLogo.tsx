@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Logo } from "@/components/ui/Logo";
+import { Logo, LOGO_HOME_LABEL } from "@/components/ui/Logo";
 
 import type { HeaderLogoProps } from "../Header.types";
 import styles from "../Header.module.scss";
@@ -14,7 +14,7 @@ import styles from "../Header.module.scss";
  */
 export function HeaderLogo({ homeHref = "/" }: HeaderLogoProps) {
   return (
-    <Link href={homeHref} aria-label="CONVET home" className={styles.logo}>
+    <Link href={homeHref} aria-label={LOGO_HOME_LABEL} className={styles.logo}>
       <Logo />
     </Link>
   );

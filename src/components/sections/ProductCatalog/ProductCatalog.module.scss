@@ -1,6 +1,10 @@
 @use "abstracts" as *;
 @use "abstracts/typography";
 
+.srOnly {
+  @include visually-hidden;
+}
+
 /* Products/Catalog: 264px filters column and 896px results from desktop (40px gap) */
 .section {
   padding-block: var(--spacing-24) var(--spacing-48);

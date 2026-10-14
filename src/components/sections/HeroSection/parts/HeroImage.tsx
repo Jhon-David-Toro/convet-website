@@ -13,7 +13,7 @@ import styles from "../HeroSection.module.scss";
 export function HeroImage() {
   return (
     <div className={styles.frame}>
-      <Image src={photoUrl(HERO_IMAGE_NAME)} alt={HERO_IMAGE_ALT} fill priority sizes={HERO_IMAGE_SIZES} className={styles.photo} />
+      <Image src={photoUrl(HERO_IMAGE_NAME)} alt={HERO_IMAGE_ALT} fill preload fetchPriority="high" sizes={HERO_IMAGE_SIZES} className={styles.photo} />
     </div>
   );
 }

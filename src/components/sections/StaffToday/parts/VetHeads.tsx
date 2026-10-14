@@ -20,7 +20,7 @@ export function VetHeads({ vets }: ScheduleGridProps) {
       <span />
       {vets.map((vet) => (
         <div key={vet.id} className={styles.head}>
-          <Image src={photoUrl(vet.photo)} alt="" priority width={VET_PHOTO_SIZE} height={VET_PHOTO_SIZE} className={styles.vetPhoto} />
+          <Image src={photoUrl(vet.photo)} alt="" width={VET_PHOTO_SIZE} height={VET_PHOTO_SIZE} className={styles.vetPhoto} />
           <div className={styles.headText}>
             <p className={styles.vetName}>{vet.name}</p>
             <p className={styles.vetCount}>{`${appointmentsOfVet(vet.id).length} appointments`}</p>

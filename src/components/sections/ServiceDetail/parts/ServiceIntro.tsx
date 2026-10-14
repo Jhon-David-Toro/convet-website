@@ -19,7 +19,7 @@ export function ServiceIntro({ service }: ServiceIntroProps) {
   return (
     <>
       <div className={styles.photo}>
-        <Image src={photoUrl(SERVICE_PHOTO_NAME)} alt={SERVICE_PHOTO_ALT} fill priority sizes={SERVICE_PHOTO_SIZES} className={styles.photoImage} />
+        <Image src={photoUrl(SERVICE_PHOTO_NAME)} alt={SERVICE_PHOTO_ALT} fill preload fetchPriority="high" sizes={SERVICE_PHOTO_SIZES} className={styles.photoImage} />
       </div>
       <div className={styles.intro}>
         <h1 className={styles.title}>{service.title}</h1>

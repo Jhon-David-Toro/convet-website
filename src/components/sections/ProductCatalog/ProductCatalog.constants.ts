@@ -30,4 +30,6 @@ export const EMPTY_TITLE = "No products found";
 
 export const EMPTY_MESSAGE = "Try another search or clear some filters.";
 
+export const RESULTS_HEADING = "Products";
+
 export const ASK_LABEL = "Ask about availability";

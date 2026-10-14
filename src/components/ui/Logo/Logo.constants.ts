@@ -9,3 +9,5 @@ export const MARK_VARIANT = "mark";
 export const FULL_VARIANT = "full";
 
 export const LOGO_ALT = "CONVET";
+
+export const LOGO_HOME_LABEL = "CONVET Contreras Veterinary Services N.V. home";

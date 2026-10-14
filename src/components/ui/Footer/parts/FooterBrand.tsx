@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { Logo } from "@/components/ui/Logo";
+import { Logo, LOGO_HOME_LABEL } from "@/components/ui/Logo";
 
 import type { FooterBrandProps } from "../Footer.types";
 import { FooterMotto } from "./FooterMotto";
@@ -18,7 +18,7 @@ import styles from "../Footer.module.scss";
 export function FooterBrand({ homeHref = "/", about, motto }: FooterBrandProps) {
   return (
     <div className={styles.brand}>
-      <Link href={homeHref} aria-label="CONVET home" className={styles.logo}>
+      <Link href={homeHref} aria-label={LOGO_HOME_LABEL} className={styles.logo}>
         <Logo tone="inverse" />
       </Link>
       <p className={styles.about}>{about}</p>

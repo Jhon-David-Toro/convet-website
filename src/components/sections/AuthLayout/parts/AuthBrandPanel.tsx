@@ -22,7 +22,7 @@ export function AuthBrandPanel() {
         <Logo />
       </Link>
       <div className={styles.frame}>
-        <Image src={photoUrl(BRAND_PHOTO_NAME)} alt={BRAND_PHOTO_ALT} fill priority sizes={BRAND_PHOTO_SIZES} className={styles.photo} />
+        <Image src={photoUrl(BRAND_PHOTO_NAME)} alt={BRAND_PHOTO_ALT} fill sizes={BRAND_PHOTO_SIZES} className={styles.photo} />
       </div>
       <AuthBrandMessage />
     </aside>

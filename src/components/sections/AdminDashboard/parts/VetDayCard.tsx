@@ -20,7 +20,7 @@ export function VetDayCard({ vet }: VetDayCardProps) {
   return (
     <li>
       <Link href={ADMIN_NAV_HREFS.schedule} className={styles.vetCard}>
-        <Image src={photoUrl(vet.photo)} alt="" priority width={VET_PHOTO_SIZE} height={VET_PHOTO_SIZE} className={styles.vetPhoto} />
+        <Image src={photoUrl(vet.photo)} alt="" width={VET_PHOTO_SIZE} height={VET_PHOTO_SIZE} className={styles.vetPhoto} />
         <span className={styles.vetText}>
           <p className={styles.vetName}>{vet.name}</p>
           <p className={styles.vetSummary}>{vet.summary}</p>

@@ -23,7 +23,7 @@ export function Logo({ variant = "full", tone = "default", className, ...rest }:
   return (
     <span {...rest} className={classes}>
       {/* The seal is decorative in the full version (the name is already in the text) */}
-      <Image src={photoUrl(LOGO_MARK_NAME)} alt={variant === MARK_VARIANT ? LOGO_ALT : ""} width={LOGO_MARK_SIZE} height={LOGO_MARK_SIZE} className={styles.image} priority />
+      <Image src={photoUrl(LOGO_MARK_NAME)} alt={variant === MARK_VARIANT ? LOGO_ALT : ""} width={LOGO_MARK_SIZE} height={LOGO_MARK_SIZE} className={styles.image} loading="eager" />
       {variant === FULL_VARIANT && (
         <span className={styles.wordmark}>
           <span className={styles.name}>CONVET</span>
