@@ -4,15 +4,18 @@ import { Check, Lock, Mail } from "@/components/ui/Icon";
 import { SETTINGS_EMAIL } from "@/lib/customer/customer.settings.constants";
 
 import { CHANGE_EMAIL_LABEL, CHANGE_PASSWORD_LABEL, PASSWORD_NOTE, SECURITY_TITLE, VERIFIED_LABEL } from "../CustomerSettings.constants";
+import type { CustomerSettingsProps } from "../CustomerSettings.types";
 import { SettingsRow } from "./SettingsRow";
 import styles from "../CustomerSettings.module.scss";
 
 /**
  * Sign-in and security card: the verified email with its change button, and the password with its change button.
  *
+ * @param props Props of the component.
+ * @param props.onChangePassword Saves a new password through the backend.
  * @returns The rendered element.
  */
-export function SecurityCard() {
+export function SecurityCard({ onChangePassword }: CustomerSettingsProps) {
   return (
     <section className={styles.card} aria-labelledby="settings-security">
       <h2 id="settings-security" className={styles.cardTitle}>
@@ -39,7 +42,7 @@ export function SecurityCard() {
           title="Password"
           note={PASSWORD_NOTE}
           action={
-            <ModalButton modal="password" variant="secondary" size="small">
+            <ModalButton modal="password" variant="secondary" size="small" onSave={onChangePassword}>
               {CHANGE_PASSWORD_LABEL}
             </ModalButton>
           }

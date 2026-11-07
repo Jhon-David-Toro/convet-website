@@ -12,18 +12,19 @@ import type { ModalButtonProps } from "./ModalButton.types";
  *
  * @param props Props of the component, see {@link ModalButtonProps}.
  * @param props.modal Which dialog the button opens.
+ * @param props.onSave Saves the dialog for real (the password dialog).
  * @param props.icon Icon before the label, by name: components cannot be passed from a Server Component.
  * @param props.rest Remaining properties, forwarded to the button.
  * @returns The rendered element.
  */
-export function ModalButton({ modal, icon, ...button }: ModalButtonProps) {
+export function ModalButton({ modal, icon, onSave, ...button }: ModalButtonProps) {
   const dialog = useDisclosure();
   const Dialog = MODAL_COMPONENTS[modal];
 
   return (
     <>
       <Button type="button" {...button} leadingIcon={icon && MODAL_ICONS[icon]} onClick={dialog.show} />
-      <Dialog open={dialog.open} onClose={dialog.hide} />
+      <Dialog open={dialog.open} onClose={dialog.hide} onSave={onSave} />
     </>
   );
 }

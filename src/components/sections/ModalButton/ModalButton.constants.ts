@@ -17,9 +17,11 @@ import { TimeOffModal } from "@/components/sections/TimeOffModal";
 
 import { Calendar, Mail, Plus } from "@/components/ui/Icon";
 
+import type { SavePassword } from "@/components/sections/PasswordModal/PasswordModal.types";
+
 import type { ModalIconKey, ModalKey } from "./ModalButton.types";
 
-export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps>> = {
+export const MODAL_COMPONENTS: Record<ModalKey, ComponentType<DialogControlProps & { onSave?: SavePassword }>> = {
   "new-client": NewClientModal,
   supplier: SupplierModal,
   service: ServiceModal,

@@ -1,7 +1,7 @@
-import { requireText } from "@/lib/auth/validation.utils";
+import { requireText, validateNewPassword } from "@/lib/auth/validation.utils";
 import type { FormErrors } from "@/lib/shared/useFormModal.types";
 
-import { CURRENT_ERROR, LENGTH_ERROR, MIN_PASSWORD_LENGTH, REPEAT_ERROR, SAME_ERROR } from "./PasswordModal.constants";
+import { CURRENT_ERROR, REPEAT_ERROR, SAME_ERROR } from "./PasswordModal.constants";
 import type { PasswordValues } from "./PasswordModal.types";
 
 /**
@@ -11,7 +11,8 @@ import type { PasswordValues } from "./PasswordModal.types";
  * @returns The message, or `undefined` when the new password is fine.
  */
 function nextProblem(values: PasswordValues): string | undefined {
-  if (values.next.length < MIN_PASSWORD_LENGTH) return LENGTH_ERROR;
+  const weak = validateNewPassword(values.next);
+  if (weak) return weak;
   return values.next === values.current ? SAME_ERROR : undefined;
 }
 
