@@ -25,8 +25,8 @@ describe("scorePassword", () => {
   it("scores by length, case, digit and symbol", () => {
     expect(scorePassword("")).toBe(0);
     expect(scorePassword("Aa1!")).toBe(1);
-    expect(scorePassword("abcdefghij")).toBe(1);
-    expect(scorePassword("Abcdefghij")).toBe(2);
-    expect(scorePassword("Abcdefghi1")).toBe(3);
+    expect(scorePassword("abcdefghijkl")).toBe(1);
+    expect(scorePassword("Abcdefghijkl")).toBe(2);
+    expect(scorePassword("Abcdefghijk1")).toBe(3);
   });
 });

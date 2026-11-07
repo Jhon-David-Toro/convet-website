@@ -2,10 +2,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-import { readPendingEmail } from "@/lib/auth/pendingEmail";
-
 import { SignUpForm } from "./SignUpForm";
-import { validateSignUp } from "./SignUpForm.utils";
 
 const push = vi.fn();
 
@@ -18,7 +15,8 @@ async function fillForm() {
   await userEvent.type(screen.getByLabelText("First name"), "Anna");
   await userEvent.type(screen.getByLabelText("Last name"), "Lee");
   await userEvent.type(screen.getByLabelText("Email"), "anna@example.com");
-  await userEvent.type(screen.getByLabelText("Password"), "Violet-Tiger-2026");
+  await userEvent.type(screen.getByLabelText("Password"), "Violet-Tiger-2026!");
+  await userEvent.type(screen.getByLabelText(/Mobile/), "+297 560 1234");
 }
 
 describe("SignUpForm", () => {
@@ -27,7 +25,7 @@ describe("SignUpForm", () => {
   it("shows the heading, the helpers and the link back to sign in", () => {
     render(<SignUpForm />);
     expect(screen.getByRole("heading", { level: 1, name: "Create your account" })).toBeInTheDocument();
-    expect(screen.getByText("We'll send a 6-digit code to verify it.")).toBeInTheDocument();
+    expect(screen.getByText("You will use it to sign in.")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Sign in" })).toHaveAttribute("href", "/sign-in");
     expect(screen.getByRole("link", { name: "Terms" })).toHaveAttribute("href", "/terms");
   });
@@ -42,38 +40,39 @@ describe("SignUpForm", () => {
     render(<SignUpForm />);
     await userEvent.click(screen.getByRole("button", { name: "Create account" }));
     expect(screen.getByText("Enter your first name.")).toBeInTheDocument();
-    expect(screen.getByText("Use at least 10 characters.")).toBeInTheDocument();
+    expect(screen.getByText("Use at least 12 characters with upper and lower case letters, a number and a symbol.")).toBeInTheDocument();
     expect(screen.getByText("Accept the Terms and Privacy Policy to continue.")).toBeInTheDocument();
     expect(push).not.toHaveBeenCalled();
   });
 
-  it("creates the account and opens the email verification", async () => {
-    const onSubmit = vi.fn().mockResolvedValue(undefined);
+  it("creates the account and goes to sign in", async () => {
+    const onSubmit = vi.fn().mockResolvedValue({ ok: true, data: undefined });
     render(<SignUpForm onSubmit={onSubmit} />);
     await fillForm();
     await userEvent.click(screen.getByRole("checkbox", { name: /I accept the/ }));
     await userEvent.click(screen.getByRole("button", { name: "Create account" }));
-    expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ firstName: "Anna", acceptTerms: true }));
-    expect(push).toHaveBeenCalledWith("/verify-email");
-    expect(readPendingEmail()).toBe("anna@example.com");
+    expect(onSubmit).toHaveBeenCalledWith(expect.objectContaining({ firstName: "Anna", phone: "+297 560 1234", acceptTerms: true }));
+    expect(push).toHaveBeenCalledWith("/sign-in");
   });
-});
 
-describe("sign-up utils", () => {
-  it("accepts a complete form", () => {
-    const values = { firstName: "Anna", lastName: "Lee", email: "a@b.co", phone: "", password: "0123456789", acceptTerms: true, whatsappReminders: false };
-    expect(validateSignUp(values)).toEqual({});
+  it("shows a taken email on its field and keeps the data", async () => {
+    const onSubmit = vi.fn().mockResolvedValue({ ok: false, kind: "conflict", message: "taken" });
+    render(<SignUpForm onSubmit={onSubmit} />);
+    await fillForm();
+    await userEvent.click(screen.getByRole("checkbox", { name: /I accept the/ }));
+    await userEvent.click(screen.getByRole("button", { name: "Create account" }));
+    expect(await screen.findByText("This email is already registered. Try signing in.")).toBeInTheDocument();
+    expect(screen.getByLabelText("First name")).toHaveValue("Anna");
+    expect(push).not.toHaveBeenCalled();
   });
-});
 
-describe("SignUpForm optional fields", () => {
-  it("takes the phone and the WhatsApp reminders choice", async () => {
-    render(<SignUpForm />);
-    const phone = screen.getByLabelText(/Mobile/);
-    await userEvent.type(phone, "+297 560 1234");
-    expect(phone).toHaveValue("+297 560 1234");
-    const reminders = screen.getByRole("checkbox", { name: /vaccine and visit reminders/ });
-    await userEvent.click(reminders);
-    expect(reminders).toBeChecked();
+  it("shows a banner for any other failure and lets the visitor try again", async () => {
+    const onSubmit = vi.fn().mockResolvedValue({ ok: false, kind: "server", message: "Something went wrong on our side." });
+    render(<SignUpForm onSubmit={onSubmit} />);
+    await fillForm();
+    await userEvent.click(screen.getByRole("checkbox", { name: /I accept the/ }));
+    await userEvent.click(screen.getByRole("button", { name: "Create account" }));
+    expect(await screen.findByText("We could not create your account")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Create account" })).toBeEnabled();
   });
 });

@@ -26,11 +26,11 @@ export function SignUpContactFields({ values, errors, setValue }: SignUpFieldsPr
       />
       <TextInput
         label="Mobile (WhatsApp)"
-        optional
         type="tel"
         autoComplete="tel"
         placeholder="+297"
         helper={PHONE_HELPER}
+        error={errors.phone}
         value={values.phone}
         onChange={(event) => setValue("phone", event.target.value)}
       />

@@ -11,6 +11,7 @@ export const ERROR_MESSAGES = {
   unauthorized: "Your session has expired. Please sign in again.",
   forbidden: "You do not have permission to do this.",
   "not-found": "We could not find what you were looking for.",
+  conflict: "That information is already registered.",
   validation: "Some of the information is not valid. Please review it and try again.",
   server: "Something went wrong on our side. Please try again in a moment.",
   network: "We could not reach the server. Check your connection and try again.",
