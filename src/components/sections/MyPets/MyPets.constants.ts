@@ -12,6 +12,7 @@ export const SPECIES_OPTIONS: SelectOption[] = [
   { value: "dog", label: "Dog" },
   { value: "cat", label: "Cat" },
   { value: "bird", label: "Bird" },
+  { value: "rabbit", label: "Rabbit" },
   { value: "other", label: "Other" },
 ];
 

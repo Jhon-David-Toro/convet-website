@@ -31,9 +31,9 @@ describe("addPetAction", () => {
   });
 
   it("returns a safe error and the backend field errors when the call fails", async () => {
-    createPet.mockRejectedValue(new ApiError("validation", { status: 400, fieldErrors: { birthDate: "birthDate must be a date" } }));
+    createPet.mockRejectedValue(new ApiError("validation", { status: 400, fieldErrors: { dateOfBirth: "dateOfBirth must be a date" } }));
     const result = await addPetAction(VALID);
-    expect(result).toMatchObject({ ok: false, kind: "validation", fieldErrors: { birthDate: "birthDate must be a date" } });
+    expect(result).toMatchObject({ ok: false, kind: "validation", fieldErrors: { dateOfBirth: "dateOfBirth must be a date" } });
     expect(revalidatePath).not.toHaveBeenCalled();
   });
 

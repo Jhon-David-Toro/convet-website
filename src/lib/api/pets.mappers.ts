@@ -8,7 +8,7 @@ import type { CreatePetDto, PetDto } from "./pets.contract";
 
 const MONTHS_PER_YEAR = 12;
 
-const SPECIES_SUBJECTS: Record<string, AvatarSubject> = { dog: "dog", cat: "cat", bird: "bird", horse: "horse" };
+const SPECIES_SUBJECTS: Record<string, AvatarSubject> = { dog: "dog", cat: "cat", bird: "bird" };
 
 const SEX_LABELS: Record<string, string> = { female: "Female", male: "Male", unknown: "Sex unknown" };
 
@@ -45,7 +45,7 @@ export function ageLabel(birthDate: string | undefined, today: Date): string | u
  */
 export function toPetItem(pet: PetDto, today: Date = new Date()): PetItem {
   const species = titleCase(pet.species);
-  const age = ageLabel(pet.birthDate, today);
+  const age = ageLabel(pet.dateOfBirth, today);
   const sex = pet.sex ? SEX_LABELS[pet.sex.toLowerCase()] : undefined;
   const summary = [species, pet.breed, pet.color, age].filter(Boolean).join(" · ");
 
@@ -55,9 +55,8 @@ export function toPetItem(pet: PetDto, today: Date = new Date()): PetItem {
     subject: SPECIES_SUBJECTS[pet.species.toLowerCase()] ?? "dog",
     summary,
     profileLine: [summary, sex].filter(Boolean).join(" · "),
-    allergy: pet.allergies,
-    microchip: pet.microchip ?? "—",
-    weight: pet.weightKg === undefined ? "—" : `${pet.weightKg} kg`,
+    microchip: "—",
+    weight: "—",
     weightDate: "",
     vet: "",
   };
@@ -85,12 +84,12 @@ export function isoFromFormDate(birthDate: string): string | undefined {
 export function toCreatePetDto(values: NewPetValues): CreatePetDto {
   const dto: CreatePetDto = {
     name: values.name.trim(),
-    species: SPECIES_TO_DTO[values.species] ?? values.species.toUpperCase(),
+    species: SPECIES_TO_DTO[values.species] ?? "OTHER",
     sex: SEX_TO_DTO[values.sex] ?? "UNKNOWN",
   };
   if (values.breed.trim()) dto.breed = values.breed.trim();
   if (values.color.trim()) dto.color = values.color.trim();
-  const birthDate = isoFromFormDate(values.birthDate);
-  if (birthDate) dto.birthDate = birthDate;
+  const dateOfBirth = isoFromFormDate(values.birthDate);
+  if (dateOfBirth) dto.dateOfBirth = dateOfBirth;
   return dto;
 }
