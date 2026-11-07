@@ -4,9 +4,16 @@ import type { PetEvent, PetItem, PetVaccine, WeightPoint } from "@/lib/customer/
 
 export type PetTab = (typeof PET_TABS)[number];
 
+/** History of the pet for the History tab: its events, or the reason they could not be loaded. */
+export type PetHistory = {
+  events: PetEvent[];
+  error?: string;
+};
+
 export type PetProfileProps = {
   pet: PetItem;
   tab: PetTab;
+  history: PetHistory;
 };
 
 export type AllergyNoteProps = {
@@ -17,7 +24,7 @@ export type PetProps = {
   pet: PetItem;
 };
 
-export type PetTabsProps = PetProfileProps & {
+export type PetTabsProps = Omit<PetProfileProps, "history"> & {
   counts: Partial<Record<PetTab, number>>;
 };
 
@@ -41,7 +48,7 @@ export type NextStepCardProps = {
 
 export type HistoryFilter = TimelineType | "all";
 
-export type HistoryTabProps = PetProps;
+export type HistoryTabProps = PetProps & { history: PetHistory };
 
 export type HistoryFiltersProps = {
   events: PetEvent[];

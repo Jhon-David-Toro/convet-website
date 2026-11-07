@@ -16,9 +16,10 @@ import styles from "./PetProfile.module.scss";
  * @param props Props of the component, see {@link PetProfileProps}.
  * @param props.pet Pet to show.
  * @param props.tab Selected tab.
+ * @param props.history Events of the History tab.
  * @returns The rendered element.
  */
-export function PetProfile({ pet, tab }: PetProfileProps) {
+export function PetProfile({ pet, tab, history }: PetProfileProps) {
   return (
     <>
       <Breadcrumbs items={petBreadcrumbs(pet, tab)} className={styles.breadcrumbs} />
@@ -30,7 +31,7 @@ export function PetProfile({ pet, tab }: PetProfileProps) {
         </div>
       </div>
       <PetTabs pet={pet} tab={tab} counts={tabCounts(vaccinesOf(pet.id))} />
-      <PetTabPanel pet={pet} tab={tab} />
+      <PetTabPanel pet={pet} tab={tab} history={history} />
     </>
   );
 }

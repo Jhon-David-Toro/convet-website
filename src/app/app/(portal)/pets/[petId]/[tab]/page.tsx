@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 
 import { PetProfile } from "@/components/sections/PetProfile";
 import { loadData } from "@/lib/api/api.guard";
+import { getPetHistory } from "@/lib/api/medical-records.api";
 import { getPet } from "@/lib/api/pets.api";
 import { PET_TABS } from "@/lib/customer/customer.paths.constants";
 
@@ -33,5 +34,8 @@ export default async function PetTabPage({ params }: PetTabPageProps) {
   const known = PET_TABS.find((candidate) => candidate === tab);
   if (!pet || !known) notFound();
 
-  return <PetProfile pet={pet} tab={known} />;
+  // Only the History tab needs the medical records, so the other tabs do not call the backend for them.
+  const history = known === "history" ? await loadData(() => getPetHistory(pet.id)) : undefined;
+
+  return <PetProfile pet={pet} tab={known} history={{ events: history?.data ?? [], error: history?.error?.message }} />;
 }

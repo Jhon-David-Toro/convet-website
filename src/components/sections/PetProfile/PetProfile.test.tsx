@@ -13,12 +13,13 @@ const push = vi.fn();
 vi.mock("next/navigation", () => ({ useRouter: () => ({ push }) }));
 
 const [luna] = CUSTOMER_PETS;
+const LUNA_EVENTS = CUSTOMER_EVENTS.filter((event) => event.petId === "luna");
 
 describe("PetProfile", () => {
   beforeEach(() => push.mockClear());
 
   it("shows the pet, its breadcrumbs and the tabs", () => {
-    renderWithToast(<PetProfile pet={luna} tab="vaccines" />);
+    renderWithToast(<PetProfile pet={luna} tab="vaccines" history={{ events: [] }} />);
     expect(screen.getByRole("heading", { level: 1, name: "Luna" })).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "My pets" })).toHaveAttribute("href", "/app/pets");
     expect(screen.getByRole("tab", { name: /Vaccines/ })).toHaveAttribute("aria-selected", "true");
@@ -26,13 +27,13 @@ describe("PetProfile", () => {
   });
 
   it("opens the page of the tab that is chosen", async () => {
-    renderWithToast(<PetProfile pet={luna} tab="vaccines" />);
+    renderWithToast(<PetProfile pet={luna} tab="vaccines" history={{ events: [] }} />);
     await userEvent.click(screen.getByRole("tab", { name: "History" }));
     expect(push).toHaveBeenCalledWith("/app/pets/luna/history");
   });
 
   it("lists the vaccines with their status and the overdue count", () => {
-    renderWithToast(<PetProfile pet={luna} tab="vaccines" />);
+    renderWithToast(<PetProfile pet={luna} tab="vaccines" history={{ events: [] }} />);
     const card = screen.getByRole("heading", { name: "Vaccination card" }).closest("section")!;
     expect(within(card).getByText("1 overdue")).toBeInTheDocument();
     expect(within(card).getByText("Leptospirosis")).toBeInTheDocument();
@@ -40,7 +41,7 @@ describe("PetProfile", () => {
   });
 
   it("filters the history by kind and groups it by year", async () => {
-    renderWithToast(<PetProfile pet={luna} tab="history" />);
+    renderWithToast(<PetProfile pet={luna} tab="history" history={{ events: LUNA_EVENTS }} />);
     expect(screen.getByText("2025")).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: /Vaccines/ }));
     expect(screen.queryByText("Consultation · limping")).not.toBeInTheDocument();
@@ -48,7 +49,7 @@ describe("PetProfile", () => {
   });
 
   it("shows an empty state in the tabs that are not available yet", () => {
-    renderWithToast(<PetProfile pet={luna} tab="treatments" />);
+    renderWithToast(<PetProfile pet={luna} tab="treatments" history={{ events: [] }} />);
     expect(screen.getByText("Nothing here yet")).toBeInTheDocument();
   });
 });
@@ -70,9 +71,22 @@ describe("pet profile utils", () => {
   });
 });
 
+describe("PetProfile history from the backend", () => {
+  it("shows the events it receives", () => {
+    renderWithToast(<PetProfile pet={luna} tab="history" history={{ events: [{ id: "r1", petId: "luna", type: "visit", title: "Consultation", meta: "Sep 11, 2026", summary: "Sprain.", year: "2026" }] }} />);
+    expect(screen.getByText("Consultation")).toBeInTheDocument();
+  });
+
+  it("shows an error instead of an empty timeline when the history could not be loaded", () => {
+    renderWithToast(<PetProfile pet={luna} tab="history" history={{ events: [], error: "We could not reach the server." }} />);
+    expect(screen.getByText("We could not load the history")).toBeInTheDocument();
+    expect(screen.getByText("We could not reach the server.")).toBeInTheDocument();
+  });
+});
+
 describe("PetProfile without an upcoming appointment", () => {
   it("shows the overview of a pet that has nothing scheduled", () => {
-    renderWithToast(<PetProfile pet={CUSTOMER_PETS[1]} tab="overview" />);
+    renderWithToast(<PetProfile pet={CUSTOMER_PETS[1]} tab="overview" history={{ events: [] }} />);
     expect(screen.getByRole("heading", { level: 1, name: CUSTOMER_PETS[1].name })).toBeInTheDocument();
     expect(screen.queryByRole("heading", { name: "Upcoming appointment" })).not.toBeInTheDocument();
   });
