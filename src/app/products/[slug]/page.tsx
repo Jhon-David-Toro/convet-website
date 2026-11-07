@@ -8,6 +8,7 @@ import { findProduct } from "@/lib/catalog/products.utils";
 
 import { PRODUCTS_PATH } from "../page.constants";
 import type { ProductPageProps } from "./page.types";
+import { pageMetadata } from "@/lib/site/seo.utils";
 
 /**
  * Pre-renders one page per product.
@@ -27,7 +28,7 @@ export function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
   const product = findProduct((await params).slug);
-  return product ? { title: `${product.name} · CONVET`, description: product.description, alternates: { canonical: `/products/${product.slug}` } } : {};
+  return product ? pageMetadata({ title: product.name, description: product.description, path: `/products/${product.slug}` }) : {};
 }
 
 /**

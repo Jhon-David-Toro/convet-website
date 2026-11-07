@@ -5,6 +5,7 @@ import { ServiceDetail, ServiceMobileBar } from "@/components/sections/ServiceDe
 import { SiteShell } from "@/components/sections/SiteShell";
 import { SERVICES } from "@/lib/catalog/services.constants";
 import { findService } from "@/lib/catalog/services.utils";
+import { breadcrumbJsonLd, jsonLdText, pageMetadata, serviceJsonLd } from "@/lib/site/seo.utils";
 
 import { SERVICES_PATH } from "../page.constants";
 import type { ServicePageProps } from "./page.types";
@@ -27,7 +28,7 @@ export function generateStaticParams() {
  */
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
   const service = findService((await params).slug);
-  return service ? { title: `${service.title} · CONVET`, description: service.lead, alternates: { canonical: `${SERVICES_PATH}/${service.slug}` } } : {};
+  return service ? pageMetadata({ title: service.title, description: service.lead, path: `${SERVICES_PATH}/${service.slug}` }) : {};
 }
 
 /**
@@ -41,8 +42,17 @@ export default async function ServicePage({ params }: ServicePageProps) {
   const service = findService((await params).slug);
   if (!service) notFound();
 
+  const path = `${SERVICES_PATH}/${service.slug}`;
+  const structuredData = [
+    serviceJsonLd({ name: service.title, description: service.lead, path }),
+    breadcrumbJsonLd([{ name: "Home", path: "/" }, { name: "Services", path: SERVICES_PATH }, { name: service.title, path }]),
+  ];
+
   return (
     <SiteShell current={SERVICES_PATH} mobileBar={<ServiceMobileBar service={service} />}>
+      {structuredData.map((data) => (
+        <script key={data["@type"]} type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLdText(data) }} />
+      ))}
       <ServiceDetail service={service} />
     </SiteShell>
   );

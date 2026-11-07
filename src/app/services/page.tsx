@@ -5,12 +5,10 @@ import { ServiceList } from "@/components/sections/ServiceList";
 import { SiteShell } from "@/components/sections/SiteShell";
 
 import { SERVICES_INTRO, SERVICES_PATH } from "./page.constants";
+import { pageMetadata } from "@/lib/site/seo.utils";
 
 /** Metadata of the services page. */
-export const metadata: Metadata = {
-  title: "Services · CONVET",
-  description: SERVICES_INTRO.description,
-};
+export const metadata: Metadata = pageMetadata({ title: "Services", description: SERVICES_INTRO.description, path: "/services" });
 
 /**
  * Services page: introduction band and the list of services with their species filter.
