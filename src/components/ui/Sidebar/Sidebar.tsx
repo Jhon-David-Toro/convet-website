@@ -15,19 +15,20 @@ import styles from "./Sidebar.module.scss";
  * @param props.branch Active branch. The selector is only shown when there is more than one branch.
  * @param props.onBranchClick Called when the user clicks the branch selector.
  * @param props.user Signed-in user: name and role.
- * @param props.signOutHref Link that signs the user out.
+ * @param props.signOutHref Link that signs the user out when there is no `onSignOut`.
+ * @param props.onSignOut Signs the user out; renders a button instead of a link.
  * @param props.homeHref Link of the logo; defaults to `/`.
  * @param props.className Extra class name for the root element.
  * @param props.rest Remaining properties, forwarded to the root element.
  * @returns The rendered element.
  */
-export function Sidebar({ groups, branch, onBranchClick, user, signOutHref, homeHref, className, ...rest }: SidebarProps) {
+export function Sidebar({ groups, branch, onBranchClick, user, signOutHref, onSignOut, homeHref, className, ...rest }: SidebarProps) {
   return (
     <aside aria-label="Sidebar" {...rest} className={cx(styles.sidebar, className)}>
       <SidebarLogo homeHref={homeHref} />
       {branch && <SidebarBranch branch={branch} onClick={onBranchClick} />}
       <SidebarNav groups={groups} />
-      <SidebarUser user={user} signOutHref={signOutHref} />
+      <SidebarUser user={user} signOutHref={signOutHref} onSignOut={onSignOut} />
     </aside>
   );
 }

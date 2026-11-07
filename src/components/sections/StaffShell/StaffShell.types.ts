@@ -6,6 +6,8 @@ export type ShellVariant = "staff" | "admin";
 export type StaffShellProps = {
   children: ReactNode;
   variant?: ShellVariant;
+  /** Signed-in user; its name replaces the sample one. */
+  user?: { name: string };
 };
 
 export type StaffNavItem = {

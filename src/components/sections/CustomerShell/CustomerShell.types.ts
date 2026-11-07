@@ -5,6 +5,8 @@ import type { NotificationsSource } from "@/components/sections/NotificationCent
 
 export type CustomerShellProps = {
   children: ReactNode;
+  /** Signed-in customer shown in the sidebar and the greeting. */
+  user: { name: string; role: string; firstName: string };
   /** Notifications of the customer from the backend; without it the sample data is shown. */
   notifications?: NotificationsSource;
 };
@@ -22,4 +24,12 @@ export type CustomerNavItem = {
 
 export type CustomerPathProps = {
   pathname: string;
+};
+
+export type CustomerTopBarProps = CustomerPathProps & {
+  firstName: string;
+};
+
+export type CustomerSidebarProps = CustomerPathProps & {
+  user: { name: string; role: string };
 };

@@ -20,10 +20,12 @@ import styles from "./StaffShell.module.scss";
  * @param props Props of the component, see {@link StaffShellProps}.
  * @param props.children Page content.
  * @param props.variant Which area: the clinic staff or the administrators.
+ * @param props.user Signed-in user; its name replaces the sample one in the sidebar.
  * @returns The rendered element.
  */
-export function StaffShell({ children, variant = "staff" }: StaffShellProps) {
-  const config = SHELL_CONFIGS[variant];
+export function StaffShell({ children, variant = "staff", user }: StaffShellProps) {
+  const base = SHELL_CONFIGS[variant];
+  const config = user ? { ...base, user: { name: user.name, role: base.user.role } } : base;
   const pathname = usePathname();
   const menu = useDisclosure();
 

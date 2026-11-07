@@ -1,4 +1,7 @@
+"use client";
+
 import { Sidebar } from "@/components/ui/Sidebar";
+import { useSignOut } from "@/lib/auth/useSignOut";
 import { STAFF_SIGN_OUT_HREF } from "@/lib/staff/staff.paths.constants";
 
 import type { StaffPathProps } from "../StaffShell.types";
@@ -14,9 +17,11 @@ import styles from "../StaffShell.module.scss";
  * @returns The rendered element.
  */
 export function StaffSidebar({ pathname, config }: StaffPathProps) {
+  const signOut = useSignOut();
+
   return (
     <div className={styles.sidebar}>
-      <Sidebar groups={sidebarGroups(config.nav, pathname, config.homeHref)} branch={config.branch} user={config.user} signOutHref={STAFF_SIGN_OUT_HREF} homeHref="/" />
+      <Sidebar groups={sidebarGroups(config.nav, pathname, config.homeHref)} branch={config.branch} user={config.user} signOutHref={STAFF_SIGN_OUT_HREF} onSignOut={signOut} homeHref="/" />
     </div>
   );
 }

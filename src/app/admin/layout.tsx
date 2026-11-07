@@ -22,11 +22,11 @@ export const metadata: Metadata = {
 export default async function AdminLayout({
     children,
 }: AdminLayoutProps) {
-    await requireRole(["ADMIN"]);
+    const user = await requireRole(["ADMIN"]);
 
     return (
         <ToastProvider>
-            <StaffShell variant="admin">{children}</StaffShell>
+            <StaffShell variant="admin" user={{ name: `${user.firstName} ${user.lastName}` }}>{children}</StaffShell>
         </ToastProvider>
     );
 }

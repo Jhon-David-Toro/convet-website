@@ -13,6 +13,8 @@ export type SidebarProps = Omit<ComponentPropsWithRef<"aside">, "children"> & {
   onBranchClick?: () => void;
   user: { name: string; role: string };
   signOutHref: string;
+  /** Signs the user out. When given, the control is a button (signing out changes state, so it must not be a plain link). */
+  onSignOut?: () => void;
   homeHref?: string;
 };
 
@@ -29,4 +31,4 @@ export type SidebarGroupViewProps = {
   group: SidebarGroup;
 };
 
-export type SidebarUserProps = Pick<SidebarProps, "user" | "signOutHref">;
+export type SidebarUserProps = Pick<SidebarProps, "user" | "signOutHref" | "onSignOut">;

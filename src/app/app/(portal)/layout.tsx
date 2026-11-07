@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { CustomerShell } from "@/components/sections/CustomerShell";
+import { requireRole } from "@/lib/auth/auth.access";
 import { loadData } from "@/lib/api/api.guard";
 import { getNotificationsPage } from "@/lib/api/notifications.api";
 
@@ -20,10 +21,12 @@ export const metadata: Metadata = {
  * @returns The rendered element.
  */
 export default async function CustomerLayout({ children }: CustomerLayoutProps) {
+  const user = await requireRole(["CUSTOMER"]);
   const { data } = await loadData(() => getNotificationsPage(1));
 
   return (
     <CustomerShell
+      user={{ name: `${user.firstName} ${user.lastName}`, role: "Client", firstName: user.firstName }}
       notifications={{
         items: data?.items ?? [],
         hasOlder: data?.hasMore ?? false,

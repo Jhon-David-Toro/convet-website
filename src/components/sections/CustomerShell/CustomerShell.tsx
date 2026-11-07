@@ -15,18 +15,19 @@ import styles from "./CustomerShell.module.scss";
  *
  * @param props Props of the component, see {@link CustomerShellProps}.
  * @param props.children Page content.
+ * @param props.user Signed-in customer shown in the sidebar.
  * @param props.notifications Notifications from the backend.
  * @returns The rendered element.
  */
-export function CustomerShell({ children, notifications }: CustomerShellProps) {
+export function CustomerShell({ children, user, notifications }: CustomerShellProps) {
   const pathname = usePathname();
 
   return (
     <NotificationsProvider area="customer" source={notifications}>
       <div className={styles.shell}>
-        <CustomerSidebar pathname={pathname} />
+        <CustomerSidebar pathname={pathname} user={user} />
         <div className={styles.main}>
-          <CustomerTopBar pathname={pathname} />
+          <CustomerTopBar pathname={pathname} firstName={user.firstName} />
           <main className={styles.content}>{children}</main>
         </div>
         <CustomerTabBar pathname={pathname} />
