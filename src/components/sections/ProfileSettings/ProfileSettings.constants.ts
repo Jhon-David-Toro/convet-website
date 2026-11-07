@@ -9,11 +9,15 @@ export const ERROR_MESSAGES = {
   lastName: "Enter your last name.",
 } as const;
 
-export const EMAIL_HELPER = "Verified";
+export const EMAIL_HELPER = "Used to sign in";
+
+export const EMAIL_TAKEN_ERROR = "This email is already registered.";
+
+export const LOAD_ERROR_TITLE = "We could not load your profile";
+
+export const SAVE_ERROR_TITLE = "We could not save your changes";
 
 export const PHONE_LABEL = "Mobile (WhatsApp)";
-
-export const ADDRESS_PLACEHOLDER = "Street, district";
 
 export const SAVE_LABEL = "Save changes";
 
@@ -37,4 +41,4 @@ export const SIGN_OUT_OTHERS_LABEL = "Sign out others";
 
 export const DELETE_LABEL = "Delete account";
 
-export const FORGOT_HREF = "/forgot-password";
+export const FORGOT_HREF = "/app/settings";

@@ -1,4 +1,4 @@
-import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
+import { onlyErrors, requireText, validateEmail, validatePhone } from "@/lib/auth/validation.utils";
 import type { CustomerProfile } from "@/lib/customer/customer.types";
 
 import { ERROR_MESSAGES } from "./ProfileSettings.constants";
@@ -15,6 +15,6 @@ export function validateProfile(values: CustomerProfile): ProfileErrors {
     firstName: requireText(values.firstName, ERROR_MESSAGES.firstName),
     lastName: requireText(values.lastName, ERROR_MESSAGES.lastName),
     email: validateEmail(values.email),
-    phone: undefined,
+    phone: validatePhone(values.phone),
   });
 }

@@ -13,17 +13,17 @@ describe("ProfileSettings", () => {
     expect(screen.getByRole("heading", { level: 1, name: "Profile & settings" })).toBeInTheDocument();
     expect(screen.getByLabelText("First name")).toHaveValue("Anna");
     expect(screen.getByLabelText("Email")).toHaveValue("anna@example.com");
-    expect(screen.getByText("Verified")).toBeInTheDocument();
+    expect(screen.getByText("Used to sign in")).toBeInTheDocument();
   });
 
   it("saves valid changes and confirms them", async () => {
-    const onSave = vi.fn();
+    const onSave = vi.fn().mockResolvedValue({ ok: true, data: undefined });
     render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} onSave={onSave} />);
     await userEvent.clear(screen.getByLabelText("First name"));
     await userEvent.type(screen.getByLabelText("First name"), "Anne");
     await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
     expect(onSave).toHaveBeenCalledWith(expect.objectContaining({ firstName: "Anne" }));
-    expect(screen.getByRole("status")).toHaveTextContent("Changes saved");
+    expect(await screen.findByRole("status")).toHaveTextContent("Changes saved");
   });
 
   it("does not save an empty name or a wrong email", async () => {
@@ -48,19 +48,49 @@ describe("ProfileSettings", () => {
 
   it("offers the security actions", () => {
     render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} />);
-    expect(screen.getByRole("link", { name: "Change" })).toHaveAttribute("href", "/forgot-password");
+    expect(screen.getByRole("link", { name: "Change" })).toHaveAttribute("href", "/app/settings");
     expect(screen.getByRole("button", { name: "Delete account" })).toBeInTheDocument();
+  });
+});
+
+describe("ProfileSettings saving through the backend", () => {
+  it("keeps the data and shows the banner when the backend fails", async () => {
+    const onSave = vi.fn().mockResolvedValue({ ok: false, kind: "server", message: "Something went wrong on our side." });
+    render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} onSave={onSave} />);
+    await userEvent.clear(screen.getByLabelText("First name"));
+    await userEvent.type(screen.getByLabelText("First name"), "Anne");
+    await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
+    expect(await screen.findByText("We could not save your changes")).toBeInTheDocument();
+    expect(screen.queryByRole("status")).not.toBeInTheDocument();
+    expect(screen.getByLabelText("First name")).toHaveValue("Anne");
+  });
+
+  it("shows a taken email on its field", async () => {
+    const onSave = vi.fn().mockResolvedValue({ ok: false, kind: "conflict", message: "taken" });
+    render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} onSave={onSave} />);
+    await userEvent.click(screen.getByRole("button", { name: "Save changes" }));
+    expect(await screen.findByText("This email is already registered.")).toBeInTheDocument();
+  });
+
+  it("shows an error instead of the form when the profile could not be loaded", () => {
+    render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} loadError="We could not reach the server." />);
+    expect(screen.getByText("We could not load your profile")).toBeInTheDocument();
+    expect(screen.queryByLabelText("First name")).not.toBeInTheDocument();
   });
 });
 
 describe("profile utils", () => {
   it("accepts a complete profile", () => {
-    expect(validateProfile({ firstName: "A", lastName: "B", email: "a@b.co", phone: "", address: "" })).toEqual({});
+    expect(validateProfile({ firstName: "A", lastName: "B", email: "a@b.co", phone: "+297 560 1234", address: "" })).toEqual({});
+  });
+
+  it("asks for the country code in the phone", () => {
+    expect(validateProfile({ firstName: "A", lastName: "B", email: "a@b.co", phone: "5601234", address: "" }).phone).toBeDefined();
   });
 });
 
 describe("ProfileSettings fields", () => {
-  it("edits the last name, the phone and the address", async () => {
+  it("edits the last name and the phone", async () => {
     render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} />);
     const lastName = screen.getByLabelText("Last name");
     await userEvent.clear(lastName);
@@ -70,8 +100,6 @@ describe("ProfileSettings fields", () => {
     await userEvent.clear(phone);
     await userEvent.type(phone, "+297 111 2222");
     expect(phone).toHaveValue("+297 111 2222");
-    const address = screen.getByLabelText(/Address/);
-    await userEvent.type(address, "Main street 1");
-    expect((address as HTMLInputElement).value).toContain("Main street 1");
+    expect(screen.queryByLabelText(/Address/)).not.toBeInTheDocument();
   });
 });
