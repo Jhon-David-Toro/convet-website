@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cookies } from "next/headers";
+import type { ZodType } from "zod";
 
 import { ACCESS_TOKEN_COOKIE } from "@/lib/auth/session.constants";
 
@@ -56,6 +57,44 @@ async function send(url: URL, init: RequestInit, timeoutMs: number): Promise<Res
 }
 
 /**
+ * Headers of a request: JSON in and out, plus the Bearer token for authenticated calls.
+ *
+ * @param auth Whether the call needs the session token.
+ * @param hasBody Whether the call sends a JSON body.
+ * @returns The headers.
+ */
+async function buildHeaders(auth: boolean, hasBody: boolean): Promise<Record<string, string>> {
+  return {
+    Accept: "application/json",
+    ...(hasBody && { "Content-Type": "application/json" }),
+    ...(auth && { Authorization: `Bearer ${await accessToken()}` }),
+  };
+}
+
+/**
+ * Turns the answer into data: a failed status becomes an {@link ApiError}, a good one is validated against the schema.
+ *
+ * @param response Answer of the backend.
+ * @param schema Schema of the expected JSON; leave it out for answers without a body.
+ * @returns The validated data, or `undefined` when there is no schema.
+ * @throws {ApiError} For a failed status or an answer that does not match the schema.
+ */
+async function readAnswer<Output>(response: Response, schema?: ZodType<Output>): Promise<Output> {
+  const payload: unknown = await response.json().catch(() => undefined);
+  const { status } = response;
+
+  if (!response.ok) {
+    const kind = kindFromStatus(status);
+    throw new ApiError(kind, { status, fieldErrors: kind === "validation" ? fieldErrorsFrom(payload) : undefined });
+  }
+  if (!schema) return undefined as Output;
+
+  const parsed = schema.safeParse(payload);
+  if (!parsed.success) throw new ApiError("invalid-response", { status, detail: parsed.error.message });
+  return parsed.data;
+}
+
+/**
  * Calls the backend from the server. It adds the Bearer token from the httpOnly cookie (the token never reaches the browser),
  * aborts after a timeout, turns every failure into an {@link ApiError} and validates the answer against the schema.
  *
@@ -67,19 +106,7 @@ async function send(url: URL, init: RequestInit, timeoutMs: number): Promise<Res
 export async function apiRequest<Output = undefined>(path: string, options: ApiRequestOptions<Output> = {}): Promise<Output> {
   const { method = "GET", body, query, auth = true, schema, timeoutMs = API_TIMEOUT_MS } = options;
   const url = buildUrl(path, query);
-  const headers: Record<string, string> = { Accept: "application/json" };
-  if (auth) headers.Authorization = `Bearer ${await accessToken()}`;
-  if (body !== undefined) headers["Content-Type"] = "application/json";
-
+  const headers = await buildHeaders(auth, body !== undefined);
   const response = await send(url, { method, headers, body: body === undefined ? undefined : JSON.stringify(body) }, timeoutMs);
-  const payload: unknown = await response.json().catch(() => undefined);
-
-  if (!response.ok) {
-    const kind = kindFromStatus(response.status);
-    throw new ApiError(kind, { status: response.status, fieldErrors: kind === "validation" ? fieldErrorsFrom(payload) : undefined });
-  }
-  if (!schema) return undefined as Output;
-  const parsed = schema.safeParse(payload);
-  if (!parsed.success) throw new ApiError("invalid-response", { status: response.status, detail: parsed.error.message });
-  return parsed.data;
+  return readAnswer(response, schema);
 }
