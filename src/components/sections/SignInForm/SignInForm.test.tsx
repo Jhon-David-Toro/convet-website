@@ -4,6 +4,8 @@ import { describe, expect, it, vi } from "vitest";
 
 import { SignInForm } from "./SignInForm";
 
+vi.mock("next/navigation", () => ({ useRouter: () => ({ replace: vi.fn(), refresh: vi.fn() }) }));
+
 /**
  * Types valid credentials and submits the form.
  */
