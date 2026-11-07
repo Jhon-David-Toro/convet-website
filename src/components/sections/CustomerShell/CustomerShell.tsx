@@ -15,13 +15,14 @@ import styles from "./CustomerShell.module.scss";
  *
  * @param props Props of the component, see {@link CustomerShellProps}.
  * @param props.children Page content.
+ * @param props.notifications Notifications from the backend.
  * @returns The rendered element.
  */
-export function CustomerShell({ children }: CustomerShellProps) {
+export function CustomerShell({ children, notifications }: CustomerShellProps) {
   const pathname = usePathname();
 
   return (
-    <NotificationsProvider area="customer">
+    <NotificationsProvider area="customer" source={notifications}>
       <div className={styles.shell}>
         <CustomerSidebar pathname={pathname} />
         <div className={styles.main}>

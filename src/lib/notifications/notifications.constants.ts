@@ -25,18 +25,29 @@ export const NOTIFICATION_KINDS: Record<NotificationKind, NotificationKindView> 
 export const GROUP_LABELS: Record<NotificationGroup, string> = {
   today: "Today · Fri, Oct 9",
   yesterday: "Yesterday · Thu, Oct 8",
+  earlier: "Earlier",
   october: "Earlier in October",
   september: "September",
+};
+
+/** Day names for notifications that come from the backend: the real date is on each item, so no demo date is shown. */
+export const LIVE_GROUP_LABELS: Record<NotificationGroup, string> = {
+  today: "Today",
+  yesterday: "Yesterday",
+  earlier: "Earlier",
+  october: "Earlier",
+  september: "Earlier",
 };
 
 export const PANEL_GROUP_LABELS: Record<NotificationGroup, string> = {
   today: "Today",
   yesterday: "Yesterday",
+  earlier: "Earlier",
   october: "Earlier",
   september: "Earlier",
 };
 
-export const GROUP_ORDER: NotificationGroup[] = ["today", "yesterday", "october", "september"];
+export const GROUP_ORDER: NotificationGroup[] = ["today", "yesterday", "earlier", "october", "september"];
 
 export const CATEGORIES: Record<NotificationArea, NotificationCategory[]> = {
   customer: [

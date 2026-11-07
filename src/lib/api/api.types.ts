@@ -25,6 +25,6 @@ export type ApiRequestOptions<Output> = {
 };
 
 /** Result of a Server Action: either the data or a safe, user-facing error. */
-export type ActionResult<Data = undefined> =
+export type ActionResult<Data = void> =
   | { ok: true; data: Data }
   | { ok: false; kind: ApiErrorKind; message: string; fieldErrors?: FieldErrors };
