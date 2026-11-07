@@ -79,7 +79,7 @@ All calls to the backend go through `src/lib/api`, on the server:
 - `*.contract.ts` hold the zod schemas and DTO types of each module, `*.mappers.ts` turn them into the UI types, and `*.api.ts` are the server-only functions the pages call. When the backend changes, only the contract and the mapper change.
 - The token never reaches client JavaScript: pages and Server Actions call the backend, client components only receive the data.
 
-Connected so far: auth (`/auth/login`, `/auth/me`), pets (`/pets`), notifications (`/notifications`). Pending: appointments, medical records, services catalog, reviews, staff and admin.
+Connected so far: auth (`/auth/login`, `/auth/me`), pets (`/pets`), notifications (`/notifications`) and the pet History tab (`/medical-records/pet/:petId`). Pending: booking (the backend does not let a customer read branches, branch services or vets yet), services catalog, reviews, staff and admin.
 
 ## What is in the app
 
