@@ -39,7 +39,7 @@ describe("buildUrl", () => {
 
   it("fails clearly when the base URL is missing", () => {
     delete process.env.BACKEND_API_URL;
-    expect(() => buildUrl("/pets")).toThrowError(expect.objectContaining({ kind: "not-configured" }));
+    expect(() => buildUrl("/pets")).toThrow(expect.objectContaining({ kind: "not-configured" }));
   });
 });
 
