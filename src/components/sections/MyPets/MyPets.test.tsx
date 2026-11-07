@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
 import { pickOption } from "@/test/pickOption";
@@ -12,7 +12,7 @@ const TODAY = new Date(2026, 9, 7);
 
 describe("MyPets", () => {
   it("shows the pet count and a card per pet", () => {
-    render(<MyPets />);
+    render(<MyPets pets={CUSTOMER_PETS} />);
     expect(screen.getByRole("heading", { level: 1, name: "My pets" })).toBeInTheDocument();
     expect(screen.getByText("2 pets")).toBeInTheDocument();
     expect(screen.getAllByRole("link", { name: /View profile/ })).toHaveLength(2);
@@ -26,7 +26,7 @@ describe("MyPets", () => {
   });
 
   it("opens the modal from the header and asks for the required fields", async () => {
-    render(<MyPets />);
+    render(<MyPets pets={CUSTOMER_PETS} />);
     await userEvent.click(screen.getByRole("button", { name: "Add a pet" }));
     expect(await screen.findByRole("heading", { name: "Add a pet" })).toBeInTheDocument();
     await userEvent.click(screen.getByRole("button", { name: "Save pet" }));
@@ -35,12 +35,12 @@ describe("MyPets", () => {
   });
 
   it("opens the modal at the start when it is asked to", async () => {
-    render(<MyPets initialAddOpen />);
+    render(<MyPets pets={CUSTOMER_PETS} initialAddOpen />);
     expect(await screen.findByRole("dialog")).toBeInTheDocument();
   });
 
   it("works out the age while the date of birth is typed", async () => {
-    render(<MyPets initialAddOpen />);
+    render(<MyPets pets={CUSTOMER_PETS} initialAddOpen />);
     await userEvent.type(screen.getByLabelText("Date of birth"), "06152022");
     expect(screen.getByText(/years?, \d+ months?/)).toBeInTheDocument();
   });
@@ -63,7 +63,7 @@ describe("my pets utils", () => {
 
 describe("MyPets add pet form", () => {
   it("fills the form, saves the pet and closes the modal", async () => {
-    render(<MyPets initialAddOpen />);
+    render(<MyPets pets={CUSTOMER_PETS} initialAddOpen />);
     await userEvent.type(screen.getByLabelText("Name"), "Bruno");
     await userEvent.type(screen.getByLabelText("Color"), "Brown");
     await pickOption("Species", "Dog");
@@ -74,8 +74,46 @@ describe("MyPets add pet form", () => {
     expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
   });
 
+  it("saves through onAddPet, shows the saving state and keeps the modal closed afterwards", async () => {
+    const onAddPet = vi.fn().mockResolvedValue({ ok: true, data: undefined });
+    render(<MyPets pets={CUSTOMER_PETS} onAddPet={onAddPet} initialAddOpen />);
+    await userEvent.type(screen.getByLabelText("Name"), "Bruno");
+    await pickOption("Species", "Dog");
+    await userEvent.click(screen.getByRole("button", { name: "Save pet" }));
+    expect(onAddPet).toHaveBeenCalledWith(expect.objectContaining({ name: "Bruno", species: "dog" }));
+    await vi.waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
+  });
+
+  it("keeps the modal and the typed data open and shows the error when the backend fails", async () => {
+    const onAddPet = vi.fn().mockResolvedValue({ ok: false, kind: "server", message: "Something went wrong on our side." });
+    render(<MyPets pets={CUSTOMER_PETS} onAddPet={onAddPet} initialAddOpen />);
+    await userEvent.type(screen.getByLabelText("Name"), "Bruno");
+    await pickOption("Species", "Dog");
+    await userEvent.click(screen.getByRole("button", { name: "Save pet" }));
+    expect(await screen.findByText("We could not save your pet")).toBeInTheDocument();
+    expect(screen.getByText("Something went wrong on our side.")).toBeInTheDocument();
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getByLabelText("Name")).toHaveValue("Bruno");
+  });
+
+  it("maps a backend validation error to the field", async () => {
+    const onAddPet = vi.fn().mockResolvedValue({ ok: false, kind: "validation", message: "Invalid", fieldErrors: { name: "name should not be empty" } });
+    render(<MyPets pets={CUSTOMER_PETS} onAddPet={onAddPet} initialAddOpen />);
+    await userEvent.type(screen.getByLabelText("Name"), "B");
+    await pickOption("Species", "Dog");
+    await userEvent.click(screen.getByRole("button", { name: "Save pet" }));
+    expect(await screen.findByText("Enter your pet's name.")).toBeInTheDocument();
+  });
+
+  it("shows an error state instead of an empty list when the pets could not be loaded", () => {
+    render(<MyPets pets={[]} loadError="We could not reach the server." />);
+    expect(screen.getByText("We could not load your pets")).toBeInTheDocument();
+    expect(screen.getByText("We could not reach the server.")).toBeInTheDocument();
+    expect(screen.queryByText("No pets yet")).not.toBeInTheDocument();
+  });
+
   it("describes the photo that was picked and lets the user remove it", async () => {
-    const { baseElement } = render(<MyPets initialAddOpen />);
+    const { baseElement } = render(<MyPets pets={CUSTOMER_PETS} initialAddOpen />);
     const input = baseElement.querySelector<HTMLInputElement>("input[type=file]");
     const photo = new File(["x".repeat(2048)], "bruno.png", { type: "image/png" });
     await userEvent.upload(input as HTMLInputElement, photo);

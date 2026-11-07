@@ -5,7 +5,7 @@ import { hasErrors } from "@/lib/auth/validation.utils";
 
 import { EMPTY_PET } from "../MyPets.constants";
 import type { AddPetState, NewPetErrors, NewPetValues, UseAddPetParams } from "../MyPets.types";
-import { ageFromBirthDate, describeFile, validateNewPet } from "../MyPets.utils";
+import { ageFromBirthDate, describeFile, pickFieldErrors, validateNewPet } from "../MyPets.utils";
 
 /**
  * State of the "Add a pet" form: values, errors, the chosen photo or document and the age worked out from the date of birth.
@@ -19,6 +19,8 @@ export function useAddPet({ onClose, onSave }: UseAddPetParams): AddPetState {
   const [values, setValues] = useState<NewPetValues>(EMPTY_PET);
   const [errors, setErrors] = useState<NewPetErrors>({});
   const [file, setFile] = useState<AddPetState["file"]>();
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string>();
 
   /**
    * Changes one value and clears the error of that field.
@@ -32,16 +34,27 @@ export function useAddPet({ onClose, onSave }: UseAddPetParams): AddPetState {
   }
 
   /**
-   * Validates the form and, when it is valid, hands the values over, empties the form and closes the modal.
+   * Validates the form and, when it is valid, saves the pet. The modal closes and the form empties only when the save worked;
+   * otherwise the error stays on screen and the customer's data is kept.
    *
    * @param event Submit event of the form.
    */
-  function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
+  async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting) return;
     const found = validateNewPet(values, new Date());
     setErrors(found);
+    setSubmitError(undefined);
     if (hasErrors(found)) return;
-    onSave?.(values);
+    setSubmitting(true);
+    const result = (await onSave?.(values)) ?? { ok: true as const, data: undefined };
+    setSubmitting(false);
+    if (!result.ok) {
+      const fields = pickFieldErrors(result.fieldErrors);
+      setErrors(fields);
+      setSubmitError(hasErrors(fields) ? undefined : result.message);
+      return;
+    }
     setValues(EMPTY_PET);
     setFile(undefined);
     onClose();
@@ -51,6 +64,8 @@ export function useAddPet({ onClose, onSave }: UseAddPetParams): AddPetState {
     values,
     errors,
     age: ageFromBirthDate(values.birthDate, new Date()),
+    submitting,
+    submitError,
     file,
     setValue,
     selectFile: (picked) => setFile({ name: picked.name, description: describeFile(picked) }),

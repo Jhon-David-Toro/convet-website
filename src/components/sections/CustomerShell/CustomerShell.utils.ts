@@ -1,7 +1,7 @@
 import { CUSTOMER_HOME_HREF, CUSTOMER_PETS_HREF } from "@/lib/customer/customer.paths.constants";
 import { findPet } from "@/lib/customer/customer.utils";
 
-import { FALLBACK_TITLE, TOP_BAR_TITLES } from "./CustomerShell.constants";
+import { FALLBACK_TITLE, PET_PROFILE_TITLE, TOP_BAR_TITLES } from "./CustomerShell.constants";
 import type { TopBarConfig } from "./CustomerShell.types";
 
 /**
@@ -24,7 +24,6 @@ export function isActivePath(href: string, pathname: string): boolean {
  */
 export function topBarFor(pathname: string): TopBarConfig {
   const petId = pathname.startsWith(`${CUSTOMER_PETS_HREF}/`) ? pathname.split("/")[3] : undefined;
-  const pet = petId ? findPet(petId) : undefined;
-  if (pet) return { title: pet.name, backHref: CUSTOMER_PETS_HREF };
+  if (petId) return { title: findPet(petId)?.name ?? PET_PROFILE_TITLE, backHref: CUSTOMER_PETS_HREF };
   return { title: TOP_BAR_TITLES[pathname] ?? FALLBACK_TITLE };
 }

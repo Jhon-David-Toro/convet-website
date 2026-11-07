@@ -15,8 +15,9 @@ export type PetItem = {
   weightDate: string;
   vet: string;
   nextVisit?: string;
-  vaccineStatus: VaccineStatus;
-  vaccineBadge: string;
+  /** Unknown until the medical records are connected; the UI then shows no vaccine badge. */
+  vaccineStatus?: VaccineStatus;
+  vaccineBadge?: string;
 };
 
 export type PetVaccine = {

@@ -39,6 +39,10 @@ export const CANCEL_LABEL = "Cancel";
 
 export const SAVE_LABEL = "Save pet";
 
+export const SAVE_ERROR_TITLE = "We could not save your pet";
+
+export const LOAD_ERROR_TITLE = "We could not load your pets";
+
 export const ERROR_MESSAGES = {
   name: "Enter your pet's name.",
   species: "Choose a species.",

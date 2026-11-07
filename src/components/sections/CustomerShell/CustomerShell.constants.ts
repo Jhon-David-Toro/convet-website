@@ -41,6 +41,8 @@ export const TOP_BAR_TITLES: Record<string, string> = {
 
 export const FALLBACK_TITLE = "CONVET";
 
+export const PET_PROFILE_TITLE = "Pet profile";
+
 export const GREETING = "Good morning, Anna";
 
 export const NOTIFICATIONS_LABEL = "Notifications";

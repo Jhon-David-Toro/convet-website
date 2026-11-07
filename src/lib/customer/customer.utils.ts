@@ -73,7 +73,7 @@ export function petCardProps(pet: PetItem): Omit<PetCardProps, "layout"> {
     description: pet.summary,
     alert: pet.allergy,
     facts,
-    vaccineStatus: { ...PET_STATUS_BADGES[pet.vaccineStatus], label: pet.vaccineBadge },
+    vaccineStatus: pet.vaccineStatus && pet.vaccineBadge ? { ...PET_STATUS_BADGES[pet.vaccineStatus], label: pet.vaccineBadge } : undefined,
     href: petHref(pet),
   };
 }
