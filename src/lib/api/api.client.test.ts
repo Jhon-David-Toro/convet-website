@@ -1,7 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { z } from "zod";
 
-const cookieGet = vi.fn();
+const { cookieGet, connection } = vi.hoisted(() => ({ cookieGet: vi.fn(), connection: vi.fn().mockResolvedValue(undefined) }));
+vi.mock("next/server", () => ({ connection }));
 vi.mock("next/headers", () => ({ cookies: async () => ({ get: cookieGet }) }));
 
 import { ApiError } from "./api.errors";
@@ -44,6 +45,12 @@ describe("buildUrl", () => {
 });
 
 describe("apiRequest", () => {
+  it("opts out of prerendering before it checks anything else, even when the backend is not configured", async () => {
+    delete process.env.BACKEND_API_URL;
+    await expect(apiRequest("/pets")).rejects.toMatchObject({ kind: "not-configured" });
+    expect(connection).toHaveBeenCalledTimes(1);
+  });
+
   it("sends the Bearer token and returns the validated answer", async () => {
     fetchMock.mockResolvedValue(answer(200, { id: "1" }));
     const data = await apiRequest("/pets/1", { schema: z.object({ id: z.string() }) });

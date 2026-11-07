@@ -1,6 +1,7 @@
 import "server-only";
 
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 import type { ZodType } from "zod";
 
 import { ACCESS_TOKEN_COOKIE } from "@/lib/auth/session.constants";
@@ -101,9 +102,13 @@ async function readAnswer<Output>(response: Response, schema?: ZodType<Output>):
  * @param path Path of the endpoint, e.g. `/pets`.
  * @param options Method, body, query, auth and schema, see {@link ApiRequestOptions}.
  * @returns The validated JSON answer, or `undefined` for answers without a body.
+ * It always waits for the incoming request first, so a page that calls the backend is never prerendered at build time: without it, a
+ * missing `BACKEND_API_URL` during the build would make the call fail before any request data is read and Next.js would freeze the
+ * resulting redirect into a static page.
  * @throws {ApiError} For every failure: no session, HTTP errors, network, timeout or an answer that does not match the schema.
  */
 export async function apiRequest<Output = undefined>(path: string, options: ApiRequestOptions<Output> = {}): Promise<Output> {
+  await connection();
   const { method = "GET", body, query, auth = true, schema, timeoutMs = API_TIMEOUT_MS } = options;
   const url = buildUrl(path, query);
   const headers = await buildHeaders(auth, body !== undefined);
