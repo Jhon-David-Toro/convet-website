@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 
 import { StaffShell } from "@/components/sections/StaffShell";
 import { ToastProvider } from "@/components/ui/Toast";
+import { requireRole } from "@/lib/auth/auth.access";
 import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import type { StaffLayoutProps } from "./layout.types";
 
 export const metadata: Metadata = {
-  robots: NO_INDEX,
-  title: "Staff · CONVET",
+    robots: NO_INDEX,
+    title: "Staff · CONVET",
 };
 
 /**
@@ -18,10 +19,14 @@ export const metadata: Metadata = {
  * @param props.children Page of the staff area.
  * @returns The rendered element.
  */
-export default function StaffLayout({ children }: StaffLayoutProps) {
-  return (
-    <ToastProvider>
-      <StaffShell>{children}</StaffShell>
-    </ToastProvider>
-  );
+export default async function StaffLayout({
+    children,
+}: StaffLayoutProps) {
+    await requireRole(["STAFF", "ADMIN"]);
+
+    return (
+        <ToastProvider>
+            <StaffShell>{children}</StaffShell>
+        </ToastProvider>
+    );
 }
