@@ -2,7 +2,7 @@
 
 Web application and design system for **CONVET** (Contreras Veterinary Services N.V.), a veterinary clinic in Savaneta, Aruba. The project turns the clinic's Figma file into a working front end: the public website, the sign-in flow, the customer app, and the staff and admin tools.
 
-> **Status: `0.1.0`, front end only.** There is no backend yet. All data is mock data kept in the `*.constants.ts` files of `src/lib`, and forms accept callbacks so an API can be plugged in later. Changes made in the UI are not saved and are lost on reload.
+> **Status: `0.1.0`, partly connected to the backend.** Sign-in, **My pets** (list, profile, add) and the customer **notifications** talk to the NestJS backend (`backend-convetaruba`). Everything else still uses the mock data kept in the `*.constants.ts` files of `src/lib`; changes made there are not saved and are lost on reload. See [Backend integration](#backend-integration).
 
 ## Contents
 
@@ -60,7 +60,7 @@ Before finishing any change, run `typecheck`, `lint`, `test` and `build`.
 
 ## Environment variables
 
-Put them in `.env.local`. All of them are optional.
+Put them in `.env.local`. All of them are optional, except `BACKEND_API_URL` for the screens that use the backend.
 
 | Variable | Purpose |
 | --- | --- |
@@ -68,6 +68,18 @@ Put them in `.env.local`. All of them are optional.
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary account that hosts the photos. Without it, photos load from `public/photos/`. |
 | `NEXT_PUBLIC_CLOUDINARY_FOLDER` | Folder inside the Cloudinary account, if the photos are not at the root. |
 | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Google Maps Embed API key. Without it the contact map is a stylized illustration. |
+| `BACKEND_API_URL` | Base URL of the NestJS backend, e.g. `http://localhost:3001`. **Server-only**: it has no `NEXT_PUBLIC_` prefix, so it never reaches the browser. Without it, sign-in and the connected screens show an error state. The backend listens on port 3000 by default, which is also Next.js' port, so start it with `PORT=3001`. |
+
+## Backend integration
+
+All calls to the backend go through `src/lib/api`, on the server:
+
+- `api.client.ts` is the single `fetch` wrapper. It reads the JWT from the httpOnly `convet_access_token` cookie, sends it as a Bearer token, aborts after 10 s, validates the answer with a zod schema and throws an `ApiError` with a safe, user-facing message (`unauthorized`, `forbidden`, `not-found`, `validation`, `server`, `network`, `timeout`, `invalid-response`, `not-configured`).
+- `api.guard.ts` has `loadData` (Server Components: an expired session redirects to sign-in, other errors become an error state) and `runAction` (Server Actions: errors become an `ActionResult`).
+- `*.contract.ts` hold the zod schemas and DTO types of each module, `*.mappers.ts` turn them into the UI types, and `*.api.ts` are the server-only functions the pages call. When the backend changes, only the contract and the mapper change.
+- The token never reaches client JavaScript: pages and Server Actions call the backend, client components only receive the data.
+
+Connected so far: auth (`/auth/login`, `/auth/me`), pets (`/pets`), notifications (`/notifications`). Pending: appointments, medical records, services catalog, reviews, staff and admin.
 
 ## What is in the app
 
