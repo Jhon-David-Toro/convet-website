@@ -15,7 +15,7 @@ function notifyResult(
   onSuccess?: () => void,
 ) {
   if (!result.ok) {
-    toast({ message: result.message, tone: "error" });
+    result.message && toast({ message: result.message, tone: "error" });
     return;
   }
   toast({ message: successMessage, tone: "success" });
