@@ -11,14 +11,15 @@ import styles from "../AdminLocations.module.scss";
  *
  * @param props Props of the component, see {@link LocationCardProps}.
  * @param props.location Location to show.
+ * @param props.actions Server Actions that change the branch.
  * @returns The rendered element.
  */
-export function LocationCard({ location }: LocationCardProps) {
+export function LocationCard({ location, actions }: LocationCardProps) {
   return (
     <section className={styles.card} aria-label={location.name}>
-      <LocationHeader location={location} />
+      <LocationHeader location={location} actions={actions} />
       <Map label={MAP_LABEL} className={styles.map} />
-      <PhoneFields location={location} />
+      <PhoneFields location={location} actions={actions} />
     </section>
   );
 }

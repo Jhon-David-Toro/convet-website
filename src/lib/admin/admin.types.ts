@@ -95,7 +95,7 @@ export type Supplier = {
 
 export type TeamRole = "veterinarian" | "administrator" | "assistant";
 
-export type TeamStatus = "active" | "invited";
+export type TeamStatus = "active" | "invited" | "inactive";
 
 export type TeamMember = {
   id: string;
@@ -116,6 +116,7 @@ export type WorkingDay = {
 };
 
 export type ServiceRow = {
+  branchId?: string;
   id: string;
   name: string;
   duration: number;
@@ -176,6 +177,8 @@ export type OpeningHours = {
 };
 
 export type LocationInfo = {
+  id?: string;
+  active?: boolean;
   name: string;
   subtitle: string;
   phone: string;
