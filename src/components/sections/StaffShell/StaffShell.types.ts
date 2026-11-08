@@ -1,3 +1,4 @@
+import type { NotificationsSource } from "@/components/sections/NotificationCenter/NotificationCenter.types";
 import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
@@ -8,6 +9,8 @@ export type StaffShellProps = {
   variant?: ShellVariant;
   /** Signed-in user; its name replaces the sample one. */
   user?: { name: string };
+  /** Notifications of the signed-in user from the backend; without them the sample ones are shown. */
+  notifications?: NotificationsSource;
 };
 
 export type StaffNavItem = {

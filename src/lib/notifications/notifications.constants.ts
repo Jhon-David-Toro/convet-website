@@ -1,3 +1,4 @@
+import type { AuthUser } from "@/lib/auth/auth.contract";
 import { AlertTriangle, Box, Calendar, CheckCircle, Clipboard, Clock, File, Mail, Refresh, Syringe, Users, XCircle } from "@/components/ui/Icon";
 
 import type { NotificationArea, NotificationCategory, NotificationGroup, NotificationItem, NotificationKind, NotificationKindView } from "./notifications.types";
@@ -442,3 +443,5 @@ export const NOTIFICATIONS: NotificationItem[] = [
     unread: false,
   },
 ];
+
+export const ROLE_AREAS: Record<AuthUser["role"], NotificationArea> = { CUSTOMER: "customer", STAFF: "staff", ADMIN: "admin" };

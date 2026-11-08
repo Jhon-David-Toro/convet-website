@@ -20,12 +20,22 @@ const ROLE_REDIRECTS = {
     ADMIN: "/admin",
 } as const;
 
+function routeByRole(role: string | undefined, router: ReturnType<typeof useRouter>) {
+    if (!role) return;
+    router.replace(ROLE_REDIRECTS[role as keyof typeof ROLE_REDIRECTS]);
+    router.refresh();
+}
+
+function determineAuthStatus(result: { ok: false; reason?: string }, setErrors: (errors: Record<string, string>) => void): SignInStatus {
+    const unavailable = result.reason === "unavailable";
+    setErrors(unavailable ? {} : CREDENTIAL_ERRORS);
+    return unavailable ? "unavailable" : "error";
+}
+
 /**
- * State of the sign-in form: values, field errors and submission status.
- *
- * @param params Parameters of the hook, see {@link UseSignInFormParams}.
- * @param params.onSubmit Optional custom credential handler, useful for testing.
- * @returns The state and the handlers that change it.
+ * Manages sign-in form: credential validation, authentication, and role-based routing.
+ * @param onSubmit Optional authentication handler; uses signIn API if not provided. Returns result with role or reason (unavailable).
+ * @returns Form state with status (idle, submitting, error, unavailable) and form handlers.
  */
 export function useSignInForm({
     onSubmit,
@@ -34,21 +44,12 @@ export function useSignInForm({
     const { setErrors, ...fields } = useSignInFields();
     const [status, setStatus] = useState<SignInStatus>("idle");
 
-    /**
-     * Validates the form and authenticates the submitted credentials.
-     *
-     * @param event Submit event of the form.
-     */
     async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
         event.preventDefault();
 
         const found = validateSignIn(fields.values);
-
         setErrors(found);
-
-        if (hasErrors(found)) {
-            return;
-        }
+        if (hasErrors(found)) return;
 
         setStatus("submitting");
 
@@ -56,18 +57,12 @@ export function useSignInForm({
             const result = await (onSubmit ?? signIn)(fields.values);
 
             if (!result.ok) {
-                const unavailable = result.reason === "unavailable";
-                setStatus(unavailable ? "unavailable" : "error");
-                setErrors(unavailable ? {} : CREDENTIAL_ERRORS);
+                setStatus(determineAuthStatus(result, setErrors));
                 return;
             }
 
             setStatus("idle");
-
-            if (result.role) {
-                router.replace(ROLE_REDIRECTS[result.role]);
-                router.refresh();
-            }
+            routeByRole(result.role, router);
         } catch {
             setStatus("unavailable");
         }

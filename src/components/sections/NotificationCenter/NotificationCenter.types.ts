@@ -6,11 +6,12 @@ import type { NotificationArea, NotificationItem } from "@/lib/notifications/not
 /** Notifications that come from the backend, with the Server Actions that change them. */
 export type NotificationsSource = {
   items: NotificationItem[];
+  unreadCount?: number;
   hasOlder: boolean;
   actions: {
     markRead: (id: string) => Promise<ActionResult>;
     markAllRead: () => Promise<ActionResult>;
-    loadPage: (page: number) => Promise<ActionResult<{ items: NotificationItem[]; hasMore: boolean }>>;
+    loadPage: (page: number, area?: NotificationArea) => Promise<ActionResult<{ items: NotificationItem[]; hasMore: boolean }>>;
   };
 };
 

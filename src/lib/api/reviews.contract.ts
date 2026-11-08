@@ -80,6 +80,28 @@ export const PUBLIC_REVIEWS_REVALIDATE_SECONDS = 600;
 
 export const PUBLIC_REVIEWS_TAG = "reviews:public";
 
+/**
+ * Medical records of one pet as `GET /medical-records/pet/:petId` sends them, reduced to the appointment. A record exists only once
+ * its visit is completed, so each record with an appointment is a visit the customer can review.
+ */
+export const completedVisitRecordsSchema = z.object({
+  data: z.array(
+    z.object({
+      appointment: z
+        .object({
+          idAppointment: z.string(),
+          startsAt: z.string(),
+          completedAt: optionalText,
+          branch: z.object({ name: z.string() }),
+          branchService: z.object({ service: z.object({ name: z.string() }) }),
+        })
+        .nullish(),
+    }),
+  ),
+});
+
+export type CompletedVisitRecordsDto = z.infer<typeof completedVisitRecordsSchema>;
+
 export const REVIEW_ENDPOINTS = {
   create: "/reviews",
   mine: "/reviews/mine",
@@ -87,4 +109,5 @@ export const REVIEW_ENDPOINTS = {
   list: "/reviews",
   detail: (idReview: string) => `/reviews/${encodeURIComponent(idReview)}`,
   moderation: (idReview: string) => `/reviews/${encodeURIComponent(idReview)}/moderation`,
+  petRecords: (idPet: string) => `/medical-records/pet/${encodeURIComponent(idPet)}`,
 } as const;

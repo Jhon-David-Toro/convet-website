@@ -1,4 +1,5 @@
 import { Clipboard } from "@/components/ui/Icon";
+import { MESSAGES, UNEXPECTED_ERROR } from "@/lib/shared/ui.constants";
 
 import type { HistoryFilter, PetTab } from "./PetProfile.types";
 
@@ -11,24 +12,27 @@ export const TAB_LABELS: Record<PetTab, string> = {
 };
 
 export const TABS_LABEL = "Pet profile sections";
-
 export const PANEL_ID = "pet-panel";
-
 export const MY_PETS_LABEL = "My pets";
-
 export const EDIT_LABEL = "Edit pet";
+export const ACTIONS_LABEL = "Pet actions";
 
 export const FACT_LABELS = { microchip: "Microchip", weight: "Weight", vet: "Vet" };
 
 export const VACCINATION_TITLE = "Vaccination card";
-
 export const OVERDUE_BADGE = "overdue";
-
 export const CERTIFICATE_LABEL = "Certificate (coming soon)";
-
 export const BOOK_BOOSTER_LABEL = "Book booster";
 
-export const EDIT_PET_MESSAGE = "To change your pet’s details, message the clinic on WhatsApp.";
+export const ARCHIVE_LABEL = "Archive pet";
+export const KEEP_PET_LABEL = "Keep pet";
+export const EDIT_DESCRIPTION = "Name, species, breed, color, sex and date of birth.";
+export const SAVE_CHANGES_LABEL = "Save changes";
+export const CANCEL_LABEL = "Cancel";
+
+export const SAVE_ERROR_TITLE = MESSAGES.SAVE_ERROR;
+export const ARCHIVE_ERROR_TITLE = MESSAGES.ARCHIVE_ERROR;
+export { UNEXPECTED_ERROR };
 
 export const DUE_BADGE = "Due in 11 days";
 

@@ -58,6 +58,6 @@ export function pickFieldErrors(fieldErrors: Record<string, string> | undefined)
   const errors: NewPetErrors = {};
   if (fieldErrors?.name) errors.name = ERROR_MESSAGES.name;
   if (fieldErrors?.species) errors.species = ERROR_MESSAGES.species;
-  if (fieldErrors?.dateOfBirth) errors.birthDate = ERROR_MESSAGES.birthDate;
+  if (fieldErrors?.dateOfBirth || fieldErrors?.birthDate) errors.birthDate = ERROR_MESSAGES.birthDate;
   return errors;
 }

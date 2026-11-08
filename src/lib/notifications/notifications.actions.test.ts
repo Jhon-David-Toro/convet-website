@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const { page, markOne, markAll } = vi.hoisted(() => ({ page: vi.fn(), markOne: vi.fn(), markAll: vi.fn() }));
-vi.mock("@/lib/auth/auth.access", () => ({ requireRole: vi.fn().mockResolvedValue({}) }));
+vi.mock("@/lib/auth/auth.access", () => ({ requireRole: vi.fn().mockResolvedValue({ role: "CUSTOMER" }) }));
 vi.mock("next/navigation", () => ({ redirect: vi.fn() }));
 vi.mock("@/lib/api/notifications.api", () => ({ getNotificationsPage: page, markNotificationRead: markOne, markAllNotificationsRead: markAll }));
 
 import { ApiError } from "@/lib/api/api.errors";
 
-import { loadNotificationsPageAction, markAllNotificationsReadAction, markNotificationReadAction } from "./actions";
+import { loadNotificationsPageAction, markAllNotificationsReadAction, markNotificationReadAction } from "./notifications.actions";
 
 beforeEach(() => {
   page.mockReset();
@@ -36,5 +36,15 @@ describe("notification actions", () => {
     await expect(loadNotificationsPageAction(2)).resolves.toEqual({ ok: true, data: { items: [], hasMore: false } });
     await expect(loadNotificationsPageAction(0)).resolves.toMatchObject({ ok: false, kind: "validation" });
     expect(page).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("notification actions by role", () => {
+  it("files the page under the categories of the staff area", async () => {
+    const { requireRole } = await import("@/lib/auth/auth.access");
+    vi.mocked(requireRole).mockResolvedValueOnce({ idUser: "u1", firstName: "A", lastName: "B", email: "a@b.co", role: "STAFF" });
+    page.mockResolvedValue({ items: [], page: 1, hasMore: false });
+    await loadNotificationsPageAction(1);
+    expect(page).toHaveBeenCalledWith(1, "staff");
   });
 });

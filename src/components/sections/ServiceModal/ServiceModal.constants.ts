@@ -16,6 +16,9 @@ export const SAVED_MESSAGE = "Service created.";
 
 export const NAME_ERROR = "Enter the service name.";
 
+/** Error of the name when another service already has its slug (the slug comes from the name). */
+export const NAME_TAKEN_ERROR = "Another service already uses this name. Choose a different name.";
+
 export const CATEGORY_ERROR = "Choose a category.";
 
 export const VETS_ERROR = "Choose at least one vet.";

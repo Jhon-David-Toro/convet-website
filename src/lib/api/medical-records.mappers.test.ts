@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
-import { medicalRecordPageSchema } from "./medical-records.contract";
-import { toPetEvents } from "./medical-records.mappers";
+import { medicalRecordPageSchema, medicalRecordSchema } from "./medical-records.contract";
+import { toHealthRecord, toPetEvents } from "./medical-records.mappers";
 
 const RECORD = {
   idMedicalRecord: "r1",
@@ -31,5 +31,20 @@ describe("toPetEvents", () => {
   it("uses the clinic's time zone for the year", () => {
     const [event] = toPetEvents(medicalRecordPageSchema.shape.data.element.parse({ idMedicalRecord: "r3", petId: "p1", createdAt: "2026-01-01T02:00:00.000Z" }));
     expect(event.year).toBe("2025");
+  });
+});
+
+describe("toHealthRecord", () => {
+  it("builds the stats, medications and diagnoses from the records", () => {
+    const pet = { id: "p1", name: "Luna", subject: "dog" as const, summary: "Dog", profileLine: "Dog · Mixed", microchip: "—", weight: "—", weightDate: "", vet: "" };
+    const records = [
+      medicalRecordSchema.parse({ idMedicalRecord: "r2", petId: "p1", diagnosis: "Strain", observations: "Limping", treatment: "Carprofen", createdAt: "2026-09-11T14:00:00.000Z", veterinarian: { user: { firstName: "Shirley", lastName: "Croes" } } }),
+      medicalRecordSchema.parse({ idMedicalRecord: "r1", petId: "p1", observations: "Healthy", createdAt: "2025-03-01T14:00:00.000Z" }),
+    ];
+    const record = toHealthRecord(pet, records);
+    expect(record).toMatchObject({ petId: "p1", primaryVet: "Dr. Shirley Croes", treatments: { value: "1", caption: "Carprofen" }, lastVisit: { value: "Sep 11, 2026" }, firstVisit: "Mar 1, 2025" });
+    expect(record.medications).toEqual([{ name: "Carprofen", detail: "Sep 11, 2026 · Dr. Shirley Croes", active: false }]);
+    expect(record.diagnoses).toHaveLength(1);
+    expect(record.events.length).toBeGreaterThan(2);
   });
 });

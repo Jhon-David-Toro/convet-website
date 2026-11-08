@@ -22,6 +22,12 @@ describe("signIn", () => {
     expect(JSON.parse(init.body)).toEqual({ email: "anna@example.com", password: "secret" });
   });
 
+  it("trims and lowercases the email before posting it, as sign-up stored it", async () => {
+    fetchMock.mockResolvedValue(new Response(JSON.stringify({ user: { idUser: "u1", role: "CUSTOMER" } })));
+    await signIn({ ...VALUES, email: "  Anna@Example.COM " });
+    expect(JSON.parse(fetchMock.mock.calls[0][1].body)).toEqual({ email: "anna@example.com", password: "secret" });
+  });
+
   it.each([
     [401, "credentials"],
     [400, "credentials"],

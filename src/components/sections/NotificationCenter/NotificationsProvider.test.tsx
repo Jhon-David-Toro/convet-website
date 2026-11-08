@@ -60,6 +60,14 @@ describe("NotificationsProvider with a backend source", () => {
     expect(data.actions.markAllRead).toHaveBeenCalledTimes(1);
   });
 
+  it("uses the backend unread total even when unread notifications are on older pages", async () => {
+    const data = { ...source(), unreadCount: 3 };
+    render(<NotificationsProvider area="customer" source={data}><Probe /></NotificationsProvider>);
+    expect(screen.getByText("unread:3")).toBeInTheDocument();
+    await userEvent.click(screen.getByRole("button", { name: "read all" }));
+    expect(screen.getByText("unread:0")).toBeInTheDocument();
+  });
+
   it("goes back to unread when the backend refuses", async () => {
     const data = source({ markAllRead: vi.fn().mockResolvedValue({ ok: false, kind: "server", message: "x" }) });
     render(<NotificationsProvider area="customer" source={data}><Probe /></NotificationsProvider>);
@@ -72,7 +80,7 @@ describe("NotificationsProvider with a backend source", () => {
     render(<NotificationsProvider area="customer" source={data}><Probe /></NotificationsProvider>);
     await userEvent.click(screen.getByRole("button", { name: "older" }));
     expect(await screen.findByText("items:2")).toBeInTheDocument();
-    expect(data.actions.loadPage).toHaveBeenCalledWith(2);
+    expect(data.actions.loadPage).toHaveBeenCalledWith(2, "customer");
     expect(screen.queryByRole("button", { name: "older" })).not.toBeInTheDocument();
   });
 

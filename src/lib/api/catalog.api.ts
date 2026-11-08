@@ -4,6 +4,7 @@ import type { ServiceContent } from "@/lib/catalog/services.types";
 
 import { apiRequest } from "./api.client";
 import { collection } from "./api.contract";
+import { ApiError } from "./api.errors";
 import {
   CATALOG_ENDPOINTS,
   CATALOG_REVALIDATE_SECONDS,
@@ -14,7 +15,7 @@ import {
   serviceSchema,
 } from "./catalog.contract";
 import type { CreateCategoryDto, CreateServiceDto, ServiceCategoryDto, ServiceDto, UpdateCategoryDto, UpdateServiceDto } from "./catalog.contract";
-import { toServiceContent } from "./catalog.mappers";
+import { isSlugTaken, SLUG_TAKEN_MESSAGE, toServiceContent } from "./catalog.mappers";
 
 /**
  * Published services of the public catalog. The endpoint is public and the answer is cached, so the public pages stay fast.
@@ -51,14 +52,31 @@ export async function getServiceCategories(): Promise<ServiceCategoryDto[]> {
 }
 
 /**
+ * Runs a write of the catalog. The backend answers a slug that another service or category already has with 400, not 409, so that
+ * refusal is turned into a `conflict` error whose `slug` field error the forms can show. Every other error is passed on as it is.
+ *
+ * @param run Function that calls the backend.
+ * @returns What the backend answered.
+ * @throws {ApiError} `conflict` with a `slug` field error when the slug is taken; otherwise the error of the call.
+ */
+async function rejectTakenSlug<Data>(run: () => Promise<Data>): Promise<Data> {
+  try {
+    return await run();
+  } catch (error) {
+    if (isSlugTaken(error)) throw new ApiError("conflict", { status: 400, fieldErrors: { slug: SLUG_TAKEN_MESSAGE } });
+    throw error;
+  }
+}
+
+/**
  * Creates a service (staff and admin). The backend creates it unpublished.
  *
  * @param dto Name, slug, category and descriptions.
  * @returns The new service.
- * @throws {ApiError} `validation` when the slug is taken or the data is not valid; `not-found` for an inactive category.
+ * @throws {ApiError} `conflict` with a `slug` field error when the slug is taken; `validation` when the data is not valid; `not-found` for an inactive category.
  */
 export async function createService(dto: CreateServiceDto): Promise<ServiceDto> {
-  return apiRequest(CATALOG_ENDPOINTS.services, { method: "POST", body: dto, schema: serviceSchema });
+  return rejectTakenSlug(() => apiRequest(CATALOG_ENDPOINTS.services, { method: "POST", body: dto, schema: serviceSchema }));
 }
 
 /**
@@ -67,10 +85,10 @@ export async function createService(dto: CreateServiceDto): Promise<ServiceDto> 
  * @param idService Id of the service.
  * @param dto Fields to change, at least one.
  * @returns The updated service.
- * @throws {ApiError} `not-found` for an unknown service; `validation` for invalid data.
+ * @throws {ApiError} `conflict` with a `slug` field error when the new slug is taken; `not-found` for an unknown service; `validation` for invalid data.
  */
 export async function updateService(idService: string, dto: UpdateServiceDto): Promise<ServiceDto> {
-  return apiRequest(CATALOG_ENDPOINTS.service(idService), { method: "PATCH", body: dto, schema: serviceSchema });
+  return rejectTakenSlug(() => apiRequest(CATALOG_ENDPOINTS.service(idService), { method: "PATCH", body: dto, schema: serviceSchema }));
 }
 
 /**
@@ -88,10 +106,10 @@ export async function deactivateService(idService: string): Promise<void> {
  *
  * @param dto Name, slug and description.
  * @returns The new category.
- * @throws {ApiError} `validation` when the slug is taken.
+ * @throws {ApiError} `conflict` with a `slug` field error when the slug is taken.
  */
 export async function createServiceCategory(dto: CreateCategoryDto): Promise<ServiceCategoryDto> {
-  return apiRequest(CATALOG_ENDPOINTS.categories, { method: "POST", body: dto, schema: serviceCategorySchema });
+  return rejectTakenSlug(() => apiRequest(CATALOG_ENDPOINTS.categories, { method: "POST", body: dto, schema: serviceCategorySchema }));
 }
 
 /**
@@ -100,10 +118,10 @@ export async function createServiceCategory(dto: CreateCategoryDto): Promise<Ser
  * @param idCategory Id of the category.
  * @param dto Fields to change, at least one.
  * @returns The updated category.
- * @throws {ApiError} `not-found` for an unknown category.
+ * @throws {ApiError} `conflict` with a `slug` field error when the new slug is taken; `not-found` for an unknown category.
  */
 export async function updateServiceCategory(idCategory: string, dto: UpdateCategoryDto): Promise<ServiceCategoryDto> {
-  return apiRequest(CATALOG_ENDPOINTS.category(idCategory), { method: "PATCH", body: dto, schema: serviceCategorySchema });
+  return rejectTakenSlug(() => apiRequest(CATALOG_ENDPOINTS.category(idCategory), { method: "PATCH", body: dto, schema: serviceCategorySchema }));
 }
 
 /**

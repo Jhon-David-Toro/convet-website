@@ -1,4 +1,4 @@
-import type { NotificationGroup, NotificationItem, NotificationKind } from "@/lib/notifications/notifications.types";
+import type { NotificationArea, NotificationGroup, NotificationItem, NotificationKind } from "@/lib/notifications/notifications.types";
 
 import type { NotificationDto, NotificationPageDto } from "./notifications.contract";
 
@@ -8,6 +8,12 @@ const CLINIC_TIME_ZONE = "America/Aruba";
 const MS_PER_DAY = 86_400_000;
 
 type TypeView = { kind: NotificationKind; category: string };
+
+/** Categories of the staff and admin areas for the types whose customer category those areas do not have. */
+const AREA_CATEGORIES: Record<Exclude<NotificationArea, "customer">, Partial<Record<NotificationDto["type"], string>>> = {
+  staff: { APPOINTMENT_REMINDER: "schedule", APPOINTMENT_COMPLETED: "patients", SYSTEM: "schedule" },
+  admin: { APPOINTMENT_REMINDER: "appointments", APPOINTMENT_COMPLETED: "appointments", SYSTEM: "team" },
+};
 
 const TYPE_VIEWS: Record<NotificationDto["type"], TypeView> = {
   APPOINTMENT_CREATED: { kind: "request", category: "appointments" },
@@ -75,15 +81,16 @@ export function whenLabel(date: Date, now: Date): string {
  *
  * @param dto Notification as the backend sends it.
  * @param now Current moment, used to group it by day.
- * @returns The item for the customer area.
+ * @param area Area that shows it; the staff and admin areas file some types under their own categories.
+ * @returns The item for the area.
  */
-export function toNotificationItem(dto: NotificationDto, now: Date = new Date()): NotificationItem {
+export function toNotificationItem(dto: NotificationDto, now: Date = new Date(), area: NotificationArea = "customer"): NotificationItem {
   const created = new Date(dto.createdAt);
   const { kind, category } = TYPE_VIEWS[dto.type];
   return {
     id: dto.idNotification,
-    area: "customer",
-    category,
+    area,
+    category: area === "customer" ? category : (AREA_CATEGORIES[area][dto.type] ?? category),
     kind,
     title: dto.title,
     text: dto.message,
@@ -98,12 +105,14 @@ export function toNotificationItem(dto: NotificationDto, now: Date = new Date())
  *
  * @param page Page as the backend sends it.
  * @param now Current moment.
+ * @param area Area that shows the items.
  * @returns The items of the page, the page number and whether older ones exist.
  */
-export function toNotificationPage(page: NotificationPageDto, now: Date = new Date()) {
+export function toNotificationPage(page: NotificationPageDto, now: Date = new Date(), area: NotificationArea = "customer") {
   return {
-    items: page.data.map((dto) => toNotificationItem(dto, now)),
+    items: page.data.map((dto) => toNotificationItem(dto, now, area)),
     page: page.pagination.page,
+    unreadCount: page.unreadCount,
     hasMore: page.pagination.page < page.pagination.totalPages,
   };
 }

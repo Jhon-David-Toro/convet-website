@@ -1,4 +1,4 @@
-import type { PetEvent } from "@/lib/customer/customer.types";
+import type { PetEvent, PetHealthRecord, PetItem } from "@/lib/customer/customer.types";
 
 import type { MedicalRecordDto, UpdateMedicalRecordDto } from "./medical-records.contract";
 
@@ -71,4 +71,49 @@ export function toPetEvents(record: MedicalRecordDto): PetEvent[] {
 export function nonBlankTexts(dto: UpdateMedicalRecordDto): UpdateMedicalRecordDto {
   const entries = Object.entries(dto).map(([field, text]) => [field, text?.trim()] as const);
   return Object.fromEntries(entries.filter(([, text]) => Boolean(text)));
+}
+
+const NOT_RECORDED = "—";
+
+/**
+ * Date and vet of a record, e.g. "Sep 11, 2026 · Dr. Shirley Croes".
+ *
+ * @param record Medical record.
+ * @returns The line.
+ */
+function recordMeta(record: MedicalRecordDto): string {
+  const vet = record.veterinarian?.user;
+  return [dateLabel(record.appointment?.startsAt ?? record.createdAt), vet && `Dr. ${vet.firstName} ${vet.lastName}`].filter(Boolean).join(" · ");
+}
+
+/**
+ * Builds the health record page of one pet from its medical records. Vaccines, weight and the next appointment are not in the
+ * backend yet, so they show as not recorded.
+ *
+ * @param pet Pet of the customer.
+ * @param records Medical records of the pet, newest first.
+ * @returns The record the page shows.
+ */
+export function toHealthRecord(pet: PetItem, records: MedicalRecordDto[]): PetHealthRecord {
+  const [latest] = records;
+  const oldest = records.at(-1);
+  const treated = records.filter((record) => record.treatment);
+  const vet = latest?.veterinarian?.user;
+  return {
+    petId: pet.id,
+    description: pet.profileLine,
+    born: "",
+    primaryVet: vet ? `Dr. ${vet.firstName} ${vet.lastName}` : NOT_RECORDED,
+    weightLabel: NOT_RECORDED,
+    vaccines: { value: NOT_RECORDED, caption: "Not recorded yet" },
+    treatments: { value: String(treated.length), caption: treated[0]?.treatment ?? "None prescribed" },
+    lastVisit: latest
+      ? { value: dateLabel(latest.appointment?.startsAt ?? latest.createdAt), caption: latest.appointment?.branchService?.service.name ?? DEFAULT_VISIT_TITLE }
+      : { value: NOT_RECORDED, caption: "No visits yet" },
+    nextAppointment: { value: NOT_RECORDED, caption: "See your appointments" },
+    events: records.flatMap(toPetEvents),
+    medications: treated.map((record) => ({ name: record.treatment ?? "", detail: recordMeta(record), active: false })),
+    diagnoses: records.filter((record) => record.diagnosis).map((record) => ({ title: record.diagnosis ?? "", meta: recordMeta(record), text: record.observations ?? "" })),
+    firstVisit: oldest && dateLabel(oldest.appointment?.startsAt ?? oldest.createdAt),
+  };
 }

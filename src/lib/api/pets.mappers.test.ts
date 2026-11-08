@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import { collection } from "./api.contract";
 import { petSchema } from "./pets.contract";
-import { ageLabel, isoFromFormDate, toCreatePetDto, toPetItem } from "./pets.mappers";
+import { ageLabel, formDateFromIso, isoFromFormDate, toCreatePetDto, toPetFormValues, toPetItem, toUpdatePetDto } from "./pets.mappers";
 
 const TODAY = new Date(2026, 9, 7);
 
@@ -61,5 +61,25 @@ describe("create pet DTO", () => {
     expect(isoFromFormDate("")).toBeUndefined();
     const dto = toCreatePetDto({ name: " Bruno ", species: "dog", breed: "", color: "Brown", sex: "male", birthDate: "06 / 15 / 2022" });
     expect(dto).toEqual({ name: "Bruno", species: "DOG", sex: "MALE", color: "Brown", dateOfBirth: "2022-06-15" });
+  });
+});
+
+describe("edit pet form", () => {
+  it("reads the calendar day of the backend date and fills the form from the pet", () => {
+    expect(formDateFromIso("2022-06-15T00:00:00.000Z")).toBe("06 / 15 / 2022");
+    expect(formDateFromIso(undefined)).toBe("");
+    expect(formDateFromIso("not a date")).toBe("");
+    const values = toPetFormValues(petSchema.parse({ idPet: "p1", name: "Luna", species: "DOG", breed: "Mixed", sex: "FEMALE", dateOfBirth: "2022-06-15T00:00:00.000Z" }));
+    expect(values).toEqual({ name: "Luna", species: "dog", breed: "Mixed", color: "", sex: "female", birthDate: "06 / 15 / 2022" });
+  });
+
+  it("sends every field and clears the ones the customer emptied", () => {
+    const dto = toUpdatePetDto({ name: " Luna ", species: "dog", breed: "", color: "Black", sex: "unknown", birthDate: "" });
+    expect(dto).toEqual({ name: "Luna", species: "DOG", sex: "UNKNOWN", breed: "", color: "Black", dateOfBirth: null });
+  });
+
+  it("sends the date of birth as ISO when it is filled in", () => {
+    const dto = toUpdatePetDto({ name: "Luna", species: "cat", breed: "Siamese", color: "", sex: "male", birthDate: "06 / 15 / 2022" });
+    expect(dto).toEqual({ name: "Luna", species: "CAT", sex: "MALE", breed: "Siamese", color: "", dateOfBirth: "2022-06-15" });
   });
 });

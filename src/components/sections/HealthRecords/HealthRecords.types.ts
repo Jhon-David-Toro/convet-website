@@ -9,12 +9,19 @@ export type RecordYearGroup = {
 };
 
 export type HealthRecordsState = {
-  pet: PetItem;
-  record: PetHealthRecord;
+  pet?: PetItem;
+  record?: PetHealthRecord;
   selectPet: (id: string) => void;
 };
 
+export type HealthRecordsProps = {
+  pets?: PetItem[];
+  records?: PetHealthRecord[];
+  loadError?: string;
+};
+
 export type PetSwitchProps = {
+  pets: PetItem[];
   selectedId: string;
   onSelect: (id: string) => void;
 };

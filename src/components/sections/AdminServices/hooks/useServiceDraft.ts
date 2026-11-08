@@ -9,12 +9,10 @@ import type { ServiceActions, ServiceDraft, ServiceDraftState } from "../AdminSe
 import { draftOf, flipSpecies, rulesChange } from "../AdminServices.utils";
 
 /**
- * Booking rules of a service being edited: the draft values, the functions that change them, and the buttons that discard or publish.
- * With `saveRules`, publishing sends the bookable state and the price to the backend and keeps the draft only when it worked.
- *
- * @param service Service whose rules are edited.
- * @param saveRules Server Action that saves the rules of a service of a branch.
- * @returns The draft and the functions that change it.
+ * Manages service booking rules: draft edits, change detection, backend persistence.
+ * @param service Service row with id, branch affiliation, and initial booking rules.
+ * @param saveRules Backend persist callback receiving (branchId, serviceId, change); saves only if rules actually changed. Optional.
+ * @returns Draft state with separate saved/draft for change detection; pending flag from async save.
  */
 export function useServiceDraft(service: ServiceRow, saveRules?: ServiceActions["saveRules"]): ServiceDraftState {
   const { toast } = useToast();
@@ -23,15 +21,19 @@ export function useServiceDraft(service: ServiceRow, saveRules?: ServiceActions[
   const [draft, setDraft] = useState(saved);
   const [priceError, setPriceError] = useState<string>();
 
-  /** Saves the draft: in the backend when the service belongs to a branch, otherwise only on screen. */
   async function publish() {
     if (!saveRules || !service.branchId) {
       setSaved(draft);
       toast({ message: PUBLISHED_MESSAGE, tone: "success" });
       return;
     }
+
     const change = rulesChange(saved, draft);
-    if (!change) return setPriceError(PRICE_ERROR);
+    if (!change) {
+      setPriceError(PRICE_ERROR);
+      return;
+    }
+
     setPriceError(undefined);
     const result = await save.run(service.branchId, service.id, change);
     if (result?.ok) setSaved(draft);

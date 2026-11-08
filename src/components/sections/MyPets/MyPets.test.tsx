@@ -6,7 +6,7 @@ import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
 import { pickOption } from "@/test/pickOption";
 
 import { MyPets } from "./MyPets";
-import { ageFromBirthDate, describeFile, validateNewPet } from "./MyPets.utils";
+import { ageFromBirthDate, describeFile, pickFieldErrors, validateNewPet } from "./MyPets.utils";
 
 const TODAY = new Date(2026, 9, 7);
 
@@ -132,6 +132,12 @@ describe("MyPets add pet form", () => {
 describe("my pets utils edge cases", () => {
   it("writes singular months and years", () => {
     expect(ageFromBirthDate("09 / 07 / 2025", TODAY)).toBe("1 year, 1 month");
+  });
+
+  it("shows the backend date error on the date of birth, whatever the key it is sent under", () => {
+    expect(pickFieldErrors({ dateOfBirth: "dateOfBirth must be a date" })).toEqual({ birthDate: "Enter a valid date of birth." });
+    expect(pickFieldErrors({ birthDate: "birthDate is invalid" })).toEqual({ birthDate: "Enter a valid date of birth." });
+    expect(pickFieldErrors({ color: "color is too long" })).toEqual({});
   });
 
   it("asks for a valid date of birth", () => {

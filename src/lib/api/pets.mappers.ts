@@ -4,7 +4,7 @@ import type { NewPetValues } from "@/components/sections/MyPets/MyPets.types";
 import type { PetItem } from "@/lib/customer/customer.types";
 
 import { SEX_TO_DTO, SPECIES_TO_DTO } from "./pets.contract";
-import type { CreatePetDto, PetDto } from "./pets.contract";
+import type { CreatePetDto, PetDto, UpdatePetDto } from "./pets.contract";
 
 const MONTHS_PER_YEAR = 12;
 
@@ -59,6 +59,7 @@ export function toPetItem(pet: PetDto, today: Date = new Date()): PetItem {
     weight: "—",
     weightDate: "",
     vet: "",
+    form: toPetFormValues(pet),
   };
 }
 
@@ -92,4 +93,44 @@ export function toCreatePetDto(values: NewPetValues): CreatePetDto {
   const dateOfBirth = isoFromFormDate(values.birthDate);
   if (dateOfBirth) dto.dateOfBirth = dateOfBirth;
   return dto;
+}
+
+/**
+ * Converts an ISO date to the "MM / DD / YYYY" format of the date field, reading only the calendar day.
+ *
+ * @param iso Date in ISO format, e.g. `2022-06-15T00:00:00.000Z`.
+ * @returns The date for the form, or an empty string when it is missing or invalid.
+ */
+export function formDateFromIso(iso: string | undefined): string {
+  const match = iso ? /^(\d{4})-(\d{2})-(\d{2})/.exec(iso) : null;
+  return match ? `${match[2]} / ${match[3]} / ${match[1]}` : "";
+}
+
+/**
+ * Values of the edit form for a pet from the backend.
+ *
+ * @param pet Pet as the backend sends it.
+ * @returns The values of the form.
+ */
+export function toPetFormValues(pet: PetDto): NewPetValues {
+  return {
+    name: pet.name,
+    species: pet.species.toLowerCase(),
+    breed: pet.breed ?? "",
+    color: pet.color ?? "",
+    sex: (pet.sex?.toLowerCase() ?? "unknown") as NewPetValues["sex"],
+    birthDate: formDateFromIso(pet.dateOfBirth),
+  };
+}
+
+/**
+ * Body of `PATCH /pets/:id` from the edit form. Every field is sent so the backend stores what the customer sees:
+ * an emptied breed or color is sent as `""` and an emptied date of birth as `null`, which clears them.
+ *
+ * @param values Values of the edit form.
+ * @returns The DTO to send.
+ */
+export function toUpdatePetDto(values: NewPetValues): UpdatePetDto {
+  const { dateOfBirth, breed, color, ...rest } = toCreatePetDto(values);
+  return { ...rest, breed: breed ?? "", color: color ?? "", dateOfBirth: dateOfBirth ?? null };
 }

@@ -49,6 +49,21 @@
   }
 }
 
+/* Edit and archive buttons: under the header on every screen size, aligned to the end */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--spacing-12);
+  margin-block: var(--spacing-16);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
 .tabletStep {
   @include mobile-only {
     display: none;

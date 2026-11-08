@@ -4,6 +4,7 @@ import { revalidatePath, updateTag } from "next/cache";
 
 import type { ServiceRulesChange } from "@/components/sections/AdminServices/AdminServices.types";
 import type { ServiceValues } from "@/components/sections/ServiceModal/ServiceModal.types";
+import { NAME_TAKEN_ERROR } from "@/components/sections/ServiceModal/ServiceModal.constants";
 import { validateService } from "@/components/sections/ServiceModal/ServiceModal.utils";
 import { runAction } from "@/lib/api/api.guard";
 import type { ActionResult } from "@/lib/api/api.types";
@@ -46,6 +47,7 @@ export async function createServiceAction(values: ServiceValues): Promise<FormMo
   if (Object.keys(errors).length > 0) return { ok: false, message: "Some of the information is not valid. Please review it and try again.", fieldErrors: errors };
 
   const result = await runAction(() => createService({ name: values.name.trim(), slug: slugFrom(values.name), categoryId: values.category }));
+  if (!result.ok && result.kind === "conflict") return { ok: false, message: NAME_TAKEN_ERROR, fieldErrors: { name: NAME_TAKEN_ERROR } };
   if (!result.ok) return { ok: false, message: result.message, fieldErrors: { name: result.fieldErrors?.name ?? result.fieldErrors?.slug, category: result.fieldErrors?.categoryId } };
   updateTag(CATALOG_TAGS.services);
   revalidatePath(SERVICES_PATH);

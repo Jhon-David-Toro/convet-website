@@ -9,13 +9,10 @@ import type { UseVerifyEmailParams, VerifyEmailState } from "../VerifyEmailForm.
 import { useCountdown } from "./useCountdown";
 
 /**
- * State of the email verification: the typed code, whether it was rejected, the request in flight and the resend countdown.
- * A correct code opens the home page.
- *
- * @param params Parameters of the hook, see {@link UseVerifyEmailParams}.
- * @param params.onVerify Checks the code; without it a complete code is accepted.
- * @param params.onResend Sends a new code.
- * @returns The state and the handlers that change it.
+ * Manages email verification: code input, validation, and resend countdown timer.
+ * @param onVerify Backend verification callback receiving code; returns true if valid, false if rejected. Optional.
+ * @param onResend Backend resend callback to request a new code; restarts countdown timer. Optional.
+ * @returns Form state with code, complete flag (length check), invalid flag, and countdown seconds.
  */
 export function useVerifyEmail({ onVerify, onResend }: UseVerifyEmailParams): VerifyEmailState {
   const router = useRouter();
@@ -25,32 +22,23 @@ export function useVerifyEmail({ onVerify, onResend }: UseVerifyEmailParams): Ve
   const { seconds, restart } = useCountdown(RESEND_SECONDS);
   const complete = code.length === CODE_LENGTH;
 
-  /**
-   * Stores the typed code and clears the rejection.
-   *
-   * @param next Digits typed so far.
-   */
   function setCode(next: string) {
     setCodeValue(next);
     setInvalid(false);
   }
 
-  /**
-   * Checks a complete code and opens the home page when it is right.
-   *
-   * @param event Submit event of the form.
-   */
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!complete) return;
+
     setVerifying(true);
     const accepted = onVerify ? await onVerify(code) : true;
     setVerifying(false);
+
     setInvalid(!accepted);
     if (accepted) router.push(VERIFIED_HREF);
   }
 
-  /** Asks for a new code and restarts the countdown. */
   async function handleResend() {
     await onResend?.();
     restart();

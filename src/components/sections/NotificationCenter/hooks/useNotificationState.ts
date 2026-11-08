@@ -38,6 +38,7 @@ function appendPage(items: NotificationItem[], page: NotificationItem[]): Notifi
  */
 export function useNotificationState(area: NotificationArea, source?: NotificationsSource): NotificationState {
   const [items, setItems] = useState(() => source?.items ?? notificationsFor(area));
+  const [totalUnread, setTotalUnread] = useState(() => source?.unreadCount ?? unreadCount(source?.items ?? notificationsFor(area)));
   const [hasOlder, setHasOlder] = useState(() => source?.hasOlder ?? olderFor(area).length > 0);
   const loadedPage = useRef(1);
 
@@ -47,17 +48,28 @@ export function useNotificationState(area: NotificationArea, source?: Notificati
    * @param id Id of the notification.
    */
   async function read(id: string) {
+    const wasUnread = items.some((item) => item.id === id && item.unread);
+    if (!wasUnread) return;
     setItems((current) => markRead(current, id));
+    setTotalUnread((current) => Math.max(0, current - 1));
     const result = await source?.actions.markRead(id);
-    if (result && !result.ok) setItems((current) => restoreUnread(current, new Set([id])));
+    if (result && !result.ok) {
+      setItems((current) => restoreUnread(current, new Set([id])));
+      setTotalUnread((current) => current + 1);
+    }
   }
 
   /** Marks every notification as read. */
   async function readAll() {
     const pending = new Set(items.filter((item) => item.unread).map((item) => item.id));
+    const previousTotal = totalUnread;
     setItems(markAllRead);
+    setTotalUnread(0);
     const result = await source?.actions.markAllRead();
-    if (result && !result.ok) setItems((current) => restoreUnread(current, pending));
+    if (result && !result.ok) {
+      setItems((current) => restoreUnread(current, pending));
+      setTotalUnread(previousTotal);
+    }
   }
 
   /** Loads the next page of older notifications; on a failure the button stays so the user can try again. */
@@ -67,12 +79,12 @@ export function useNotificationState(area: NotificationArea, source?: Notificati
       setHasOlder(false);
       return;
     }
-    const result = await source.actions.loadPage(loadedPage.current + 1);
+    const result = await source.actions.loadPage(loadedPage.current + 1, area);
     if (!result.ok) return;
     loadedPage.current += 1;
     setItems((current) => appendPage(current, result.data.items));
     setHasOlder(result.data.hasMore);
   }
 
-  return { items, unread: unreadCount(items), markRead: read, markAllRead: readAll, hasOlder, loadOlder };
+  return { items, unread: totalUnread, markRead: read, markAllRead: readAll, hasOlder, loadOlder };
 }

@@ -1,20 +1,21 @@
 import { useState } from "react";
 
-import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
-import { HEALTH_RECORDS } from "@/lib/customer/customer.records.constants";
+import type { PetHealthRecord, PetItem } from "@/lib/customer/customer.types";
 
-import { DEFAULT_PET_ID } from "../HealthRecords.constants";
 import type { HealthRecordsState } from "../HealthRecords.types";
 
 /**
- * Pet whose records are on screen, with its pet and its health record.
+ * Pet whose health record is shown, and that record.
  *
- * @returns The pet, its record and the function that switches to another pet.
+ * @param pets Pets of the customer.
+ * @param records One health record per pet.
+ * @param initialPetId Pet shown first; by default the first one.
+ * @returns The selected pet, its record and the function that picks another pet.
  */
-export function useHealthRecords(): HealthRecordsState {
-  const [petId, setPetId] = useState(DEFAULT_PET_ID);
-  const pet = CUSTOMER_PETS.find((candidate) => candidate.id === petId) ?? CUSTOMER_PETS[0];
-  const record = HEALTH_RECORDS.find((candidate) => candidate.petId === pet.id) ?? HEALTH_RECORDS[0];
+export function useHealthRecords(pets: PetItem[], records: PetHealthRecord[], initialPetId?: string): HealthRecordsState {
+  const [petId, setPetId] = useState(initialPetId ?? pets[0]?.id);
+  const pet = pets.find((candidate) => candidate.id === petId) ?? pets[0];
+  const record = records.find((candidate) => candidate.petId === pet?.id) ?? records[0];
 
   return { pet, record, selectPet: setPetId };
 }
