@@ -32,6 +32,7 @@ export const TWO_STEP_VIEWS: Record<TeamMember["twoStep"], StatusView> = {
 export const STATUS_VIEWS: Record<TeamStatus, StatusView> = {
   active: { tone: "success", label: "Active" },
   invited: { tone: "warning", icon: Mail, label: "Invited" },
+  inactive: { tone: "neutral", icon: Minus, label: "Inactive" },
 };
 
 export const USER_ID_PREFIX = "User ID";
@@ -47,3 +48,15 @@ export const TIME_OFF_TEXT = "Reschedule them or assign another vet before savin
 export const TIME_OFF_ACTION = "Review 4 appointments";
 
 export const HOURS_TITLE_PREFIX = "Working hours";
+
+export const DEACTIVATE_LABEL = "Deactivate";
+
+export const ACTIVATE_LABEL = "Activate";
+
+export const SAVED_MESSAGE = "Team member updated.";
+
+export const LOAD_ERROR_TITLE = "We could not load the team";
+
+export const EMPTY_TITLE = "No team members yet";
+
+export const EMPTY_TEXT = "Staff records created in the backend appear here.";
