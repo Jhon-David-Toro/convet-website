@@ -8,13 +8,14 @@ import type { ServiceValues } from "./ServiceModal.types";
  * Validates the service form: a name, a category and at least one vet who offers it.
  *
  * @param values Values of the form.
+ * @param requireVets Whether at least one vet must be chosen (only when there are vets to choose).
  * @returns The message of every invalid field; empty when the form can be saved.
  */
-export function validateService(values: ServiceValues): FormErrors<ServiceValues> {
+export function validateService(values: ServiceValues, requireVets = true): FormErrors<ServiceValues> {
   const messages = {
     name: requireText(values.name, NAME_ERROR),
     category: requireText(values.category, CATEGORY_ERROR),
-    vets: values.vets.length > 0 ? undefined : VETS_ERROR,
+    vets: !requireVets || values.vets.length > 0 ? undefined : VETS_ERROR,
   };
   return Object.fromEntries(Object.entries(messages).filter(([, message]) => message));
 }

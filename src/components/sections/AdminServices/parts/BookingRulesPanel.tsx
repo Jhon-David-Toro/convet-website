@@ -14,17 +14,18 @@ import styles from "../AdminServices.module.scss";
  *
  * @param props Props of the component, see {@link BookingRulesPanelProps}.
  * @param props.service Service whose rules are edited.
+ * @param props.saveRules Saves the changes in the backend; without it publishing only keeps them on screen.
  * @returns The rendered element.
  */
-export function BookingRulesPanel({ service }: BookingRulesPanelProps) {
-  const { draft, setField, toggleSpecies, discard, publish } = useServiceDraft(service);
+export function BookingRulesPanel({ service, saveRules }: BookingRulesPanelProps) {
+  const { draft, setField, toggleSpecies, discard, publish, pending, priceError } = useServiceDraft(service, saveRules);
 
   return (
     <div id={PANEL_ID} role="tabpanel" className={styles.panelBody}>
       <DurationFields draft={draft} setField={setField} />
-      <OnlineAndPrice draft={draft} setField={setField} />
+      <OnlineAndPrice draft={draft} setField={setField} priceError={priceError} />
       <SpeciesChips selected={draft.species} toggleSpecies={toggleSpecies} />
-      <RulesActions discard={discard} publish={publish} />
+      <RulesActions discard={discard} publish={publish} pending={pending} />
     </div>
   );
 }

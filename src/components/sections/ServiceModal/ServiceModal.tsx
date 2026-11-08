@@ -1,6 +1,6 @@
 "use client";
 
-import { FormModal, type DialogControlProps } from "@/components/patterns/FormModal";
+import { FormModal } from "@/components/patterns/FormModal";
 import { Checkbox } from "@/components/ui/Checkbox";
 import { Select } from "@/components/ui/Select";
 import { TextInput } from "@/components/ui/TextInput";
@@ -26,19 +26,23 @@ import {
   VETS_LABEL,
 } from "./ServiceModal.constants";
 import { errorTitle, toggleVet, validateService } from "./ServiceModal.utils";
+import type { ServiceDialogProps, ServiceModalProps } from "./ServiceModal.types";
 import styles from "./ServiceModal.module.scss";
 
 /**
  * Dialog that creates a service of the clinic: name, category, duration in 10-minute blocks, the buffer after it, the vets who offer it and whether it can be booked online.
  * The form is only mounted while the dialog is open, so it starts clean every time.
  *
- * @param props Props of the component, see {@link DialogControlProps}.
+ * @param props Props of the component, see {@link ServiceModalProps}.
  * @param props.open Whether the dialog is open.
  * @param props.onClose Called when the dialog is closed or the service is created.
+ * @param props.categories Categories to choose from; by default the sample ones.
+ * @param props.vetNames Vets to choose from; by default the sample ones. With an empty list no vet is required.
+ * @param props.onSave Creates the service for real; without it saving is simulated.
  * @returns The rendered element, or nothing while the dialog is closed.
  */
-export function ServiceModal({ open, onClose }: DialogControlProps) {
-  return open ? <ServiceDialog onClose={onClose} /> : null;
+export function ServiceModal({ open, ...dialog }: ServiceModalProps) {
+  return open ? <ServiceDialog {...dialog} /> : null;
 }
 
 /**
@@ -46,13 +50,17 @@ export function ServiceModal({ open, onClose }: DialogControlProps) {
  *
  * @param props Props of the component.
  * @param props.onClose Closes the dialog.
+ * @param props.categories Categories to choose from.
+ * @param props.vetNames Vets to choose from.
+ * @param props.onSave Creates the service for real.
  * @returns The rendered element.
  */
-function ServiceDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
+function ServiceDialog({ onClose, categories = CATEGORY_OPTIONS.slice(1), vetNames = VET_NAMES, onSave }: ServiceDialogProps) {
   const { toast } = useToast();
   const form = useFormModal({
     initial: EMPTY_SERVICE,
-    validate: validateService,
+    validate: (values) => validateService(values, vetNames.length > 0),
+    save: onSave,
     onSaved: () => {
       toast({ message: SAVED_MESSAGE, tone: "success" });
       onClose();
@@ -65,14 +73,14 @@ function ServiceDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
       description={MODAL_DESCRIPTION}
       width={MODAL_WIDTH}
       status={form.status}
-      errorTitle={errorTitle(form.errorCount)}
+      errorTitle={form.serverError ?? errorTitle(form.errorCount)}
       submitLabel={SUBMIT_LABEL}
       onClose={onClose}
       onSubmit={form.submit}
     >
       <div className={styles.pair}>
         <TextInput label="Service name" error={form.errors.name} value={form.values.name} onChange={(event) => form.setValue("name", event.target.value)} />
-        <Select label="Category" options={CATEGORY_OPTIONS} error={form.errors.category} value={form.values.category} onValueChange={(value) => form.setValue("category", value)} />
+        <Select label="Category" options={[CATEGORY_OPTIONS[0], ...categories]} error={form.errors.category} value={form.values.category} onValueChange={(value) => form.setValue("category", value)} />
       </div>
       <div className={styles.pair}>
         <Select label="Duration" options={DURATION_OPTIONS} helper={DURATION_HELPER} value={form.values.duration} onValueChange={(value) => form.setValue("duration", value)} />
@@ -81,7 +89,7 @@ function ServiceDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
       <fieldset className={styles.vets}>
         <legend className={styles.legend}>{VETS_LABEL}</legend>
         <div className={styles.vetList}>
-          {VET_NAMES.map((name) => (
+          {vetNames.map((name) => (
             <Checkbox key={name} label={name} checked={form.values.vets.includes(name)} onChange={() => form.setValue("vets", toggleVet(form.values.vets, name))} />
           ))}
         </div>

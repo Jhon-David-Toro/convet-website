@@ -10,15 +10,16 @@ import styles from "../AdminServices.module.scss";
  * @param props Props of the component, see {@link RulesActionsProps}.
  * @param props.discard Goes back to the saved values.
  * @param props.publish Saves and publishes the service.
+ * @param props.pending Whether the change is being saved.
  * @returns The rendered element.
  */
-export function RulesActions({ discard, publish }: RulesActionsProps) {
+export function RulesActions({ discard, publish, pending = false }: RulesActionsProps) {
   return (
     <div className={styles.actions}>
       <Button type="button" variant="tertiary" onClick={discard}>
         {DISCARD_LABEL}
       </Button>
-      <Button type="button" onClick={publish}>
+      <Button type="button" onClick={publish} disabled={pending}>
         {PUBLISH_LABEL}
       </Button>
     </div>

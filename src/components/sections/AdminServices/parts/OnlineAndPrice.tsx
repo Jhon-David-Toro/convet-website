@@ -10,13 +10,14 @@ import type { DraftFieldsProps } from "../AdminServices.types";
  * @param props Props of the component, see {@link DraftFieldsProps}.
  * @param props.draft Values being edited.
  * @param props.setField Changes one value.
+ * @param props.priceError Message shown under the price when it is not valid.
  * @returns The rendered element.
  */
-export function OnlineAndPrice({ draft, setField }: DraftFieldsProps) {
+export function OnlineAndPrice({ draft, setField, priceError }: DraftFieldsProps) {
   return (
     <>
       <Toggle label={BOOKABLE_LABEL} description={BOOKABLE_DESCRIPTION} checked={draft.online} onChange={(event) => setField("online", event.target.checked)} />
-      <TextInput label={PRICE_LABEL} optional helper={PRICE_HELPER} value={draft.price} onChange={(event) => setField("price", event.target.value)} />
+      <TextInput label={PRICE_LABEL} optional helper={PRICE_HELPER} error={priceError} value={draft.price} onChange={(event) => setField("price", event.target.value)} />
     </>
   );
 }

@@ -2,7 +2,7 @@ import type { ButtonProps } from "@/components/ui/Button";
 
 import type { SavePassword } from "@/components/sections/PasswordModal/PasswordModal.types";
 
-export type ModalKey = "new-client" | "supplier" | "service" | "product" | "password" | "email" | "delete-account" | "invite" | "time-off" | "patient" | "appointment";
+export type ModalKey = "new-client" | "supplier" | "product" | "password" | "email" | "delete-account" | "invite" | "time-off" | "patient" | "appointment";
 
 export type ModalIconKey = "plus" | "mail" | "calendar";
 

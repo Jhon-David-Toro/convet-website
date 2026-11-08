@@ -62,3 +62,11 @@ export const DESCRIPTION_LABEL = "Description";
 export const VET_NAMES = ["Dr. Shirley", "Dr. Larry", "Dr. Andreina", "Dr. Ricardo"];
 
 export const VETS_LABEL = "Vets who provide this service";
+
+export const LOAD_ERROR_TITLE = "We could not load the services";
+
+export const EMPTY_TITLE = "No services in this location yet";
+
+export const EMPTY_TEXT = "Services offered in a branch of the backend appear here with their price.";
+
+export const PRICE_ERROR = "Enter a price above 0, for example AWG 45.";
