@@ -2,7 +2,7 @@
 
 Web application and design system for **CONVET** (Contreras Veterinary Services N.V.), a veterinary clinic in Savaneta, Aruba. The project turns the clinic's Figma file into a working front end: the public website, the sign-in flow, the customer app, and the staff and admin tools.
 
-> **Status: `0.1.0`, partly connected to the backend.** Sign-in, **My pets** (list, profile, add) and the customer **notifications** talk to the NestJS backend (`backend-convetaruba`). Everything else still uses the mock data kept in the `*.constants.ts` files of `src/lib`; changes made there are not saved and are lost on reload. See [Backend integration](#backend-integration).
+> **Status: `0.1.0`, connected to the backend where the backend allows it.** Every endpoint of the NestJS backend (`backend-convetaruba`) has a typed, validated function in `src/lib/api`. Sign-in, sign-up, profile, **My pets**, notifications, the public services catalog, the admin **Locations**, **Team** and **Services** pages, and the staff **patient record** and **visit record** use it. Booking, customer appointments, schedules, clients, inventory and suppliers still use the mock data of `src/lib/*.constants.ts`, because the backend has no route for them yet. See [Backend integration](#backend-integration).
 
 ## Contents
 
@@ -79,7 +79,30 @@ All calls to the backend go through `src/lib/api`, on the server:
 - `*.contract.ts` hold the zod schemas and DTO types of each module, `*.mappers.ts` turn them into the UI types, and `*.api.ts` are the server-only functions the pages call. When the backend changes, only the contract and the mapper change.
 - The token never reaches client JavaScript: pages and Server Actions call the backend, client components only receive the data.
 
-Connected so far: auth (`/auth/login`, `/auth/me`), pets (`/pets`), notifications (`/notifications`) and the pet History tab (`/medical-records/pet/:petId`). Pending: booking (the backend does not let a customer read branches, branch services or vets yet), services catalog, reviews, staff and admin.
+Public reads (`GET /services`, `/service-categories`, `/reviews/public`) are cached in the Next.js data cache (`revalidate` option of `apiRequest`, tagged so an admin change refreshes them with `updateTag`). They never send the token, and the public pages fall back to their editorial copy when the backend fails, so the website never breaks.
+
+| Screen | Endpoints |
+| --- | --- |
+| Sign-in, sign-up, profile, settings | `/auth/login`, `/auth/me`, `/users/*` |
+| My pets, overview, pet History tab | `/pets`, `/pets/:id`, `/medical-records/pet/:petId` |
+| Notifications | `/notifications`, `/notifications/read-all`, `/notifications/:id/read` |
+| `/services`, `/services/[slug]` | `GET /services` (decides which editorial services are published and their name and texts) |
+| Admin · Locations | `GET /branches`, `PATCH /branches/:id` (phone), `PATCH /branches/:id/status` |
+| Admin · Team | `GET /staff`, `GET /staff/:id/branches`, `PATCH /staff/:id/status` |
+| Admin · Services | `GET /branches/:id/services`, `GET /branches/:id/staff`, `GET /service-categories`, `PATCH .../services/:id/status`, `PATCH .../services/:id/price`, `POST /services` |
+| Staff · patient record (`/staff/patients/<uuid>`) | `GET /pets/staff/:id`, `GET /medical-records/pet/:petId` |
+| Staff · visit record (`/staff/visits/<record uuid>`) | `GET /medical-records/:id`, `PATCH /medical-records/:id` |
+
+Ready in `src/lib/api` but without a screen yet: reviews (`reviews.api.ts`), availability and booking (`appointments.api.ts`), branch and staff create/update and staff-branch assignments, category CRUD, pet update/archive and the staff pet endpoints by owner.
+
+The full contract of every endpoint (roles, bodies, answers) is in [`docs/backend-contract.md`](./docs/backend-contract.md).
+
+Blocked by the backend (no route, or the role cannot call it):
+
+- **Booking**: a customer cannot read branches, the services of a branch or its vets (all ADMIN only), so `POST /appointments` cannot get its ids. Availability also needs `StaffSchedule` rows, which have no endpoint.
+- **Appointments**: there is no route to list, cancel, reschedule, confirm, start or complete them, so they expire after 15 minutes and no review or medical record can be created.
+- **Services**: no endpoint sets `isPublished`, and there is no admin list of unpublished services.
+- Clients list, schedules, inventory, suppliers and products have no module.
 
 ## What is in the app
 
