@@ -8,7 +8,8 @@ import type { PetItem } from "@/lib/customer/customer.types";
 import { apiRequest } from "./api.client";
 import { collection } from "./api.contract";
 import { ApiError } from "./api.errors";
-import { PET_ENDPOINTS, petSchema } from "./pets.contract";
+import { PET_ENDPOINTS, deactivatedPetSchema, petSchema } from "./pets.contract";
+import type { PetDto, UpdatePetDto } from "./pets.contract";
 import { toCreatePetDto, toPetItem } from "./pets.mappers";
 
 /**
@@ -48,3 +49,63 @@ export const getPet = cache(async (idPet: string): Promise<PetItem | undefined> 
 export async function createPet(values: NewPetValues): Promise<PetItem> {
   return toPetItem(await apiRequest(PET_ENDPOINTS.create, { method: "POST", body: toCreatePetDto(values), schema: petSchema }));
 }
+
+/**
+ * Changes a pet of the signed-in customer.
+ *
+ * @param idPet Id of the pet.
+ * @param dto Fields to change, at least one.
+ * @returns The updated pet.
+ * @throws {ApiError} `not-found` when the pet is not the customer's or is inactive.
+ */
+export async function updatePet(idPet: string, dto: UpdatePetDto): Promise<PetItem> {
+  return toPetItem(await apiRequest(PET_ENDPOINTS.detail(idPet), { method: "PATCH", body: dto, schema: petSchema }));
+}
+
+/**
+ * Archives a pet of the signed-in customer; it no longer shows in their pets.
+ *
+ * @param idPet Id of the pet.
+ * @throws {ApiError} `not-found` when the pet is not the customer's or is already archived.
+ */
+export async function deactivatePet(idPet: string): Promise<void> {
+  await apiRequest(PET_ENDPOINTS.deactivate(idPet), { method: "PATCH", schema: deactivatedPetSchema });
+}
+
+/**
+ * Pets of any owner, archived ones included, for the clinic (staff and admin).
+ *
+ * @param ownerId Id of the owner user.
+ * @returns The pets as the backend sends them, newest first.
+ * @throws {ApiError} `forbidden` for customers; `not-found` for an unknown owner.
+ */
+export async function getOwnerPets(ownerId: string): Promise<PetDto[]> {
+  return apiRequest(PET_ENDPOINTS.ofOwner(ownerId), { schema: collection(petSchema) });
+}
+
+/**
+ * Registers a pet for an owner at the front desk (staff and admin).
+ *
+ * @param ownerId Id of the owner user.
+ * @param values Values of the pet form.
+ * @returns The pet that was created.
+ */
+export async function createPetForOwner(ownerId: string, values: NewPetValues): Promise<PetDto> {
+  return apiRequest(PET_ENDPOINTS.ofOwner(ownerId), { method: "POST", body: toCreatePetDto(values), schema: petSchema });
+}
+
+/**
+ * Any pet, archived or not, for the clinic (staff and admin). Cached for the length of a request.
+ *
+ * @param idPet Id of the pet.
+ * @returns The pet, or `undefined` when it does not exist.
+ * @throws {ApiError} For failures other than 404.
+ */
+export const getPetForStaff = cache(async (idPet: string): Promise<PetDto | undefined> => {
+  try {
+    return await apiRequest(PET_ENDPOINTS.forStaff(idPet), { schema: petSchema });
+  } catch (error) {
+    if (error instanceof ApiError && error.kind === "not-found") return undefined;
+    throw error;
+  }
+});
