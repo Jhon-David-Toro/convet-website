@@ -22,6 +22,10 @@ export type ApiRequestOptions<Output> = {
   schema?: ZodType<Output>;
   /** Overrides the default timeout, in milliseconds. */
   timeoutMs?: number;
+  /** Caches a public GET for this many seconds in the Next.js data cache. It implies `auth: false`. */
+  revalidate?: number;
+  /** Cache tags of a cached GET, so a change can refresh it with `revalidateTag`. */
+  tags?: string[];
 };
 
 /** Result of a Server Action: either the data or a safe, user-facing error. */

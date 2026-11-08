@@ -44,13 +44,13 @@ async function accessToken(): Promise<string> {
  * Sends the request, turning a network failure or a timeout into an {@link ApiError}.
  *
  * @param url Address to call.
- * @param init Options of `fetch` without the signal.
+ * @param init Options of `fetch` without the signal, including how the answer is cached.
  * @param timeoutMs Time to wait for the answer.
  * @returns The response, whatever its status.
  */
 async function send(url: URL, init: RequestInit, timeoutMs: number): Promise<Response> {
   try {
-    return await fetch(url, { ...init, cache: "no-store", signal: AbortSignal.timeout(timeoutMs) });
+    return await fetch(url, { ...init, signal: AbortSignal.timeout(timeoutMs) });
   } catch (error) {
     const timedOut = error instanceof DOMException && (error.name === "TimeoutError" || error.name === "AbortError");
     throw new ApiError(timedOut ? "timeout" : "network", { detail: String(error) });
@@ -96,22 +96,37 @@ async function readAnswer<Output>(response: Response, schema?: ZodType<Output>):
 }
 
 /**
+ * How `fetch` caches the answer: public reads with `revalidate` go to the Next.js data cache, everything else is fetched fresh.
+ *
+ * @param options Options of the request.
+ * @returns The cache options of `fetch`.
+ */
+function cacheOptions(options: ApiRequestOptions<unknown>): Pick<RequestInit, "cache" | "next"> {
+  if (options.revalidate === undefined) return { cache: "no-store" };
+  return { next: { revalidate: options.revalidate, tags: options.tags } };
+}
+
+/**
  * Calls the backend from the server. It adds the Bearer token from the httpOnly cookie (the token never reaches the browser),
  * aborts after a timeout, turns every failure into an {@link ApiError} and validates the answer against the schema.
  *
  * @param path Path of the endpoint, e.g. `/pets`.
- * @param options Method, body, query, auth and schema, see {@link ApiRequestOptions}.
+ * @param options Method, body, query, auth, schema and cache, see {@link ApiRequestOptions}.
  * @returns The validated JSON answer, or `undefined` for answers without a body.
- * It always waits for the incoming request first, so a page that calls the backend is never prerendered at build time: without it, a
- * missing `BACKEND_API_URL` during the build would make the call fail before any request data is read and Next.js would freeze the
- * resulting redirect into a static page.
+ * Private calls wait for the incoming request first, so a page that calls the backend is never prerendered at build time: without it,
+ * a missing `BACKEND_API_URL` during the build would make the call fail before any request data is read and Next.js would freeze the
+ * resulting redirect into a static page. Public reads with `revalidate` skip that wait so their pages can be prerendered and refreshed
+ * in the background; they never send the token, and their callers must fall back to static content when they fail.
  * @throws {ApiError} For every failure: no session, HTTP errors, network, timeout or an answer that does not match the schema.
  */
 export async function apiRequest<Output = undefined>(path: string, options: ApiRequestOptions<Output> = {}): Promise<Output> {
-  await connection();
-  const { method = "GET", body, query, auth = true, schema, timeoutMs = API_TIMEOUT_MS } = options;
+  const cached = options.revalidate !== undefined;
+  if (!cached) await connection();
+  const { method = "GET", body, query, schema, timeoutMs = API_TIMEOUT_MS } = options;
+  const auth = !cached && (options.auth ?? true);
   const url = buildUrl(path, query);
   const headers = await buildHeaders(auth, body !== undefined);
-  const response = await send(url, { method, headers, body: body === undefined ? undefined : JSON.stringify(body) }, timeoutMs);
+  const init = { method, headers, body: body === undefined ? undefined : JSON.stringify(body), ...cacheOptions(options) };
+  const response = await send(url, init, timeoutMs);
   return readAnswer(response, schema);
 }

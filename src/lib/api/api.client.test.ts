@@ -71,6 +71,18 @@ describe("apiRequest", () => {
     expect(cookieGet).not.toHaveBeenCalled();
   });
 
+  it("caches public reads with revalidate, without the token and without waiting for the request", async () => {
+    connection.mockClear();
+    fetchMock.mockResolvedValue(answer(200, []));
+    await apiRequest("/services", { revalidate: 300, tags: ["services"], auth: true, schema: z.array(z.unknown()) });
+    const init = fetchMock.mock.calls[0][1];
+    expect(init.next).toEqual({ revalidate: 300, tags: ["services"] });
+    expect(init.cache).toBeUndefined();
+    expect(init.headers.Authorization).toBeUndefined();
+    expect(cookieGet).not.toHaveBeenCalled();
+    expect(connection).not.toHaveBeenCalled();
+  });
+
   it("does not call the backend when there is no session", async () => {
     cookieGet.mockReturnValue(undefined);
     await expect(apiRequest("/pets")).rejects.toMatchObject({ kind: "unauthorized" });
