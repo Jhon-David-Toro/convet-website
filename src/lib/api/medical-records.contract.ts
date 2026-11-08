@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { optionalText } from "./api.contract";
+import { optionalText, pageMetaSchema } from "./api.contract";
 
 const personName = z.object({ firstName: z.string(), lastName: z.string() });
 
@@ -30,7 +30,7 @@ export const medicalRecordSchema = z.object({
 /** Answer of `GET /medical-records/pet/:petId`: one page plus its metadata. */
 export const medicalRecordPageSchema = z.object({
   data: z.array(medicalRecordSchema),
-  meta: z.object({ total: z.number(), page: z.number(), limit: z.number(), totalPages: z.number() }),
+  meta: pageMetaSchema,
 });
 
 export type MedicalRecordDto = z.infer<typeof medicalRecordSchema>;
@@ -39,5 +39,21 @@ export type MedicalRecordDto = z.infer<typeof medicalRecordSchema>;
 export const MEDICAL_RECORDS_LIMIT = 100;
 
 export const MEDICAL_RECORD_ENDPOINTS = {
+  detail: (idMedicalRecord: string) => `/medical-records/${encodeURIComponent(idMedicalRecord)}`,
   byPet: (petId: string) => `/medical-records/pet/${encodeURIComponent(petId)}`,
 } as const;
+
+/** Medical record as `GET /medical-records/:id` sends it: the history fields plus the pet and the ids to link to. */
+export const medicalRecordDetailSchema = medicalRecordSchema.extend({
+  appointmentId: z.string(),
+  veterinarianId: z.string(),
+  pet: z.object({ idPet: z.string(), name: z.string(), ownerId: z.string().optional() }),
+});
+
+export type MedicalRecordDetailDto = z.infer<typeof medicalRecordDetailSchema>;
+
+/** Body of `PATCH /medical-records/:id`: at least one field; texts cannot be cleared, only replaced. */
+export type UpdateMedicalRecordDto = Partial<Record<"observations" | "diagnosis" | "treatment" | "recommendations", string>>;
+
+/** Answer of `PATCH /medical-records/:id` (the appointment is not included). */
+export const updatedMedicalRecordSchema = medicalRecordDetailSchema.omit({ appointment: true });

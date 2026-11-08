@@ -89,3 +89,22 @@ describe("VisitRecord vaccination", () => {
     expect(event.defaultPrevented).toBe(true);
   });
 });
+
+describe("VisitRecord saved in the backend", () => {
+  it("signs only after the backend saved the visit", async () => {
+    push.mockClear();
+    const onSave = vi.fn().mockResolvedValueOnce({ ok: false, kind: "forbidden", message: "You do not have permission to do this." }).mockResolvedValueOnce({ ok: true, data: undefined });
+    render(
+      <ToastProvider>
+        <VisitRecord visit={STAFF_VISIT} patient={STAFF_PATIENT} onSave={onSave} />
+      </ToastProvider>,
+    );
+    const sign = screen.getByRole("button", { name: "Finish & sign" });
+    await userEvent.click(sign);
+    expect(await screen.findByText("You do not have permission to do this.")).toBeInTheDocument();
+    expect(push).not.toHaveBeenCalled();
+    await userEvent.click(sign);
+    await vi.waitFor(() => expect(push).toHaveBeenCalled());
+    expect(onSave).toHaveBeenLastCalledWith(expect.objectContaining({ findings: STAFF_VISIT.findings }));
+  });
+});

@@ -1,6 +1,6 @@
 import type { PetEvent } from "@/lib/customer/customer.types";
 
-import type { MedicalRecordDto } from "./medical-records.contract";
+import type { MedicalRecordDto, UpdateMedicalRecordDto } from "./medical-records.contract";
 
 const CLINIC_TIME_ZONE = "America/Aruba";
 
@@ -12,7 +12,7 @@ const DEFAULT_VISIT_TITLE = "Visit";
  * @param iso Moment in ISO format.
  * @returns The date, e.g. "Sep 11, 2026".
  */
-function dateLabel(iso: string): string {
+export function dateLabel(iso: string): string {
   return new Intl.DateTimeFormat("en-US", { timeZone: CLINIC_TIME_ZONE, month: "short", day: "numeric", year: "numeric" }).format(new Date(iso));
 }
 
@@ -60,4 +60,15 @@ export function toPetEvents(record: MedicalRecordDto): PetEvent[] {
   if (!record.treatment) return [visit];
 
   return [visit, { id: `${record.idMedicalRecord}-treatment`, petId: record.petId, type: "treatment", title: "Treatment", meta, summary: record.treatment, year }];
+}
+
+/**
+ * Keeps the clinical texts that have content, trimmed: the backend rejects blank texts and cannot clear a field.
+ *
+ * @param dto Texts typed in the visit record.
+ * @returns The texts to send.
+ */
+export function nonBlankTexts(dto: UpdateMedicalRecordDto): UpdateMedicalRecordDto {
+  const entries = Object.entries(dto).map(([field, text]) => [field, text?.trim()] as const);
+  return Object.fromEntries(entries.filter(([, text]) => Boolean(text)));
 }

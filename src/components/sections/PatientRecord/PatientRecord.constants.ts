@@ -15,7 +15,7 @@ export const TABS_LABEL = "Patient record sections";
 export const PANEL_ID = "patient-panel";
 
 export const TAB_TYPES: Record<Exclude<PatientTab, "appointments">, string[]> = {
-  visits: ["vaccine", "document"],
+  visits: ["visit", "vaccine", "document"],
   vaccines: ["vaccine"],
   treatments: ["treatment"],
   documents: ["document"],
@@ -64,3 +64,5 @@ export const VITALS = [
   { key: "temperature", label: "Temperature", icon: Thermometer },
   { key: "heartRate", label: "Heart rate", icon: Heart },
 ] as const;
+
+export const RECORDS_ERROR_TITLE = "We could not load the medical records";

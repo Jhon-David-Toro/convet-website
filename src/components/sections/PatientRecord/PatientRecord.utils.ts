@@ -2,7 +2,7 @@ import type { BreadcrumbItem } from "@/components/ui/Breadcrumbs";
 import { Mail, Phone } from "@/components/ui/Icon";
 import { STAFF_CLIENT, STAFF_OWNER, STAFF_TIMELINE } from "@/lib/staff/staff.constants";
 import { STAFF_PATIENTS_HREF } from "@/lib/staff/staff.paths.constants";
-import type { StaffOwner, StaffPatient, StaffTimelineEntry } from "@/lib/staff/staff.types";
+import type { StaffOwner, StaffPatient, StaffPatientRecord, StaffTimelineEntry } from "@/lib/staff/staff.types";
 
 import { BREADCRUMBS_OWNER_HREF, TAB_TYPES } from "./PatientRecord.constants";
 import type { ContactItem, PatientTab } from "./PatientRecord.types";
@@ -34,13 +34,15 @@ function appointmentEntries(): StaffTimelineEntry[] {
 }
 
 /**
- * Path shown above the record: the patients, the owner and the patient.
+ * Path shown above the record: the patients, the owner (only for the sample record, the backend does not give the owner yet) and the patient.
  *
  * @param patient Patient of the record.
+ * @param withOwner Whether the owner crumb is shown.
  * @returns The breadcrumb items; the last one is the current page.
  */
-export function patientCrumbs(patient: StaffPatient): BreadcrumbItem[] {
-  return [{ label: "Patients", href: STAFF_PATIENTS_HREF }, { label: STAFF_OWNER.name, href: BREADCRUMBS_OWNER_HREF }, { label: patient.name }];
+export function patientCrumbs(patient: StaffPatient, withOwner = true): BreadcrumbItem[] {
+  const owner = withOwner ? [{ label: STAFF_OWNER.name, href: BREADCRUMBS_OWNER_HREF }] : [];
+  return [{ label: "Patients", href: STAFF_PATIENTS_HREF }, ...owner, { label: patient.name }];
 }
 
 /**
@@ -54,4 +56,16 @@ export function ownerContacts(owner: StaffOwner): ContactItem[] {
     { icon: Phone, text: owner.phone },
     { icon: Mail, text: owner.email },
   ];
+}
+
+/**
+ * Entries of a tab built from the backend record. Appointments are not readable from the backend yet, so that tab is empty.
+ *
+ * @param tab Selected tab.
+ * @param record Record of the patient from the backend.
+ * @returns The entries of the tab.
+ */
+export function recordEntriesFor(tab: PatientTab, record: StaffPatientRecord): StaffTimelineEntry[] {
+  if (tab === "appointments") return [];
+  return record.timeline.filter((entry) => TAB_TYPES[tab].includes(entry.type));
 }

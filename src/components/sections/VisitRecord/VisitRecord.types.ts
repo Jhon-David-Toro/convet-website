@@ -1,10 +1,12 @@
 import type { ChangeEvent } from "react";
 
+import type { ActionResult } from "@/lib/api/api.types";
 import type { StaffLot, StaffPatient, StaffVisitForm } from "@/lib/staff/staff.types";
 
 export type VisitRecordProps = {
   visit: StaffVisitForm;
   patient: StaffPatient;
+  onSave?: SaveVisit;
 };
 
 export type VisitValues = {
@@ -39,13 +41,14 @@ export type VisitFormState = {
   setValue: (field: keyof VisitValues, value: string) => void;
   removeVaccine: () => void;
   addVaccine: () => void;
+  saving?: boolean;
   saveDraft: () => void;
   finish: () => void;
 };
 
 export type VaccineToggle = Pick<VisitFormState, "vaccinating" | "removeVaccine" | "addVaccine">;
 
-export type UseVisitFormParams = Pick<VisitRecordProps, "visit">;
+export type UseVisitFormParams = Pick<VisitRecordProps, "visit" | "onSave">;
 
 export type VisitFieldsProps = Pick<VisitFormState, "bind">;
 
@@ -63,7 +66,7 @@ export type LotPickerProps = {
   lot: StaffLot;
 };
 
-export type VisitFooterProps = Pick<VisitFormState, "saveDraft" | "finish"> & {
+export type VisitFooterProps = Pick<VisitFormState, "saveDraft" | "finish" | "saving"> & {
   draftSaved: string;
 };
 
@@ -97,3 +100,5 @@ export type ExtrasProps = {
   vaccinating: boolean;
   onAddVaccine: () => void;
 };
+
+export type SaveVisit = (values: VisitValues) => Promise<ActionResult>;
