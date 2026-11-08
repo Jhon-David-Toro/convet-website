@@ -19,9 +19,9 @@ export const loginResponseSchema = z.object({
   user: authUserSchema,
 });
 
-/** Body the sign-in form posts to `/api/auth/login`. */
+/** Body the sign-in form posts to `/api/auth/login`. The email is lowercased, as sign-up stores it: the backend matches it exactly. */
 export const loginRequestSchema = z.object({
-  email: z.string().trim().min(1),
+  email: z.string().trim().toLowerCase().min(1),
   password: z.string().min(1),
 });
 

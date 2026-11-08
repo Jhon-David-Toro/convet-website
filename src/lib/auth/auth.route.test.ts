@@ -16,8 +16,8 @@ function request(body: string) {
 }
 
 describe("readCredentials", () => {
-  it("trims the email and keeps the password as typed", async () => {
-    await expect(readCredentials(request(JSON.stringify({ email: " a@b.co ", password: " secret " })))).resolves.toEqual({ email: "a@b.co", password: " secret " });
+  it("trims and lowercases the email and keeps the password as typed", async () => {
+    await expect(readCredentials(request(JSON.stringify({ email: " Ana@B.co ", password: " secret " })))).resolves.toEqual({ email: "ana@b.co", password: " secret " });
   });
 
   it.each([["not json"], [JSON.stringify({ email: "a@b.co" })], [JSON.stringify({ email: "  ", password: "x" })], [JSON.stringify([])]])("rejects %s", async (body) => {

@@ -34,3 +34,7 @@ export const CREATE_ACCOUNT_LABEL = "Create an account";
 export const STAFF_NOTE = "Clinic staff use this same page. You will be asked for your 2-step verification code.";
 
 export const NOTE_ICON_SIZE = 16;
+
+export const UNAVAILABLE_TITLE = "We could not sign you in right now";
+
+export const UNAVAILABLE_TEXT = "The service is not answering. Your details were not checked; please try again in a moment.";

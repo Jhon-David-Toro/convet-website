@@ -69,3 +69,19 @@ describe("SignInForm options", () => {
     expect(screen.getByRole("button", { name: "Sign in" })).toBeEnabled();
   });
 });
+
+describe("SignInForm when the service fails", () => {
+  it("says the service did not answer instead of blaming the credentials", async () => {
+    render(<SignInForm onSubmit={vi.fn().mockResolvedValue({ ok: false, reason: "unavailable" })} />);
+    await signIn();
+    expect(await screen.findByText("We could not sign you in right now")).toBeInTheDocument();
+    expect(screen.queryByText("Email or password is incorrect")).not.toBeInTheDocument();
+    expect(screen.queryByText("Check the email address.")).not.toBeInTheDocument();
+  });
+
+  it("treats a thrown submit as an outage", async () => {
+    render(<SignInForm onSubmit={vi.fn().mockRejectedValue(new Error("offline"))} />);
+    await signIn();
+    expect(await screen.findByText("We could not sign you in right now")).toBeInTheDocument();
+  });
+});

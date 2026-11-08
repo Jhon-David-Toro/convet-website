@@ -1,4 +1,6 @@
-import type { SignUpValues } from "./SignUpForm.types";
+import { EMAIL_ERROR, PASSWORD_ERROR, PHONE_ERROR } from "@/lib/auth/validation.constants";
+
+import type { SignUpErrors, SignUpValues } from "./SignUpForm.types";
 
 export const EMPTY_SIGN_UP: SignUpValues = {
   firstName: "",
@@ -43,3 +45,15 @@ export const CONSENT_PREFIX = "I accept the";
 export const TERMS_LABEL = "Terms";
 
 export const PRIVACY_LABEL = "Privacy Policy";
+
+export const FIELD_ERROR_MESSAGES: Required<SignUpErrors> = {
+  firstName: SIGN_UP_ERRORS.firstName,
+  lastName: SIGN_UP_ERRORS.lastName,
+  email: EMAIL_ERROR,
+  phone: PHONE_ERROR,
+  password: PASSWORD_ERROR,
+  acceptTerms: SIGN_UP_ERRORS.acceptTerms,
+  whatsappReminders: "Choose whether you want WhatsApp reminders.",
+};
+
+export const REVIEW_FIELDS_MESSAGE = "Please review the highlighted fields.";

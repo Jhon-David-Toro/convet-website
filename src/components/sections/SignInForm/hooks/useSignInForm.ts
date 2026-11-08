@@ -56,8 +56,9 @@ export function useSignInForm({
             const result = await (onSubmit ?? signIn)(fields.values);
 
             if (!result.ok) {
-                setStatus("error");
-                setErrors(CREDENTIAL_ERRORS);
+                const unavailable = result.reason === "unavailable";
+                setStatus(unavailable ? "unavailable" : "error");
+                setErrors(unavailable ? {} : CREDENTIAL_ERRORS);
                 return;
             }
 
@@ -68,8 +69,7 @@ export function useSignInForm({
                 router.refresh();
             }
         } catch {
-            setStatus("error");
-            setErrors(CREDENTIAL_ERRORS);
+            setStatus("unavailable");
         }
     }
 

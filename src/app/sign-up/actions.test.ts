@@ -33,3 +33,25 @@ describe("signUpAction", () => {
     await expect(signUpAction(VALID)).resolves.toMatchObject({ ok: false, kind: "conflict" });
   });
 });
+
+describe("signUpAction with backend validation errors", () => {
+  it("puts the DTO errors on the form fields with the form messages", async () => {
+    createUser.mockImplementation(async () => {
+      throw new ApiError("validation", { status: 400, fieldErrors: { mobileNumber: "mobileNumber should not be empty", acceptedTermsAndPrivacyPolicy: "acceptedTermsAndPrivacyPolicy must be equal to true", unknown: "x" } });
+    });
+    const result = await signUpAction(VALID);
+    expect(result).toEqual({
+      ok: false,
+      kind: "validation",
+      message: "Please review the highlighted fields.",
+      fieldErrors: { phone: "Include the country code: +297 593 2211.", acceptTerms: "Accept the Terms and Privacy Policy to continue." },
+    });
+  });
+
+  it("keeps the general message when no field can be matched", async () => {
+    createUser.mockImplementation(async () => {
+      throw new ApiError("validation", { status: 400, fieldErrors: { property: "property x should not exist" } });
+    });
+    await expect(signUpAction(VALID)).resolves.toMatchObject({ ok: false, message: "Some of the information is not valid. Please review it and try again.", fieldErrors: {} });
+  });
+});

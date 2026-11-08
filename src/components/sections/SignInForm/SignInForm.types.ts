@@ -10,7 +10,9 @@ export type SignInValues = {
 
 export type SignInErrors = Partial<Record<"email" | "password", string>>;
 
-export type SignInStatus = "idle" | "submitting" | "error";
+export type SignInStatus = "idle" | "submitting" | "error" | "unavailable";
+
+export type SignInFailure = "credentials" | "unavailable";
 
 export type SignInResult =
     | {
@@ -19,6 +21,8 @@ export type SignInResult =
     }
     | {
         ok: false;
+        /** Why it failed; without it the credentials are taken as wrong. */
+        reason?: SignInFailure;
     };
 
 export type SignInFormProps = {
@@ -46,6 +50,10 @@ export type SignInFieldsState = {
         field: Field,
         value: SignInValues[Field],
     ) => void;
+};
+
+export type SignInAlertProps = {
+    status: SignInStatus;
 };
 
 export type SignInFieldsProps = Pick<
