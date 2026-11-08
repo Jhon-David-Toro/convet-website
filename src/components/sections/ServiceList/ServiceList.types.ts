@@ -1,4 +1,4 @@
-import type { ServiceFilter, ServiceItem } from "@/lib/catalog/services.types";
+import type { ServiceContent, ServiceFilter, ServiceItem } from "@/lib/catalog/services.types";
 
 export type ServiceRowProps = {
   service: ServiceItem;
@@ -29,3 +29,7 @@ export type ServiceFilterState = {
   counts: ServiceCounts;
 };
 
+
+export type ServiceListProps = {
+  content?: ServiceContent[];
+};

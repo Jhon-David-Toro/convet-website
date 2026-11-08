@@ -2,6 +2,7 @@ import type { ServiceFact, ServiceItem, ServiceStep, ServiceTable as ServiceTabl
 
 export type ServiceDetailProps = {
   service: ServiceItem;
+  related?: ServiceItem[];
 };
 
 export type ServiceIntroProps = {
