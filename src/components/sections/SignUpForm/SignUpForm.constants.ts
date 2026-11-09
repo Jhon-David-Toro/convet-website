@@ -1,5 +1,4 @@
 import { EMAIL_ERROR, PASSWORD_ERROR, PHONE_ERROR } from "@/lib/auth/validation.constants";
-
 import type { SignUpErrors, SignUpValues } from "./SignUpForm.types";
 
 export const EMPTY_SIGN_UP: SignUpValues = {
@@ -27,7 +26,7 @@ export const EMAIL_HELPER = "You will use it to sign in.";
 
 export const PHONE_HELPER = "With the country code. For appointment reminders.";
 
-export const PASSWORD_HELPER = "At least 12 characters, with upper and lower case, a number and a symbol.";
+export const PASSWORD_HELPER = "At least 6 characters, with an uppercase letter and a number or symbol.";
 
 export const CONFIRM_PASSWORD_LABEL = "Confirm password";
 
@@ -39,16 +38,16 @@ export const SUBMIT_ERROR_TITLE = "We could not create your account";
 
 export const EMAIL_TAKEN_ERROR = "This email is already registered. Try signing in.";
 
-export const SUBMIT_LABELS = { idle: "Create account", busy: "Creating account…" };
+export const SUBMIT_LABELS = {
+  idle: "Create account",
+  busy: "Creating account…",
+};
 
 export const HAVE_ACCOUNT_LABEL = "Already have an account?";
-
 export const SIGN_IN_LABEL = "Sign in";
 
 export const CONSENT_PREFIX = "I accept the";
-
 export const TERMS_LABEL = "Terms";
-
 export const PRIVACY_LABEL = "Privacy Policy";
 
 export const FIELD_ERROR_MESSAGES: Required<SignUpErrors> = {

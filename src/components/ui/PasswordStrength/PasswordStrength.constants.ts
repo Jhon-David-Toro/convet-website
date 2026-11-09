@@ -9,10 +9,8 @@ export const STRENGTH_LEVELS: StrengthLevel[] = [
   { label: "Very strong", tone: "success" },
 ];
 
-export const LOWERCASE_PATTERN = /[a-z]/;
-
 export const UPPERCASE_PATTERN = /[A-Z]/;
 
 export const DIGIT_PATTERN = /\d/;
 
-export const SYMBOL_PATTERN = /[^A-Za-z0-9]/;
+export const SYMBOL_PATTERN = /[^A-Za-z0-9\s]/;

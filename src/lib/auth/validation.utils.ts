@@ -1,5 +1,11 @@
 import { PASSWORD_MIN_LENGTH } from "./auth.constants";
-import { EMAIL_ERROR, EMAIL_PATTERN, PASSWORD_ERROR, PHONE_ERROR, PHONE_PATTERN } from "./validation.constants";
+import {
+  EMAIL_ERROR,
+  EMAIL_PATTERN,
+  PASSWORD_ERROR,
+  PHONE_ERROR,
+  PHONE_PATTERN,
+} from "./validation.constants";
 
 /**
  * Error message of an email address.
@@ -53,12 +59,13 @@ export function validatePhone(phone: string): string | undefined {
 }
 
 /**
- * Error message of a new password, with the same rules as the backend: 12 characters, upper and lower case, a number and a symbol.
+ * Error message of a new password, using the same rules as the backend:
+ * at least 6 characters, one uppercase letter, and one number or symbol.
  *
  * @param password Password typed by the user.
  * @returns The message, or `undefined` when the password meets every rule.
  */
 export function validateNewPassword(password: string): string | undefined {
-  const strong = password.length >= PASSWORD_MIN_LENGTH && /[a-z]/.test(password) && /[A-Z]/.test(password) && /\d/.test(password) && /[^A-Za-z\d]/.test(password);
-  return strong ? undefined : PASSWORD_ERROR;
+  const valid = password.length >= PASSWORD_MIN_LENGTH && /[A-Z]/.test(password) && /(?:\d|[^A-Za-z0-9\s])/.test(password);
+  return valid ? undefined : PASSWORD_ERROR;
 }
