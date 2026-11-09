@@ -53,22 +53,22 @@ export function useEditPet({ idPet, initial, onSave, onSaved }: UseEditPetParams
     if (hasErrors(found)) return;
 
     setSubmitting(true);
-    const result = await savePetChanges(idPet, values, onSave);
-    setSubmitting(false);
-
-    if (result?.ok) {
-      onSaved(values);
-      return;
+    try {
+      const result = await savePetChanges(idPet, values, onSave);
+      if (result?.ok) {
+        onSaved(values);
+        return;
+      }
+      if (!result) {
+        setSubmitError(UNEXPECTED_ERROR);
+        return;
+      }
+      const fields = pickFieldErrors(result.fieldErrors);
+      setErrors(fields);
+      setSubmitError(hasErrors(fields) ? undefined : result.message);
+    } finally {
+      setSubmitting(false);
     }
-
-    if (!result) {
-      setSubmitError(UNEXPECTED_ERROR);
-      return;
-    }
-
-    const fields = pickFieldErrors(result.fieldErrors);
-    setErrors(fields);
-    setSubmitError(hasErrors(fields) ? undefined : result.message);
   }
 
   return {

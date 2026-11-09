@@ -39,6 +39,6 @@ export async function runAction<Data = undefined>(run: () => Promise<Data>): Pro
       if (error.kind === "unauthorized") redirect(SIGN_IN_PATH);
       return { ok: false, kind: error.kind, message: error.message, fieldErrors: error.fieldErrors };
     }
-    throw error;
+    return { ok: false, kind: "server", message: "Something went wrong. Please try again." };
   }
 }

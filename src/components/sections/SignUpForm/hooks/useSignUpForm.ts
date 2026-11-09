@@ -52,15 +52,16 @@ export function useSignUpForm({ onSubmit }: UseSignUpFormParams): SignUpFormStat
     if (hasErrors(found)) return;
 
     setSubmitting(true);
-    const result = (await onSubmit?.(values)) ?? { ok: true as const, data: undefined };
-    setSubmitting(false);
-
-    if (result.ok) {
-      router.push(SIGN_IN_HREF);
-      return;
+    try {
+      const result = (await onSubmit?.(values)) ?? { ok: true as const, data: undefined };
+      if (result.ok) {
+        router.push(SIGN_IN_HREF);
+        return;
+      }
+      handleSignUpError(result, setErrors, setSubmitError);
+    } finally {
+      setSubmitting(false);
     }
-
-    handleSignUpError(result, setErrors, setSubmitError);
   }
 
   return { values, errors, submitting, submitError, setValue, handleSubmit };

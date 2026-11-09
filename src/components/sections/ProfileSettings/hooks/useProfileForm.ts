@@ -53,15 +53,16 @@ export function useProfileForm({ initial, onSave }: UseProfileFormParams): Profi
     if (hasErrors(found)) return;
 
     setSubmitting(true);
-    const result = (await onSave?.(values)) ?? { ok: true as const, data: undefined };
-    setSubmitting(false);
-
-    if (result.ok) {
-      setSaved(true);
-      return;
+    try {
+      const result = (await onSave?.(values)) ?? { ok: true as const, data: undefined };
+      if (result.ok) {
+        setSaved(true);
+        return;
+      }
+      handleProfileError(result, setErrors, setSubmitError);
+    } finally {
+      setSubmitting(false);
     }
-
-    handleProfileError(result, setErrors, setSubmitError);
   }
 
   return { values, errors, saved, submitting, submitError, setValue, handleSubmit };

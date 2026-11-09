@@ -58,17 +58,18 @@ export function useReviewForm({ target, onSave, onDone }: UseReviewFormParams): 
     if (hasErrors(found)) return;
 
     setSubmitting(true);
-    const result = await onSave(values);
-    setSubmitting(false);
-
-    if (result.ok) {
-      onDone();
-      return;
+    try {
+      const result = await onSave(values);
+      if (result.ok) {
+        onDone();
+        return;
+      }
+      const { displayErrors, displayMessage } = mapBackendErrors(result.fieldErrors, result.message);
+      setErrors(displayErrors);
+      setSubmitError(displayMessage);
+    } finally {
+      setSubmitting(false);
     }
-
-    const { displayErrors, displayMessage } = mapBackendErrors(result.fieldErrors, result.message);
-    setErrors(displayErrors);
-    setSubmitError(displayMessage);
   }
 
   return {

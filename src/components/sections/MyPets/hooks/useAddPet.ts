@@ -50,19 +50,20 @@ export function useAddPet({ onClose, onSave }: UseAddPetParams): AddPetState {
     if (hasErrors(found)) return;
 
     setSubmitting(true);
-    const result = await savePet(values, onSave);
-    setSubmitting(false);
-
-    if (result.ok) {
-      setValues(EMPTY_PET);
-      setFile(undefined);
-      onClose();
-      return;
+    try {
+      const result = await savePet(values, onSave);
+      if (result.ok) {
+        setValues(EMPTY_PET);
+        setFile(undefined);
+        onClose();
+        return;
+      }
+      const fields = pickFieldErrors(result.fieldErrors);
+      setErrors(fields);
+      setSubmitError(hasErrors(fields) ? undefined : result.message);
+    } finally {
+      setSubmitting(false);
     }
-
-    const fields = pickFieldErrors(result.fieldErrors);
-    setErrors(fields);
-    setSubmitError(hasErrors(fields) ? undefined : result.message);
   }
 
   return {
