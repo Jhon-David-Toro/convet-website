@@ -5,7 +5,7 @@ import { toCreateUserDto, toCustomerProfile } from "./users.mappers";
 
 describe("toCreateUserDto", () => {
   it("sends only the fields of CreateUserDto, trimmed, with the email in lower case", () => {
-    const dto = toCreateUserDto({ firstName: " Anna ", lastName: "Lee", email: " Anna@Example.COM ", phone: " +297 560 1234 ", password: "Violet-Tiger-2026!", acceptTerms: true, whatsappReminders: true });
+    const dto = toCreateUserDto({ firstName: " Anna ", lastName: "Lee", email: " Anna@Example.COM ", phone: " +297 560 1234 ", password: "Violet-Tiger-2026!", confirmPassword: "Violet-Tiger-2026!", acceptTerms: true, whatsappReminders: true });
     expect(dto).toEqual({ firstName: "Anna", lastName: "Lee", email: "anna@example.com", mobileNumber: "+297 560 1234", password: "Violet-Tiger-2026!", acceptedTermsAndPrivacyPolicy: true, whatsappReminders: true });
   });
 });
