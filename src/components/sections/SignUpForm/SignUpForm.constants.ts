@@ -8,6 +8,7 @@ export const EMPTY_SIGN_UP: SignUpValues = {
   email: "",
   phone: "",
   password: "",
+  confirmPassword: "",
   acceptTerms: false,
   whatsappReminders: false,
 };
@@ -27,6 +28,10 @@ export const EMAIL_HELPER = "You will use it to sign in.";
 export const PHONE_HELPER = "With the country code. For appointment reminders.";
 
 export const PASSWORD_HELPER = "At least 12 characters, with upper and lower case, a number and a symbol.";
+
+export const CONFIRM_PASSWORD_LABEL = "Confirm password";
+
+export const CONFIRM_PASSWORD_ERROR = "Passwords do not match.";
 
 export const REMINDERS_LABEL = "Send me vaccine and visit reminders by WhatsApp";
 
@@ -52,6 +57,7 @@ export const FIELD_ERROR_MESSAGES: Required<SignUpErrors> = {
   email: EMAIL_ERROR,
   phone: PHONE_ERROR,
   password: PASSWORD_ERROR,
+  confirmPassword: CONFIRM_PASSWORD_ERROR,
   acceptTerms: SIGN_UP_ERRORS.acceptTerms,
   whatsappReminders: "Choose whether you want WhatsApp reminders.",
 };

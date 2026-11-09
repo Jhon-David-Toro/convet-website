@@ -1,3 +1,4 @@
+import { Icon } from "@/components/ui/Icon";
 import { Field, useField } from "@/components/ui/Field";
 
 import type { TextInputProps } from "./TextInput.types";
@@ -13,6 +14,7 @@ import styles from "./TextInput.module.scss";
  * @param props.helper Helper text below the control.
  * @param props.error Error message: replaces the helper and marks the control as invalid.
  * @param props.type Variant of the element (button type or cell type).
+ * @param props.trailingButton Optional button displayed at the trailing edge.
  * @param props.disabled Whether the control is disabled.
  * @param props.className Extra class name for the root element.
  * @param props.rest Remaining properties, forwarded to the root element.
@@ -25,6 +27,7 @@ export function TextInput({
   helper,
   error,
   type = "text",
+  trailingButton,
   disabled,
   className,
   ...rest
@@ -33,15 +36,28 @@ export function TextInput({
 
   return (
     <Field id={field.id} label={label} optional={optional} helper={helper} error={error} disabled={disabled} className={className}>
-      <input
-        {...rest}
-        id={field.id}
-        type={type}
-        disabled={disabled}
-        className={styles.input}
-        aria-invalid={field.invalid || undefined}
-        aria-describedby={field.describedBy}
-      />
+      <div className={styles.wrapper}>
+        <input
+          {...rest}
+          id={field.id}
+          type={type}
+          disabled={disabled}
+          className={styles.input}
+          aria-invalid={field.invalid || undefined}
+          aria-describedby={field.describedBy}
+        />
+        {trailingButton && (
+          <button
+            type="button"
+            onClick={trailingButton.onClick}
+            disabled={disabled}
+            aria-label={trailingButton.label}
+            className={styles.button}
+          >
+            <Icon icon={trailingButton.icon} size="small" />
+          </button>
+        )}
+      </div>
     </Field>
   );
 }
