@@ -7,24 +7,50 @@ import { calendarFileHref } from "../BookingFlow.utils";
 import styles from "../BookingFlow.module.scss";
 
 /**
- * Buttons of the confirmation: add to calendar, reschedule, go to the appointments and book for another pet.
+ * Buttons of the confirmation: add to calendar, reschedule, go to appointments and book for another pet.
  *
  * @param props Props of the component, see {@link ConfirmedActionsProps}.
  * @param props.selection What was booked.
+ * @param props.pets Customer's registered pets.
  * @param props.restart Starts a new booking for another pet.
  * @returns The rendered element.
  */
-export function ConfirmedActions({ selection, restart }: ConfirmedActionsProps) {
+export function ConfirmedActions({
+  selection,
+  pets,
+  restart,
+}: ConfirmedActionsProps) {
   return (
     <div className={styles.confirmedActions}>
-      <Button variant="secondary" href={calendarFileHref(selection)} download="convet-visit.ics" leadingIcon={Calendar}>
+      <Button
+        variant="secondary"
+        href={calendarFileHref(selection, pets)}
+        download="convet-visit.ics"
+        leadingIcon={Calendar}
+      >
         {CONFIRMED_ACTIONS.calendar}
       </Button>
-      <Button variant="secondary" href={APPOINTMENTS_HREF} leadingIcon={Refresh} className={styles.reschedule}>
+
+      <Button
+        variant="secondary"
+        href={APPOINTMENTS_HREF}
+        leadingIcon={Refresh}
+        className={styles.reschedule}
+      >
         {CONFIRMED_ACTIONS.reschedule}
       </Button>
-      <Button href={APPOINTMENTS_HREF}>{CONFIRMED_ACTIONS.appointments}</Button>
-      <Button type="button" variant="tertiary" leadingIcon={Plus} onClick={restart} className={styles.another}>
+
+      <Button href={APPOINTMENTS_HREF}>
+        {CONFIRMED_ACTIONS.appointments}
+      </Button>
+
+      <Button
+        type="button"
+        variant="tertiary"
+        leadingIcon={Plus}
+        onClick={restart}
+        className={styles.another}
+      >
         {CONFIRMED_ACTIONS.another}
       </Button>
     </div>

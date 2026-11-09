@@ -12,18 +12,27 @@ import styles from "../BookingFlow.module.scss";
  *
  * @param props Props of the component, see {@link WhatsAppBannerProps}.
  * @param props.selection What was booked.
+ * @param props.pets Customer's registered pets.
  * @returns The rendered element.
  */
-export function WhatsAppBanner({ selection }: WhatsAppBannerProps) {
+export function WhatsAppBanner({
+  selection,
+  pets,
+}: WhatsAppBannerProps) {
   return (
-    <Link href={confirmationChatHref(selection)} className={styles.banner}>
+    <Link
+      href={confirmationChatHref(selection, pets)}
+      className={styles.banner}
+    >
       <span className={styles.bannerIcon}>
         <Icon icon={WhatsApp} tone="inverse" />
       </span>
+
       <span className={styles.bannerText}>
         <strong>{WHATSAPP_BANNER.title}</strong>
         {WHATSAPP_BANNER.text}
       </span>
+
       <Icon icon={ChevronRight} />
     </Link>
   );

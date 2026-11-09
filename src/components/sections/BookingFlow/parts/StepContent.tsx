@@ -8,8 +8,14 @@ import { ScheduleStep } from "./ScheduleStep";
  *
  * @param props Props of the component, see {@link StepContentProps}.
  * @param props.flow State of the booking.
+ * @param props.pets Customer's registered pets.
  * @returns The rendered element.
  */
-export function StepContent({ flow }: StepContentProps) {
-  return CHOICE_STEPS.includes(flow.step) ? <ChoiceStep flow={flow} /> : <ScheduleStep flow={flow} />;
+
+export function StepContent({ flow, pets }: StepContentProps) {
+  return CHOICE_STEPS.includes(flow.step) ? (
+    <ChoiceStep flow={flow} pets={pets} />
+  ) : (
+    <ScheduleStep flow={flow} pets={pets} />
+  );
 }

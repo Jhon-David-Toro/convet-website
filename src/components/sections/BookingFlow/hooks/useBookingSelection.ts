@@ -4,48 +4,92 @@ import { ANY_VET_ID } from "@/lib/booking/booking.constants";
 import { useLoadingDelay } from "@/lib/shared/useLoadingDelay";
 
 import { EMPTY_SELECTION, LOADING_MS } from "../BookingFlow.constants";
-import type { BookingSelection, BookingSelectionState, UseBookingSelectionParams } from "../BookingFlow.types";
+import type {
+  BookingSelection,
+  BookingSelectionState,
+  UseBookingSelectionParams,
+} from "../BookingFlow.types";
 
 /**
- * What the customer has chosen so far in the booking, with the helpers that clear what depends on a choice:
- * a new vet or day clears the time, and a new day starts the "looking for times" placeholder.
+ * Manages the customer's booking selection and clears dependent fields
+ * when the veterinarian or appointment date changes.
  *
- * @param params Parameters of the hook, see {@link UseBookingSelectionParams}.
- * @param params.initialServiceId Service chosen before the booking opens (the "Book" buttons of the service pages).
- * @returns The selection, whether the times are loading and the functions that change it.
+ * @param params Initial pet and service identifiers.
+ * @returns The selection, loading state and selection helpers.
  */
-export function useBookingSelection({ initialServiceId }: UseBookingSelectionParams): BookingSelectionState {
-  const [selection, setSelection] = useState<BookingSelection>({ ...EMPTY_SELECTION, serviceId: initialServiceId });
+export function useBookingSelection({
+  initialPetId,
+  initialServiceId,
+}: UseBookingSelectionParams): BookingSelectionState {
+  const initialSelection: BookingSelection = {
+    ...EMPTY_SELECTION,
+    petId: initialPetId,
+    serviceId: initialServiceId,
+  };
+
+  const [selection, setSelection] =
+    useState<BookingSelection>(initialSelection);
+
   const { loading, start } = useLoadingDelay(LOADING_MS);
 
   /**
-   * Changes one value of the selection.
+   * Changes one value of the booking selection.
    *
    * @param field Field to change.
    * @param value New value of the field.
    */
-  function setField<Field extends keyof BookingSelection>(field: Field, value: BookingSelection[Field]) {
-    setSelection((current) => ({ ...current, [field]: value }));
+  function setField<Field extends keyof BookingSelection>(
+    field: Field,
+    value: BookingSelection[Field],
+  ) {
+    setSelection((current) => ({
+      ...current,
+      [field]: value,
+    }));
   }
 
   /**
-   * Picks a day, clears the time and shows the loading placeholder while the times are looked up.
+   * Selects a date, clears the selected time and starts the loading state.
    *
-   * @param iso Day as `YYYY-MM-DD`.
+   * @param iso Date in YYYY-MM-DD format.
    */
   function chooseDate(iso: string) {
-    setSelection((current) => ({ ...current, date: iso, time: "" }));
+    setSelection((current) => ({
+      ...current,
+      date: iso,
+      time: "",
+    }));
+
     start();
   }
 
   /**
-   * Picks a vet; the day and time of another vet no longer apply.
+   * Selects a veterinarian and clears the previously selected date and time.
    *
-   * @param vetId Id of the vet, or "any".
+   * @param vetId Veterinarian identifier, or "any".
    */
   function chooseVet(vetId: string) {
-    setSelection((current) => ({ ...current, vetId: vetId || ANY_VET_ID, date: "", time: "" }));
+    setSelection((current) => ({
+      ...current,
+      vetId: vetId || ANY_VET_ID,
+      date: "",
+      time: "",
+    }));
   }
 
-  return { selection, loading, setField, chooseDate, chooseVet, reset: () => setSelection(EMPTY_SELECTION) };
+  /**
+   * Restores the initial booking selection.
+   */
+  function reset() {
+    setSelection(initialSelection);
+  }
+
+  return {
+    selection,
+    loading,
+    setField,
+    chooseDate,
+    chooseVet,
+    reset,
+  };
 }

@@ -1,6 +1,14 @@
 import type { BookingSelection, BookingStepId } from "./BookingFlow.types";
 
-export const EMPTY_SELECTION: BookingSelection = { petId: "luna", serviceId: "", vetId: "", date: "", time: "", notes: "", whatsapp: true };
+export const EMPTY_SELECTION: BookingSelection = {
+  petId: "",
+  serviceId: "",
+  vetId: "",
+  date: "",
+  time: "",
+  notes: "",
+  whatsapp: true,
+};
 
 export const STEP_ORDER: BookingStepId[] = ["pet", "service", "vet", "datetime", "review", "confirmed"];
 

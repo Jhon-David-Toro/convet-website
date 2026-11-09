@@ -5,25 +5,53 @@ import type { CustomerAppointment } from "@/lib/customer/customer.types";
 
 import { SUMMARY_EYEBROW } from "./RescheduleFlow.constants";
 
+type RescheduleSummary = Pick<
+  BookingSummaryProps,
+  "eyebrow" | "date" | "time" | "service" | "pet" | "vet" | "location"
+>;
+
 /**
- * Card shown next to the reschedule: the visit with the new day and time.
+ * Builds the summary displayed during appointment rescheduling.
  *
- * @param appointment Appointment being moved.
- * @param date New day as `YYYY-MM-DD`, or an empty string.
- * @param time New time, or an empty string.
- * @returns The props of the booking summary.
+ * @param appointment Appointment being rescheduled.
+ * @param date New appointment date.
+ * @param time New appointment time.
+ * @returns Booking summary with the updated date and time.
  */
-export function rescheduleSummary(appointment: CustomerAppointment, date: string, time: string): Pick<BookingSummaryProps, "eyebrow" | "date" | "time" | "service" | "pet" | "vet" | "location"> {
-  const summary = bookingSummary({ petId: appointment.pet.toLowerCase(), serviceId: appointment.serviceId, vetId: appointment.vetId, date, time, notes: "", whatsapp: true });
-  return { ...summary, eyebrow: SUMMARY_EYEBROW };
+export function rescheduleSummary(
+  appointment: CustomerAppointment,
+  date: string,
+  time: string,
+): RescheduleSummary {
+  const summary = bookingSummary(
+    {
+      petId: "",
+      serviceId: appointment.serviceId,
+      vetId: appointment.vetId,
+      date,
+      time,
+      notes: "",
+      whatsapp: true,
+    },
+    [],
+  );
+
+  return {
+    ...summary,
+    eyebrow: SUMMARY_EYEBROW,
+    pet: {
+      title: appointment.pet || "Pet",
+      detail: "Registered pet",
+    },
+  };
 }
 
 /**
- * Day and time in one line, e.g. "Fri, Oct 9 · 9:30 AM".
+ * Formats the selected date and time into a single line.
  *
- * @param date Day as `YYYY-MM-DD`.
- * @param time Time such as "9:30 AM".
- * @returns The day and time.
+ * @param date Appointment date in YYYY-MM-DD format.
+ * @param time Appointment time.
+ * @returns Formatted date and time.
  */
 export function whenText(date: string, time: string): string {
   return `${shortDay(date)} · ${time}`;
