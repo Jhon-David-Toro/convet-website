@@ -1,0 +1,13 @@
+.stars {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}
+
+.star {
+  flex: 0 0 auto;
+}
+
+.filled {
+  fill: currentColor;
+}

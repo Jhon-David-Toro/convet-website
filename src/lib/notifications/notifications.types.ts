@@ -21,7 +21,7 @@ export type NotificationKind =
   | "expired-lot"
   | "online-requests";
 
-export type NotificationGroup = "today" | "yesterday" | "october" | "september";
+export type NotificationGroup = "today" | "yesterday" | "earlier" | "october" | "september";
 
 export type NotificationTone = "info" | "success" | "warning" | "error";
 

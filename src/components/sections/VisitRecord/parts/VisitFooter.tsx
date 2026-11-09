@@ -12,9 +12,10 @@ import styles from "../VisitRecord.module.scss";
  * @param props.draftSaved Text that says when the draft was saved.
  * @param props.saveDraft Saves the draft.
  * @param props.finish Signs the visit.
+ * @param props.saving Whether the visit is being saved.
  * @returns The rendered element.
  */
-export function VisitFooter({ draftSaved, saveDraft, finish }: VisitFooterProps) {
+export function VisitFooter({ draftSaved, saveDraft, finish, saving = false }: VisitFooterProps) {
   return (
     <div className={styles.footer}>
       <p className={styles.draft}>
@@ -22,10 +23,10 @@ export function VisitFooter({ draftSaved, saveDraft, finish }: VisitFooterProps)
         {draftSaved}
       </p>
       <div className={styles.footerActions}>
-        <Button type="button" variant="secondary" onClick={saveDraft}>
+        <Button type="button" variant="secondary" onClick={saveDraft} disabled={saving}>
           {SAVE_DRAFT_LABEL}
         </Button>
-        <Button type="button" leadingIcon={Lock} onClick={finish}>
+        <Button type="button" leadingIcon={Lock} onClick={finish} disabled={saving}>
           {FINISH_LABEL}
         </Button>
       </div>

@@ -18,7 +18,7 @@ export function StepService({ selection, setField, pet }: StepServiceProps) {
   return (
     <>
       <OptionList name="service" label={SERVICE_SUBTITLE_NOTE} options={serviceOptions(pet.id)} value={selection.serviceId} onChange={(id) => setField("serviceId", id)} />
-      {pet.vaccineStatus !== "up-to-date" && (
+      {(pet.vaccineStatus === "due-soon" || pet.vaccineStatus === "overdue") && (
         <Alert tone="info" title={TIP_TITLE}>
           {TIP_TEXT}
         </Alert>

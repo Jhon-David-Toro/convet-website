@@ -13,9 +13,10 @@ import styles from "./ServiceDetail.module.scss";
  *
  * @param props Props of the component, see {@link ServiceDetailProps}.
  * @param props.service Service to describe.
+ * @param props.related Services suggested below it; by default the editorial ones related to it.
  * @returns The rendered element.
  */
-export function ServiceDetail({ service }: ServiceDetailProps) {
+export function ServiceDetail({ service, related = relatedServices(service) }: ServiceDetailProps) {
   return (
     <>
       <section className={styles.detail}>
@@ -27,7 +28,7 @@ export function ServiceDetail({ service }: ServiceDetailProps) {
           </div>
         </div>
       </section>
-      <RelatedServices services={relatedServices(service)} />
+      <RelatedServices services={related} />
     </>
   );
 }

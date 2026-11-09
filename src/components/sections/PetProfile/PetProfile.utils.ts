@@ -7,6 +7,56 @@ import { FACT_LABELS, MY_PETS_LABEL, TAB_LABELS, WEIGHT_HEIGHT_RANGE, WEIGHT_MIN
 import type { EventGroup, HistoryFilter, PetFactItem, PetTab, WeightBar } from "./PetProfile.types";
 
 /**
+ * Title of the edit form.
+ *
+ * @param name Name of the pet.
+ * @returns For example "Edit Luna".
+ */
+export function editTitle(name: string): string {
+  return `Edit ${name}`;
+}
+
+/**
+ * Message of the toast once the changes of a pet are saved.
+ *
+ * @param name Name of the pet.
+ * @returns For example "Changes to Luna were saved."
+ */
+export function updatedMessage(name: string): string {
+  return `Changes to ${name} were saved.`;
+}
+
+/**
+ * Title of the archive confirmation.
+ *
+ * @param name Name of the pet.
+ * @returns For example "Archive Luna?"
+ */
+export function archiveTitle(name: string): string {
+  return `Archive ${name}?`;
+}
+
+/**
+ * What archiving a pet does, shown in the confirmation.
+ *
+ * @param name Name of the pet.
+ * @returns The sentence under the title.
+ */
+export function archiveDescription(name: string): string {
+  return `${name} will no longer appear in your pets and their profile will no longer open. You cannot undo this from the app.`;
+}
+
+/**
+ * Message of the toast once a pet is archived.
+ *
+ * @param name Name of the pet.
+ * @returns For example "Luna was archived."
+ */
+export function archivedMessage(name: string): string {
+  return `${name} was archived.`;
+}
+
+/**
  * Counts that appear next to the tabs of a pet profile.
  *
  * @param vaccines Vaccines of the pet.

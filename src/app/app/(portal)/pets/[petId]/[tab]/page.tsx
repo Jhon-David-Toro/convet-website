@@ -2,20 +2,13 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 
 import { PetProfile } from "@/components/sections/PetProfile";
-import { CUSTOMER_PETS } from "@/lib/customer/customer.constants";
+import { loadData } from "@/lib/api/api.guard";
+import { getPetHistory } from "@/lib/api/medical-records.api";
+import { getPet } from "@/lib/api/pets.api";
 import { PET_TABS } from "@/lib/customer/customer.paths.constants";
-import { findPet } from "@/lib/customer/customer.utils";
 
+import { archivePetAction, updatePetAction } from "../../actions";
 import type { PetTabPageProps } from "./page.types";
-
-/**
- * Pre-renders every tab of every pet profile.
- *
- * @returns The `petId` and `tab` of every combination.
- */
-export function generateStaticParams() {
-  return CUSTOMER_PETS.flatMap(({ id }) => PET_TABS.map((tab) => ({ petId: id, tab })));
-}
 
 /**
  * Title of a pet profile page.
@@ -25,7 +18,7 @@ export function generateStaticParams() {
  * @returns The metadata of the page, or an empty object for an unknown pet.
  */
 export async function generateMetadata({ params }: PetTabPageProps): Promise<Metadata> {
-  const pet = findPet((await params).petId);
+  const { data: pet } = await loadData(async () => getPet((await params).petId));
   return pet ? { title: `${pet.name} · CONVET` } : {};
 }
 
@@ -38,9 +31,20 @@ export async function generateMetadata({ params }: PetTabPageProps): Promise<Met
  */
 export default async function PetTabPage({ params }: PetTabPageProps) {
   const { petId, tab } = await params;
-  const pet = findPet(petId);
+  const { data: pet } = await loadData(() => getPet(petId));
   const known = PET_TABS.find((candidate) => candidate === tab);
   if (!pet || !known) notFound();
 
-  return <PetProfile pet={pet} tab={known} />;
+  // Only the History tab needs the medical records, so the other tabs do not call the backend for them.
+  const history = known === "history" ? await loadData(() => getPetHistory(pet.id)) : undefined;
+
+  return (
+    <PetProfile
+      pet={pet}
+      tab={known}
+      history={{ events: history?.data ?? [], error: history?.error?.message }}
+      onSave={updatePetAction}
+      onArchive={archivePetAction}
+    />
+  );
 }

@@ -6,12 +6,10 @@ import { SiteShell } from "@/components/sections/SiteShell";
 import { PRODUCTS } from "@/lib/catalog/products.constants";
 
 import { PRODUCTS_INTRO, PRODUCTS_PATH } from "./page.constants";
+import { pageMetadata } from "@/lib/site/seo.utils";
 
 /** Metadata of the products page. */
-export const metadata: Metadata = {
-  title: "Products · CONVET",
-  description: PRODUCTS_INTRO.description,
-};
+export const metadata: Metadata = pageMetadata({ title: "Products", description: PRODUCTS_INTRO.description, path: "/products" });
 
 /**
  * Products page: introduction band and the filterable catalog.

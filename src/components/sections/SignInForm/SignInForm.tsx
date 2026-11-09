@@ -26,7 +26,7 @@ export function SignInForm({ onSubmit }: SignInFormProps) {
   return (
     <AuthForm onSubmit={form.handleSubmit} aria-label={SIGN_IN_TITLE}>
       <AuthHeading title={SIGN_IN_TITLE} subtitle={SIGN_IN_SUBTITLE} />
-      {form.status === "error" && <SignInAlert />}
+      <SignInAlert status={form.status} />
       <SignInFields values={form.values} errors={form.errors} setValue={form.setValue} />
       <SignInOptions values={form.values} setValue={form.setValue} />
       <Button type="submit" loading={submitting}>

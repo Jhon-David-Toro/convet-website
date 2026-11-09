@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 
 import { ToastProvider } from "@/components/ui/Toast";
 import { SERVICE_ROWS } from "@/lib/admin/admin.constants";
@@ -93,5 +93,47 @@ describe("AdminServices fields", () => {
     await userEvent.click(screen.getByRole("tab", { name: "Public page" }));
     expect(screen.getByLabelText("Service name")).toHaveValue("Vaccination");
     expect(screen.getByLabelText("Description")).toBeInTheDocument();
+  });
+});
+
+describe("AdminServices with the backend", () => {
+  const ROW = { id: "bs1", branchId: "b1", name: "Vaccination", duration: 20, online: true, vets: 2, buffer: 0, species: [], price: "AWG 45.00" };
+
+  it("saves the bookable state and the new price of a branch service", async () => {
+    const saveRules = vi.fn().mockResolvedValue({ ok: true, data: undefined });
+    render(
+      <ToastProvider>
+        <AdminServices rows={[ROW]} actions={{ saveRules }} />
+      </ToastProvider>,
+    );
+    const price = screen.getByLabelText(/Price/);
+    await userEvent.clear(price);
+    await userEvent.type(price, "50");
+    await userEvent.click(screen.getByRole("button", { name: "Save & publish" }));
+    expect(saveRules).toHaveBeenCalledWith("b1", "bs1", { amount: 50 });
+  });
+
+  it("refuses a price that is not a number", async () => {
+    const saveRules = vi.fn();
+    render(
+      <ToastProvider>
+        <AdminServices rows={[ROW]} actions={{ saveRules }} />
+      </ToastProvider>,
+    );
+    const price = screen.getByLabelText(/Price/);
+    await userEvent.clear(price);
+    await userEvent.type(price, "free");
+    await userEvent.click(screen.getByRole("button", { name: "Save & publish" }));
+    expect(saveRules).not.toHaveBeenCalled();
+    expect(screen.getByText("Enter a price above 0, for example AWG 45.")).toBeInTheDocument();
+  });
+
+  it("shows the load error and the empty state", () => {
+    render(
+      <ToastProvider>
+        <AdminServices rows={[]} loadError="We could not reach the server." />
+      </ToastProvider>,
+    );
+    expect(screen.getByText("We could not reach the server.")).toBeInTheDocument();
   });
 });

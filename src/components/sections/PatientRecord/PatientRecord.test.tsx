@@ -35,3 +35,16 @@ describe("patient record utils", () => {
     expect(patientCrumbs(STAFF_PATIENT).map((crumb) => crumb.label)).toEqual(["Patients", "Anna Lee", "Luna"]);
   });
 });
+
+describe("PatientRecord from the backend", () => {
+  it("shows the backend visit, hides the sample owner and reports a records error", () => {
+    const record = { lastVisit: { title: "Consultation", meta: "Sep 11, 2026", vitals: { weight: "—", temperature: "—", heartRate: "—" }, findings: "Limping", diagnosis: "Strain", plan: "Rest", internalNotes: "", sharedSummary: "" }, timeline: [] };
+    const { unmount } = render(<PatientRecord patient={STAFF_PATIENT} record={record} />);
+    expect(screen.getByText("Limping")).toBeInTheDocument();
+    expect(screen.queryByText("Anna Lee")).not.toBeInTheDocument();
+    unmount();
+    render(<PatientRecord patient={STAFF_PATIENT} record={{ timeline: [], recordsError: "You do not have permission to do this." }} />);
+    expect(screen.getByText("You do not have permission to do this.")).toBeInTheDocument();
+    expect(screen.getByText("No visits yet.")).toBeInTheDocument();
+  });
+});

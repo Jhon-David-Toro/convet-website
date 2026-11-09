@@ -159,3 +159,21 @@
 .addClosure {
   align-self: flex-start;
 }
+
+/* Stack of location cards */
+.locations {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.phoneActions {
+  display: flex;
+  justify-content: flex-end;
+}

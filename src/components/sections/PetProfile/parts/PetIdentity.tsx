@@ -13,15 +13,17 @@ import styles from "../PetProfile.module.scss";
  * @returns The rendered element.
  */
 export function PetIdentity({ pet }: PetProps) {
-  const { tone, icon } = PET_STATUS_BADGES[pet.vaccineStatus];
+  const badge = pet.vaccineStatus ? PET_STATUS_BADGES[pet.vaccineStatus] : undefined;
 
   return (
     <div className={styles.identity}>
       <div className={styles.nameRow}>
         <h1 className={styles.name}>{pet.name}</h1>
-        <Badge tone={tone} icon={icon}>
-          {pet.vaccineBadge}
-        </Badge>
+        {badge && pet.vaccineBadge && (
+          <Badge tone={badge.tone} icon={badge.icon}>
+            {pet.vaccineBadge}
+          </Badge>
+        )}
       </div>
       <p className={styles.meta}>{pet.profileLine}</p>
       {pet.allergy && <AllergyNote text={pet.allergy} />}

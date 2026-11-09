@@ -1,14 +1,15 @@
 import type { LucideIcon } from "lucide-react";
 
-import type { StaffOwner, StaffPatient, StaffTimelineEntry, StaffVisitSummary } from "@/lib/staff/staff.types";
+import type { StaffOwner, StaffPatient, StaffPatientRecord, StaffTimelineEntry, StaffVisitSummary } from "@/lib/staff/staff.types";
 
 export type PatientTab = "visits" | "vaccines" | "treatments" | "documents" | "appointments";
 
 export type PatientRecordProps = {
   patient: StaffPatient;
+  record?: StaffPatientRecord;
 };
 
-export type PatientHeaderProps = PatientRecordProps;
+export type PatientHeaderProps = Pick<PatientRecordProps, "patient">;
 
 export type PatientTabsProps = {
   tab: PatientTab;
@@ -17,6 +18,7 @@ export type PatientTabsProps = {
 
 export type PatientPanelProps = {
   tab: PatientTab;
+  record?: StaffPatientRecord;
 };
 
 export type TimelineListProps = {
@@ -40,9 +42,9 @@ export type ClinicalFieldProps = {
   text: string;
 };
 
-export type PatientIdentityProps = PatientRecordProps;
+export type PatientIdentityProps = Pick<PatientRecordProps, "patient">;
 
-export type PatientFactsProps = PatientRecordProps;
+export type PatientFactsProps = Pick<PatientRecordProps, "patient">;
 
 export type ClinicalFieldsProps = VisitCardProps;
 
@@ -59,4 +61,8 @@ export type ContactItem = {
 
 export type OwnerCardProps = {
   owner: StaffOwner;
+};
+
+export type PatientSideProps = {
+  connected?: boolean;
 };

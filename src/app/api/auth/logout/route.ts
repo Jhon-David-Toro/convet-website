@@ -1,21 +1,12 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from "next/server";
 
-const ACCESS_TOKEN_COOKIE = 'convet_access_token';
+import { setSessionCookie } from "@/lib/auth/auth.route";
 
+/**
+ * Signs the user out by clearing the access token cookie.
+ *
+ * @returns A success answer with the cookie removed.
+ */
 export async function POST() {
-    const response = NextResponse.json({
-        success: true,
-    });
-
-    response.cookies.set({
-        name: ACCESS_TOKEN_COOKIE,
-        value: '',
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/',
-        maxAge: 0,
-    });
-
-    return response;
+  return setSessionCookie(NextResponse.json({ success: true }), "");
 }

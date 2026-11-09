@@ -11,13 +11,14 @@ import styles from "../PetProfile.module.scss";
  * @param props Props of the component, see {@link PetTabPanelProps}.
  * @param props.pet Pet of the profile.
  * @param props.tab Selected tab.
+ * @param props.history Events of the History tab.
  * @returns The rendered element.
  */
-export function PetTabPanel({ pet, tab }: PetTabPanelProps) {
+export function PetTabPanel({ pet, tab, history }: PetTabPanelProps) {
   return (
     <div id={PANEL_ID} role="tabpanel" className={styles.panel}>
       {tab === "vaccines" && <VaccinesTab pet={pet} />}
-      {tab === "history" && <HistoryTab pet={pet} />}
+      {tab === "history" && <HistoryTab pet={pet} history={history} />}
       {tab !== "vaccines" && tab !== "history" && <TabPlaceholder />}
     </div>
   );

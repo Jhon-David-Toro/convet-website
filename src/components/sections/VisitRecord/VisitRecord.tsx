@@ -14,10 +14,11 @@ import styles from "./VisitRecord.module.scss";
  * @param props Props of the component, see {@link VisitRecordProps}.
  * @param props.visit Visit of the record.
  * @param props.patient Patient of the visit.
+ * @param props.onSave Saves the clinical texts in the backend; without it saving is simulated.
  * @returns The rendered element.
  */
-export function VisitRecord({ visit, patient }: VisitRecordProps) {
-  const form = useVisitForm({ visit });
+export function VisitRecord({ visit, patient, onSave }: VisitRecordProps) {
+  const form = useVisitForm({ visit, onSave });
 
   return (
     <div className={styles.page}>
@@ -25,7 +26,7 @@ export function VisitRecord({ visit, patient }: VisitRecordProps) {
         <VisitForm form={form} visit={visit} patient={patient} />
         <VisitSide visit={visit} patient={patient} />
       </div>
-      <VisitFooter draftSaved={visit.draftSaved} saveDraft={form.saveDraft} finish={form.finish} />
+      <VisitFooter draftSaved={visit.draftSaved} saveDraft={form.saveDraft} finish={form.finish} saving={form.saving} />
     </div>
   );
 }

@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 
 import { MyPets } from "@/components/sections/MyPets";
+import { loadData } from "@/lib/api/api.guard";
+import { getMyPets } from "@/lib/api/pets.api";
 
+import { addPetAction } from "./actions";
 import type { MyPetsPageProps } from "./page.types";
 
 export const metadata: Metadata = {
@@ -10,6 +13,7 @@ export const metadata: Metadata = {
 
 /**
  * My pets page of the customer area; `?add=1` opens the "Add a pet" modal straight away.
+ * The pets come from the backend; a failure shows an error state instead of an empty list.
  *
  * @param props Props of the page, see {@link MyPetsPageProps}.
  * @param props.searchParams Query string.
@@ -17,6 +21,7 @@ export const metadata: Metadata = {
  */
 export default async function MyPetsPage({ searchParams }: MyPetsPageProps) {
   const { add } = await searchParams;
+  const { data: pets = [], error } = await loadData(getMyPets);
 
-  return <MyPets initialAddOpen={add === "1"} />;
+  return <MyPets pets={pets} loadError={error?.message} onAddPet={addPetAction} initialAddOpen={add === "1"} />;
 }

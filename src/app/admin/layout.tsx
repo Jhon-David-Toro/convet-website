@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { StaffShell } from "@/components/sections/StaffShell";
 import { ToastProvider } from "@/components/ui/Toast";
 import { requireRole } from "@/lib/auth/auth.access";
+import { loadNotificationsSource } from "@/lib/notifications/notifications.source";
 import { NO_INDEX } from "@/lib/site/seo.constants";
 
 import type { AdminLayoutProps } from "./layout.types";
@@ -14,6 +15,7 @@ export const metadata: Metadata = {
 
 /**
  * Layout of the admin area: every page under `/admin` shares the sidebar and the top bar, and the toasts survive navigation.
+ * The bell and the notifications page show the user's notifications from the backend.
  *
  * @param props Props of the layout, see {@link AdminLayoutProps}.
  * @param props.children Page of the admin area.
@@ -22,11 +24,14 @@ export const metadata: Metadata = {
 export default async function AdminLayout({
     children,
 }: AdminLayoutProps) {
-    await requireRole(["ADMIN"]);
+    const user = await requireRole(["ADMIN"]);
+    const notifications = await loadNotificationsSource("admin");
 
     return (
         <ToastProvider>
-            <StaffShell variant="admin">{children}</StaffShell>
+            <StaffShell variant="admin" user={{ name: `${user.firstName} ${user.lastName}` }} notifications={notifications}>
+                {children}
+            </StaffShell>
         </ToastProvider>
     );
 }

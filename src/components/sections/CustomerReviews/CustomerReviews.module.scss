@@ -1,0 +1,143 @@
+@use "abstracts" as *;
+@use "abstracts/typography";
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.sectionTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("heading-h4");
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.empty {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-m");
+}
+
+.card {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-20);
+  border: var(--border-width-default) solid var(--color-border-default);
+  border-radius: var(--radius-lg);
+  background: var(--color-background-surface);
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+  min-width: 0;
+}
+
+.cardTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-8);
+}
+
+.cardTitle {
+  margin: 0;
+  color: var(--color-text-heading);
+
+  @include typography.style("body-m-strong");
+}
+
+.meta {
+  margin: 0;
+  color: var(--color-text-secondary);
+
+  @include typography.style("body-s");
+}
+
+.comment {
+  margin: var(--spacing-4) 0 0;
+  color: var(--color-text-primary);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  @include typography.style("body-m");
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-20);
+}
+
+.rating {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+}
+
+.legend {
+  margin-bottom: var(--spacing-8);
+  padding: 0;
+  color: var(--color-text-primary);
+
+  @include typography.style("label-m");
+}
+
+.starRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-4);
+}
+
+.starOption {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--layout-touch-target);
+  min-height: var(--layout-touch-target);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+
+  &:focus-within {
+    @include focus-ring;
+  }
+}
+
+.starPicked {
+  color: var(--color-feedback-warning-text, currentColor);
+}
+
+.starInput {
+  @include visually-hidden;
+}
+
+.filled {
+  fill: currentColor;
+}
+
+.error {
+  margin: 0;
+  color: var(--color-feedback-error-text);
+
+  @include typography.style("body-s");
+}

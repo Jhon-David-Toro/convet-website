@@ -1,5 +1,5 @@
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState, useTransition } from "react";
 
 import { useToast } from "@/components/ui/Toast";
 
@@ -8,39 +8,51 @@ import type { UseVisitFormParams, VisitFormState, VisitValues } from "../VisitRe
 import { initialValues } from "../VisitRecord.utils";
 import { useVaccineToggle } from "./useVaccineToggle";
 
+function notifyResult(
+  result: { ok: boolean; message?: string },
+  toast: ReturnType<typeof useToast>["toast"],
+  successMessage: string,
+  onSuccess?: () => void,
+) {
+  if (!result.ok) {
+    result.message && toast({ message: result.message, tone: "error" });
+    return;
+  }
+  toast({ message: successMessage, tone: "success" });
+  onSuccess?.();
+}
+
 /**
- * State of the visit form: the value of every field, whether a vaccine is being recorded, and saving a draft or signing the visit.
- *
- * @param params Parameters of the hook, see {@link UseVisitFormParams}.
- * @param params.visit Visit of the record.
- * @returns The values, the functions that change them and the form actions.
+ * Manages visit form: clinical records (vaccines, notes) with draft/sign save workflow.
+ * @param visit Appointment/visit data to display; initial values extracted using initialValues util.
+ * @param onSave Backend save callback receiving form values; returns result with ok/message. Optional.
+ * @returns Form state with vaccine section state, saving flag (for transitions), and save handlers (draft/finish).
  */
-export function useVisitForm({ visit }: UseVisitFormParams): VisitFormState {
+export function useVisitForm({ visit, onSave }: UseVisitFormParams): VisitFormState {
   const router = useRouter();
   const { toast } = useToast();
   const vaccine = useVaccineToggle();
   const [values, setValues] = useState(() => initialValues(visit));
+  const [saving, startSaving] = useTransition();
 
-  /**
-   * Changes the value of one field.
-   *
-   * @param field Field to change.
-   * @param value New value.
-   */
   function setValue(field: keyof VisitValues, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
   }
 
-  /** Tells the user the draft was saved. */
-  function saveDraft() {
-    toast({ message: DRAFT_SAVED_MESSAGE });
+  function save(message: string, onSuccess?: () => void) {
+    startSaving(async () => {
+      const result = onSave ? await onSave(values) : { ok: true as const };
+      notifyResult(result, toast, message, onSuccess);
+    });
   }
 
-  /** Signs the visit and goes back to Today. */
-  function finish() {
-    toast({ message: SIGNED_MESSAGE, tone: "success" });
-    router.push(FINISH_HREF);
-  }
-
-  return { ...vaccine, values, bind: (field) => ({ value: values[field], onChange: (event) => setValue(field, event.target.value) }), setValue, saveDraft, finish };
+  return {
+    ...vaccine,
+    values,
+    saving,
+    bind: (field) => ({ value: values[field], onChange: (event) => setValue(field, event.target.value) }),
+    setValue,
+    saveDraft: () => save(DRAFT_SAVED_MESSAGE),
+    finish: () => save(SIGNED_MESSAGE, () => router.push(FINISH_HREF)),
+  };
 }

@@ -1,8 +1,9 @@
 import type { StatusView } from "@/components/patterns/StatusBadge";
 import type { ServiceRow } from "@/lib/admin/admin.types";
+import { amountFrom } from "@/lib/api/branch-services.mappers";
 
 import { ONLINE_VIEWS } from "./AdminServices.constants";
-import type { ServiceDraft } from "./AdminServices.types";
+import type { ServiceDraft, ServiceRulesChange } from "./AdminServices.types";
 
 /**
  * Values the booking rules form starts with for a service.
@@ -43,4 +44,22 @@ export function durationLabel(service: ServiceRow): string {
  */
 export function onlineView(service: ServiceRow): StatusView {
   return ONLINE_VIEWS[service.online ? "bookable" : "staff-only"];
+}
+
+/**
+ * What changed in the rules the backend stores: whether the service can be booked and its price.
+ *
+ * @param saved Values saved last.
+ * @param draft Values being published.
+ * @returns The change to send (empty when nothing the backend stores changed), or `undefined` when the new price is not valid.
+ */
+export function rulesChange(saved: ServiceDraft, draft: ServiceDraft): ServiceRulesChange | undefined {
+  const change: ServiceRulesChange = {};
+  if (draft.online !== saved.online) change.online = draft.online;
+  if (draft.price.trim() !== saved.price.trim()) {
+    const amount = amountFrom(draft.price);
+    if (amount === undefined) return undefined;
+    change.amount = amount;
+  }
+  return change;
 }

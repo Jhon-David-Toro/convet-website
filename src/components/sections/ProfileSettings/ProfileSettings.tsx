@@ -1,3 +1,5 @@
+import { Alert } from "@/components/ui/Alert";
+import { LOAD_ERROR_TITLE } from "./ProfileSettings.constants";
 import type { ProfileSettingsProps } from "./ProfileSettings.types";
 import { NotificationsCard } from "./parts/NotificationsCard";
 import { PersonalInfoCard } from "./parts/PersonalInfoCard";
@@ -11,15 +13,22 @@ import styles from "./ProfileSettings.module.scss";
  * @param props Props of the component, see {@link ProfileSettingsProps}.
  * @param props.profile Profile of the customer.
  * @param props.notifications Notification settings of the customer.
- * @param props.onSave Receives the personal information of a valid form.
+ * @param props.loadError Message shown instead of the form when the profile could not be loaded.
+ * @param props.onSave Saves the personal information of a valid form.
  * @returns The rendered element.
  */
-export function ProfileSettings({ profile, notifications, onSave }: ProfileSettingsProps) {
+export function ProfileSettings({ profile, notifications, loadError, onSave }: ProfileSettingsProps) {
   return (
     <div className={styles.page}>
       <ProfileHeading />
       <div className={styles.columns}>
-        <PersonalInfoCard profile={profile} onSave={onSave} />
+        {loadError ? (
+          <Alert tone="error" title={LOAD_ERROR_TITLE}>
+            {loadError}
+          </Alert>
+        ) : (
+          <PersonalInfoCard profile={profile} onSave={onSave} />
+        )}
         <div className={styles.side}>
           <NotificationsCard settings={notifications} />
           <SecurityCard />

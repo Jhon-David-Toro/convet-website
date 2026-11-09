@@ -52,3 +52,10 @@ export type ServiceFilter = {
   value: ServiceSpecies | "all";
   label: string;
 };
+
+export type ServiceContent = {
+  slug: string;
+  title: string;
+  cardSummary?: string;
+  lead?: string;
+};

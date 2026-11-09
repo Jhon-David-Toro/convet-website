@@ -29,7 +29,7 @@ export function AddPetModal({ open, onClose, onSave }: AddPetModalProps) {
           <Button type="button" variant="tertiary" onClick={onClose}>
             {CANCEL_LABEL}
           </Button>
-          <Button type="submit" form={FORM_ID}>
+          <Button type="submit" form={FORM_ID} loading={state.submitting}>
             {SAVE_LABEL}
           </Button>
         </>

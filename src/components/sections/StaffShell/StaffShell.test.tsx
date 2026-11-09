@@ -8,7 +8,7 @@ import { isActivePath, topBarFor } from "./StaffShell.utils";
 
 const pathname = vi.fn();
 
-vi.mock("next/navigation", () => ({ usePathname: () => pathname() }));
+vi.mock("next/navigation", () => ({ usePathname: () => pathname(), useRouter: () => ({ replace: vi.fn(), refresh: vi.fn() }) }));
 
 const { staff, admin } = SHELL_CONFIGS;
 
@@ -67,5 +67,14 @@ describe("staff shell utils", () => {
     expect(topBarFor("/admin/inventory/receive", admin)).toEqual({ title: "Receive stock", backHref: "/admin/inventory" });
     expect(topBarFor("/admin/inventory/products/rabies", admin).backHref).toBe("/admin/inventory");
     expect(topBarFor("/nowhere", admin).title).toBe("CONVET");
+  });
+});
+
+describe("StaffShell user", () => {
+  it("shows the name of the signed-in user instead of the sample one and signs out with a button", () => {
+    pathname.mockReturnValue("/staff");
+    render(<StaffShell user={{ name: "Dr. Real Person" }}><p>Page</p></StaffShell>);
+    expect(screen.getByText("Dr. Real Person")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Sign out" })).toBeInTheDocument();
   });
 });

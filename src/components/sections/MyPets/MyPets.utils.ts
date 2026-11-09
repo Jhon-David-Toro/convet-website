@@ -47,3 +47,17 @@ export function describeFile(file: File): string {
   const size = file.size / KB / KB;
   return size >= 1 ? `${type} · ${size.toFixed(FILE_DESCRIPTION_DIGITS)} MB` : `${type} · ${Math.max(Math.round(file.size / KB), 1)} KB`;
 }
+
+/**
+ * Keeps the backend validation messages that belong to a field of the form.
+ *
+ * @param fieldErrors Messages by field name, as the backend reported them.
+ * @returns The messages of the fields the form has.
+ */
+export function pickFieldErrors(fieldErrors: Record<string, string> | undefined): NewPetErrors {
+  const errors: NewPetErrors = {};
+  if (fieldErrors?.name) errors.name = ERROR_MESSAGES.name;
+  if (fieldErrors?.species) errors.species = ERROR_MESSAGES.species;
+  if (fieldErrors?.dateOfBirth || fieldErrors?.birthDate) errors.birthDate = ERROR_MESSAGES.birthDate;
+  return errors;
+}

@@ -1,5 +1,4 @@
-import { PASSWORD_MIN_LENGTH } from "@/lib/auth/auth.constants";
-import { onlyErrors, requireText, validateEmail } from "@/lib/auth/validation.utils";
+import { onlyErrors, requireText, validateEmail, validateNewPassword, validatePhone } from "@/lib/auth/validation.utils";
 
 import { SIGN_UP_ERRORS } from "./SignUpForm.constants";
 import type { SignUpErrors, SignUpValues } from "./SignUpForm.types";
@@ -15,8 +14,8 @@ export function validateSignUp(values: SignUpValues): SignUpErrors {
     firstName: requireText(values.firstName, SIGN_UP_ERRORS.firstName),
     lastName: requireText(values.lastName, SIGN_UP_ERRORS.lastName),
     email: validateEmail(values.email),
-    phone: undefined,
-    password: values.password.length >= PASSWORD_MIN_LENGTH ? undefined : SIGN_UP_ERRORS.password,
+    phone: validatePhone(values.phone),
+    password: validateNewPassword(values.password),
     acceptTerms: values.acceptTerms ? undefined : SIGN_UP_ERRORS.acceptTerms,
     whatsappReminders: undefined,
   });

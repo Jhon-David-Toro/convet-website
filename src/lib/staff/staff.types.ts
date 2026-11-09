@@ -219,3 +219,9 @@ export type StaffInventoryRow = {
   lots: InventoryLot[];
   movements: InventoryMovement[];
 };
+
+export type StaffPatientRecord = {
+  lastVisit?: StaffVisitSummary;
+  timeline: StaffTimelineEntry[];
+  recordsError?: string;
+};

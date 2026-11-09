@@ -30,7 +30,6 @@ export const TAB_BAR_NAV: CustomerNavItem[] = [
 ];
 
 export const TOP_BAR_TITLES: Record<string, string> = {
-  [CUSTOMER_HOME_HREF]: "Hi, Anna",
   [CUSTOMER_PETS_HREF]: "My pets",
   [CUSTOMER_APPOINTMENTS_HREF]: "Appointments",
   [CUSTOMER_PROFILE_HREF]: "Profile",
@@ -41,7 +40,23 @@ export const TOP_BAR_TITLES: Record<string, string> = {
 
 export const FALLBACK_TITLE = "CONVET";
 
-export const GREETING = "Good morning, Anna";
+export const PET_PROFILE_TITLE = "Pet profile";
+
+/**
+ * Greeting of the top bar.
+ *
+ * @param firstName First name of the signed-in customer.
+ * @returns The greeting text.
+ */
+export const greeting = (firstName: string): string => `Hello, ${firstName}`;
+
+/**
+ * Title of the top bar on the home page.
+ *
+ * @param firstName First name of the signed-in customer.
+ * @returns The title text.
+ */
+export const homeTitle = (firstName: string): string => `Hi, ${firstName}`;
 
 export const NOTIFICATIONS_LABEL = "Notifications";
 

@@ -1,3 +1,4 @@
+import type { NewPetValues } from "@/components/sections/MyPets/MyPets.types";
 import type { AppointmentStatus } from "@/components/patterns/AppointmentCard";
 import type { TimelineType } from "@/components/patterns/TimelineItem";
 import type { VaccineStatus } from "@/components/patterns/VaccineRow";
@@ -15,8 +16,11 @@ export type PetItem = {
   weightDate: string;
   vet: string;
   nextVisit?: string;
-  vaccineStatus: VaccineStatus;
-  vaccineBadge: string;
+  /** Unknown until the medical records are connected; the UI then shows no vaccine badge. */
+  vaccineStatus?: VaccineStatus;
+  vaccineBadge?: string;
+  /** Values of the edit form, for pets that come from the backend. */
+  form?: NewPetValues;
 };
 
 export type PetVaccine = {

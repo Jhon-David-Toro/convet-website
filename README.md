@@ -2,7 +2,7 @@
 
 Web application and design system for **CONVET** (Contreras Veterinary Services N.V.), a veterinary clinic in Savaneta, Aruba. The project turns the clinic's Figma file into a working front end: the public website, the sign-in flow, the customer app, and the staff and admin tools.
 
-> **Status: `0.1.0`, front end only.** There is no backend yet. All data is mock data kept in the `*.constants.ts` files of `src/lib`, and forms accept callbacks so an API can be plugged in later. Changes made in the UI are not saved and are lost on reload.
+> **Status: `0.1.0`, connected to the backend where the backend allows it.** Every endpoint of the NestJS backend (`backend-convetaruba`) has a typed, validated function in `src/lib/api`. Sign-in, sign-up, profile, **My pets**, notifications, the public services catalog, the admin **Locations**, **Team** and **Services** pages, and the staff **patient record** and **visit record** use it. Booking, customer appointments, schedules, clients, inventory and suppliers still use the mock data of `src/lib/*.constants.ts`, because the backend has no route for them yet. See [Backend integration](#backend-integration).
 
 ## Contents
 
@@ -60,7 +60,7 @@ Before finishing any change, run `typecheck`, `lint`, `test` and `build`.
 
 ## Environment variables
 
-Put them in `.env.local`. All of them are optional.
+Put them in `.env.local`. All of them are optional, except `BACKEND_API_URL` for the screens that use the backend.
 
 | Variable | Purpose |
 | --- | --- |
@@ -68,6 +68,41 @@ Put them in `.env.local`. All of them are optional.
 | `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary account that hosts the photos. Without it, photos load from `public/photos/`. |
 | `NEXT_PUBLIC_CLOUDINARY_FOLDER` | Folder inside the Cloudinary account, if the photos are not at the root. |
 | `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY` | Google Maps Embed API key. Without it the contact map is a stylized illustration. |
+| `BACKEND_API_URL` | Base URL of the NestJS backend, e.g. `http://localhost:3001`. **Server-only**: it has no `NEXT_PUBLIC_` prefix, so it never reaches the browser. Without it, sign-in and the connected screens show an error state. The backend listens on port 3000 by default, which is also Next.js' port, so start it with `PORT=3001`. |
+
+## Backend integration
+
+All calls to the backend go through `src/lib/api`, on the server:
+
+- `api.client.ts` is the single `fetch` wrapper. It reads the JWT from the httpOnly `convet_access_token` cookie, sends it as a Bearer token, aborts after 10 s, validates the answer with a zod schema and throws an `ApiError` with a safe, user-facing message (`unauthorized`, `forbidden`, `not-found`, `validation`, `server`, `network`, `timeout`, `invalid-response`, `not-configured`).
+- `api.guard.ts` has `loadData` (Server Components: an expired session redirects to sign-in, other errors become an error state) and `runAction` (Server Actions: errors become an `ActionResult`).
+- `*.contract.ts` hold the zod schemas and DTO types of each module, `*.mappers.ts` turn them into the UI types, and `*.api.ts` are the server-only functions the pages call. When the backend changes, only the contract and the mapper change.
+- The token never reaches client JavaScript: pages and Server Actions call the backend, client components only receive the data.
+
+Public reads (`GET /services`, `/service-categories`, `/reviews/public`) are cached in the Next.js data cache (`revalidate` option of `apiRequest`, tagged so an admin change refreshes them with `updateTag`). They never send the token, and the public pages fall back to their editorial copy when the backend fails, so the website never breaks.
+
+| Screen | Endpoints |
+| --- | --- |
+| Sign-in, sign-up, profile, settings | `/auth/login`, `/auth/me`, `/users/*` |
+| My pets, overview, pet History tab | `/pets`, `/pets/:id`, `/medical-records/pet/:petId` |
+| Notifications | `/notifications`, `/notifications/read-all`, `/notifications/:id/read` |
+| `/services`, `/services/[slug]` | `GET /services` (decides which editorial services are published and their name and texts) |
+| Admin · Locations | `GET /branches`, `PATCH /branches/:id` (phone), `PATCH /branches/:id/status` |
+| Admin · Team | `GET /staff`, `GET /staff/:id/branches`, `PATCH /staff/:id/status` |
+| Admin · Services | `GET /branches/:id/services`, `GET /branches/:id/staff`, `GET /service-categories`, `PATCH .../services/:id/status`, `PATCH .../services/:id/price`, `POST /services` |
+| Staff · patient record (`/staff/patients/<uuid>`) | `GET /pets/staff/:id`, `GET /medical-records/pet/:petId` |
+| Staff · visit record (`/staff/visits/<record uuid>`) | `GET /medical-records/:id`, `PATCH /medical-records/:id` |
+
+Ready in `src/lib/api` but without a screen yet: reviews (`reviews.api.ts`), availability and booking (`appointments.api.ts`), branch and staff create/update and staff-branch assignments, category CRUD, pet update/archive and the staff pet endpoints by owner.
+
+The full contract of every endpoint (roles, bodies, answers) is in [`docs/backend-contract.md`](./docs/backend-contract.md).
+
+Blocked by the backend (no route, or the role cannot call it):
+
+- **Booking**: a customer cannot read branches, the services of a branch or its vets (all ADMIN only), so `POST /appointments` cannot get its ids. Availability also needs `StaffSchedule` rows, which have no endpoint.
+- **Appointments**: there is no route to list, cancel, reschedule, confirm, start or complete them, so they expire after 15 minutes and no review or medical record can be created.
+- **Services**: no endpoint sets `isPublished`, and there is no admin list of unpublished services.
+- Clients list, schedules, inventory, suppliers and products have no module.
 
 ## What is in the app
 

@@ -3,6 +3,12 @@ import type { ReactNode } from "react";
 
 import type { SettingsChannel, SettingsNotification, SettingsProfile, SettingsSession } from "@/lib/customer/customer.types";
 
+import type { SavePassword } from "@/components/sections/PasswordModal/PasswordModal.types";
+
+export type CustomerSettingsProps = {
+  onChangePassword?: SavePassword;
+};
+
 export type SettingsStatus = "idle" | "saved" | "error";
 
 export type SettingsErrors = Partial<Record<keyof SettingsProfile, string>>;

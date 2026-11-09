@@ -1,5 +1,5 @@
 import { NotificationItem } from "@/components/patterns/NotificationItem";
-import { GROUP_LABELS, NOTIFICATION_KINDS, PANEL_GROUP_LABELS } from "@/lib/notifications/notifications.constants";
+import { GROUP_LABELS, LIVE_GROUP_LABELS, NOTIFICATION_KINDS, PANEL_GROUP_LABELS } from "@/lib/notifications/notifications.constants";
 import { groupByDay } from "@/lib/notifications/notifications.utils";
 
 import type { NotificationListProps } from "../NotificationCenter.types";
@@ -16,8 +16,8 @@ import styles from "../NotificationCenter.module.scss";
  * @returns The rendered element.
  */
 export function NotificationList({ items, compact = false }: NotificationListProps) {
-  const { markRead } = useNotificationCenter();
-  const labels = compact ? PANEL_GROUP_LABELS : GROUP_LABELS;
+  const { markRead, live } = useNotificationCenter();
+  const labels = compact ? PANEL_GROUP_LABELS : live ? LIVE_GROUP_LABELS : GROUP_LABELS;
   const groups = groupByDay(items);
 
   return (

@@ -5,11 +5,9 @@ import type { ForgotPasswordState, UseForgotPasswordParams } from "../ForgotPass
 import { validateResetEmail } from "../ForgotPasswordForm.utils";
 
 /**
- * State of the reset form: the typed email, its error, the request in flight and the address the link was sent to.
- *
- * @param params Parameters of the hook, see {@link UseForgotPasswordParams}.
- * @param params.onSubmit Sends the reset link.
- * @returns The state and the handlers that change it.
+ * Manages password reset flow: email validation, reset link request, and resend countdown.
+ * @param onSubmit Backend callback to request password reset link; receives normalized email (trim+lowercase). Optional.
+ * @returns Form state with sentTo (confirmation email), sending flag, and handlers for submit/resend with countdown.
  */
 export function useForgotPassword({ onSubmit }: UseForgotPasswordParams): ForgotPasswordState {
   const [email, setEmailValue] = useState("");
@@ -17,35 +15,25 @@ export function useForgotPassword({ onSubmit }: UseForgotPasswordParams): Forgot
   const [sentTo, setSentTo] = useState<string>();
   const [sending, setSending] = useState(false);
 
-  /**
-   * Stores the typed email and clears its error.
-   *
-   * @param next Address typed so far.
-   */
   function setEmail(next: string) {
     setEmailValue(next);
     setError(undefined);
   }
 
-  /** Sends the reset link to the typed address and remembers it for the confirmation. */
-  async function send() {
+  async function sendResetLink() {
+    const address = email.trim().toLowerCase();
     setSending(true);
-    await onSubmit?.(email.trim());
+    await onSubmit?.(address);
     setSending(false);
-    setSentTo(email.trim());
+    setSentTo(address);
   }
 
-  /**
-   * Validates the email and sends the link.
-   *
-   * @param event Submit event of the form.
-   */
   async function handleSubmit(event: SubmitEvent<HTMLFormElement>) {
     event.preventDefault();
     const found = validateResetEmail(email);
     setError(found);
-    if (!found) await send();
+    if (!found) await sendResetLink();
   }
 
-  return { email, setEmail, error, sentTo, sending, handleSubmit, handleResend: send };
+  return { email, setEmail, error, sentTo, sending, handleSubmit, handleResend: sendResetLink };
 }

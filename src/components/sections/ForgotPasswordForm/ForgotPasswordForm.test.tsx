@@ -21,6 +21,15 @@ describe("ForgotPasswordForm", () => {
     expect(onSubmit).not.toHaveBeenCalled();
   });
 
+  it("sends the typed address trimmed and in lower case, as accounts store it", async () => {
+    const onSubmit = vi.fn().mockResolvedValue(undefined);
+    render(<ForgotPasswordForm onSubmit={onSubmit} />);
+    await userEvent.type(screen.getByLabelText("Email"), " Anna@Example.COM ");
+    await userEvent.click(screen.getByRole("button", { name: "Send reset link" }));
+    expect(await screen.findByText("Check your inbox")).toBeInTheDocument();
+    expect(onSubmit).toHaveBeenCalledWith("anna@example.com");
+  });
+
   it("sends the link, confirms it and can send it again", async () => {
     const onSubmit = vi.fn().mockResolvedValue(undefined);
     render(<ForgotPasswordForm onSubmit={onSubmit} />);

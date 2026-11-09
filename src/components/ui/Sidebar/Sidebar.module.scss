@@ -107,6 +107,10 @@
 /* 18px icon with a 44px touch target */
 .signOut {
   position: relative;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
   display: inline-flex;
   flex: 0 0 auto;
   color: var(--color-text-tertiary);

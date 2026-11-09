@@ -1,3 +1,4 @@
+import type { AuthUser } from "@/lib/auth/auth.contract";
 import { AlertTriangle, Box, Calendar, CheckCircle, Clipboard, Clock, File, Mail, Refresh, Syringe, Users, XCircle } from "@/components/ui/Icon";
 
 import type { NotificationArea, NotificationCategory, NotificationGroup, NotificationItem, NotificationKind, NotificationKindView } from "./notifications.types";
@@ -25,18 +26,29 @@ export const NOTIFICATION_KINDS: Record<NotificationKind, NotificationKindView> 
 export const GROUP_LABELS: Record<NotificationGroup, string> = {
   today: "Today · Fri, Oct 9",
   yesterday: "Yesterday · Thu, Oct 8",
+  earlier: "Earlier",
   october: "Earlier in October",
   september: "September",
+};
+
+/** Day names for notifications that come from the backend: the real date is on each item, so no demo date is shown. */
+export const LIVE_GROUP_LABELS: Record<NotificationGroup, string> = {
+  today: "Today",
+  yesterday: "Yesterday",
+  earlier: "Earlier",
+  october: "Earlier",
+  september: "Earlier",
 };
 
 export const PANEL_GROUP_LABELS: Record<NotificationGroup, string> = {
   today: "Today",
   yesterday: "Yesterday",
+  earlier: "Earlier",
   october: "Earlier",
   september: "Earlier",
 };
 
-export const GROUP_ORDER: NotificationGroup[] = ["today", "yesterday", "october", "september"];
+export const GROUP_ORDER: NotificationGroup[] = ["today", "yesterday", "earlier", "october", "september"];
 
 export const CATEGORIES: Record<NotificationArea, NotificationCategory[]> = {
   customer: [
@@ -431,3 +443,5 @@ export const NOTIFICATIONS: NotificationItem[] = [
     unread: false,
   },
 ];
+
+export const ROLE_AREAS: Record<AuthUser["role"], NotificationArea> = { CUSTOMER: "customer", STAFF: "staff", ADMIN: "admin" };

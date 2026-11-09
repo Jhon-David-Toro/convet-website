@@ -1,4 +1,6 @@
-import { BREEDS, BREEDS_LIST_ID, FORM_ID } from "../MyPets.constants";
+import { Alert } from "@/components/ui/Alert";
+
+import { BREEDS, BREEDS_LIST_ID, FORM_ID, SAVE_ERROR_TITLE } from "../MyPets.constants";
 import type { AddPetState } from "../MyPets.types";
 import { BirthFields } from "./BirthFields";
 import { PetIdentityFields } from "./PetIdentityFields";
@@ -16,7 +18,8 @@ import styles from "../MyPets.module.scss";
  */
 export function AddPetForm({ handleSubmit, ...state }: AddPetState) {
   return (
-    <form id={FORM_ID} noValidate onSubmit={handleSubmit} className={styles.form}>
+    <form id={FORM_ID} noValidate onSubmit={handleSubmit} className={styles.form} aria-busy={state.submitting}>
+      {state.submitError && <Alert tone="error" title={SAVE_ERROR_TITLE}>{state.submitError}</Alert>}
       <PetPhotoUpload file={state.file} selectFile={state.selectFile} removeFile={state.removeFile} />
       <PetIdentityFields values={state.values} errors={state.errors} setValue={state.setValue} />
       <SexField values={state.values} setValue={state.setValue} />

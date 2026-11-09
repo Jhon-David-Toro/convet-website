@@ -53,3 +53,9 @@ export const VIEW_APPOINTMENT_LABEL = "View appointment";
 export const PAPER_RECORDS_LABEL = "Ask about paper records";
 
 export const RABIES_BADGE = "Rabies due Oct 20";
+
+export const LOAD_ERROR_TITLE = "We could not load the health records";
+
+export const NO_PETS_TITLE = "No pets yet";
+
+export const NO_PETS_TEXT = "Add a pet to see its visits, treatments and diagnoses here.";

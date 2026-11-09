@@ -4,12 +4,10 @@ import { CONTACT_DESCRIPTION, ContactSection } from "@/components/sections/Conta
 import { SiteShell } from "@/components/sections/SiteShell";
 
 import { CONTACT_PATH } from "./page.constants";
+import { pageMetadata } from "@/lib/site/seo.utils";
 
 /** Metadata of the contact page. */
-export const metadata: Metadata = {
-  title: "Contact · CONVET",
-  description: CONTACT_DESCRIPTION,
-};
+export const metadata: Metadata = pageMetadata({ title: "Contact", description: CONTACT_DESCRIPTION, path: "/contact" });
 
 /**
  * Contact page: message form, quick contact, map and opening hours.

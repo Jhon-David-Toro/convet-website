@@ -1,6 +1,7 @@
 "use client";
 
-import { eventsOf, weightsOf } from "@/lib/customer/customer.utils";
+import { Alert } from "@/components/ui/Alert";
+import { weightsOf } from "@/lib/customer/customer.utils";
 
 import type { HistoryTabProps } from "../PetProfile.types";
 import { filterEvents } from "../PetProfile.utils";
@@ -16,12 +17,21 @@ import styles from "../PetProfile.module.scss";
  *
  * @param props Props of the component, see {@link HistoryTabProps}.
  * @param props.pet Pet whose history is shown.
+ * @param props.history Events of the pet, or the reason they could not be loaded.
  * @returns The rendered element.
  */
-export function HistoryTab({ pet }: HistoryTabProps) {
-  const events = eventsOf(pet.id);
+export function HistoryTab({ pet, history }: HistoryTabProps) {
+  const { events, error } = history;
   const weights = weightsOf(pet.id);
   const [filter, setFilter] = useHistoryFilter();
+
+  if (error) {
+    return (
+      <Alert tone="error" title="We could not load the history">
+        {error}
+      </Alert>
+    );
+  }
 
   return (
     <div className={styles.columns}>

@@ -1,7 +1,9 @@
 import { notFound, redirect } from "next/navigation";
 
+import { getPet } from "@/lib/api/pets.api";
+import { loadData } from "@/lib/api/api.guard";
 import { DEFAULT_PET_TAB } from "@/lib/customer/customer.paths.constants";
-import { findPet, petHref } from "@/lib/customer/customer.utils";
+import { petHref } from "@/lib/customer/customer.utils";
 
 import type { PetPageProps } from "./page.types";
 
@@ -12,7 +14,7 @@ import type { PetPageProps } from "./page.types";
  * @param props.params Route parameters with the `petId`.
  */
 export default async function PetPage({ params }: PetPageProps) {
-  const pet = findPet((await params).petId);
+  const { data: pet } = await loadData(async () => getPet((await params).petId));
   if (!pet) notFound();
   redirect(petHref(pet, DEFAULT_PET_TAB));
 }

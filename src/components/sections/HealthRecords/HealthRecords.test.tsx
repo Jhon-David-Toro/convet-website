@@ -47,3 +47,20 @@ describe("health records utils", () => {
     ]);
   });
 });
+
+describe("HealthRecords from the backend", () => {
+  it("shows the backend record without the sample note, the error and the empty state", async () => {
+    const { toHealthRecord } = await import("@/lib/api/medical-records.mappers");
+    const pet = { id: "p1", name: "Kiwi", subject: "bird" as const, summary: "Bird", profileLine: "Bird · Green", microchip: "—", weight: "—", weightDate: "", vet: "" };
+    const record = toHealthRecord(pet, []);
+    const { unmount } = render(<HealthRecords pets={[pet]} records={[record]} />);
+    expect(screen.getByRole("button", { name: "Kiwi" })).toBeInTheDocument();
+    expect(screen.queryByText("Sample design data — fictional records")).not.toBeInTheDocument();
+    unmount();
+    const second = render(<HealthRecords pets={[]} records={[]} loadError="We could not reach the server." />);
+    expect(screen.getByText("We could not reach the server.")).toBeInTheDocument();
+    second.unmount();
+    render(<HealthRecords pets={[]} records={[]} />);
+    expect(screen.getByText("No pets yet")).toBeInTheDocument();
+  });
+});

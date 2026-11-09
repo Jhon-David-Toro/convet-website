@@ -6,6 +6,8 @@ import { TextInput } from "@/components/ui/TextInput";
 import { useToast } from "@/components/ui/Toast";
 import { useFormModal } from "@/lib/shared/useFormModal";
 
+import type { SavePassword } from "./PasswordModal.types";
+
 import { EMPTY_PASSWORDS, MODAL_DESCRIPTION, MODAL_TITLE, NEW_HELPER, SAVED_MESSAGE, SUBMIT_LABEL } from "./PasswordModal.constants";
 import { errorTitle, validatePasswords } from "./PasswordModal.utils";
 
@@ -16,10 +18,11 @@ import { errorTitle, validatePasswords } from "./PasswordModal.utils";
  * @param props Props of the component, see {@link DialogControlProps}.
  * @param props.open Whether the dialog is open.
  * @param props.onClose Called when the dialog is closed or the password is updated.
+ * @param props.onSave Saves the new password; without it saving is simulated.
  * @returns The rendered element, or nothing while the dialog is closed.
  */
-export function PasswordModal({ open, onClose }: DialogControlProps) {
-  return open ? <PasswordDialog onClose={onClose} /> : null;
+export function PasswordModal({ open, onClose, onSave }: DialogControlProps & { onSave?: SavePassword }) {
+  return open ? <PasswordDialog onClose={onClose} onSave={onSave} /> : null;
 }
 
 /**
@@ -27,13 +30,15 @@ export function PasswordModal({ open, onClose }: DialogControlProps) {
  *
  * @param props Props of the component.
  * @param props.onClose Closes the dialog.
+ * @param props.onSave Saves the new password.
  * @returns The rendered element.
  */
-function PasswordDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
+function PasswordDialog({ onClose, onSave }: Pick<DialogControlProps, "onClose"> & { onSave?: SavePassword }) {
   const { toast } = useToast();
   const form = useFormModal({
     initial: EMPTY_PASSWORDS,
     validate: validatePasswords,
+    save: onSave,
     onSaved: () => {
       toast({ message: SAVED_MESSAGE, tone: "success" });
       onClose();
@@ -46,7 +51,7 @@ function PasswordDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
       description={MODAL_DESCRIPTION}
       width="32.5rem"
       status={form.status}
-      errorTitle={errorTitle(form.errorCount)}
+      errorTitle={form.serverError ?? errorTitle(form.errorCount)}
       submitLabel={SUBMIT_LABEL}
       onClose={onClose}
       onSubmit={form.submit}
