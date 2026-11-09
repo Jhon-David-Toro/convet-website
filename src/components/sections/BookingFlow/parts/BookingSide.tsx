@@ -8,8 +8,13 @@ import { bookingSummary } from "../BookingFlow.utils";
  *
  * @param props Props of the component, see {@link BookingSideProps}.
  * @param props.selection What is selected so far.
+ * @param props.pets Customer's registered pets.
  * @returns The rendered element.
  */
-export function BookingSide({ selection }: BookingSideProps) {
-  return <BookingSummary {...bookingSummary(selection)} />;
+export function BookingSide({ selection, pets }: BookingSideProps) {
+  return (
+    <BookingSummary
+      {...bookingSummary(selection, pets)}
+    />
+  );
 }

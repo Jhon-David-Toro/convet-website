@@ -3,7 +3,13 @@ import type { LucideIcon } from "lucide-react";
 import type { BookingSlot, BookingVet } from "@/lib/booking/booking.types";
 import type { PetItem } from "@/lib/customer/customer.types";
 
-export type BookingStepId = "pet" | "service" | "vet" | "datetime" | "review" | "confirmed";
+export type BookingStepId =
+  | "pet"
+  | "service"
+  | "vet"
+  | "datetime"
+  | "review"
+  | "confirmed";
 
 export type BookingSelection = {
   petId: string;
@@ -15,21 +21,28 @@ export type BookingSelection = {
   whatsapp: boolean;
 };
 
-export type ConfirmResult = { ok: true } | { ok: false; alternatives: BookingSlot[] };
+export type ConfirmResult =
+  | { ok: true }
+  | { ok: false; alternatives: BookingSlot[] };
 
 export type BookingFlowProps = {
+  pets: PetItem[];
   initialServiceId?: string;
   onConfirm?: (selection: BookingSelection) => Promise<ConfirmResult>;
 };
 
 export type UseBookingSelectionParams = {
+  initialPetId: string;
   initialServiceId: string;
 };
 
 export type BookingSelectionState = {
   selection: BookingSelection;
   loading: boolean;
-  setField: <Field extends keyof BookingSelection>(field: Field, value: BookingSelection[Field]) => void;
+  setField: <Field extends keyof BookingSelection>(
+    field: Field,
+    value: BookingSelection[Field],
+  ) => void;
   chooseDate: (iso: string) => void;
   chooseVet: (vetId: string) => void;
   reset: () => void;
@@ -48,7 +61,12 @@ export type BookingFlowState = BookingSelectionState & {
   goTo: (step: BookingStepId) => void;
 };
 
-export type UseBookingFlowParams = Pick<BookingFlowProps, "initialServiceId" | "onConfirm">;
+export type UseBookingFlowParams = Pick<
+  BookingFlowProps,
+  "initialServiceId" | "onConfirm"
+> & {
+  initialPetId: string;
+};
 
 export type StepHeadingProps = {
   title: string;
@@ -57,17 +75,32 @@ export type StepHeadingProps = {
 
 export type StepProps = Pick<BookingFlowState, "selection" | "setField">;
 
+export type StepPetProps = StepProps & {
+  pets: PetItem[];
+};
+
 export type StepServiceProps = StepProps & {
   pet: PetItem;
 };
 
 export type StepVetProps = Pick<BookingFlowState, "selection" | "chooseVet">;
 
-export type StepDateTimeProps = Pick<BookingFlowState, "selection" | "loading" | "setField" | "chooseDate" | "goTo">;
+export type StepDateTimeProps = Pick<
+  BookingFlowState,
+  "selection" | "loading" | "setField" | "chooseDate" | "goTo"
+>;
 
-export type StepReviewProps = Pick<BookingFlowState, "selection" | "setField" | "alternatives" | "pickAlternative">;
+export type StepReviewProps = Pick<
+  BookingFlowState,
+  "selection" | "setField" | "alternatives" | "pickAlternative"
+> & {
+  pets: PetItem[];
+};
 
-export type ReviewFormProps = StepReviewProps & {
+export type ReviewFormProps = Pick<
+  BookingFlowState,
+  "selection" | "setField" | "alternatives" | "pickAlternative"
+> & {
   vet: BookingVet;
 };
 
@@ -77,13 +110,25 @@ export type SlotTakenAlertProps = {
   onPick: (time: string) => void;
 };
 
-export type BookingSideProps = Pick<BookingFlowState, "selection">;
+export type BookingSideProps = Pick<BookingFlowState, "selection"> & {
+  pets: PetItem[];
+};
 
-export type BookingActionsProps = Pick<BookingFlowState, "step" | "canContinue" | "confirming" | "back" | "next" | "confirm">;
+export type BookingActionsProps = Pick<
+  BookingFlowState,
+  "step" | "canContinue" | "confirming" | "back" | "next" | "confirm"
+>;
 
-export type BookingBarProps = BookingActionsProps & Pick<BookingFlowState, "selection">;
+export type BookingBarProps = BookingActionsProps &
+  Pick<BookingFlowState, "selection"> & {
+    pets: PetItem[];
+  };
 
-export type StepConfirmedProps = Pick<BookingFlowState, "selection" | "restart">;
+export type StepConfirmedProps = {
+  selection: BookingSelection;
+  pets: PetItem[];
+  restart: () => void;
+};
 
 export type OptionItem = {
   id: string;
@@ -107,15 +152,26 @@ export type NextAvailableButtonProps = {
   onPick: (iso: string, time: string) => void;
 };
 
-export type ConfirmedActionsProps = StepConfirmedProps;
+export type ConfirmedActionsProps = {
+  selection: BookingSelection;
+  pets: PetItem[];
+  restart: () => void;
+};
 
-export type WhatsAppBannerProps = Pick<BookingFlowState, "selection">;
+export type WhatsAppBannerProps = {
+  selection: BookingSelection;
+  pets: PetItem[];
+};
 
 export type StepContentProps = {
   flow: BookingFlowState;
+  pets: PetItem[];
 };
 
-export type PrimaryActionProps = Pick<BookingFlowState, "step" | "canContinue" | "confirming" | "next" | "confirm">;
+export type PrimaryActionProps = Pick<
+  BookingFlowState,
+  "step" | "canContinue" | "confirming" | "next" | "confirm"
+>;
 
 export type StepsState = {
   step: BookingStepId;

@@ -12,21 +12,42 @@ import styles from "../BookingFlow.module.scss";
  *
  * @param props Props of the component, see {@link StepReviewProps}.
  * @param props.selection What is selected so far.
+ * @param props.pets Customer's registered pets.
  * @param props.setField Changes one value of the selection.
  * @param props.alternatives Nearby times, when the chosen time was taken.
  * @param props.pickAlternative Takes one of the nearby times.
  * @returns The rendered element.
  */
-export function StepReview({ selection, setField, alternatives, pickAlternative }: StepReviewProps) {
-  const summary = bookingSummary(selection);
-  const time = alternatives ? `${selection.time} · no longer available` : summary.time;
+export function StepReview({
+  selection,
+  pets,
+  setField,
+  alternatives,
+  pickAlternative,
+}: StepReviewProps) {
+  const summary = bookingSummary(selection, pets);
+  const time = alternatives
+    ? `${selection.time} · no longer available`
+    : summary.time;
 
   return (
     <>
-      {alternatives && <SlotTakenAlert time={selection.time} alternatives={alternatives} onPick={pickAlternative} />}
+      {alternatives && (
+        <SlotTakenAlert
+          time={selection.time}
+          alternatives={alternatives}
+          onPick={pickAlternative}
+        />
+      )}
       <div className={styles.review}>
         <BookingSummary {...summary} time={time} />
-        <ReviewForm selection={selection} setField={setField} alternatives={alternatives} pickAlternative={pickAlternative} vet={agendaVet(selection.vetId)} />
+        <ReviewForm
+          selection={selection}
+          setField={setField}
+          alternatives={alternatives}
+          pickAlternative={pickAlternative}
+          vet={agendaVet(selection.vetId)}
+        />
       </div>
     </>
   );

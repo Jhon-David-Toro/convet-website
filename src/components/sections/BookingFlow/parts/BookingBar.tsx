@@ -8,6 +8,7 @@ import styles from "../BookingFlow.module.scss";
  *
  * @param props Props of the component, see {@link BookingBarProps}.
  * @param props.selection What is selected so far.
+ * @param props.pets Customer's registered pets.
  * @param props.step Step the customer is on.
  * @param props.canContinue Whether the step has what it needs.
  * @param props.confirming Whether the request is being sent.
@@ -15,18 +16,32 @@ import styles from "../BookingFlow.module.scss";
  * @param props.confirm Sends the request.
  * @returns The rendered element.
  */
-export function BookingBar({ selection, step, canContinue, confirming, next, confirm }: BookingBarProps) {
+export function BookingBar({
+  selection,
+  pets,
+  step,
+  canContinue,
+  confirming,
+  next,
+  confirm,
+}: BookingBarProps) {
   const when = whenLine(selection);
 
   return (
     <div className={styles.barContent}>
       {when && (
         <p className={styles.barSummary}>
-          <span>{barSummaryLine(selection)}</span>
+          <span>{barSummaryLine(selection, pets)}</span>
           <strong>{when}</strong>
         </p>
       )}
-      <PrimaryAction step={step} canContinue={canContinue} confirming={confirming} next={next} confirm={confirm} />
+      <PrimaryAction
+        step={step}
+        canContinue={canContinue}
+        confirming={confirming}
+        next={next}
+        confirm={confirm}
+      />
     </div>
   );
 }
