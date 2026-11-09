@@ -8,6 +8,7 @@ export type SignUpValues = {
   email: string;
   phone: string;
   password: string;
+  confirmPassword: string;
   acceptTerms: boolean;
   whatsappReminders: boolean;
 };

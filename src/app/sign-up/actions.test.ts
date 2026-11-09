@@ -8,7 +8,7 @@ import { ApiError } from "@/lib/api/api.errors";
 
 import { signUpAction } from "./actions";
 
-const VALID = { firstName: "Anna", lastName: "Lee", email: "anna@example.com", phone: "+297 560 1234", password: "Violet-Tiger-2026!", acceptTerms: true, whatsappReminders: false };
+const VALID = { firstName: "Anna", lastName: "Lee", email: "anna@example.com", phone: "+297 560 1234", password: "Violet-Tiger-2026!", confirmPassword: "Violet-Tiger-2026!", acceptTerms: true, whatsappReminders: false };
 
 beforeEach(() => {
   createUser.mockReset();

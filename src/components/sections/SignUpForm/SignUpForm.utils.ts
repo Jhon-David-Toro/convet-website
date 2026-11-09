@@ -1,6 +1,6 @@
 import { onlyErrors, requireText, validateEmail, validateNewPassword, validatePhone } from "@/lib/auth/validation.utils";
 
-import { SIGN_UP_ERRORS } from "./SignUpForm.constants";
+import { CONFIRM_PASSWORD_ERROR, SIGN_UP_ERRORS } from "./SignUpForm.constants";
 import type { SignUpErrors, SignUpValues } from "./SignUpForm.types";
 
 /**
@@ -16,6 +16,7 @@ export function validateSignUp(values: SignUpValues): SignUpErrors {
     email: validateEmail(values.email),
     phone: validatePhone(values.phone),
     password: validateNewPassword(values.password),
+    confirmPassword: values.password !== values.confirmPassword ? CONFIRM_PASSWORD_ERROR : undefined,
     acceptTerms: values.acceptTerms ? undefined : SIGN_UP_ERRORS.acceptTerms,
     whatsappReminders: undefined,
   });

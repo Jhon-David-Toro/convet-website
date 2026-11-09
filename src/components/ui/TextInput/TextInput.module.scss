@@ -1,5 +1,41 @@
 @use "abstracts" as *;
 
+.wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
 .input {
   @include field-control;
+  flex: 1;
+  padding-right: 40px;
+
+  &:has(+ .button) {
+    padding-right: 40px;
+  }
+}
+
+.button {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+
+  &:hover:not(:disabled) {
+    opacity: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.3;
+  }
 }

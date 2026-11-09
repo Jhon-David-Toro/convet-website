@@ -16,6 +16,7 @@ async function fillForm() {
   await userEvent.type(screen.getByLabelText("Last name"), "Lee");
   await userEvent.type(screen.getByLabelText("Email"), "anna@example.com");
   await userEvent.type(screen.getByLabelText("Password"), "Violet-Tiger-2026!");
+  await userEvent.type(screen.getByLabelText("Confirm password"), "Violet-Tiger-2026!");
   await userEvent.type(screen.getByLabelText(/Mobile/), "+297 560 1234");
 }
 
