@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
   // Cloudinary photos: only the configured account is accepted
   images: {
     formats: ["image/avif", "image/webp"],
-    remotePatterns: cloudName ? [new URL(`https://res.cloudinary.com/${cloudName}/**`)] : [],
+    remotePatterns: cloudName ? [{ protocol: "https", hostname: "res.cloudinary.com", pathname: `/${cloudName}/**` }] : [],
   },
   // Hardening headers on every response; the signed-in areas and the API are also kept out of shared caches.
   async headers() {
