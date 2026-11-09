@@ -14,4 +14,4 @@ export const PRIVACY_HREF = "/privacy";
 
 export const CODE_LENGTH = 6;
 
-export const PASSWORD_MIN_LENGTH = 12;
+export const PASSWORD_MIN_LENGTH = 6;

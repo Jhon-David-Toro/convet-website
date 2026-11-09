@@ -6,7 +6,7 @@ export const MODAL_DESCRIPTION = "Other devices are signed out after the change.
 
 export const EMPTY_PASSWORDS: PasswordValues = { current: "", next: "", repeat: "" };
 
-export const NEW_HELPER = "Use at least 12 characters, with upper and lower case, a number and a symbol.";
+export const NEW_HELPER = "Use at least 6 characters, with an uppercase letter and a number or symbol.";
 
 export const SUBMIT_LABEL = "Update password";
 

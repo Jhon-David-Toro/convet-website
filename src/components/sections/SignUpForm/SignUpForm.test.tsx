@@ -41,7 +41,11 @@ describe("SignUpForm", () => {
     render(<SignUpForm />);
     await userEvent.click(screen.getByRole("button", { name: "Create account" }));
     expect(screen.getByText("Enter your first name.")).toBeInTheDocument();
-    expect(screen.getByText("Use at least 12 characters with upper and lower case letters, a number and a symbol.")).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        "Use at least 6 characters, including an uppercase letter and a number or symbol.",
+      ),
+    ).toBeInTheDocument();
     expect(screen.getByText("Accept the Terms and Privacy Policy to continue.")).toBeInTheDocument();
     expect(push).not.toHaveBeenCalled();
   });
