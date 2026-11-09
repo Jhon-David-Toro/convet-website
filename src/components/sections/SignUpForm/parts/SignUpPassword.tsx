@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { Eye } from "@/components/ui/Icon";
+import { Eye, EyeOff } from "@/components/ui/Icon";
 import { PasswordStrength } from "@/components/ui/PasswordStrength";
 import { TextInput } from "@/components/ui/TextInput";
 
@@ -31,7 +31,7 @@ export function SignUpPassword({ values, errors, setValue }: SignUpFieldsProps) 
         onChange={(event) => setValue("password", event.target.value)}
         trailingButton={{
           label: showPassword ? "Hide" : "Show",
-          icon: Eye,
+          icon: showPassword ? EyeOff : Eye,
           onClick: () => setShowPassword(!showPassword),
         }}
       />
@@ -45,7 +45,7 @@ export function SignUpPassword({ values, errors, setValue }: SignUpFieldsProps) 
         onChange={(event) => setValue("confirmPassword", event.target.value)}
         trailingButton={{
           label: showPassword ? "Hide" : "Show",
-          icon: Eye,
+          icon: showPassword ? EyeOff : Eye,
           onClick: () => setShowPassword(!showPassword),
         }}
       />

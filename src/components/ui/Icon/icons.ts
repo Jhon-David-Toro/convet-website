@@ -249,6 +249,12 @@ export const Eye = /* @__PURE__ */ icon(
   "M15 12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9C13.66 9 15 10.34 15 12Z",
 );
 
+/** Eye Off icon (24px grid, 1.75 stroke). */
+export const EyeOff = /* @__PURE__ */ icon(
+  "EyeOff",
+  "M2 2L22 22M6.5 6.5C5.5 7.4 4.7 8.4 4 9.5C2.5 11.5 1.5 12.5 1.5 12.5C1.5 12.5 5 18.5 12 18.5C14.5 18.5 16.8 17.8 18.5 16.5L15.5 13.5M12 5.5C18 5.5 21.5 12 21.5 12C21.5 12 20 14 18 15.5",
+);
+
 /** Lock icon (24px grid, 1.75 stroke). */
 export const Lock = /* @__PURE__ */ icon(
   "Lock",
