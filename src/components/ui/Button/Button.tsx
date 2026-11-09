@@ -49,7 +49,9 @@ function ButtonContent({ size, leadingIcon, leadingIconTone, trailingIcon, loadi
   return (
     <>
       {loading ? (
-        <Icon icon={Loader} size={iconSize} className={cx(styles.icon, styles.spinner)} />
+        <span className={cx(styles.icon, styles.spinner)}>
+          <Icon icon={Loader} size={iconSize} />
+        </span>
       ) : (
         leadingIcon && <Icon icon={leadingIcon} size={iconSize} tone={leadingIconTone} className={styles.icon} />
       )}
