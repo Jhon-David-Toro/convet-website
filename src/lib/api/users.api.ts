@@ -4,10 +4,14 @@ import { cache } from "react";
 
 import type { SignUpValues } from "@/components/sections/SignUpForm/SignUpForm.types";
 import type { CustomerProfile } from "@/lib/customer/customer.types";
+import type { StaffClient } from "@/lib/staff/staff.types";
 
 import { apiRequest } from "./api.client";
+import { ApiError } from "./api.errors";
+import { getOwnerPets } from "./pets.api";
+import { toStaffClient } from "./staff-records.mappers";
 import { USER_ENDPOINTS, userSchema } from "./users.contract";
-import type { ChangePasswordDto, UpdateProfileDto } from "./users.contract";
+import type { ChangePasswordDto, UpdateProfileDto, UserDto } from "./users.contract";
 import { toCreateUserDto, toCustomerProfile } from "./users.mappers";
 
 /**
@@ -61,4 +65,36 @@ export async function updateEmail(idUser: string, email: string): Promise<void> 
  */
 export async function changePassword(idUser: string, dto: ChangePasswordDto): Promise<void> {
   await apiRequest(USER_ENDPOINTS.password(idUser), { method: "PATCH", body: dto });
+}
+
+/**
+ * Any user, for the clinic (staff and admin) looking up a client by id. Cached for the length of a request.
+ *
+ * @param idUser Id of the user.
+ * @returns The user, or `undefined` when it does not exist.
+ * @throws {ApiError} For failures other than 404.
+ */
+export const getUserForStaff = cache(async (idUser: string): Promise<UserDto | undefined> => {
+  try {
+    return await apiRequest(USER_ENDPOINTS.detail(idUser), { schema: userSchema });
+  } catch (error) {
+    if (error instanceof ApiError && error.kind === "not-found") return undefined;
+    throw error;
+  }
+});
+
+/**
+ * Client page of the staff area: the client and their pets. Appointments are left empty; the backend has no
+ * endpoint yet to list a client's appointments for staff.
+ *
+ * @param idUser Id of the client.
+ * @returns The client, or `undefined` when the backend does not have them.
+ * @throws {ApiError} For failures other than 404.
+ */
+export async function getStaffClientRecord(idUser: string): Promise<{ client: StaffClient } | undefined> {
+  const user = await getUserForStaff(idUser);
+  if (!user) return undefined;
+
+  const pets = await getOwnerPets(idUser);
+  return { client: toStaffClient(user, pets) };
 }

@@ -1,9 +1,10 @@
-import type { StaffPatient, StaffTimelineEntry, StaffVisitForm, StaffVisitSummary } from "@/lib/staff/staff.types";
+import type { StaffClient, StaffClientPet, StaffPatient, StaffTimelineEntry, StaffVisitForm, StaffVisitSummary } from "@/lib/staff/staff.types";
 
 import type { MedicalRecordDetailDto, MedicalRecordDto, UpdateMedicalRecordDto } from "./medical-records.contract";
 import { dateLabel } from "./medical-records.mappers";
 import type { PetDto } from "./pets.contract";
 import { toPetItem } from "./pets.mappers";
+import type { UserDto } from "./users.contract";
 
 const STAFF_SPECIES: Record<string, StaffPatient["species"]> = { dog: "dog", cat: "cat" };
 
@@ -33,6 +34,37 @@ export function toStaffPatient(pet: PetDto, today: Date = new Date()): StaffPati
     nextVisit: NOT_RECORDED,
     rabiesBadge: "",
     ownerId: pet.ownerId ?? "",
+  };
+}
+
+/**
+ * Turns a pet into the row shown on the client page. Vaccine status is not in the backend yet, so the badge is left out.
+ *
+ * @param pet Pet as the backend sends it.
+ * @returns The pet row.
+ */
+function toStaffClientPet(pet: PetDto): StaffClientPet {
+  const item = toPetItem(pet);
+  return { id: pet.idPet, species: STAFF_SPECIES[pet.species.toLowerCase()] ?? "dog", name: pet.name, description: item.profileLine };
+}
+
+/**
+ * Turns a user and their pets into the staff client page. Appointments are left empty: the backend has no
+ * endpoint yet to list a client's appointments for staff.
+ *
+ * @param user User as the backend sends it.
+ * @param pets Pets of that user, as the backend sends them.
+ * @returns The client to show.
+ */
+export function toStaffClient(user: UserDto, pets: PetDto[]): StaffClient {
+  return {
+    id: user.idUser,
+    name: `${user.firstName} ${user.lastName}`,
+    phone: user.mobileNumber,
+    email: user.email,
+    since: user.createdAt ? `Client since ${dateLabel(user.createdAt)}` : "",
+    pets: pets.filter((pet) => pet.isActive !== false).map(toStaffClientPet),
+    appointments: [],
   };
 }
 

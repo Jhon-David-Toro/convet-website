@@ -56,7 +56,7 @@ function DeleteAccountDialog({ onClose }: Pick<DialogControlProps, "onClose">) {
       description={MODAL_DESCRIPTION}
       width="32.5rem"
       status={form.status}
-      errorTitle={errorTitle(form.errorCount)}
+      errorTitle={errorTitle(form.errors)}
       submitLabel={SUBMIT_LABEL}
       cancelLabel={KEEP_LABEL}
       destructive

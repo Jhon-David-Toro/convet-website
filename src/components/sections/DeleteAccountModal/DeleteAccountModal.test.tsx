@@ -23,6 +23,18 @@ describe("DeleteAccountModal", () => {
     expect(screen.getByText("Fix 2 fields to delete the account")).toBeInTheDocument();
   });
 
+  it("names the missing field instead of a generic count when only the password is missing", async () => {
+    render(
+      <ToastProvider>
+        <DeleteAccountModal open onClose={() => {}} />
+      </ToastProvider>,
+    );
+    await userEvent.type(screen.getByLabelText("Type DELETE to confirm"), "DELETE");
+    await userEvent.click(screen.getByRole("button", { name: "Delete account" }));
+    const [errorBanner] = screen.getAllByRole("alert");
+    expect(errorBanner).toHaveTextContent("Enter your password.");
+  });
+
   it("sends the request once confirmed and closes", async () => {
     const onClose = vi.fn();
     render(

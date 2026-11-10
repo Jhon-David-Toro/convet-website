@@ -107,7 +107,8 @@ export type StaffClientPet = {
   name: string;
   description: string;
   allergy?: boolean;
-  vaccine: { tone: "success" | "error"; label: string };
+  /** Not tracked by the backend yet; the badge is left out when it's missing. */
+  vaccine?: { tone: "success" | "error"; label: string };
 };
 
 export type StaffClientAppointment = {

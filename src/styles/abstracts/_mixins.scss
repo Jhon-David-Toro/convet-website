@@ -21,3 +21,15 @@
   width: min(calc(100% - (var(--layout-margin) * 2)), var(--layout-content-max-width));
   margin-inline: auto;
 }
+
+/* Spinner rotation. Kept running under `prefers-reduced-motion: reduce`: the global reset collapses it to a single
+   near-instant frame (frozen, not spinning), but here the motion itself is the status signal, not decoration. */
+@mixin spin($duration: 0.8s) {
+  animation: spin $duration linear infinite;
+  will-change: transform;
+
+  @media (prefers-reduced-motion: reduce) {
+    animation-duration: $duration !important;
+    animation-iteration-count: infinite !important;
+  }
+}

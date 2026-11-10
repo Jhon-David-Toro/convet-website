@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Icon, Loader } from "@/components/ui/Icon";
 import { cx } from "@/lib/shared/cx";
 
+import { ButtonSurface } from "./ButtonSurface";
 import type {
   ButtonAsButtonProps,
   ButtonAsLinkProps,
@@ -32,14 +33,15 @@ function getClassName(
 }
 
 /**
- * Inner content of a button: leading icon (or spinner while loading), label and trailing icon.
+ * Inner content of a button: leading icon, label and trailing icon, with a spinner centered over everything while loading.
+ * The label and icons stay in place (hidden, not removed) so the button keeps its idle size instead of shrinking to the spinner alone.
  *
  * @param props Props of the component, see {@link ButtonContentProps}.
  * @param props.size Size of the component.
  * @param props.leadingIcon Icon before the label.
  * @param props.leadingIconTone Leading icon color when it differs from the label (e.g. the WhatsApp green).
  * @param props.trailingIcon Icon after the label.
- * @param props.loading Shows a spinner and marks the button as busy. It is disabled without changing its look.
+ * @param props.loading Shows a spinner over the content and marks the button as busy. It is disabled without changing its look.
  * @param props.children Content of the element.
  * @returns The rendered element.
  */
@@ -48,15 +50,16 @@ function ButtonContent({ size, leadingIcon, leadingIconTone, trailingIcon, loadi
 
   return (
     <>
-      {loading ? (
-        <span className={cx(styles.icon, styles.spinner)}>
-          <Icon icon={Loader} size={iconSize} />
+      <span className={cx(styles.content, loading && styles.contentHidden)}>
+        {leadingIcon && <Icon icon={leadingIcon} size={iconSize} tone={leadingIconTone} className={styles.icon} />}
+        <span className={styles.label}>{children}</span>
+        {trailingIcon && <Icon icon={trailingIcon} size={iconSize} className={styles.icon} />}
+      </span>
+      {loading && (
+        <span className={styles.spinner}>
+          <Icon icon={Loader} size={iconSize} className={styles.spinnerIcon} />
         </span>
-      ) : (
-        leadingIcon && <Icon icon={leadingIcon} size={iconSize} tone={leadingIconTone} className={styles.icon} />
       )}
-      <span className={styles.label}>{children}</span>
-      {trailingIcon && <Icon icon={trailingIcon} size={iconSize} className={styles.icon} />}
     </>
   );
 }
@@ -92,12 +95,12 @@ function ButtonElement({
   ...rest
 }: ButtonAsButtonProps) {
   return (
-    <button
+    <ButtonSurface
       {...rest}
       type={type}
       className={getClassName(variant, size, className, loading)}
       disabled={disabled || loading}
-      aria-busy={loading || undefined}
+      loading={loading}
     >
       <ButtonContent
         size={size}
@@ -108,7 +111,7 @@ function ButtonElement({
       >
         {children}
       </ButtonContent>
-    </button>
+    </ButtonSurface>
   );
 }
 

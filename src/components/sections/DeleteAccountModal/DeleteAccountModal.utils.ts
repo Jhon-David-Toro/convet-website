@@ -19,11 +19,13 @@ export function validateDeletion(values: DeletionValues): FormErrors<DeletionVal
 }
 
 /**
- * Title of the error banner: how many fields have to be fixed.
+ * Title of the error banner. With a single invalid field, its own message is specific enough (e.g. "Enter your
+ * password."); with more than one, names how many instead of picking one to show.
  *
- * @param count Number of invalid fields.
- * @returns For example "Fix 2 fields to delete the account".
+ * @param errors Errors of the form, keyed by field.
+ * @returns The lone field's message, or for example "Fix 2 fields to delete the account".
  */
-export function errorTitle(count: number): string {
-  return `Fix ${count} ${count === 1 ? "field" : "fields"} to delete the account`;
+export function errorTitle(errors: FormErrors<DeletionValues>): string {
+  const messages = Object.values(errors).filter((message): message is string => Boolean(message));
+  return messages.length === 1 ? messages[0] : `Fix ${messages.length} fields to delete the account`;
 }
