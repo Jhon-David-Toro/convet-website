@@ -15,8 +15,17 @@ import { AddPetForm } from "./AddPetForm";
  * @param props.onSave Receives the values of a valid form.
  * @returns The rendered element.
  */
-export function AddPetModal({ open, onClose, onSave }: AddPetModalProps) {
-  const state = useAddPet({ onClose, onSave });
+export function AddPetModal({
+  open,
+  onClose,
+  onSave,
+  onCreated
+}: AddPetModalProps) {
+  const state = useAddPet({
+    onClose,
+    onSave,
+    onCreated
+  });
 
   return (
     <Modal
