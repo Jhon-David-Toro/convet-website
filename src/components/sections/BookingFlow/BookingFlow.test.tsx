@@ -3,7 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { describe, expect, it, vi } from "vitest";
 
 import type { PetItem } from "@/lib/customer/customer.types";
-
+import { pickOption } from "@/test/pickOption";
 import { BookingFlow } from "./BookingFlow";
 import { EMPTY_SELECTION } from "./BookingFlow.constants";
 import {
@@ -62,9 +62,15 @@ const SELECTION = {
  * Renders the booking flow with the customer's registered pets.
  */
 function renderBookingFlow(
-  props: Omit<BookingFlowProps, "pets"> = {},
+  props: Omit<BookingFlowProps, "pets"> & {
+    pets?: PetItem[];
+  } = {},
 ) {
-  return render(<BookingFlow pets={PETS} {...props} />);
+  const { pets = PETS, ...bookingProps } = props;
+
+  return render(
+    <BookingFlow pets={pets} {...bookingProps} />,
+  );
 }
 
 /**
@@ -140,7 +146,14 @@ describe("BookingFlow", () => {
   });
 
   it("does not let the customer pick a service that is booked by the team", async () => {
-    renderBookingFlow();
+    const pets: PetItem[] = [
+      {
+        ...PETS[0],
+        vaccineStatus: "overdue",
+      },
+    ];
+
+    renderBookingFlow({ pets });
 
     await next();
 
@@ -484,21 +497,14 @@ describe("BookingFlow choices and notes", () => {
     ).toBeInTheDocument();
   });
 
-  it("asks for a service for a pet that is not registered yet", async () => {
+  it("opens the add pet modal when the customer chooses to add a new pet", async () => {
     renderBookingFlow();
 
     await userEvent.click(
       screen.getByRole("radio", { name: /Add a new pet/ }),
     );
 
-    await next();
-
-    expect(
-      screen.getByRole("heading", {
-        level: 1,
-        name: "What does your pet need?",
-      }),
-    ).toBeInTheDocument();
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
   });
 
   it("takes notes and the WhatsApp choice on the review", async () => {
@@ -597,6 +603,7 @@ describe("booking flow utils edge cases", () => {
   it("builds the bar line and the calendar file without a service or a vet", () => {
     const selection = {
       ...EMPTY_SELECTION,
+      petId: "new",
       serviceId: "vaccinations",
     };
 
@@ -640,5 +647,86 @@ describe("booking flow small parts", () => {
     );
 
     expect(container).toBeEmptyDOMElement();
+  });
+});
+
+describe("BookingFlow add pet integration", () => {
+  it("creates a pet and selects it in the booking flow", async () => {
+    const createdPet: PetItem = {
+      id: "pet-uuid-123",
+      name: "Toby",
+      subject: "dog",
+      summary: "Male dog",
+      profileLine: "Dog",
+      microchip: "",
+      weight: "",
+      weightDate: "",
+      vet: "",
+    };
+
+    const onAddPet = vi.fn().mockResolvedValue({
+      ok: true,
+      data: createdPet,
+    });
+
+    renderBookingFlow({ onAddPet });
+
+    await userEvent.click(
+      screen.getByRole("radio", { name: /Add a new pet/ }),
+    );
+
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
+
+    await userEvent.type(screen.getByLabelText("Name"), "Toby");
+    await pickOption("Species", "Dog");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Save pet" }),
+    );
+
+    expect(onAddPet).toHaveBeenCalledWith(
+      expect.objectContaining({
+        name: "Toby",
+        species: "dog",
+      }),
+    );
+
+    await vi.waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    });
+
+    expect(
+      screen.getByRole("radio", { name: /Toby/ }),
+    ).toBeChecked();
+  });
+
+  it("keeps the add pet modal open when the backend fails", async () => {
+    const onAddPet = vi.fn().mockResolvedValue({
+      ok: false,
+      kind: "server",
+      message: "Something went wrong on our side.",
+    });
+
+    renderBookingFlow({ onAddPet });
+
+    await userEvent.click(
+      screen.getByRole("radio", { name: /Add a new pet/ }),
+    );
+
+    expect(await screen.findByRole("dialog")).toBeInTheDocument();
+
+    await userEvent.type(screen.getByLabelText("Name"), "Toby");
+    await pickOption("Species", "Dog");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Save pet" }),
+    );
+
+    expect(
+      await screen.findByText("Something went wrong on our side."),
+    ).toBeInTheDocument();
+
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getByLabelText("Name")).toHaveValue("Toby");
   });
 });

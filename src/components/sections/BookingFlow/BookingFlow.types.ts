@@ -2,6 +2,7 @@ import type { LucideIcon } from "lucide-react";
 
 import type { BookingSlot, BookingVet } from "@/lib/booking/booking.types";
 import type { PetItem } from "@/lib/customer/customer.types";
+import type { SavePet } from "@/components/sections/MyPets/MyPets.types";
 
 export type BookingStepId =
   | "pet"
@@ -29,6 +30,7 @@ export type BookingFlowProps = {
   pets: PetItem[];
   initialServiceId?: string;
   onConfirm?: (selection: BookingSelection) => Promise<ConfirmResult>;
+  onAddPet?: SavePet;
 };
 
 export type UseBookingSelectionParams = {
@@ -77,6 +79,7 @@ export type StepProps = Pick<BookingFlowState, "selection" | "setField">;
 
 export type StepPetProps = StepProps & {
   pets: PetItem[];
+  onAddPet: () => void;
 };
 
 export type StepServiceProps = StepProps & {
@@ -168,6 +171,10 @@ export type StepContentProps = {
   pets: PetItem[];
 };
 
+export type FlowContentProps = StepContentProps & {
+  onAddPet: () => void;
+};
+
 export type PrimaryActionProps = Pick<
   BookingFlowState,
   "step" | "canContinue" | "confirming" | "next" | "confirm"
@@ -189,8 +196,6 @@ export type ReviewNoticeProps = {
 export type ReviewNotesProps = Pick<ReviewFormProps, "selection" | "setField">;
 
 export type DeadlineNoteProps = Pick<ReviewFormProps, "selection">;
-
-export type FlowContentProps = StepContentProps;
 
 export type ConfirmedHeaderProps = {
   date: string;

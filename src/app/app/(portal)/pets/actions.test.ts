@@ -36,7 +36,7 @@ describe("addPetAction", () => {
 
   it("creates the pet and refreshes the list", async () => {
     createPet.mockResolvedValue({ id: "p1" });
-    await expect(addPetAction(VALID)).resolves.toEqual({ ok: true, data: undefined });
+    await expect(addPetAction(VALID)).resolves.toEqual({ ok: true, data: { id: "p1" }});
     expect(revalidatePath).toHaveBeenCalledWith("/app/pets");
   });
 

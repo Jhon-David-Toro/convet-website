@@ -1,4 +1,4 @@
-import type { StepContentProps } from "../BookingFlow.types";
+import type { FlowContentProps } from "../BookingFlow.types";
 import { StepPet } from "./StepPet";
 import { StepService } from "./StepService";
 import { StepVet } from "./StepVet";
@@ -7,11 +7,13 @@ import { StepVet } from "./StepVet";
  * Steps where the customer picks one option: the pet, the service or the vet.
  *
  * @param props Props of the component, see {@link StepContentProps}.
- * @param props.flow State of the booking.
- * @param props.pets Customer's registered pets.
  * @returns The rendered element.
  */
-export function ChoiceStep({ flow, pets }: StepContentProps) {
+export function ChoiceStep({
+  flow,
+  pets,
+  onAddPet,
+}: FlowContentProps) {
   const { step, selection, setField, chooseVet } = flow;
 
   if (step === "pet") {
@@ -20,6 +22,7 @@ export function ChoiceStep({ flow, pets }: StepContentProps) {
         selection={selection}
         setField={setField}
         pets={pets}
+        onAddPet={onAddPet}
       />
     );
   }
@@ -36,6 +39,7 @@ export function ChoiceStep({ flow, pets }: StepContentProps) {
           selection={selection}
           setField={setField}
           pets={pets}
+          onAddPet={onAddPet}
         />
       );
     }
