@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/Button";
-import { Trash } from "@/components/ui/Icon";
 
 import {
   CHANGE_LABEL,
-  DELETE_LABEL,
   FORGOT_HREF,
   PASSWORD_LABEL,
   PASSWORD_NOTE,
@@ -16,7 +14,8 @@ import { SecurityRow } from "./SecurityRow";
 import styles from "../ProfileSettings.module.scss";
 
 /**
- * Security card: change the password, sign out of other sessions and delete the account.
+ * Security card: change the password and sign out of other sessions. Deleting the account lives on the Settings
+ * page, which also carries the confirmation flow; this card doesn't repeat it.
  *
  * @returns The rendered element.
  */
@@ -36,9 +35,6 @@ export function SecurityCard() {
           {SIGN_OUT_OTHERS_LABEL}
         </Button>
       </SecurityRow>
-      <Button variant="tertiary" size="small" leadingIcon={Trash} className={styles.delete}>
-        {DELETE_LABEL}
-      </Button>
     </section>
   );
 }

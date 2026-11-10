@@ -46,10 +46,10 @@ describe("ProfileSettings", () => {
     expect(screen.getByRole("switch", { name: /WhatsApp messages/ })).toBeDisabled();
   });
 
-  it("offers the security actions", () => {
+  it("offers the security actions but not deleting the account, which belongs to Settings", () => {
     render(<ProfileSettings profile={CUSTOMER_PROFILE} notifications={NOTIFICATION_SETTINGS} />);
     expect(screen.getByRole("link", { name: "Change" })).toHaveAttribute("href", "/app/settings");
-    expect(screen.getByRole("button", { name: "Delete account" })).toBeInTheDocument();
+    expect(screen.queryByRole("button", { name: "Delete account" })).not.toBeInTheDocument();
   });
 });
 

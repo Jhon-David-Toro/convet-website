@@ -39,6 +39,4 @@ export const SESSIONS_NOTE = "This browser · iPhone Safari";
 
 export const SIGN_OUT_OTHERS_LABEL = "Sign out others";
 
-export const DELETE_LABEL = "Delete account";
-
 export const FORGOT_HREF = "/app/settings";
