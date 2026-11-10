@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import type { FooterProps } from "@/components/ui/Footer";
 import type { HeaderLink, HeaderProps } from "@/components/ui/Header";
 
-export type SiteHeaderContent = Pick<HeaderProps, "links" | "bookHref" | "signInHref" | "whatsappHref">;
+export type SiteHeaderContent = Pick<HeaderProps, "links" | "bookHref" | "signInHref" | "signInLabel" | "whatsappHref">;
 
 export type SiteFooterContent = Pick<FooterProps, "about" | "motto" | "columns" | "copyright" | "legalLinks">;
 

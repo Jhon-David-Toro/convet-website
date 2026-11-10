@@ -1,9 +1,17 @@
 import { SIGN_IN_HREF } from "@/lib/auth/auth.constants";
+import type { AuthUser } from "@/lib/auth/auth.dal";
 import { BOOKING_HREF, CLINIC_ADDRESS, EMERGENCY_PHONE, EMERGENCY_PHONE_HREF, WHATSAPP_HREF, WHATSAPP_PHONE } from "@/lib/site/site.constants";
 
 import type { SiteFooterContent, SiteHeaderContent } from "./SiteShell.types";
 
 export const HOME_PATH = "/";
+
+/** Area each role lands on once signed in. */
+export const ROLE_HOME: Record<AuthUser["role"], string> = {
+  CUSTOMER: "/app",
+  STAFF: "/staff",
+  ADMIN: "/admin",
+};
 
 export const SITE_HEADER: SiteHeaderContent = {
   links: [
