@@ -43,6 +43,24 @@ describe("Button", () => {
     expect(onClick).not.toHaveBeenCalled();
   });
 
+  it("keeps the label for assistive tech and shows a spinner while loading, without removing either from the DOM", () => {
+    const { container } = render(<Button loading>Save</Button>);
+    expect(screen.getByRole("button", { name: "Save" })).toBeInTheDocument();
+    expect(container.querySelectorAll("svg")).toHaveLength(1);
+  });
+
+  it("locks its idle width once loading starts, so the button doesn't resize", () => {
+    const widthSpy = vi.spyOn(HTMLElement.prototype, "offsetWidth", "get").mockReturnValue(120);
+    const { rerender } = render(<Button>Save</Button>);
+    const button = screen.getByRole("button");
+    expect(button.style.width).toBe("");
+
+    rerender(<Button loading>Signing in…</Button>);
+    expect(button.style.width).toBe("120px");
+
+    widthSpy.mockRestore();
+  });
+
   it("does not fire onClick when disabled", async () => {
     const onClick = vi.fn();
     render(
