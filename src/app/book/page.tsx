@@ -5,7 +5,7 @@ import { loadData } from "@/lib/api/api.guard";
 import { getMyPets } from "@/lib/api/pets.api";
 import { findBookingService } from "@/lib/booking/booking.utils";
 import { NO_INDEX } from "@/lib/site/seo.constants";
-
+import { addPetAction } from "@/app/app/(portal)/pets/actions";
 import type { BookPageProps } from "./page.types";
 
 export const metadata: Metadata = {
@@ -32,6 +32,7 @@ export default async function BookPage({ searchParams }: BookPageProps) {
   return (
     <BookingFlow
       pets={petsResult.data}
+      onAddPet={addPetAction}
       initialServiceId={
         service && findBookingService(service) ? service : undefined
       }

@@ -7,11 +7,13 @@ import { StepHeading } from "./StepHeading";
  * Title of the step (not on the confirmation, which has its own) and its content.
  *
  * @param props Props of the component, see {@link FlowContentProps}.
- * @param props.flow State of the booking.
- * @param props.pets Customer's registered pets.
  * @returns The rendered element.
  */
-export function FlowContent({ flow, pets }: FlowContentProps) {
+export function FlowContent({
+  flow,
+  pets,
+  onAddPet,
+}: FlowContentProps) {
   const copy = stepCopy(
     flow.step,
     petName(flow.selection.petId, pets),
@@ -25,7 +27,11 @@ export function FlowContent({ flow, pets }: FlowContentProps) {
           subtitle={copy.subtitle}
         />
       )}
-      <StepContent flow={flow} pets={pets} />
+      <StepContent
+        flow={flow}
+        pets={pets}
+        onAddPet={onAddPet}
+      />
     </>
   );
 }
