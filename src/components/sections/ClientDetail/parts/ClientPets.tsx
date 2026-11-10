@@ -27,7 +27,7 @@ export function ClientPets({ pets }: ClientPetsProps) {
           name={name}
           description={description}
           alert={allergy ? "Allergic to penicillin" : undefined}
-          vaccineStatus={{ tone: vaccine.tone, label: vaccine.label, icon: VACCINE_ICONS[vaccine.tone] }}
+          vaccineStatus={vaccine && { tone: vaccine.tone, label: vaccine.label, icon: VACCINE_ICONS[vaccine.tone] }}
           href={`${STAFF_PATIENTS_HREF}/${id}`}
         />
       ))}

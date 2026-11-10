@@ -9,6 +9,7 @@ export const userSchema = z.object({
   mobileNumber: z.string(),
   role: z.enum(["CUSTOMER", "STAFF", "ADMIN"]),
   whatsappReminders: z.boolean().optional(),
+  createdAt: z.string().optional(),
 });
 
 export type UserDto = z.infer<typeof userSchema>;
